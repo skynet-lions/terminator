@@ -1,0 +1,37 @@
+DATA
+    mem_copy_result                                             INTEGER
+    mem_copy_result_offset                                      INTEGER
+    //
+    mem_copy_source                                             INTEGER
+    mem_copy_target                                             INTEGER
+    mem_copy_length                                             INTEGER
+    //
+END
+
+
+PROC=MEM_COPY
+    MOVE    mem_copy_result_offset                              AAR
+    MOVE    mem_copy_source                                     ABR
+    MOVE    mem_copy_target                                     ACR
+    MOVE    mem_copy_length                                     ADR
+    //
+    MOVE    AAR                                                 mem_copy_length
+    MOVE    ABR                                                 1
+    SUB
+    MOVE    CCR                                                 ACR
+MEM_COPY_NEXT:
+    MOVE    #mem_copy_target                                    #mem_copy_source
+    MOVE    AAR                                                 mem_copy_source
+    MOVE    ABR                                                 1
+    ADD
+    MOVE    mem_copy_source                                     ACR
+    MOVE    AAR                                                 mem_copy_target
+    ADD
+    MOVE    mem_copy_target                                     ACR
+    LOOP    MEM_COPY_NEXT
+    //
+    MOVE    #mem_copy_result_offset                             1
+    RET
+MEM_COPY_ERROR:
+    MOVE    #mem_copy_result_offset                             0
+END

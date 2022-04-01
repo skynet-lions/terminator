@@ -1,0 +1,117 @@
+DATA
+    //
+    exe_file_sign                                               INTEGER     9
+    //
+    exe_file_head_sign                                          INTEGER
+    exe_file_head_code                                          INTEGER
+    exe_file_head_code_offset                                   INTEGER
+    exe_file_head_code_length                                   INTEGER
+    exe_file_head_data                                          INTEGER
+    exe_file_head_data_offset                                   INTEGER
+    exe_file_head_data_length                                   INTEGER
+    //
+    exe_load_result                                             INTEGER
+    exe_load_result_offset                                      INTEGER
+    //
+    exe_load_handle_offset                                      INTEGER
+    exe_load_location_offset                                    INTEGER
+    //
+    exe_load_head_result                                        INTEGER
+    exe_load_head_result_offset                                 INTEGER
+    //
+    exe_load_head_handle_offset                                 INTEGER
+    exe_load_head_location_low                                  INTEGER
+    exe_load_head_location_high                                 INTEGER
+    exe_load_head_offset                                        INTEGER
+    //
+END
+
+DATA
+    exe_disk_buffer                                             INTEGER[1024]
+END
+
+CODE
+
+END
+
+PROC=EXE_LOAD
+    MOVE    exe_load_result_offset                              AAR
+    MOVE    exe_load_handle_offset                              ABR
+    MOVE    exe_load_location_offset                            ACR
+    //
+    MOVE    AAR                                                 @exe_loead_result
+    CALL    EXE_LOAD_HEAD
+    MOVE    ACR                                                 exe_load_result
+    JZ      EXE_LOAD_ERROR
+    //
+
+    //
+    MOVE    #exe_load_result_offset                             1
+    RET
+EXE_LOAD_ERROR:
+    MOVE    #exe_load_result_offset                             0
+END
+
+PROC=EXE_LOAD_HEAD
+    MOVE    exe_load_head_result_offset                         AAR
+    MOVE    exe_load_head_handle_offset                         ABR
+    //
+    MOVE    AAR                                                 ABR
+    MOVE    ABR                                                 4
+    ADD
+    MOVE    exe_load_head_location_low                          #ACR
+    MOVE    AAR                                                 ACR
+    MOVE    ABR                                                 1
+    ADD
+    MOVE    exe_load_head_location_high                         #ACR
+    //
+    MOVE    AAR                                                 @exe_load_head_result
+    MOVE    ABR                                                 @exe_load_head_location_low
+    MOVE    ACR                                                 0
+    MOVE    ADR                                                 @exe_disk_buffer
+    CALL    FILE_BLOCK_READ
+    MOVE    ACR                                                 exe_load_head_result
+    JZ      EXE_LOAD_HEAD_ERROR
+    //
+    MOVE    exe_load_head_offset                                @exe_disk_buffer
+    MOVE    exe_file_head_sign                                  #exe_load_head_offset
+    MOVE    AAR                                                 exe_load_head_offset
+    MOVE    ABR                                                 1
+    ADD
+    MOVE    exe_file_head_code                                  #ACR
+    MOVE    AAR                                                 ACR
+    ADD
+    MOVE    exe_file_head_code_offset                           #ACR
+    MOVE    AAR                                                 ACR
+    ADD
+    MOVE    exe_file_head_code_length                           #ACR
+    MOVE    AAR                                                 ACR
+    ADD
+    MOVE    exe_file_head_data                                  #ACR
+    MOVE    AAR                                                 ACR
+    ADD
+    MOVE    exe_file_head_data_offset                           #ACR
+    MOVE    AAR                                                 ACR
+    ADD
+    MOVE    exe_file_head_data_length                           #ACR
+    //
+    MOVE    AAR                                                 exe_file_sign
+    MOVE    ABR                                                 exe_file_head_sign
+    SUB
+    JNZ     EXE_LOAD_HEAD_ERROR
+    //
+    MOVE    exe_load_head_result_offset                         1
+    RET
+EXE_LOAD_HEAD_ERROR:
+    MOVE    #exe_load_head_result_offset                        0
+END
+
+PROC=EXE_LOAD_CODE
+
+EXE_LOAD_CODE_ERROR:
+END
+
+PROC=EXE_LOAD_DATA
+
+EXE_LOAD_DATA_ERROR:
+END

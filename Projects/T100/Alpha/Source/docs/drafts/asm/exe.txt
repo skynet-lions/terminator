@@ -1,0 +1,9 @@
+DATA
+    data                                    INTEGER     1
+END
+
+CODE=MAIN
+    MOVE    AAR                             data
+    //
+    //HALT
+END
