@@ -1,4 +1,4 @@
 cd ..
 call bin\T100.exe -A -i os\rom\rom.txt -o build\rom.bin
-pause
 cd scripts
+pause
