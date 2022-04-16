@@ -15,6 +15,8 @@ class QMatrixTest : public T100Test
     protected:
         T100BOOL            test_matrix();
 
+        T100BOOL            test_matrix2();
+
     private:
 };
 
