@@ -28,15 +28,18 @@ class T100Frame: public wxFrame
         //(*Handlers(T100Frame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
+        void OnMenuStartSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(T100Frame)
+        static const long ID_MENUITEM_START;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(T100Frame)
+        wxMenuItem* MenuStart;
         wxStatusBar* StatusBar1;
         //*)
 
