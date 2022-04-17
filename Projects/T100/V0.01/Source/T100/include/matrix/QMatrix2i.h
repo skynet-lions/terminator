@@ -15,7 +15,7 @@ class QMatrix2i
 
         QMatrix2i                       operator + (const T100WORD)const;
 
-        QMatrix2i                       operator + (const QMatrix2i& mat) const;
+        friend QMatrix2i                operator + (QMatrix2i, QMatrix2i);
 
         QMatrix2i                       operator = (std::initializer_list<T100WORD> list);
 

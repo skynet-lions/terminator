@@ -28,7 +28,7 @@ QMatrix3i QMatrix3i::operator+(const QMatrix3i& mat) const
 
     for(int i=0;i<9;i++){
         temp = m_values[i] + mat.m_values[i];
-        result.m_values[i] = m_values[i] + mat.m_values[i];
+        result.m_values[i] = this->m_values[i] + mat.m_values[i];
     }
 
     return result;
@@ -46,13 +46,13 @@ QMatrix3i QMatrix3i::operator=(const std::initializer_list<T100WORD> list)
     QMatrix3i   result;
 
     //result.m_values = list;
-    result.m_values.clear();
+    this->m_values.clear();
 
     for(auto item : list){
-        result.m_values.push_back(item);
+        this->m_values.push_back(item);
     }
 
-    QMatrixTools::print(result);
+    QMatrixTools::print(*this);
 
     return result;
 }
