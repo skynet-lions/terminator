@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="QMath" />
+		<Option pch_mode="2" />
+		<Option compiler="clang" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/QMath" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="test/include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/QMath" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Test">
+				<Option output="bin/Test/QMath" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Test/" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="test/include" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Weverything" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/QBase.hpp" />
+		<Unit filename="include/QColumnVector2.hpp" />
+		<Unit filename="include/QColumnVector3.hpp" />
+		<Unit filename="include/QColumnVector4.hpp" />
+		<Unit filename="include/QMath.hpp" />
+		<Unit filename="include/QMatrix2.hpp" />
+		<Unit filename="include/QMatrix3.hpp" />
+		<Unit filename="include/QMatrix4.hpp" />
+		<Unit filename="include/QRowVector2.hpp" />
+		<Unit filename="include/QRowVector3.hpp" />
+		<Unit filename="include/QRowVector4.hpp" />
+		<Unit filename="include/QType.hpp" />
+		<Unit filename="main.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="src/QColumnVector2.cpp" />
+		<Unit filename="src/QColumnVector3.cpp" />
+		<Unit filename="src/QColumnVector4.cpp" />
+		<Unit filename="src/QMatrix2.cpp" />
+		<Unit filename="src/QMatrix3.cpp" />
+		<Unit filename="src/QMatrix4.cpp" />
+		<Unit filename="src/QRowVector2.cpp" />
+		<Unit filename="src/QRowVector3.cpp" />
+		<Unit filename="src/QRowVector4.cpp" />
+		<Unit filename="test/QMathTest.cpp">
+			<Option target="Release" />
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/QRowVector2Test.cpp">
+			<Option target="Release" />
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/QRowVector2Test.hpp">
+			<Option target="Release" />
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/include/QTest.hpp">
+			<Option target="Release" />
+			<Option target="Test" />
+		</Unit>
+		<Unit filename="test/src/QTest.cpp">
+			<Option target="Release" />
+			<Option target="Test" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
