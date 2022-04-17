@@ -16,6 +16,7 @@
 //*)
 
 #include "QMatrixTest.h"
+#include "QVectorTest.h"
 
 //helper functions
 enum wxbuildinfoformat {
@@ -113,5 +114,9 @@ void T100Frame::OnMenuStartSelected(wxCommandEvent& event)
     QMatrixTest test;
 
     test.test_all();
+
+    QVectorTest vector;
+
+    vector.test_all();
 
 }
