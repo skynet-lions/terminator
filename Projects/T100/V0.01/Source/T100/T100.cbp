@@ -81,6 +81,8 @@
 		<Unit filename="include/matrix/QMatrixTools.h" />
 		<Unit filename="include/test/T100Test.h" />
 		<Unit filename="include/vector/QColumnVector2i.h" />
+		<Unit filename="include/vector/QRowVector2d.h" />
+		<Unit filename="include/vector/QRowVector2f.h" />
 		<Unit filename="include/vector/QRowVector2i.h" />
 		<Unit filename="include/vector/QVectorTest.h" />
 		<Unit filename="include/vector/QVectorTools.h" />
@@ -93,6 +95,8 @@
 		<Unit filename="src/matrix/QMatrixTools.cpp" />
 		<Unit filename="src/test/T100Test.cpp" />
 		<Unit filename="src/vector/QColumnVector2i.cpp" />
+		<Unit filename="src/vector/QRowVector2d.cpp" />
+		<Unit filename="src/vector/QRowVector2f.cpp" />
 		<Unit filename="src/vector/QRowVector2i.cpp" />
 		<Unit filename="src/vector/QVectorTest.cpp" />
 		<Unit filename="src/vector/QVectorTools.cpp" />

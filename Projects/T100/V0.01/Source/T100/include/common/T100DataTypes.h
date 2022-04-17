@@ -15,6 +15,9 @@ typedef     long long               T100INT64;
 typedef     T100UINT32              T100WORD;
 typedef     T100UINT64              T100DWORD;
 
+typedef     float                   T100FLOAT;
+typedef     double                  T100DOUBLE;
+
 #define     T100NULL                0
 #define     T100TRUE                1
 #define     T100FALSE               0
