@@ -15,6 +15,8 @@ typedef     long long               T100INT64;
 typedef     T100UINT32              T100WORD;
 typedef     T100UINT64              T100DWORD;
 
+typedef     T100INT32               T100INT;
+
 typedef     float                   T100FLOAT;
 typedef     double                  T100DOUBLE;
 

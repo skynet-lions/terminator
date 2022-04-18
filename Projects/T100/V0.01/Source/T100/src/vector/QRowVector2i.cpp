@@ -5,13 +5,13 @@ QRowVector2i::QRowVector2i()
     //ctor
 }
 
-QRowVector2i::QRowVector2i(T100WORD v1, T100WORD v2)
+QRowVector2i::QRowVector2i(T100INT v1, T100INT v2)
 {
     x   = v1;
     y   = v2;
 }
 
-QRowVector2i::QRowVector2i(std::initializer_list<T100WORD> values)
+QRowVector2i::QRowVector2i(std::initializer_list<T100INT> values)
 {
     switch(values.size()){
     case 0:
@@ -26,7 +26,7 @@ QRowVector2i::QRowVector2i(std::initializer_list<T100WORD> values)
         break;
     default:
         {
-            std::initializer_list<T100WORD>::iterator it;
+            std::initializer_list<T100INT>::iterator it;
 
             it  = values.begin();
             x   = *it;
@@ -42,7 +42,7 @@ QRowVector2i::~QRowVector2i()
     //dtor
 }
 
-QRowVector2i QRowVector2i::operator=(std::initializer_list<T100WORD> values)
+QRowVector2i QRowVector2i::operator=(std::initializer_list<T100INT> values)
 {
     switch(values.size()){
     case 0:
@@ -57,7 +57,7 @@ QRowVector2i QRowVector2i::operator=(std::initializer_list<T100WORD> values)
         break;
     default:
         {
-            std::initializer_list<T100WORD>::iterator it;
+            std::initializer_list<T100INT>::iterator it;
 
             it  = values.begin();
             x   = *it;
@@ -92,25 +92,25 @@ QRowVector2i QRowVector2i::operator /= (const QRowVector2i& vec)
     this->y     /= vec.y;
 }
 
-QRowVector2i QRowVector2i::operator += (const T100WORD val)
+QRowVector2i QRowVector2i::operator += (const T100INT val)
 {
     this->x     += val;
     this->y     += val;
 }
 
-QRowVector2i QRowVector2i::operator -= (const T100WORD val)
+QRowVector2i QRowVector2i::operator -= (const T100INT val)
 {
     this->x     -= val;
     this->y     -= val;
 }
 
-QRowVector2i QRowVector2i::operator *= (const T100WORD val)
+QRowVector2i QRowVector2i::operator *= (const T100INT val)
 {
     this->x     *= val;
     this->y     *= val;
 }
 
-QRowVector2i QRowVector2i::operator /= (const T100WORD val)
+QRowVector2i QRowVector2i::operator /= (const T100INT val)
 {
     this->x     /= val;
     this->y     /= val;
@@ -156,7 +156,7 @@ QRowVector2i operator / (const QRowVector2i& vec1, const QRowVector2i& vec2)
     return result;
 }
 
-QRowVector2i operator + (const QRowVector2i& vec, const T100WORD val)
+QRowVector2i operator + (const QRowVector2i& vec, const T100INT val)
 {
     QRowVector2i        result;
 
@@ -166,7 +166,7 @@ QRowVector2i operator + (const QRowVector2i& vec, const T100WORD val)
     return result;
 }
 
-QRowVector2i operator - (const QRowVector2i& vec, const T100WORD val)
+QRowVector2i operator - (const QRowVector2i& vec, const T100INT val)
 {
     QRowVector2i        result;
 
@@ -176,7 +176,7 @@ QRowVector2i operator - (const QRowVector2i& vec, const T100WORD val)
     return result;
 }
 
-QRowVector2i operator * (const QRowVector2i& vec, const T100WORD val)
+QRowVector2i operator * (const QRowVector2i& vec, const T100INT val)
 {
     QRowVector2i        result;
 
@@ -186,7 +186,7 @@ QRowVector2i operator * (const QRowVector2i& vec, const T100WORD val)
     return result;
 }
 
-QRowVector2i operator / (const QRowVector2i& vec, const T100WORD val)
+QRowVector2i operator / (const QRowVector2i& vec, const T100INT val)
 {
     QRowVector2i        result;
 
@@ -196,7 +196,7 @@ QRowVector2i operator / (const QRowVector2i& vec, const T100WORD val)
     return result;
 }
 
-QRowVector2i operator + (const T100WORD val, const QRowVector2i& vec)
+QRowVector2i operator + (const T100INT val, const QRowVector2i& vec)
 {
     QRowVector2i        result;
 
@@ -206,7 +206,7 @@ QRowVector2i operator + (const T100WORD val, const QRowVector2i& vec)
     return result;
 }
 
-QRowVector2i operator - (const T100WORD val, const QRowVector2i& vec)
+QRowVector2i operator - (const T100INT val, const QRowVector2i& vec)
 {
     QRowVector2i        result;
 
@@ -216,7 +216,7 @@ QRowVector2i operator - (const T100WORD val, const QRowVector2i& vec)
     return result;
 }
 
-QRowVector2i operator * (const T100WORD val, const QRowVector2i& vec)
+QRowVector2i operator * (const T100INT val, const QRowVector2i& vec)
 {
     QRowVector2i        result;
 
@@ -226,7 +226,7 @@ QRowVector2i operator * (const T100WORD val, const QRowVector2i& vec)
     return result;
 }
 
-QRowVector2i operator / (const T100WORD val, const QRowVector2i& vec)
+QRowVector2i operator / (const T100INT val, const QRowVector2i& vec)
 {
     QRowVector2i        result;
 

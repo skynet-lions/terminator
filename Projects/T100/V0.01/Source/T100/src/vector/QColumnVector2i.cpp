@@ -5,13 +5,13 @@ QColumnVector2i::QColumnVector2i()
     //ctor
 }
 
-QColumnVector2i::QColumnVector2i(T100WORD v1, T100WORD v2)
+QColumnVector2i::QColumnVector2i(T100INT v1, T100INT v2)
 {
     x   = v1;
     y   = v2;
 }
 
-QColumnVector2i::QColumnVector2i(std::initializer_list<T100WORD> values)
+QColumnVector2i::QColumnVector2i(std::initializer_list<T100INT> values)
 {
     switch(values.size()){
     case 0:
@@ -26,7 +26,7 @@ QColumnVector2i::QColumnVector2i(std::initializer_list<T100WORD> values)
         break;
     default:
         {
-            std::initializer_list<T100WORD>::iterator it;
+            std::initializer_list<T100INT>::iterator it;
 
             it  = values.begin();
             x   = *it;
@@ -42,7 +42,7 @@ QColumnVector2i::~QColumnVector2i()
     //dtor
 }
 
-QColumnVector2i QColumnVector2i::operator=(std::initializer_list<T100WORD> values)
+QColumnVector2i QColumnVector2i::operator=(std::initializer_list<T100INT> values)
 {
     switch(values.size()){
     case 0:
@@ -57,7 +57,7 @@ QColumnVector2i QColumnVector2i::operator=(std::initializer_list<T100WORD> value
         break;
     default:
         {
-            std::initializer_list<T100WORD>::iterator it;
+            std::initializer_list<T100INT>::iterator it;
 
             it  = values.begin();
             x   = *it;
@@ -92,25 +92,25 @@ QColumnVector2i QColumnVector2i::operator /= (const QColumnVector2i& vec)
     this->y     /= vec.y;
 }
 
-QColumnVector2i QColumnVector2i::operator += (const T100WORD val)
+QColumnVector2i QColumnVector2i::operator += (const T100INT val)
 {
     this->x     += val;
     this->y     += val;
 }
 
-QColumnVector2i QColumnVector2i::operator -= (const T100WORD val)
+QColumnVector2i QColumnVector2i::operator -= (const T100INT val)
 {
     this->x     -= val;
     this->y     -= val;
 }
 
-QColumnVector2i QColumnVector2i::operator *= (const T100WORD val)
+QColumnVector2i QColumnVector2i::operator *= (const T100INT val)
 {
     this->x     *= val;
     this->y     *= val;
 }
 
-QColumnVector2i QColumnVector2i::operator /= (const T100WORD val)
+QColumnVector2i QColumnVector2i::operator /= (const T100INT val)
 {
     this->x     /= val;
     this->y     /= val;
@@ -156,7 +156,7 @@ QColumnVector2i operator / (const QColumnVector2i& vec1, const QColumnVector2i& 
     return result;
 }
 
-QColumnVector2i operator + (const QColumnVector2i& vec, const T100WORD val)
+QColumnVector2i operator + (const QColumnVector2i& vec, const T100INT val)
 {
     QColumnVector2i     result;
 
@@ -166,7 +166,7 @@ QColumnVector2i operator + (const QColumnVector2i& vec, const T100WORD val)
     return result;
 }
 
-QColumnVector2i operator - (const QColumnVector2i& vec, const T100WORD val)
+QColumnVector2i operator - (const QColumnVector2i& vec, const T100INT val)
 {
     QColumnVector2i     result;
 
@@ -176,7 +176,7 @@ QColumnVector2i operator - (const QColumnVector2i& vec, const T100WORD val)
     return result;
 }
 
-QColumnVector2i operator * (const QColumnVector2i& vec, const T100WORD val)
+QColumnVector2i operator * (const QColumnVector2i& vec, const T100INT val)
 {
     QColumnVector2i     result;
 
@@ -186,7 +186,7 @@ QColumnVector2i operator * (const QColumnVector2i& vec, const T100WORD val)
     return result;
 }
 
-QColumnVector2i operator / (const QColumnVector2i& vec, const T100WORD val)
+QColumnVector2i operator / (const QColumnVector2i& vec, const T100INT val)
 {
     QColumnVector2i     result;
 
@@ -196,7 +196,7 @@ QColumnVector2i operator / (const QColumnVector2i& vec, const T100WORD val)
     return result;
 }
 
-QColumnVector2i operator + (const T100WORD val, const QColumnVector2i& vec)
+QColumnVector2i operator + (const T100INT val, const QColumnVector2i& vec)
 {
     QColumnVector2i     result;
 
@@ -206,7 +206,7 @@ QColumnVector2i operator + (const T100WORD val, const QColumnVector2i& vec)
     return result;
 }
 
-QColumnVector2i operator - (const T100WORD val, const QColumnVector2i& vec)
+QColumnVector2i operator - (const T100INT val, const QColumnVector2i& vec)
 {
     QColumnVector2i     result;
 
@@ -216,7 +216,7 @@ QColumnVector2i operator - (const T100WORD val, const QColumnVector2i& vec)
     return result;
 }
 
-QColumnVector2i operator * (const T100WORD val, const QColumnVector2i& vec)
+QColumnVector2i operator * (const T100INT val, const QColumnVector2i& vec)
 {
     QColumnVector2i     result;
 
@@ -226,7 +226,7 @@ QColumnVector2i operator * (const T100WORD val, const QColumnVector2i& vec)
     return result;
 }
 
-QColumnVector2i operator / (const T100WORD val, const QColumnVector2i& vec)
+QColumnVector2i operator / (const T100INT val, const QColumnVector2i& vec)
 {
     QColumnVector2i     result;
 
