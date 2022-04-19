@@ -2,6 +2,7 @@
 
 #include "QMatrix2i.h"
 #include "QMatrix3i.h"
+#include "QMatrix3f.h"
 #include "QMatrixTools.h"
 
 
@@ -22,6 +23,8 @@ T100BOOL QMatrixTest::test_all()
     result = test_matrix();
 
     result = test_matrix2();
+
+    result = test_matrix3();
 
     return result;
 }
@@ -69,6 +72,22 @@ T100BOOL QMatrixTest::test_matrix()
     c = a + b;
 
     QMatrixTools::print(a);
+
+    return T100FALSE;
+}
+
+T100BOOL QMatrixTest::test_matrix3()
+{
+    QMatrix3f   a;
+    QMatrix3f   b;
+    QMatrix3f   c;
+
+    a = {1, 1, 1, 1, 1, 1, 1, 1, 1};
+    b = {2, 2, 2, 2, 2, 2, 2, 2, 2};
+
+    c = a * b;
+
+    QMatrixTools::print(c);
 
     return T100FALSE;
 }

@@ -76,6 +76,7 @@
 		<Unit filename="include/common/T100Common.h" />
 		<Unit filename="include/common/T100DataTypes.h" />
 		<Unit filename="include/matrix/QMatrix2i.h" />
+		<Unit filename="include/matrix/QMatrix3f.h" />
 		<Unit filename="include/matrix/QMatrix3i.h" />
 		<Unit filename="include/matrix/QMatrixTest.h" />
 		<Unit filename="include/matrix/QMatrixTools.h" />
@@ -97,6 +98,7 @@
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="src/matrix/QMatrix2i.cpp" />
+		<Unit filename="src/matrix/QMatrix3f.cpp" />
 		<Unit filename="src/matrix/QMatrix3i.cpp" />
 		<Unit filename="src/matrix/QMatrixTest.cpp" />
 		<Unit filename="src/matrix/QMatrixTools.cpp" />
