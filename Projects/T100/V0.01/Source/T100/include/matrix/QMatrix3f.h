@@ -38,7 +38,21 @@ class QMatrix3f
 
         friend QMatrix3f        operator * (const QMatrix3f&, const QMatrix3f&);
 
-        friend QMatrix3f        operator / (const QMatrix3f&, const QMatrix3f&);
+        friend QMatrix3f        operator + (const QMatrix3f&, const T100FLOAT);
+
+        friend QMatrix3f        operator - (const QMatrix3f&, const T100FLOAT);
+
+        friend QMatrix3f        operator * (const QMatrix3f&, const T100FLOAT);
+
+        friend QMatrix3f        operator / (const QMatrix3f&, const T100FLOAT);
+
+        friend QMatrix3f        operator + (const T100FLOAT, const QMatrix3f&);
+
+        friend QMatrix3f        operator - (const T100FLOAT, const QMatrix3f&);
+
+        friend QMatrix3f        operator * (const T100FLOAT, const QMatrix3f&);
+
+        friend QMatrix3f        operator / (const T100FLOAT, const QMatrix3f&);
 
     protected:
 

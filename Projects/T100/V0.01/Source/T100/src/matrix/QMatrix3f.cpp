@@ -214,12 +214,89 @@ QMatrix3f operator * (const QMatrix3f& mat1, const QMatrix3f& mat2)
     return result;
 }
 
-QMatrix3f operator / (const QMatrix3f& mat1, const QMatrix3f& mat2)
+QMatrix3f operator + (const QMatrix3f& mat, const T100FLOAT val)
 {
     QMatrix3f   result;
 
     for(int i=0;i<9;i++){
-        result.data[i] = mat1.data[i] + mat2.data[i];
+        result.data[i] = mat.data[i] + val;
+    }
+
+    return result;
+}
+
+QMatrix3f operator - (const QMatrix3f& mat, const T100FLOAT val)
+{
+    QMatrix3f   result;
+
+    for(int i=0;i<9;i++){
+        result.data[i] = mat.data[i] - val;
+    }
+
+    return result;
+}
+
+QMatrix3f operator * (const QMatrix3f& mat, const T100FLOAT val)
+{
+    QMatrix3f   result;
+
+    for(int i=0;i<9;i++){
+        result.data[i] = mat.data[i] * val;
+    }
+
+    return result;
+}
+
+QMatrix3f operator / (const QMatrix3f& mat, const T100FLOAT val)
+{
+    QMatrix3f   result;
+
+    for(int i=0;i<9;i++){
+        result.data[i] = mat.data[i] / val;
+    }
+
+    return result;
+}
+
+QMatrix3f operator + (const T100FLOAT val, const QMatrix3f& mat)
+{
+    QMatrix3f   result;
+
+    for(int i=0;i<9;i++){
+        result.data[i] = val + mat.data[i];
+    }
+
+    return result;
+}
+
+QMatrix3f operator - (const T100FLOAT val, const QMatrix3f& mat)
+{
+    QMatrix3f   result;
+
+    for(int i=0;i<9;i++){
+        result.data[i] = val - mat.data[i];
+    }
+
+    return result;
+}
+
+QMatrix3f operator * (const T100FLOAT val, const QMatrix3f& mat)
+{
+    QMatrix3f   result;
+
+    for(int i=0;i<9;i++){
+        result.data[i] = val * mat.data[i];
+    }
+
+    return result;
+}
+
+QMatrix3f operator / (const T100FLOAT val, const QMatrix3f& mat)
+{
+    QMatrix3f   result;
+
+    for(int i=0;i<9;i++){
+        result.data[i] = val / mat.data[i];
     }
 
     return result;
