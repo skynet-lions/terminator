@@ -10,6 +10,41 @@ class QRowVector2;
 template <typename VectorType>
 QRowVector2<VectorType> operator + (const QRowVector2<VectorType>&, const QRowVector2<VectorType>&);
 
+template <typename VectorType>
+QRowVector2<VectorType> operator - (const QRowVector2<VectorType>&, const QRowVector2<VectorType>&);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator * (const QRowVector2<VectorType>&, const QRowVector2<VectorType>&);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator / (const QRowVector2<VectorType>&, const QRowVector2<VectorType>&);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator + (const QRowVector2<VectorType>&, const VectorType);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator - (const QRowVector2<VectorType>&, const VectorType);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator * (const QRowVector2<VectorType>&, const VectorType);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator / (const QRowVector2<VectorType>&, const VectorType);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator + (const VectorType, const QRowVector2<VectorType>&);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator - (const VectorType, const QRowVector2<VectorType>&);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator * (const VectorType, const QRowVector2<VectorType>&);
+
+template <typename VectorType>
+QRowVector2<VectorType> operator / (const VectorType, const QRowVector2<VectorType>&);
+
+
+
 template<typename VectorType>
 
 class QRowVector2
@@ -45,27 +80,27 @@ class QRowVector2
     public:
         friend QRowVector2          operator + <VectorType> (const QRowVector2&, const QRowVector2&);
 
-        friend QRowVector2          operator - (const QRowVector2&, const QRowVector2&);
+        friend QRowVector2          operator - <VectorType> (const QRowVector2&, const QRowVector2&);
 
-        friend QRowVector2          operator * (const QRowVector2&, const QRowVector2&);
+        friend QRowVector2          operator * <VectorType> (const QRowVector2&, const QRowVector2&);
 
-        friend QRowVector2          operator / (const QRowVector2&, const QRowVector2&);
+        friend QRowVector2          operator / <VectorType> (const QRowVector2&, const QRowVector2&);
 
-        friend QRowVector2          operator + (const QRowVector2&, const VectorType);
+        friend QRowVector2          operator + <VectorType> (const QRowVector2&, const VectorType);
 
-        friend QRowVector2          operator - (const QRowVector2&, const VectorType);
+        friend QRowVector2          operator - <VectorType> (const QRowVector2&, const VectorType);
 
-        friend QRowVector2          operator * (const QRowVector2&, const VectorType);
+        friend QRowVector2          operator * <VectorType> (const QRowVector2&, const VectorType);
 
-        friend QRowVector2          operator / (const QRowVector2&, const VectorType);
+        friend QRowVector2          operator / <VectorType> (const QRowVector2&, const VectorType);
 
-        friend QRowVector2          operator + (const VectorType, const QRowVector2&);
+        friend QRowVector2          operator + <VectorType> (const VectorType, const QRowVector2&);
 
-        friend QRowVector2          operator - (const VectorType, const QRowVector2&);
+        friend QRowVector2          operator - <VectorType> (const VectorType, const QRowVector2&);
 
-        friend QRowVector2          operator * (const VectorType, const QRowVector2&);
+        friend QRowVector2          operator * <VectorType> (const VectorType, const QRowVector2&);
 
-        friend QRowVector2          operator / (const VectorType, const QRowVector2&);
+        friend QRowVector2          operator / <VectorType> (const VectorType, const QRowVector2&);
 
     protected:
 

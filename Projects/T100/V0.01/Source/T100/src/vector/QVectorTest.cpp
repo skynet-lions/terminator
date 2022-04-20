@@ -48,6 +48,34 @@ T100BOOL QVectorTest::test_vector()
 
     QVectorTools::print(vec3);
 
+    vec3 = vec1 - vec2;
+
+    QVectorTools::print(vec3);
+
+    vec3 = vec1 * vec2;
+
+    QVectorTools::print(vec3);
+
+    vec3 = vec1 / vec2;
+
+    QVectorTools::print(vec3);
+
+    vec3 = vec1 + (T100WORD)1;
+
+    QVectorTools::print(vec3);
+
+    vec3 = vec1 - (T100WORD)1;
+
+    QVectorTools::print(vec3);
+
+    vec3 = vec1 * (T100WORD)1;
+
+    QVectorTools::print(vec3);
+
+    vec3 = vec1 / (T100WORD)1;
+
+    QVectorTools::print(vec3);
+
     return T100FALSE;
 }
 
