@@ -20,3 +20,11 @@ T100VOID QVectorTools::print(QColumnVector2i& vec)
     std::cout << vec.y;
     std::cout << std::endl;
 }
+
+T100VOID QVectorTools::print(QRowVector2<T100WORD>& vec)
+{
+    std::cout << vec.x;
+    std::cout << "\t";
+    std::cout << vec.y;
+    std::cout << std::endl;
+}

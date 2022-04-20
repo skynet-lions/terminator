@@ -285,3 +285,6 @@ QRowVector2<VectorType> operator / (const VectorType val, const QRowVector2<Vect
 
     return result;
 }
+
+
+//template class QRowVector2<T100FLOAT>;

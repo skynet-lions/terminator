@@ -108,7 +108,6 @@
 		<Unit filename="src/vector/QColumnVector2i.cpp" />
 		<Unit filename="src/vector/QColumnVector3f.cpp" />
 		<Unit filename="src/vector/QColumnVector4f.cpp" />
-		<Unit filename="src/vector/QRowVector2.cpp" />
 		<Unit filename="src/vector/QRowVector2d.cpp" />
 		<Unit filename="src/vector/QRowVector2f.cpp" />
 		<Unit filename="src/vector/QRowVector2i.cpp" />

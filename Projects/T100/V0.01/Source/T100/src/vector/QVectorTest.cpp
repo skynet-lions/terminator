@@ -36,14 +36,18 @@ T100BOOL QVectorTest::test_vector()
 
     QVectorTools::print(c);
 
-    /*
-    QRowVector2<T100WORD> vec1(), vec2(), vec3();
+
+    QRowVector2<T100WORD> vec1;
+    QRowVector2<T100WORD> vec2;
+    QRowVector2<T100WORD> vec3;
 
     vec1 = {1, 2};
     vec2 = {3, 4};
 
     vec3 = vec1 + vec2;
-    */
+
+    QVectorTools::print(vec3);
 
     return T100FALSE;
 }
+
