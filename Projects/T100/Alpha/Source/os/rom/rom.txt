@@ -40,7 +40,6 @@ MODE    REAL    TINY
 CODE
 //
 ROM_INIT:
-    DBG
     CMT     10
     //
     MOVE    AAR                                         @rom_result
@@ -48,20 +47,18 @@ ROM_INIT:
     MOVE    ACR                                         rom_result
     JZ      ROM_FATAL_ERROR
     //
-    DBG
     CMT     20
     MOVE    AAR                                         @rom_result
     CALL    INT_INIT
     MOVE    ACR                                         rom_result
     JZ      ROM_FATAL_ERROR
     //
-    DBG
     CMT     30
     MOVE    AAR                                         @rom_result
     CALL    ROM_SHOW_INFO
     MOVE    ACR                                         rom_result
     JZ      ROM_ERROR
-    DBG
+
     //
     CMT     40
     MOVE    AAR                                         @rom_result

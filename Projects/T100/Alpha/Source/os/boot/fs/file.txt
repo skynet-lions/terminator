@@ -31,7 +31,6 @@ DATA
     file_read_result                                        INTEGER
     file_read_result_offset                                 INTEGER
     //
-    //error?
     file_read_location_low                                  INTEGER
     file_read_location_high                                 INTEGER
     file_read_buffer_offset                                 INTEGER
@@ -41,6 +40,10 @@ DATA
     file_read_middle_low                                    INTEGER
     file_read_middle_high                                   INTEGER
     //
+END
+
+DATA
+    file_disk_buffer                                        INTEGER[1024]
 END
 
 //
@@ -83,6 +86,7 @@ PROC=FILE_OPEN
     ADD
     MOVE    file_open_value_properties_offset[1]            ACR
     //
+    DBG
     MOVE    AAR                                             @file_open_result
     MOVE    ABR                                             file_open_name_offset
     MOVE    ACR                                             @file_open_item_location_low
@@ -91,10 +95,12 @@ PROC=FILE_OPEN
     JZ      FILE_OPEN_ERROR
     //
     CMT     30050020
+    DBG
     MOVE    #file_open_value_location_low_offset            file_open_item_location_low
     MOVE    #file_open_value_location_high_offset           file_open_item_location_high
     MOVE    #file_open_value_length_low_offset              file_open_item_length_low
     MOVE    #file_open_value_length_high_offset             file_open_item_length_high
+    DBG
     MOVE    #file_open_value_properties_offset[0]           file_open_item_properties[0]
     MOVE    #file_open_value_properties_offset[1]           file_open_item_properties[1]
     //
@@ -131,6 +137,7 @@ PROC=FILE_LOAD
     MOVE    file_load_location_high                         ACR
     MOVE    file_load_buffer_offset                         ADR
     //
+    DBG
     MOVE    ACR                                             file_load_location_low
     JZ      FILE_LOAD_ERROR
     CMT     30050110
@@ -173,6 +180,7 @@ FILE_LOAD_NEXT:
 FILE_LOAD_END:
     //
     CMT     30050160
+    DBG
     MOVE    #file_load_result_offset                        1
     RET
 FILE_LOAD_ERROR:
@@ -207,7 +215,7 @@ PROC=FILE_READ
     MOVE    ACR                                             file_read_result
     JZ      FILE_READ_ERROR
     //
-    CMT     30050195
+    DBG
     MOVE    AAR                                             disk_block_index_limit
     MOVE    ABR                                             1
     SUB
@@ -217,9 +225,8 @@ PROC=FILE_READ
 FILE_READ_NEXT:
     CMT     30050200
     MOVE    AAR                                             @{CBR:@file_read_result}
-    MOVE    ABR                                             int069_disk_read
-    //MOVE    ACR                                             @{CBR:@file_disk_buffer}
-    MOVE    ACR                                             file_read_buffer_offset
+    MOVE    ABR                                             {0:int069_disk_read}
+    MOVE    ACR                                             @{CBR:@file_disk_buffer}
     MOVE    ADR                                             @{CBR:@file_read_index}
     INT     69
     MOVE    ACR                                             file_read_result
@@ -227,7 +234,7 @@ FILE_READ_NEXT:
     //
     CMT     30050210
     MOVE    AAR                                             file_read_buffer_offset
-    MOVE    ABR                                             disk_block_length
+    MOVE    ABR                                             {0:disk_block_length}
     ADD
     MOVE    file_read_buffer_offset                         ACR
     //
@@ -238,6 +245,7 @@ FILE_READ_NEXT:
     LOOP    FILE_READ_NEXT
     //
     CMT     30050220
+    DBG
     MOVE    #file_read_result_offset                        1
     RET
 FILE_READ_ERROR:

@@ -155,6 +155,7 @@ PROC=FS_FILE_OPEN
     MOVE    fs_file_open_name_offset                        ABR
     MOVE    fs_file_open_handle_offset                      ACR
     //
+    DBG
     MOVE    AAR                                             @fs_file_open_result
     MOVE    ABR                                             fs_file_open_name_offset
     MOVE    ACR                                             fs_file_open_handle_offset
@@ -163,6 +164,7 @@ PROC=FS_FILE_OPEN
     JZ      FS_FILE_OPEN_ERROR
     //
     CMT     30010090
+    DBG
     MOVE    #fs_file_open_result_offset                     1
     RET
 FS_FILE_OPEN_ERROR:
@@ -188,6 +190,7 @@ PROC=FS_ABSOLUTE_LOCATION
     MOVE    fs_absolute_location_source_low_offset          ABR
     MOVE    fs_absolute_location_target_low_offset          ACR
     //
+    DBG
     MOVE    AAR                                             fs_absolute_location_source_low_offset
     MOVE    ABR                                             1
     ADD
@@ -208,6 +211,7 @@ PROC=FS_ABSOLUTE_LOCATION
     MOVE    #fs_absolute_location_target_low_offset         fs_absolute_location_value_low
     MOVE    #fs_absolute_location_target_high_offset        fs_absolute_location_value_high
     //
+    DBG
     MOVE    #fs_absolute_location_result_offset             1
     RET
     //
@@ -222,6 +226,7 @@ PROC=FS_RELATIVE_LOCATION
     MOVE    fs_relative_location_source_low_offset          ABR
     MOVE    fs_relative_location_target_low_offset          ACR
     //
+    DBG
     MOVE    AAR                                             fs_relative_location_source_low_offset
     MOVE    ABR                                             1
     ADD
@@ -253,6 +258,7 @@ PROC=FS_RELATIVE_LOCATION
     MOVE    #fs_relative_location_target_low_offset         fs_relative_location_value_low
     MOVE    #fs_relative_location_target_high_offset        fs_relative_location_value_high
     //
+    DBG
     MOVE    #fs_relative_location_result_offset             1
     RET
     //

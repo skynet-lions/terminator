@@ -57,7 +57,7 @@ DATA
     //
     boot_file_load_item_location_low                            INTEGER
     boot_file_load_item_location_high                           INTEGER
-    //9502720
+    //
     boot_file_load_buffer_offset                                INTEGER     8388608
     boot_file_load_location_temp_low                            INTEGER
     boot_file_load_location_temp_high                           INTEGER
@@ -70,6 +70,7 @@ DATA    VIRTUAL     LOCATION=8388608    LENGTH=1024             //8M
 END
 
 CODE
+    DBG
     CMT     30010
     MOVE    AAR                                                 @boot_result
     MOVE    ABR                                                 boot_message
@@ -77,29 +78,29 @@ CODE
     MOVE    ACR                                                 boot_result
     JZ      BOOT_ERROR
     //
+    DBG
     CMT     30020
     MOVE    AAR                                                 @boot_result
     CALL    BOOT_GET_PART
     MOVE    ACR                                                 boot_result
     JZ      BOOT_ERROR
     //
+    DBG
     CMT     30030
     MOVE    AAR                                                 @boot_result
     CALL    BOOT_INIT_SEARCH
     MOVE    ACR                                                 boot_result
     JZ      BOOT_ERROR
 
+    DBG
     CMT     30040
-    //JUMP    {9502720:boot_file_load_buffer_offset}
-    JUMP    {boot_file_load_buffer_offset:0}
-
-
     MOVE    AAR                                                 CBR
     MOVE    ABR                                                 @boot_init_buffer
     ADD
     MOVE    boot_base                                           ACR
-    //JUMP    {boot_base:@boot_init_buffer}
+    JUMP    {boot_base:@boot_init_buffer}
 
+    //DBG
     CMT     30050
     JUMP    BOOT_ERROR
     CMT     10
@@ -164,6 +165,7 @@ PROC=BOOT_INIT_SEARCH
     CMT     30140
     MOVE    boot_init_search_result_offset                      AAR
     //
+    DBG
     MOVE    AAR                                                 @boot_init_search_result
     MOVE    ABR                                                 @boot_part_location_low
     MOVE    ACR                                                 @boot_part_length_low
@@ -172,6 +174,7 @@ PROC=BOOT_INIT_SEARCH
     JZ      BOOT_INIT_SEARCH_ERROR
     //
     CMT     30150
+    DBG
     MOVE    AAR                                                 @boot_init_search_result
     MOVE    ABR                                                 boot_init_file
     MOVE    ACR                                                 @boot_init_search_location_low
@@ -180,6 +183,7 @@ PROC=BOOT_INIT_SEARCH
     JZ      BOOT_INIT_SEARCH_ERROR
     //
     CMT     30160
+    DBG
     MOVE    AAR                                                 @boot_init_search_result
     MOVE    ABR                                                 @boot_init_search_location_low
     CALL    BOOT_FILE_LOAD
@@ -187,6 +191,7 @@ PROC=BOOT_INIT_SEARCH
     JZ      BOOT_INIT_SEARCH_ERROR
     //
     CMT     30170
+    DBG
     //
     MOVE    AAR                                                 @boot_init_search_result
     MOVE    ABR                                                 @boot_init_search_location_low
@@ -195,6 +200,7 @@ PROC=BOOT_INIT_SEARCH
     JZ      BOOT_INIT_SEARCH_ERROR
     CMT     30180
     //
+    DBG
     MOVE    #boot_init_search_result_offset                     1
     RET
 BOOT_INIT_SEARCH_ERROR:
@@ -231,7 +237,7 @@ BOOT_FILE_LOAD_NEXT:
     MOVE    ABR                                                 boot_file_load_item_location_low
     MOVE    ACR                                                 boot_file_load_item_location_high
     MOVE    ADR                                                 boot_file_load_buffer_offset
-    CALL    FILE_READ
+    CALL    FILE_LOAD
     MOVE    ACR                                                 boot_file_load_result
     JZ      BOOT_FILE_LOAD_ERROR
     //
@@ -251,10 +257,9 @@ BOOT_FILE_LOAD_NEXT:
     JNZ     BOOT_FILE_LOAD_END
     //
     CMT     30240
-    MOVE    boot_file_load_item_location_low                    boot_file_load_location_temp_low
-    MOVE    boot_file_load_item_location_high                   boot_file_load_location_temp_high
-    CMT     30241
-    //
+    MOVE    boot_file_load_item_location_low                  boot_file_load_location_temp_low
+    MOVE    boot_file_load_item_location_high                 boot_file_load_location_temp_high
+
     JUMP    BOOT_FILE_LOAD_NEXT
     //
 BOOT_FILE_LOAD_END:

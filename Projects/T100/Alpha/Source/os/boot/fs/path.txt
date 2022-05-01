@@ -99,11 +99,12 @@ PROC=PATH_SEARCH
     MOVE    path_search_name_offset                         ABR
     MOVE    path_search_handle_offset                       ACR
     //
+    DBG
     MOVE    ACR                                             #ABR
     JZ      PATH_SEARCH_ERROR
     //
-    MOVE    path_search_value_location_low_offset           path_search_handle_offset
-    MOVE    AAR                                             path_search_handle_offset
+    MOVE    path_search_value_location_low_offset           ACR
+    MOVE    AAR                                             ACR
     MOVE    ABR                                             1
     ADD
     MOVE    path_search_value_location_high_offset          ACR
@@ -183,10 +184,6 @@ PATH_SEARCH_ITEM_NEXT:
     JZ      PATH_SEARCH_ERROR
     //
     CMT     30040130
-    //test
-    MOVE    AAR                                             path_search_location_low
-    MOVE    AAR                                             path_search_location_high
-    //
     MOVE    AAR                                             @path_search_result
     MOVE    ABR                                             @path_search_location_low
     MOVE    ACR                                             path_search_split_array_buffer_index
@@ -195,13 +192,6 @@ PATH_SEARCH_ITEM_NEXT:
     MOVE    ACR                                             path_search_result
     JZ      PATH_SEARCH_ERROR
     //
-    CMT     30040131
-    MOVE    path_search_location_low                        #path_search_item_location_low_offset
-    MOVE    path_search_location_high                       #path_search_item_location_high_offset
-    MOVE    AAR                                             path_search_split_array_index
-    MOVE    ABR                                             1
-    ADD
-    MOVE    path_search_split_array_index                   ACR
     CMT     30040140
     LOOP    PATH_SEARCH_ITEM_NEXT
     //
@@ -227,6 +217,7 @@ PATH_SEARCH_ROOT:
     //
 PATH_SEARCH_TRUE:
     CMT     30040180
+    DBG
     MOVE    #path_search_result_offset                      1
     RET
 PATH_SEARCH_ERROR:

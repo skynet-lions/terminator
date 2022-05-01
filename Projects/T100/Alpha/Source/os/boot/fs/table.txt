@@ -19,25 +19,27 @@ DATA
     //
     table_search_result                                     INTEGER
     table_search_result_offset                              INTEGER
-    //
     table_search_location_low_offset                        INTEGER
     table_search_location_high_offset                       INTEGER
-    table_search_value_location_low_offset                  INTEGER
-    table_search_value_location_high_offset                 INTEGER
+    table_search_value_low_offset                           INTEGER
+    table_search_value_high_offset                          INTEGER
     //
+    table_search_index                                      INTEGER
     table_search_location_low                               INTEGER
     table_search_location_high                              INTEGER
     table_search_middle_low                                 INTEGER
     table_search_middle_high                                INTEGER
     table_search_residue_low                                INTEGER
     table_search_residue_high                               INTEGER
-    //
     table_search_value_low                                  INTEGER
     table_search_value_high                                 INTEGER
-    table_search_index                                      INTEGER
+    table_search_index_low                                  INTEGER
+    table_search_index_high                                 INTEGER
+    table_search_offset_low                                 INTEGER
+    table_search_offset_high                                INTEGER
+    //
     table_search_offset                                     INTEGER
-
-
+    table_search_buffer_offset                              INTEGER
 END
 
 DATA
@@ -91,18 +93,19 @@ END
 //value_low_offset
 //
 PROC=TABLE_SEARCH
+    CMT     30020060
     MOVE    table_search_result_offset                      AAR
     MOVE    table_search_location_low_offset                ABR
-    MOVE    table_search_value_location_low_offset          ACR
+    MOVE    table_search_value_low_offset                   ACR
     //
+    DBG
     MOVE    AAR                                             table_search_location_low_offset
     MOVE    ABR                                             1
     ADD
     MOVE    table_search_location_high_offset               ACR
-    //
-    MOVE    AAR                                             table_search_value_location_low_offset
+    MOVE    AAR                                             table_search_value_low_offset
     ADD
-    MOVE    table_search_value_location_high_offset         ACR
+    MOVE    table_search_value_high_offset                  ACR
     //
     MOVE    table_search_location_low                       #table_search_location_low_offset
     MOVE    table_search_location_high                      #table_search_location_high_offset
@@ -115,16 +118,13 @@ PROC=TABLE_SEARCH
     MOVE    ACR                                             table_search_result
     JZ      TABLE_SEARCH_ERROR
     //
-    MOVE    AAR                                             @table_search_result
-    MOVE    ABR                                             @table_search_middle_low
-    MOVE    ACR                                             @fs_table_begin_low
-    MOVE    ADR                                             @table_search_value_low
-    CALL    DWORD_ADD
-    MOVE    ACR                                             table_search_result
-    JZ      TABLE_SEARCH_ERROR
+    MOVE    table_search_location_low                       table_search_middle_low
+    MOVE    table_search_location_high                      table_search_middle_high
+    MOVE    table_search_value_low                          table_search_residue_low
+    MOVE    table_search_value_high                         table_search_residue_high
     //
     MOVE    AAR                                             @table_search_result
-    MOVE    ABR                                             @table_search_residue_low
+    MOVE    ABR                                             @table_search_value_low
     MOVE    ACR                                             512
     MOVE    ADR                                             @table_search_middle_low
     CALL    DWORD_WORD_DIV2
@@ -138,8 +138,9 @@ PROC=TABLE_SEARCH
     JNZ     TABLE_SEARCH_ERROR
     MOVE    table_search_offset                             table_search_residue_low
     //
+    CMT     30020080
     MOVE    AAR                                             @table_search_result
-    MOVE    ABR                                             @table_search_value_low
+    MOVE    ABR                                             @table_search_location_low
     MOVE    ACR                                             @table_search_middle_low
     CALL    FS_ABSOLUTE_LOCATION
     MOVE    ACR                                             table_search_result
@@ -149,13 +150,14 @@ PROC=TABLE_SEARCH
     MOVE    table_search_location_high                      table_search_middle_high
     //
     MOVE    AAR                                             @{CBR:@table_search_result}
-    MOVE    ABR                                             int069_disk_read
+    MOVE    ABR                                             {0:int069_disk_read}
     MOVE    ACR                                             @{CBR:@table_disk_buffer}
     MOVE    ADR                                             @{CBR:@table_search_index}
     INT     69
     MOVE    ACR                                             table_search_result
     JZ      TABLE_SEARCH_ERROR
     //
+    CMT     300200120
     MOVE    AAR                                             table_search_offset
     MOVE    ABR                                             2
     MUL
@@ -168,11 +170,13 @@ PROC=TABLE_SEARCH
     ADD
     MOVE    table_search_value_high                         #ACR
     //
-    MOVE    #table_search_value_location_low_offset         table_search_value_low
-    MOVE    #table_search_value_location_high_offset        table_search_value_high
-    //
+    MOVE    #table_search_value_low_offset                  table_search_value_low
+    MOVE    #table_search_value_high_offset                 table_search_value_high
+    DBG
+    CMT     300200130
     MOVE    #table_search_result_offset                     1
     RET
 TABLE_SEARCH_ERROR:
+    CMT     300200140
     MOVE    #table_search_result_offset                     0
 END

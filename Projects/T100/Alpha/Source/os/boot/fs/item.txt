@@ -87,6 +87,7 @@ PROC=ITEM_SEARCH
     MOVE    item_search_name_offset                         ACR
     MOVE    item_search_handle_offset                       ADR
     //
+    DBG
     MOVE    AAR                                             item_search_location_low_offset
     MOVE    ABR                                             1
     ADD
@@ -120,22 +121,12 @@ PROC=ITEM_SEARCH
     ADD
     MOVE    item_search_item_properties_offset[1]           ACR
     //
-    CMT     30030051
-    //test
-    MOVE    AAR                                             #item_search_location_low_offset
-    MOVE    ABR                                             #item_search_location_high_offset
-    //
     MOVE    AAR                                             @item_search_result
     MOVE    ABR                                             item_search_location_low_offset
     MOVE    ACR                                             @item_search_middle_low
     CALL    FS_RELATIVE_LOCATION
     MOVE    ACR                                             item_search_result
     JZ      ITEM_SEARCH_ERROR
-    //
-    CMT     30030052
-    //test
-    MOVE    AAR                                             item_search_middle_low
-    MOVE    AAR                                             item_search_middle_high
     //
     MOVE    AAR                                             @item_search_result
     MOVE    ABR                                             @item_search_middle_low
@@ -144,18 +135,16 @@ PROC=ITEM_SEARCH
     MOVE    ACR                                             item_search_result
     JZ      ITEM_SEARCH_ERROR
     //
-    CMT     30030055
     MOVE    item_search_location_low                        item_search_value_location_low
     MOVE    item_search_location_high                       item_search_value_location_high
     //
-    CMT     30030056
     MOVE    CCR                                             15
     MOVE    item_search_index                               0
     //
 ITEM_SEARCH_NEXT:
     CMT     30030060
     MOVE    AAR                                             @{CBR:@item_search_result}
-    MOVE    ABR                                             int069_disk_read
+    MOVE    ABR                                             {0:int069_disk_read}
     MOVE    ACR                                             @{CBR:@item_disk_buffer}
     MOVE    ADR                                             @{CBR:@item_search_index}
     INT     69
@@ -206,7 +195,6 @@ ITEM_SEARCH_ITEM_NEXT:
     MOVE    #item_search_item_properties_offset[0]          item_search_value_properties[0]
     MOVE    #item_search_item_properties_offset[1]          item_search_value_properties[1]
     //
-    CMT     30030091
     JUMP    ITEM_SEARCH_TRUE
     //
 ITEM_SEARCH_ITEM_FALSE:
@@ -235,6 +223,7 @@ ITEM_SEARCH_ERROR:
     RET
 ITEM_SEARCH_TRUE:
     CMT     30030140
+    DBG
     MOVE    #item_search_result_offset                      1
 END
 
@@ -243,6 +232,7 @@ PROC=ITEM_EQUAL_ISBAD
     MOVE    item_equal_isbad_result_offset                  AAR
     MOVE    item_equal_isbad_source_offset                  ABR
     //
+    DBG
     MOVE    ACR                                             @item_bad_low
     CALL    DWORD_EQUAL
     CMT     30030160
@@ -253,6 +243,7 @@ PROC=ITEM_EQUAL_ISEND
     MOVE    item_equal_isend_result_offset                  AAR
     MOVE    item_equal_isend_source_offset                  ABR
     //
+    DBG
     MOVE    ACR                                             @item_end_low
     CALL    DWORD_EQUAL
     CMT     30030190

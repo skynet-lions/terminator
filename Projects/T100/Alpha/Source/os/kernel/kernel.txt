@@ -1,79 +1,8 @@
 MODE    REAL    TINY
 
 DATA
-    kernel_result                                               INTEGER
-    kernel_message                                              STRING      "kernel"
-    kernel_error_message                                        STRING      "kernel error!"
-    //
-    kernel_show_info_result                                     INTEGER
-    kernel_show_info_result_offset                              INTEGER
-    //
-    kernel_print_result                                         INTEGER
-    kernel_print_result_offset                                  INTEGER
-    //
-    hello_message                                               STRING      "test"
-    kernel_say_hello_result                                     INTEGER
-    kernel_say_hello_result_offset                              INTEGER
-    //
 END
 
 CODE
-
-    //MOVE    AAR                                                 @kernel_result
-    //CALL    KERNEL_SHOW_INFO
-    //MOVE    ACR                                                 kernel_result
-    //JZ      KERNEL_ERROR
-    //
-    //
-    MOVE    AAR                                                 @kernel_result
-    CALL    KERNEL_SAY_HELLO
-    MOVE    ACR                                                 kernel_result
-    JZ      KERNEL_ERROR
-    //
-KERNEL_ERROR:
     HALT
-END
-
-PROC=KERNEL_SAY_HELLO
-    MOVE    kernel_say_hello_result_offset                      AAR
-    MOVE    AAR                                                 @kernel_say_hello_result
-    MOVE    ABR                                                 hello_message
-    CALL    KERNEL_PRINT
-    MOVE    ACR                                                 kernel_say_hello_result
-    JZ      KERNEL_SAY_HELLO_ERROR
-    MOVE    #kernel_say_hello_result_offset                     1
-    RET
-KERNEL_SAY_HELLO_ERROR:
-    MOVE    #kernel_say_hello_result_offset                     0
-END
-
-PROC=KERNEL_SHOW_INFO
-    MOVE    kernel_show_info_result_offset                      AAR
-    MOVE    AAR                                                 @kernel_show_info_result
-    MOVE    ABR                                                 kernel_message
-    CALL    KERNEL_PRINT
-    MOVE    ACR                                                 kernel_show_info_result
-    JZ      KERNEL_SHOW_INFO_ERROR
-    MOVE    #kernel_show_info_result_offset                     1
-    RET
-KERNEL_SHOW_INFO_ERROR:
-    MOVE    #kernel_show_info_result_offset                     0
-END
-
-PROC=KERNEL_PRINT
-    CMT     30070
-    MOVE    kernel_print_result_offset                          AAR
-    MOVE    AAR                                                 @{CBR:@kernel_print_result}
-    MOVE    ACR                                                 @{CBR:ABR}
-    MOVE    ABR                                                 1
-    INT     68
-    MOVE    ACR                                                 kernel_print_result
-    JZ      KERNEL_PRINT_ERROR
-    //
-    CMT     30080
-    MOVE    #kernel_print_result_offset                         1
-    RET
-KERNEL_PRINT_ERROR:
-    CMT     30090
-    MOVE    #kernel_print_result_offset                         0
 END
