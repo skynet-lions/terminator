@@ -6,7 +6,8 @@
 #include "QRowVector2.h"
 
 
-QVectorTest::QVectorTest()
+QVectorTest::QVectorTest(T100Test* parent)
+    :T100Test(parent, "")
 {
     //ctor
 }

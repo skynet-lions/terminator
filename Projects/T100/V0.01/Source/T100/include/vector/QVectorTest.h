@@ -7,7 +7,7 @@
 class QVectorTest : public T100Test
 {
     public:
-        QVectorTest();
+        QVectorTest(T100Test*);
         virtual ~QVectorTest();
 
         T100BOOL            test_all();

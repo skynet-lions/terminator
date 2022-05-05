@@ -111,11 +111,11 @@ void T100Frame::OnAbout(wxCommandEvent& event)
 
 void T100Frame::OnMenuStartSelected(wxCommandEvent& event)
 {
-    QMatrixTest test;
+    QMatrixTest test(T100NULL);
 
     test.test_all();
 
-    QVectorTest vector;
+    QVectorTest vector(T100NULL);
 
     vector.test_all();
 

@@ -14,6 +14,9 @@
 #include <wx/image.h>
 //*)
 
+#include "T100AppTest.h"
+
+
 IMPLEMENT_APP(T100App);
 
 bool T100App::OnInit()
@@ -28,6 +31,13 @@ bool T100App::OnInit()
     	SetTopWindow(Frame);
     }
     //*)
+
+    //test
+    T100AppTest     test(T100NULL);
+
+    test.list();
+    test.test_all();
+
     return wxsOK;
 
 }

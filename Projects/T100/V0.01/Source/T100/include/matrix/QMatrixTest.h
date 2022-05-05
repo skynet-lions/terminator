@@ -7,7 +7,7 @@
 class QMatrixTest : public T100Test
 {
     public:
-        QMatrixTest();
+        QMatrixTest(T100Test*);
         virtual ~QMatrixTest();
 
         T100BOOL            test_all();

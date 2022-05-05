@@ -6,7 +6,8 @@
 #include "QMatrixTools.h"
 
 
-QMatrixTest::QMatrixTest()
+QMatrixTest::QMatrixTest(T100Test* parent)
+    :T100Test(parent, "")
 {
     //ctor
 }

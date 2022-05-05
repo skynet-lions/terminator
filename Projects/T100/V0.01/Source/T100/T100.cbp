@@ -20,6 +20,10 @@
 					<Add directory="include/matrix" />
 					<Add directory="include/test" />
 					<Add directory="include/vector" />
+					<Add directory="include/lib/string" />
+					<Add directory="include/lib" />
+					<Add directory="include/test/lib/string" />
+					<Add directory="include/test/lib" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -42,6 +46,9 @@
 					<Add directory="include/matrix" />
 					<Add directory="include/test" />
 					<Add directory="include/vector" />
+					<Add directory="include/lib/string" />
+					<Add directory="include/lib" />
+					<Add directory="include/test/lib/string" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
@@ -75,12 +82,19 @@
 		<Unit filename="T100Main.h" />
 		<Unit filename="include/common/T100Common.h" />
 		<Unit filename="include/common/T100DataTypes.h" />
+		<Unit filename="include/common/T100StringCommon.h" />
+		<Unit filename="include/lib/string/T100String16.h" />
+		<Unit filename="include/lib/string/T100String32.h" />
+		<Unit filename="include/lib/string/T100String8.h" />
 		<Unit filename="include/matrix/QMatrix2i.h" />
 		<Unit filename="include/matrix/QMatrix3f.h" />
 		<Unit filename="include/matrix/QMatrix3i.h" />
 		<Unit filename="include/matrix/QMatrixTest.h" />
 		<Unit filename="include/matrix/QMatrixTools.h" />
+		<Unit filename="include/test/T100AppTest.h" />
 		<Unit filename="include/test/T100Test.h" />
+		<Unit filename="include/test/lib/T100LibTest.h" />
+		<Unit filename="include/test/lib/string/T100StringTest.h" />
 		<Unit filename="include/vector/QColumnVector2d.h" />
 		<Unit filename="include/vector/QColumnVector2f.h" />
 		<Unit filename="include/vector/QColumnVector2i.h" />
@@ -97,12 +111,18 @@
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="src/lib/string/T100String16.cpp" />
+		<Unit filename="src/lib/string/T100String32.cpp" />
+		<Unit filename="src/lib/string/T100String8.cpp" />
 		<Unit filename="src/matrix/QMatrix2i.cpp" />
 		<Unit filename="src/matrix/QMatrix3f.cpp" />
 		<Unit filename="src/matrix/QMatrix3i.cpp" />
 		<Unit filename="src/matrix/QMatrixTest.cpp" />
 		<Unit filename="src/matrix/QMatrixTools.cpp" />
+		<Unit filename="src/test/T100AppTest.cpp" />
 		<Unit filename="src/test/T100Test.cpp" />
+		<Unit filename="src/test/lib/T100LibTest.cpp" />
+		<Unit filename="src/test/lib/string/T100StringTest.cpp" />
 		<Unit filename="src/vector/QColumnVector2d.cpp" />
 		<Unit filename="src/vector/QColumnVector2f.cpp" />
 		<Unit filename="src/vector/QColumnVector2i.cpp" />

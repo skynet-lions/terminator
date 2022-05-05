@@ -12,10 +12,12 @@ typedef     short                   T100INT16;
 typedef     int                     T100INT32;
 typedef     long long               T100INT64;
 
+typedef     T100UINT8               T100BYTE;
 typedef     T100UINT32              T100WORD;
 typedef     T100UINT64              T100DWORD;
 
 typedef     T100INT32               T100INT;
+typedef     long                    T100LONG;
 
 typedef     float                   T100FLOAT;
 typedef     double                  T100DOUBLE;
