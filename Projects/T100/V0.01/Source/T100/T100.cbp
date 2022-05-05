@@ -93,6 +93,7 @@
 		<Unit filename="include/matrix/QMatrixTools.h" />
 		<Unit filename="include/test/T100AppTest.h" />
 		<Unit filename="include/test/T100Test.h" />
+		<Unit filename="include/test/T100TestElement.h" />
 		<Unit filename="include/test/lib/T100LibTest.h" />
 		<Unit filename="include/test/lib/string/T100StringTest.h" />
 		<Unit filename="include/vector/QColumnVector2d.h" />
@@ -121,6 +122,7 @@
 		<Unit filename="src/matrix/QMatrixTools.cpp" />
 		<Unit filename="src/test/T100AppTest.cpp" />
 		<Unit filename="src/test/T100Test.cpp" />
+		<Unit filename="src/test/T100TestElement.cpp" />
 		<Unit filename="src/test/lib/T100LibTest.cpp" />
 		<Unit filename="src/test/lib/string/T100StringTest.cpp" />
 		<Unit filename="src/vector/QColumnVector2d.cpp" />

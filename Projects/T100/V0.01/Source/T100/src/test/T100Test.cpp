@@ -41,3 +41,8 @@ T100VOID T100Test::list()
         }
     }
 }
+
+T100STDSTRING T100Test::getName()
+{
+    return m_name;
+}
