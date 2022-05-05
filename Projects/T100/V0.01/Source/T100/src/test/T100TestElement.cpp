@@ -32,3 +32,33 @@ T100VOID T100TestElement::list()
         }
     }
 }
+
+T100VOID T100TestElement::add(T100STDSTRING name, T100TEST_ELEMENT_CALL call)
+{
+    m_element_vector.push_back(call);
+    m_element_hash[name] = call;
+}
+
+T100BOOL T100TestElement::DoInit()
+{
+    if(!m_inited)return init();
+    return T100TRUE;
+}
+
+T100BOOL T100TestElement::DoUnInit()
+{
+    if(m_uninit)return uninit();
+    return T100TRUE;
+}
+
+T100BOOL T100TestElement::init()
+{
+    std::cout << "init" << std::endl;
+    return T100TRUE;
+}
+
+T100BOOL T100TestElement::uninit()
+{
+    std::cout << "uninit" << std::endl;
+    return T100TRUE;
+}

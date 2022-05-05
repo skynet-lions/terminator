@@ -5,8 +5,9 @@
 #include <unordered_map>
 #include "T100StringCommon.h"
 #include "T100DataTypes.h"
+class T100Test;
 
-typedef     T100BOOL(*T100TEST_ELEMENT_CALL)();
+typedef     T100BOOL(*T100TEST_ELEMENT_CALL)(T100Test*);
 #define     T100TEST_ELEMENT_VECTOR         std::vector<T100TEST_ELEMENT_CALL>
 #define     T100TEST_ELEMENT_HASH           std::unordered_map<T100STDSTRING, T100TEST_ELEMENT_CALL>
 

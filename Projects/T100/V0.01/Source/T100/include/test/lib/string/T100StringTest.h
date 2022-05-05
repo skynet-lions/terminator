@@ -16,7 +16,7 @@ class T100StringTest : public T100TestElement
     protected:
         T100VOID                    create();
 
-        T100BOOL                    test_string();
+        T100BOOL                    test_string(T100TestElement*);
 
     private:
         static T100STDSTRING        m_name;
