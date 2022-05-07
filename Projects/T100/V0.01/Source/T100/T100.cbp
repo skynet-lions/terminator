@@ -100,6 +100,7 @@
 		<Unit filename="include/T100AppTools.h" />
 		<Unit filename="include/common/T100Common.h" />
 		<Unit filename="include/common/T100DataTypes.h" />
+		<Unit filename="include/common/T100LogCommon.h" />
 		<Unit filename="include/common/T100StringTypes.h" />
 		<Unit filename="include/lib/T100Unicode.h" />
 		<Unit filename="include/lib/error/T100Error.h" />
