@@ -1,8 +1,9 @@
 #ifndef T100COMMON_H
 #define T100COMMON_H
 
-#include "T100DataTypes.h"
 #include "T100StringTypes.h"
+#include "T100DataStructure.h"
+
 
 #ifdef __LEAK__
     #include "T100Leak.h"

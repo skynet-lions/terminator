@@ -2,6 +2,7 @@
 #define T100STRINGTYPES_H
 
 #include <string>
+#include "T100DataTypes.h"
 
 /*
 #define     __STRING8__
@@ -10,36 +11,32 @@
 #define     __WSTRING__
 */
 
-typedef     char                            T100STDCHAR8;
-typedef     char16_t                        T100STDCHAR16;
-typedef     char32_t                        T100STDCHAR32;
+#define     T100STDCHAR8                    char
+#define     T100STDCHAR16                   char16_t
+#define     T100STDCHAR32                   char32_t
+#define     T100STDWCHAR                    wchar_t
 
-typedef     wchar_t                         T100STDWCHAR;
+#define     T100STDSTRING8                  std::string
+#define     T100STDSTRING16                 std::u16string
+#define     T100STDSTRING32                 std::u32string
+#define     T100STDWSTRING                  std::wstring
 
-typedef     std::string                     T100STDSTRING8;
-typedef     std::u16string                  T100STDSTRING16;
-typedef     std::u32string                  T100STDSTRING32;
-
-typedef     std::wstring                    T100STDWSTRING;
-
-typedef     T100STDCHAR8                    T100STDCHAR;
-typedef     T100STDSTRING8                  T100STDSTRING;
+#define     T100STDCHAR                     T100STDCHAR8
+#define     T100STDSTRING                   T100STDSTRING8
 
 ///
-typedef     T100STDCHAR8                    T100CHAR8;
-typedef     T100STDCHAR16                   T100CHAR16;
-typedef     T100STDCHAR32                   T100CHAR32;
+#define     T100CHAR8                       T100BYTE
+#define     T100CHAR16                      T100STDCHAR16
+#define     T100CHAR32                      T100STDCHAR32
+#define     T100WCHAR                       T100STDWCHAR
 
-typedef     T100STDWCHAR                    T100WCHAR;
+#define     T100STRING8                     T100STDSTRING8
+#define     T100STRING16                    T100STDSTRING16
+#define     T100STRING32                    T100STDSTRING32
+#define     T100WSTRING                     T100STDWSTRING
 
-typedef     T100STDSTRING8                  T100STRING8;
-typedef     T100STDSTRING16                 T100STRING16;
-typedef     T100STDSTRING32                 T100STRING32;
-
-typedef     T100STDWSTRING                  T100WSTRING;
-
-typedef     T100CHAR32                      T100CHAR;
-typedef     T100STRING32                    T100STRING;
+#define     T100CHAR                        T100WORD
+#define     T100STRING                      T100String32
 
 ///
 

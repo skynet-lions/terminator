@@ -32,6 +32,7 @@
 					<Add directory="include" />
 					<Add directory="include/link" />
 					<Add directory="include/lib/log/appender" />
+					<Add directory="include/data" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -66,6 +67,7 @@
 					<Add directory="include" />
 					<Add directory="include/link" />
 					<Add directory="include/lib/log/appender" />
+					<Add directory="include/data" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
@@ -99,10 +101,28 @@
 		<Unit filename="T100Main.h" />
 		<Unit filename="include/T100AppTools.h" />
 		<Unit filename="include/common/T100Common.h" />
+		<Unit filename="include/common/T100DataStructure.h" />
 		<Unit filename="include/common/T100DataTypes.h" />
+		<Unit filename="include/common/T100FileCommon.h" />
 		<Unit filename="include/common/T100LogCommon.h" />
 		<Unit filename="include/common/T100StringTypes.h" />
+		<Unit filename="include/data/T100FileInfo.h" />
+		<Unit filename="include/data/T100FolderInfo.h" />
+		<Unit filename="include/lib/T100Buffer.h" />
+		<Unit filename="include/lib/T100Clock.h" />
+		<Unit filename="include/lib/T100DirItem.h" />
+		<Unit filename="include/lib/T100File.h" />
+		<Unit filename="include/lib/T100Folder.h" />
+		<Unit filename="include/lib/T100FolderTools.h" />
+		<Unit filename="include/lib/T100Pool.h" />
+		<Unit filename="include/lib/T100Random.h" />
+		<Unit filename="include/lib/T100Reader.h" />
+		<Unit filename="include/lib/T100Semaphore.h" />
+		<Unit filename="include/lib/T100ShareMemory.h" />
+		<Unit filename="include/lib/T100ShellTools.h" />
 		<Unit filename="include/lib/T100Unicode.h" />
+		<Unit filename="include/lib/T100Vessel.h" />
+		<Unit filename="include/lib/T100Writer.h" />
 		<Unit filename="include/lib/error/T100Error.h" />
 		<Unit filename="include/lib/help/T100Help.h" />
 		<Unit filename="include/lib/hint/T100Hint.h" />
@@ -111,15 +131,32 @@
 		<Unit filename="include/lib/log/appender/T100LogAppenderConsole.h" />
 		<Unit filename="include/lib/setup/T100Setup.h" />
 		<Unit filename="include/lib/string/T100String.h" />
+		<Unit filename="include/lib/string/T100String32.h" />
 		<Unit filename="include/lib/test/T100Test.h" />
 		<Unit filename="include/lib/valuing/T100Leak.h" />
+		<Unit filename="include/link/IString.h" />
 		<Unit filename="include/math/matrix/QMatrix.h" />
 		<Unit filename="include/math/vector/QVector.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="src/T100AppTools.cpp" />
+		<Unit filename="src/data/T100FileInfo.cpp" />
+		<Unit filename="src/data/T100FolderInfo.cpp" />
+		<Unit filename="src/lib/T100Clock.cpp" />
+		<Unit filename="src/lib/T100DirItem.cpp" />
+		<Unit filename="src/lib/T100File.cpp" />
+		<Unit filename="src/lib/T100Folder.cpp" />
+		<Unit filename="src/lib/T100FolderTools.cpp" />
+		<Unit filename="src/lib/T100Pool.cpp" />
+		<Unit filename="src/lib/T100Random.cpp" />
+		<Unit filename="src/lib/T100Reader.cpp" />
+		<Unit filename="src/lib/T100Semaphore.cpp" />
+		<Unit filename="src/lib/T100ShareMemory.cpp" />
+		<Unit filename="src/lib/T100ShellTools.cpp" />
 		<Unit filename="src/lib/T100Unicode.cpp" />
+		<Unit filename="src/lib/T100Vessel.cpp" />
+		<Unit filename="src/lib/T100Writer.cpp" />
 		<Unit filename="src/lib/error/T100Error.cpp" />
 		<Unit filename="src/lib/help/T100Help.cpp" />
 		<Unit filename="src/lib/hint/T100Hint.cpp" />
@@ -128,8 +165,10 @@
 		<Unit filename="src/lib/log/appender/T100LogAppenderConsole.cpp" />
 		<Unit filename="src/lib/setup/T100Setup.cpp" />
 		<Unit filename="src/lib/string/T100String.cpp" />
+		<Unit filename="src/lib/string/T100String32.cpp" />
 		<Unit filename="src/lib/test/T100Test.cpp" />
 		<Unit filename="src/lib/valuing/T100Leak.cpp" />
+		<Unit filename="src/link/IString.cpp" />
 		<Unit filename="src/math/matrix/QMatrix.cpp" />
 		<Unit filename="src/math/vector/QVector.cpp" />
 		<Unit filename="test/T100AppTest.cpp" />
