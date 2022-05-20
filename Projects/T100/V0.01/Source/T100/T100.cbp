@@ -34,6 +34,7 @@
 					<Add directory="include/lib/log/appender" />
 					<Add directory="include/data" />
 					<Add directory="include/lib/console" />
+					<Add directory="include/app" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -70,6 +71,7 @@
 					<Add directory="include/lib/log/appender" />
 					<Add directory="include/data" />
 					<Add directory="include/lib/console" />
+					<Add directory="include/app" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
@@ -102,6 +104,9 @@
 		<Unit filename="T100Main.cpp" />
 		<Unit filename="T100Main.h" />
 		<Unit filename="include/T100AppTools.h" />
+		<Unit filename="include/app/T100AppBase.h" />
+		<Unit filename="include/app/T100AppInfo.h" />
+		<Unit filename="include/app/T100AppManager.h" />
 		<Unit filename="include/common/T100Common.h" />
 		<Unit filename="include/common/T100ConsoleCommon.h" />
 		<Unit filename="include/common/T100DataStructure.h" />
@@ -148,6 +153,9 @@
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="src/T100AppTools.cpp" />
+		<Unit filename="src/app/T100AppBase.cpp" />
+		<Unit filename="src/app/T100AppInfo.cpp" />
+		<Unit filename="src/app/T100AppManager.cpp" />
 		<Unit filename="src/data/T100FileInfo.cpp" />
 		<Unit filename="src/data/T100FolderInfo.cpp" />
 		<Unit filename="src/lib/T100Clock.cpp" />

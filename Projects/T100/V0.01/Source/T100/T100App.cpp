@@ -23,6 +23,7 @@ bool T100App::OnInit()
 {
     T100AppTools::init();
 
+    /*DON'T DELETE IT
     //(*AppInitialize
     bool wxsOK = true;
     wxInitAllImageHandlers();
@@ -35,5 +36,19 @@ bool T100App::OnInit()
     //*)
 
     return wxsOK;
+    */
 
+    bool wxsOK = true;
+    wxInitAllImageHandlers();
+    if ( wxsOK )
+    {
+        manager.start();
+    }
+    return wxsOK;
+}
+
+bool T100App::Initialize(int& argc, wxChar **argv)
+{
+    wxApp::Initialize(argc, argv);
+    return manager.parse(argc, argv);
 }

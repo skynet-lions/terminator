@@ -11,11 +11,21 @@
 #define T100APP_H
 
 #include <wx/app.h>
+#include "T100AppManager.h"
+
 
 class T100App : public wxApp
 {
     public:
         virtual bool OnInit();
+
+
+        bool Initialize(int& argc, wxChar **argv);
+
+        T100AppManager          manager;
+
 };
+
+DECLARE_APP(T100App)
 
 #endif // T100APP_H
