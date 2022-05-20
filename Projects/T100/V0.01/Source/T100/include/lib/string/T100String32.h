@@ -19,6 +19,10 @@ class T100String32 : public IString
     protected:
 
     private:
+        T100WORD_VECTOR             m_string;
+
+        T100BOOL                    copy(T100String32&);
+
 };
 
 #endif // T100STRING32_H

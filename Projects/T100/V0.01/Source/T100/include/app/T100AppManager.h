@@ -3,6 +3,8 @@
 
 #include <wx/wx.h>
 #include "T100Common.h"
+#include "T100AppInfo.h"
+class T100AppTest;
 
 
 class T100AppManager
@@ -18,6 +20,9 @@ class T100AppManager
     protected:
 
     private:
+        T100AppInfo         m_info;
+        T100AppTest*        m_test          = T100NULL;
+
 };
 
 #endif // T100APPMANAGER_H

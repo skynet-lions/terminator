@@ -3,11 +3,14 @@
 
 #include "T100ConsoleBase.h"
 
+
 class T100Console
 {
     public:
         T100Console(T100CONSOLE_TYPE type = T100CONSOLE_WINDOWS);
         virtual ~T100Console();
+
+        T100BOOL                    outline(T100STDSTRING);
 
     protected:
         T100VOID                    create();
@@ -15,7 +18,7 @@ class T100Console
 
     private:
         T100CONSOLE_TYPE            m_type          = T100CONSOLE_NONE;
-        T100ConsoleBase*            m_base          = T100NULL;
+        T100ConsoleBase*            m_console       = T100NULL;
 
 };
 

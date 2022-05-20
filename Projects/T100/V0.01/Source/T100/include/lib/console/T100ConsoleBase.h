@@ -10,6 +10,8 @@ class T100ConsoleBase
         T100ConsoleBase();
         virtual ~T100ConsoleBase();
 
+        virtual T100VOID            outline(T100STDSTRING) = 0;
+
     protected:
 
     private:

@@ -1,6 +1,8 @@
 #include "T100Test.h"
 
 #include <sstream>
+#include "T100Console.h"
+
 
 T100Console*        T100Test::m_console             = T100NULL;
 T100WORD            T100Test::m_units               = 0;
@@ -24,11 +26,9 @@ T100Test::~T100Test()
 T100VOID T100Test::create()
 {
     if(T100NULL == m_console){
-#ifdef __LOG__
-        m_console   = T100NEW T100Console(T100CONSOLE_LOG);
-#else
+
         m_console   = T100NEW T100Console();
-#endif // __LOG__
+
     }
 
     if(!m_parent){
@@ -188,6 +188,7 @@ T100BOOL T100Test::test_all()
 
 T100VOID T100Test::list()
 {
+    int     size;
     /*
     out("Test: ");
     out(m_name);
@@ -227,6 +228,27 @@ T100VOID T100Test::list()
         }
     }
     */
+
+    size = m_calls.size();
+
+    for(int i=0;i<size;i++){
+        //T100Test* item = m_calls.at(i);
+    }
+
+    size = m_tests.size();
+
+    for(int i=0;i<size;i++){
+        T100Test* item = m_tests.at(i);
+        if(item){
+            if(this == item){
+
+            }else{
+                item->list();
+            }
+        }else{
+
+        }
+    }
 
     if(!m_parent)list_end_out();
 }
@@ -322,5 +344,5 @@ T100VOID T100Test::list_end_out()
 
 T100VOID T100Test::out(T100STDSTRING msg)
 {
-    //m_console->outline(msg);
+    m_console->outline(msg);
 }
