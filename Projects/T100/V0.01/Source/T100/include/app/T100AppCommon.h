@@ -1,7 +1,6 @@
 #ifndef T100APPCOMMON_H
 #define T100APPCOMMON_H
 
-
 #include <wx/cmdline.h>
 #include "T100Common.h"
 

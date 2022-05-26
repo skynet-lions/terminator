@@ -1,7 +1,6 @@
 #ifndef T100FILECOMMON_H
 #define T100FILECOMMON_H
 
-
 #include "T100Common.h"
 class T100FileInfo;
 class T100FolderInfo;
@@ -11,9 +10,9 @@ class T100FolderInfo;
 #define     T100FOLDER_INFO_VECTOR          std::vector<T100FolderInfo*>
 
 
-#define     T100FILE_HANDLE             T100DWORD
-#define     T100FILE_VECTOR             std::vector<T100File*>
-#define     T100FILE_HANDLE_HASH        std::unordered_map<T100FILE_HANDLE, T100File*>
+#define     T100FILE_HANDLE                 T100DWORD
+#define     T100FILE_VECTOR                 std::vector<T100File*>
+#define     T100FILE_HANDLE_HASH            std::unordered_map<T100FILE_HANDLE, T100File*>
 
 
 typedef enum{
@@ -63,10 +62,13 @@ typedef struct{
     T100WORD        SIGN;
 }T100FILE_HEAD;
 
-enum T100FILE_MODE{
+
+typedef enum{
     T100FILE_READ,
     T100FILE_WRITE,
     T100FILE_READWRITE
-};
+}T100FILE_MODE;
+
+
 
 #endif // T100FILECOMMON_H

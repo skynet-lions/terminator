@@ -2,7 +2,7 @@
  * Name:      T100App.cpp
  * Purpose:   Code for Application Class
  * Author:    瞿正峰 ()
- * Created:   2022-05-07
+ * Created:   2020-08-16
  * Copyright: 瞿正峰 ()
  * License:
  **************************************************************/
@@ -14,15 +14,10 @@
 #include <wx/image.h>
 //*)
 
-#include "T100AppTools.h"
-
-
 IMPLEMENT_APP(T100App);
 
 bool T100App::OnInit()
 {
-    T100AppTools::init();
-
     /*DON'T DELETE IT
     //(*AppInitialize
     bool wxsOK = true;
@@ -34,7 +29,6 @@ bool T100App::OnInit()
     	SetTopWindow(Frame);
     }
     //*)
-
     return wxsOK;
     */
 
@@ -42,7 +36,7 @@ bool T100App::OnInit()
     wxInitAllImageHandlers();
     if ( wxsOK )
     {
-        manager.start();
+        m_manager.start();
     }
     return wxsOK;
 }
@@ -50,5 +44,10 @@ bool T100App::OnInit()
 bool T100App::Initialize(int& argc, wxChar **argv)
 {
     wxApp::Initialize(argc, argv);
-    return manager.parse(argc, argv);
+    return m_manager.parse(argc, argv);
+}
+
+T100AppManager* T100App::getManager()
+{
+    return &m_manager;
 }

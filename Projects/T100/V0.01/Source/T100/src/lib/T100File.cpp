@@ -1,7 +1,6 @@
 #include "T100File.h"
 
-T100File::T100File(T100STDSTRING name)
-    :T100DirItem(name)
+T100File::T100File(T100WSTRING name)
 {
     //ctor
 }
@@ -9,6 +8,11 @@ T100File::T100File(T100STDSTRING name)
 T100File::~T100File()
 {
     //dtor
+}
+
+T100BOOL T100File::exists()
+{
+
 }
 
 T100BOOL T100File::create()

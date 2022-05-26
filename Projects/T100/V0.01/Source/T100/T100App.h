@@ -2,7 +2,7 @@
  * Name:      T100App.h
  * Purpose:   Defines Application Class
  * Author:    瞿正峰 ()
- * Created:   2022-05-07
+ * Created:   2020-08-16
  * Copyright: 瞿正峰 ()
  * License:
  **************************************************************/
@@ -19,10 +19,12 @@ class T100App : public wxApp
     public:
         virtual bool OnInit();
 
+        T100AppManager*             getManager();
 
+    private:
         bool Initialize(int& argc, wxChar **argv);
 
-        T100AppManager          manager;
+        T100AppManager              m_manager;
 
 };
 

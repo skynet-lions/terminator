@@ -1,6 +1,5 @@
 #include "T100WinConsole.h"
 
-#include <iostream>
 #include <windows.h>
 
 
@@ -24,56 +23,6 @@ T100VOID T100WinConsole::create()
 T100VOID T100WinConsole::destroy()
 {
 
-}
-
-T100COLOUR_PRIMITIVE_TYPE T100WinConsole::getForegroundColour()
-{
-    return m_foreground;
-}
-
-T100VOID T100WinConsole::setBackgroundColour(T100COLOUR_PRIMITIVE_TYPE type)
-{
-    m_background    = type;
-}
-
-T100COLOUR_PRIMITIVE_TYPE T100WinConsole::getBackgroundColour()
-{
-    return m_background;
-}
-
-T100VOID T100WinConsole::out(T100STDSTRING msg)
-{
-    std::cout << msg;
-}
-
-T100VOID T100WinConsole::out(T100STDWSTRING msg)
-{
-    wprintf(msg.c_str());
-}
-
-T100VOID T100WinConsole::outline(T100STDSTRING msg)
-{
-    std::cout << msg << std::endl;
-}
-
-T100VOID T100WinConsole::outline(T100STDWSTRING msg)
-{
-    wprintf(msg.c_str());
-    wprintf(L"\n");
-}
-
-T100VOID T100WinConsole::outline(T100STDSTRING msg, T100COLOUR_PRIMITIVE_TYPE type)
-{
-    if(m_foreground == type){
-        outline(msg);
-    }else{
-        T100COLOUR_PRIMITIVE_TYPE   colour;
-
-        colour = m_foreground;
-        setForegroundColour(type);
-        outline(msg);
-        setForegroundColour(colour);
-    }
 }
 
 T100VOID T100WinConsole::setForegroundColour(T100COLOUR_PRIMITIVE_TYPE type)
@@ -132,7 +81,28 @@ T100VOID T100WinConsole::setForegroundColour(T100COLOUR_PRIMITIVE_TYPE type)
     WINBOOL result = SetConsoleTextAttribute(handle, colour);
 
     if(result){
-        m_foreground = type;
+        T100ConsoleBase::setForegroundColour(type);
     }
 
+}
+
+/*
+T100VOID T100WinConsole::outline(T100STDSTRING& msg, T100COLOUR_PRIMITIVE_TYPE type)
+{
+    if(m_foreground == type){
+        outline(msg);
+    }else{
+        T100COLOUR_PRIMITIVE_TYPE   colour;
+
+        colour = m_foreground;
+        setForegroundColour(type);
+        outline(msg);
+        setForegroundColour(colour);
+    }
+}
+*/
+
+T100VOID T100WinConsole::outline(T100WSTRING& msg)
+{
+    wprintf(L"%s\n", msg);
 }

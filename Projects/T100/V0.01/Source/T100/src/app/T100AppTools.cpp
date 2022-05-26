@@ -21,7 +21,7 @@ T100VOID T100AppTools::init()
 
     str = L"你好";
 
-    T100Log::out(str);
+    T100Log::info(str);
 }
 
 T100VOID T100AppTools::uninit()

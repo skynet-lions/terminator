@@ -32,14 +32,14 @@ T100BOOL T100Callback::add(T100CALLBACK_HANDLE cb, void* obj)
     return T100TRUE;
 }
 
-T100BOOL T100Callback::remove(T100CALLBACK_HANDLE cb)
+T100BOOL T100Callback::erase(T100CALLBACK_HANDLE cb)
 {
     for(T100CALLBACK_VECTOR::iterator it = m_callbacks.begin();it != m_callbacks.end();it++){
         T100CALLBACK_ITEM* item = (*it);
 
         if(item && item->HANDLE == cb){
             m_callbacks.erase(it);
-            T100DELETE(item);
+            T100SAFE_DELETE(item);
             return T100TRUE;
         }
     }
@@ -50,7 +50,7 @@ T100BOOL T100Callback::clear()
 {
     for(auto item : m_callbacks){
         if(item){
-            T100DELETE(item);
+            T100SAFE_DELETE(item);
         }
     }
     m_callbacks.clear();

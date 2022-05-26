@@ -1,7 +1,6 @@
 #ifndef T100GRAPHICCOMMON_H
 #define T100GRAPHICCOMMON_H
 
-
 #include "T100Common.h"
 
 typedef enum{

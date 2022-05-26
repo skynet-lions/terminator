@@ -1,8 +1,6 @@
 #include "T100Test.h"
 
 #include <sstream>
-#include "T100Console.h"
-
 
 T100Console*        T100Test::m_console             = T100NULL;
 T100WORD            T100Test::m_units               = 0;
@@ -12,30 +10,30 @@ T100WORD            T100Test::m_success             = 0;
 T100WORD            T100Test::m_failure             = 0;
 
 
-T100Test::T100Test(T100Test* parent, T100STDSTRING name)
+T100Test::T100Test(T100Test* parent, T100WSTRING name)
     :m_parent(parent), m_name(name)
 {
     //ctor
+    create();
 }
 
 T100Test::~T100Test()
 {
     //dtor
+    destroy();
 }
 
 T100VOID T100Test::create()
 {
     if(T100NULL == m_console){
-
-        m_console   = T100NEW T100Console();
-
+        m_console = T100NEW T100Console(T100CONSOLE_LOG);
     }
 
     if(!m_parent){
         m_units     = 0;
     }
 
-    add();
+    signin();
 
     if(m_need_init){
         if(init()){
@@ -61,14 +59,7 @@ T100VOID T100Test::destroy()
     }
 }
 
-T100VOID T100Test::skip()
-{
-    if(m_parent){
-        m_parent->remove(m_name, this);
-    }
-}
-
-T100VOID T100Test::add()
+T100VOID T100Test::signin()
 {
     m_units++;
     if(m_parent){
@@ -78,19 +69,75 @@ T100VOID T100Test::add()
     }
 }
 
-T100VOID T100Test::add(T100STDSTRING name, T100Test* test)
+T100VOID T100Test::add(T100WSTRING name, T100Test* test)
 {
     m_tests.push_back(name, test);
 }
 
-T100VOID T100Test::remove(T100STDSTRING name, T100Test* test)
+T100VOID T100Test::remove(T100WSTRING name, T100Test* test)
 {
 
 }
 
-T100VOID T100Test::signin(T100STDSTRING name, T100TEST_CALL call)
+T100BOOL T100Test::test_all()
 {
-    m_calls.push_back(name, call);
+    T100BOOL            result      = T100TRUE;
+    T100WORD            size;
+    T100Test*           item        = T100NULL;
+    T100TEST_CALL       call        = T100NULL;
+
+    if(!m_parent){
+        m_index     = 1;
+        m_success   = 0;
+        m_failure   = 0;
+    }
+
+    size = m_tests.size();
+
+    for(int i=0;i<size;i++){
+        item = m_tests.at(i);
+        if(!item || this == item){
+
+        }else{
+            if(item->test_all()){
+
+            }else{
+                result = T100FALSE;
+            }
+        }
+    }
+
+    out_test_begin(m_name);
+
+    m_index++;
+
+    if(do_test()){
+
+    }else{
+        result = T100FALSE;
+    }
+
+    size = m_calls.size();
+
+    for(int i=0;i<size;i++){
+        call = m_calls.at(i);
+
+        if(!call && call(this)){
+
+        }else{
+            result = T100FALSE;
+        }
+    }
+
+    if(result){
+        m_success++;
+    }else{
+        m_failure++;
+    }
+
+    out_test_end(result, m_name);
+
+    return result;
 }
 
 T100BOOL T100Test::do_init()
@@ -127,140 +174,14 @@ T100BOOL T100Test::uninit()
     return T100FALSE;
 }
 
-T100BOOL T100Test::test_all()
-{
-    T100BOOL    result      = T100TRUE;
-
-    if(!m_parent){
-        //m_units     = 0;
-        m_index     = 1;
-        m_success   = 0;
-        m_failure   = 0;
-    }
-
-    int size;
-
-    size = m_tests.size();
-
-    for(int i=0;i<size;i++){
-        T100Test* item = m_tests.at(i);
-        if(this == item){
-
-        }else{
-            if(item->test_all()){
-
-            }else{
-                result = T100FALSE;
-            }
-        }
-    }
-
-    test_begin_out(m_name);
-
-    m_index++;
-
-    if(do_test()){
-
-    }else{
-        result = T100FALSE;
-    }
-
-    size = m_calls.size();
-    for(int i=0;i<size;i++){
-        T100TEST_CALL call = m_calls.at(i);
-        if(call(this)){
-
-        }else{
-            result = T100FALSE;
-        }
-    }
-
-    if(result){
-        m_success++;
-    }else{
-        m_failure++;
-    }
-    test_end_out(m_name, result);
-
-
-    return result;
-}
-
-T100VOID T100Test::list()
-{
-    int     size;
-    /*
-    out("Test: ");
-    out(m_name);
-    out("\n");
-    */
-
-    if(!m_parent){
-        //m_units     = 0;
-        m_elements  = 0;
-        list_begin_out();
-    }
-
-    //m_units++;
-    list_out(m_name);
-
-    /*
-    T100TEST_CALL_HASH::iterator it;
-
-    for(it=m_call_hash.begin();it!=m_call_hash.end();++it){
-        /*
-        out("\tElement: ");
-        out(it->first);
-        out("\n");
-        */
-        /*
-        T100STDSTRING   result;
-        result = it->first;
-        m_elements++;
-        list_element_out(result);
-    }
-
-    for(T100Test* item : m_test_vector){
-        if(this == item){
-
-        }else{
-            item->list();
-        }
-    }
-    */
-
-    size = m_calls.size();
-
-    for(int i=0;i<size;i++){
-        //T100Test* item = m_calls.at(i);
-    }
-
-    size = m_tests.size();
-
-    for(int i=0;i<size;i++){
-        T100Test* item = m_tests.at(i);
-        if(item){
-            if(this == item){
-
-            }else{
-                item->list();
-            }
-        }else{
-
-        }
-    }
-
-    if(!m_parent)list_end_out();
-}
-
 T100BOOL T100Test::do_test()
 {
     return T100TRUE;
 }
 
-T100VOID T100Test::show_result(T100BOOL result, T100STDSTRING& msg)
+T100VOID T100Test::show_result(T100BOOL result, T100WSTRING& msg)
 {
-    std::stringstream   ss;
+    std::wstringstream      ss;
 
     if(result){
         ss << "[SUCCESS]" << " " << msg;
@@ -271,18 +192,18 @@ T100VOID T100Test::show_result(T100BOOL result, T100STDSTRING& msg)
     out(ss.str());
 }
 
-T100VOID T100Test::test_begin_out(T100STDSTRING& name)
+T100VOID T100Test::out_test_begin(T100WSTRING& name)
 {
-    std::stringstream   result;
+    std::wstringstream   result;
 
     result << "Unit [ " << m_index << "/" << m_units << " ] : [ " << name << " ] test is beginning ... ";
 
     out(result.str());
 }
 
-T100VOID T100Test::test_end_out(T100STDSTRING& name, T100BOOL result)
+T100VOID T100Test::out_test_end(T100BOOL result, T100WSTRING& name)
 {
-    std::stringstream   ss;
+    std::wstringstream   ss;
 
     if(result){
         ss << "[SUCCESS] ";
@@ -310,6 +231,7 @@ T100VOID T100Test::test_end_out(T100STDSTRING& name, T100BOOL result)
     out(ss.str());
 }
 
+/*
 T100VOID T100Test::list_out(T100STDSTRING& name)
 {
     std::stringstream   result;
@@ -327,22 +249,26 @@ T100VOID T100Test::list_element_out(T100STDSTRING& name)
 
     out(result.str());
 }
+*/
 
-T100VOID T100Test::list_begin_out()
+T100VOID T100Test::out_list_begin()
 {
-    out("All test units: ");
+    //out("All test units: ");
 }
 
-T100VOID T100Test::list_end_out()
+T100VOID T100Test::out_list_end()
 {
-    std::stringstream   result;
+    std::wstringstream   result;
 
     result << "Total test " << m_units << " " << "units . ";
 
     out(result.str());
 }
 
-T100VOID T100Test::out(T100STDSTRING msg)
+
+T100VOID T100Test::out(T100WSTRING msg)
 {
     m_console->outline(msg);
 }
+
+

@@ -11,7 +11,8 @@ class T100Callback
         virtual ~T100Callback();
 
         T100BOOL                    add(T100CALLBACK_HANDLE, void*);
-        T100BOOL                    remove(T100CALLBACK_HANDLE);
+        T100BOOL                    erase(T100CALLBACK_HANDLE);
+
         T100BOOL                    clear();
 
         virtual T100BOOL            run(void*);

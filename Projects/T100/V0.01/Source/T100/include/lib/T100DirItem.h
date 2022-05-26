@@ -1,21 +1,21 @@
 #ifndef T100DIRITEM_H
 #define T100DIRITEM_H
 
-#include "T100Common.h"
+#include "T100FileCommon.h"
 
 
 class T100DirItem
 {
     public:
-        T100DirItem(T100STDSTRING);
+        T100DirItem(T100WSTRING);
         virtual ~T100DirItem();
 
-        T100BOOL                exists();
+        T100BOOL            exists();
 
-        T100STDSTRING           getName();
+        T100WSTRING         getName();
 
     protected:
-        T100STDSTRING           m_name;
+        T100WSTRING         m_name;
 
     private:
 };

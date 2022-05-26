@@ -15,6 +15,7 @@ T100BOOL T100String32::empty()
     if(2 >= m_string.size()){
         return T100TRUE;
     }
+
     return T100FALSE;
 }
 
@@ -32,19 +33,4 @@ T100VOID T100String32::clear()
     m_string.resize(2);
     m_string[0] = 0;
     m_string[1] = 0;
-}
-
-T100BOOL T100String32::copy(T100String32& str)
-{
-    T100WORD*   data;
-    T100WORD    length;
-
-    if(str.empty()){
-        clear();
-    }else{
-        length = str.length();
-        m_string.resize(length + 2);
-
-    }
-    return T100TRUE;
 }

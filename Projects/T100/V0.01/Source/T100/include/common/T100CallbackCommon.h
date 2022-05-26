@@ -11,7 +11,7 @@ typedef struct{
     T100CALLBACK_HANDLE     HANDLE;
 }T100CALLBACK_ITEM;
 
-#define     T100CALLBACK_VECTOR         std::vector<T100CALLBACK_ITEM*>
+#define     T100CALLBACK_VECTOR             std::vector<T100CALLBACK_ITEM*>
 
 
 #endif // T100CALLBACKCOMMON_H

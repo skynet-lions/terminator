@@ -1,6 +1,8 @@
 #ifndef T100SETUP_H
 #define T100SETUP_H
 
+#include "T100Common.h"
+
 
 class T100Setup
 {

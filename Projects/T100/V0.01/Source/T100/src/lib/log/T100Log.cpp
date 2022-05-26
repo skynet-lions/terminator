@@ -1,23 +1,32 @@
 #include "T100Log.h"
 
-#include "T100LogAppender.h"
+#include "T100LogAppenderBase.h"
 
 std::atomic_bool            T100Log::m_running;
-T100LOG_TYPE                T100Log::m_type         = T100LOG_TYPE_INFO;
+T100LOG_TYPE                T100Log::m_type             = T100LOG_TYPE_INFO;
 T100LOG_APPENDER_VECTOR     T100Log::m_appenders;
-T100LOG_QUEUE               T100Log::m_queue;
-T100LOG_CALLBACK_VECTOR     T100Log::m_callbacks;
 
 
 T100Log::T100Log()
 {
     //ctor
-    m_running   = T100FALSE;
+    create();
 }
 
 T100Log::~T100Log()
 {
     //dtor
+    destroy();
+}
+
+T100VOID T100Log::create()
+{
+    m_running = T100FALSE;
+}
+
+T100VOID T100Log::destroy()
+{
+
 }
 
 T100BOOL T100Log::start()
@@ -38,7 +47,7 @@ T100BOOL T100Log::stop()
     return T100FALSE;
 }
 
-T100BOOL T100Log::add(T100LogAppender* app)
+T100BOOL T100Log::add(T100LogAppenderBase* app)
 {
     T100LOG_APPENDER_VECTOR::iterator it;
 
@@ -53,7 +62,7 @@ T100BOOL T100Log::add(T100LogAppender* app)
     return T100TRUE;
 }
 
-T100BOOL T100Log::remove(T100LogAppender* app)
+T100BOOL T100Log::erase(T100LogAppenderBase* app)
 {
     T100LOG_APPENDER_VECTOR::iterator it;
 
@@ -67,34 +76,34 @@ T100BOOL T100Log::remove(T100LogAppender* app)
     return T100FALSE;
 }
 
-T100VOID T100Log::fatal(T100STDSTRING msg)
+T100VOID T100Log::fatal(T100WSTRING msg)
 {
-    out(T100LOG_TYPE_FATAL, msg);
+    outline(T100LOG_TYPE_FATAL, msg);
 }
 
-T100VOID T100Log::error(T100STDSTRING msg)
+T100VOID T100Log::error(T100WSTRING msg)
 {
-    out(T100LOG_TYPE_ERROR, msg);
+    outline(T100LOG_TYPE_ERROR, msg);
 }
 
-T100VOID T100Log::warn(T100STDSTRING msg)
+T100VOID T100Log::warn(T100WSTRING msg)
 {
-    out(T100LOG_TYPE_WARN, msg);
+    outline(T100LOG_TYPE_WARN, msg);
 }
 
-T100VOID T100Log::debug(T100STDSTRING msg)
+T100VOID T100Log::debug(T100WSTRING msg)
 {
-    out(T100LOG_TYPE_DEBUG, msg);
+    outline(T100LOG_TYPE_DEBUG, msg);
 }
 
-T100VOID T100Log::trace(T100STDSTRING msg)
+T100VOID T100Log::trace(T100WSTRING msg)
 {
-    out(T100LOG_TYPE_TRACE, msg);
+    outline(T100LOG_TYPE_TRACE, msg);
 }
 
-T100VOID T100Log::info(T100STDSTRING msg)
+T100VOID T100Log::info(T100WSTRING msg)
 {
-    out(T100LOG_TYPE_INFO, msg);
+    outline(T100LOG_TYPE_INFO, msg);
 }
 
 T100BOOL T100Log::running()
@@ -102,31 +111,7 @@ T100BOOL T100Log::running()
     return m_running;
 }
 
-T100VOID T100Log::out(T100STDSTRING& msg)
-{
-    //if(!m_running)return;
-    //if(type > m_type)return;
-
-    T100LOG_APPENDER_VECTOR::iterator it;
-
-    for(it = m_appenders.begin();it != m_appenders.end();it++){
-        T100LogAppender* app = *it;
-
-        if(T100NULL == app){
-
-        }else{
-            app->out(m_type, msg);
-        }
-    }
-
-}
-
-T100VOID T100Log::out(T100WSTRING& msg)
-{
-
-}
-
-T100VOID T100Log::out(T100LOG_TYPE log, T100STDSTRING msg)
+T100VOID T100Log::outline(T100LOG_TYPE log, T100WSTRING msg)
 {
     if(!m_running)return;
     if(log > m_type)return;
@@ -134,13 +119,12 @@ T100VOID T100Log::out(T100LOG_TYPE log, T100STDSTRING msg)
     T100LOG_APPENDER_VECTOR::iterator it;
 
     for(it = m_appenders.begin();it != m_appenders.end();++it){
-        T100LogAppender* app = *it;
+        T100LogAppenderBase* app = *it;
 
         if(T100NULL == app){
 
         }else{
-            app->out(m_type, msg);
+            app->outline(m_type, msg);
         }
     }
-
 }

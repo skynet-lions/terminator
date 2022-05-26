@@ -1,10 +1,8 @@
 #ifndef T100LOGCOMMON_H
 #define T100LOGCOMMON_H
 
-#include <vector>
-#include <queue>
 #include "T100Common.h"
-class T100LogAppender;
+class T100LogAppenderBase;
 
 typedef enum{
     T100LOG_TYPE_NONE       = 0,
@@ -20,9 +18,10 @@ typedef enum{
 
 #define     T100LOG_QUEUE                   std::queue<T100STDSTRING>
 
-#define     T100LOG_APPENDER_VECTOR         std::vector<T100LogAppender*>
+#define     T100LOG_APPENDER_VECTOR         std::vector<T100LogAppenderBase*>
 
 typedef     void(*T100LOG_CALLBACK)(void*);
+
 #define     T100LOG_CALLBACK_VECTOR         std::vector<T100LOG_CALLBACK>
 
 

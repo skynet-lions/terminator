@@ -2,8 +2,7 @@
 
 #include <io.h>
 
-
-T100DirItem::T100DirItem(T100STDSTRING name)
+T100DirItem::T100DirItem(T100WSTRING name)
     :m_name(name)
 {
     //ctor
@@ -18,7 +17,7 @@ T100BOOL T100DirItem::exists()
 {
     T100INTEGER     result;
 
-    result = ::_access(m_name.c_str(), F_OK);
+    result = ::_waccess(m_name.c_str(), F_OK);
 
     if(-1 == result){
 
@@ -29,7 +28,7 @@ T100BOOL T100DirItem::exists()
     return T100FALSE;
 }
 
-T100STDSTRING T100DirItem::getName()
+T100WSTRING T100DirItem::getName()
 {
     return m_name;
 }

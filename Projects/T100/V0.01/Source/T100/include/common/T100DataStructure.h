@@ -1,7 +1,6 @@
 #ifndef T100DATASTRUCTURE_H
 #define T100DATASTRUCTURE_H
 
-
 #include <array>
 #include <vector>
 #include <list>
