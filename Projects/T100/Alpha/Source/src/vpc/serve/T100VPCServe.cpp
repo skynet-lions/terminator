@@ -5,7 +5,7 @@
 #include "T100Keyboard.h"
 #include "T100Mouse.h"
 #include "T100VPCSetup.h"
-#include "T100VPCCallbackNew.h"
+#include "T100VPCCallback.h"
 #include "T100VPCView.h"
 
 #include "T100QU32Setup.h"

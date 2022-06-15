@@ -9,7 +9,7 @@
 #include "T100VPCApp.h"
 #include "T100VPCView.h"
 #include "T100VPCSetupDialog.h"
-#include "T100VPCCallbackNew.h"
+#include "T100VPCCallback.h"
 
 
 //(*IdInit(T100VPCFrame)

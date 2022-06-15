@@ -3,7 +3,7 @@
 #include <wx/app.h>
 #include "T100App.h"
 #include "T100VPCSetup.h"
-#include "T100VPCCallbackNew.h"
+#include "T100VPCCallback.h"
 
 
 T100VPCApp::T100VPCApp()

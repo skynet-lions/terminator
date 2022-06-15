@@ -5,7 +5,7 @@
 #include <wx/string.h>
 //*)
 
-#include "T100VPCCallbackNew.h"
+#include "T100VPCCallback.h"
 #include "T100VPCServe.h"
 #include "T100VPCView.h"
 
