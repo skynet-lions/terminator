@@ -68,6 +68,7 @@
 					<Add directory="include/os" />
 					<Add directory="../T100" />
 					<Add directory="include/thread" />
+					<Add directory="." />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
