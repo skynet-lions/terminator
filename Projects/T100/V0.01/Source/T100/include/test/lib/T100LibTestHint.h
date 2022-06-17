@@ -27,6 +27,9 @@ static T100WSTRING          T100TEST_HINT_LIB_STRING_WSTRING_TEST_STOP          
 static T100WSTRING          T100TEST_HINT_LIB_STRING_CUSTOM_TEST_START              = L"String custom test is starting ... ";
 static T100WSTRING          T100TEST_HINT_LIB_STRING_CUSTOM_TEST_STOP               = L"String custom test is stopped . ";
 
+static T100WSTRING          T100TEST_HINT_LIB_STRING_STRING_TEST_START              = L"String string test is starting ... ";
+static T100WSTRING          T100TEST_HINT_LIB_STRING_STRING_TEST_STOP               = L"String string test is stopped . ";
+
 static T100WSTRING          T100TEST_HINT_LIB_STRING_TOOLS_TEST_START               = L"String tools test is starting ... ";
 static T100WSTRING          T100TEST_HINT_LIB_STRING_TOOLS_TEST_STOP                = L"String tools test is stopped . ";
 

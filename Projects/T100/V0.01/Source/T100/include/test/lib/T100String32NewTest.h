@@ -15,6 +15,8 @@ class T100String32NewTest : public T100Test
 
         T100BOOL                test_string32();
 
+        T100BOOL                test_string();
+
     private:
         static T100WSTRING      m_name;
 

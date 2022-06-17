@@ -1,6 +1,7 @@
 #include "T100String32NewTest.h"
 
 #include "T100Log.h"
+#include "T100StringNew.h"
 #include "T100String32New.h"
 #include "T100LibTestHint.h"
 
@@ -27,6 +28,13 @@ T100BOOL T100String32NewTest::do_test()
     value = test_string32();
     if(!value){
         result = T100FALSE;
+    }
+
+    if(result){
+        value = test_string();
+        if(!value){
+            result = T100FALSE;
+        }
     }
 
     return result;
@@ -114,5 +122,90 @@ T100BOOL T100String32NewTest::test_string32()
     }
 
     show_result(result, T100TEST_HINT_LIB_STRING_CUSTOM_TEST_STOP);
+    return result;
+}
+
+T100BOOL T100String32NewTest::test_string()
+{
+
+    T100BOOL    result      = T100TRUE;
+    T100BOOL    value;
+
+    T100Log::info(T100TEST_HINT_LIB_STRING_STRING_TEST_START);
+
+    T100StringNew       source;
+    T100StringNew       target;
+
+    if(result){
+        if(!source.empty())result = T100FALSE;
+        if(!target.empty())result = T100FALSE;
+
+        if(0 != source.length())result = T100FALSE;
+        if(0 != target.length())result = T100FALSE;
+    }
+    if(result){
+        source  = L"1";
+        target  = L"1";
+        if(source.empty())result = T100FALSE;
+        if(target.empty())result = T100FALSE;
+
+        if(1 != source.length())result = T100FALSE;
+        if(1 != target.length())result = T100FALSE;
+    }
+    if(result){
+        if(target != source)result = T100FALSE;
+    }
+    if(result){
+        source  = L"2";
+        target  = L"3";
+        if(source.empty())result = T100FALSE;
+        if(target.empty())result = T100FALSE;
+
+        if(1 != source.length())result = T100FALSE;
+        if(1 != target.length())result = T100FALSE;
+    }
+    if(result){
+        if(L"2" != source)result = T100FALSE;
+        if(L"3" != target)result = T100FALSE;
+
+        if(source != L"2")result = T100FALSE;
+        if(target != L"3")result = T100FALSE;
+    }
+
+    if(result){
+        if(source == target)result = T100FALSE;
+    }
+
+    if(result){
+        target = source;
+        if(L"2" != target)result = T100FALSE;
+    }
+
+    if(result){
+        source.clear();
+        target.clear();
+
+        if(!source.empty())result = T100FALSE;
+        if(!target.empty())result = T100FALSE;
+
+        if(0 != source.length())result = T100FALSE;
+        if(0 != target.length())result = T100FALSE;
+
+        if(source != target)result = T100FALSE;
+    }
+
+    if(result){
+        source  = L"hello world!";
+        target  = L"hello world!";
+        if(source.empty())result = T100FALSE;
+        if(target.empty())result = T100FALSE;
+
+        if(12 != source.length())result = T100FALSE;
+        if(12 != target.length())result = T100FALSE;
+
+        if(source != target)result = T100FALSE;
+    }
+
+    show_result(result, T100TEST_HINT_LIB_STRING_STRING_TEST_STOP);
     return result;
 }
