@@ -35,9 +35,6 @@
 #define     T100STRING32                    T100STDSTRING32
 #define     T100WSTRING                     T100STDWSTRING
 
-#define     T100CHAR                        T100CHAR32
-#define     T100STRING                      T100String32
-
 ///
 
 

@@ -11,7 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
-				<Option parameters="-I" />
+				<Option parameters="-T" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
 					<Add option="-std=c++17" />
@@ -276,6 +276,7 @@
 		<Unit filename="include/lib/state/T100Token.h" />
 		<Unit filename="include/lib/string/T100String.h" />
 		<Unit filename="include/lib/string/T100String32.h" />
+		<Unit filename="include/lib/string/T100String32New.h" />
 		<Unit filename="include/lib/string/T100StringEqual.h" />
 		<Unit filename="include/lib/string/T100StringHash.h" />
 		<Unit filename="include/lib/string/T100StringTools.h" />
@@ -289,10 +290,10 @@
 		<Unit filename="include/link/IToken.h" />
 		<Unit filename="include/math/matrix/QMatrix.h" />
 		<Unit filename="include/math/vector/QVector.h" />
-		<Unit filename="include/qu32/T100QU32.h" />
 		<Unit filename="include/test/T100AppTest.h" />
 		<Unit filename="include/test/lib/T100LibTest.h" />
 		<Unit filename="include/test/lib/T100LibTestHint.h" />
+		<Unit filename="include/test/lib/T100String32NewTest.h" />
 		<Unit filename="include/test/lib/T100StringTest.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
@@ -352,6 +353,7 @@
 		<Unit filename="src/lib/state/T100Token.cpp" />
 		<Unit filename="src/lib/string/T100String.cpp" />
 		<Unit filename="src/lib/string/T100String32.cpp" />
+		<Unit filename="src/lib/string/T100String32New.cpp" />
 		<Unit filename="src/lib/string/T100StringEqual.cpp" />
 		<Unit filename="src/lib/string/T100StringHash.cpp" />
 		<Unit filename="src/lib/string/T100StringTools.cpp" />
@@ -367,6 +369,7 @@
 		<Unit filename="src/test/T100AppTest.cpp" />
 		<Unit filename="src/test/lib/T100LibTest.cpp" />
 		<Unit filename="src/test/lib/T100LibTestHint.cpp" />
+		<Unit filename="src/test/lib/T100String32NewTest.cpp" />
 		<Unit filename="src/test/lib/T100StringTest.cpp" />
 		<Unit filename="third/sqlite3/sqlite3.c">
 			<Option compilerVar="CC" />
