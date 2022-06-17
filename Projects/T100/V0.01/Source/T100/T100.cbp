@@ -279,6 +279,7 @@
 		<Unit filename="include/lib/string/T100String32New.h" />
 		<Unit filename="include/lib/string/T100StringEqual.h" />
 		<Unit filename="include/lib/string/T100StringHash.h" />
+		<Unit filename="include/lib/string/T100StringNew.h" />
 		<Unit filename="include/lib/string/T100StringTools.h" />
 		<Unit filename="include/lib/test/T100Test.h" />
 		<Unit filename="include/lib/thread/T100Thread.h" />
@@ -356,6 +357,7 @@
 		<Unit filename="src/lib/string/T100String32New.cpp" />
 		<Unit filename="src/lib/string/T100StringEqual.cpp" />
 		<Unit filename="src/lib/string/T100StringHash.cpp" />
+		<Unit filename="src/lib/string/T100StringNew.cpp" />
 		<Unit filename="src/lib/string/T100StringTools.cpp" />
 		<Unit filename="src/lib/test/T100Test.cpp" />
 		<Unit filename="src/lib/thread/T100Thread.cpp" />
