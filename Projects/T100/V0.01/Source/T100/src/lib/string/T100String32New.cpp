@@ -92,6 +92,53 @@ T100BOOL T100String32New::operator!=(const T100String32New& str)
     return !(*this == str);
 }
 
+T100String32New T100String32New::operator+=(const T100CHAR32 ch)
+{
+    T100WORD    size;
+    T100WORD    length;
+
+    size = m_string32.size();
+
+    if(2 <= size){
+        length  = size - 1;
+        size++;
+        m_string32.resize(size);
+        m_string32[length]      = ch;
+        m_string32[length+1]    = 0;
+    }else{
+        length  = 1;
+        size    = 3;
+        m_string32.resize(size);
+        m_string32[1]   = ch;
+        m_string32[2]   = 0;
+    }
+
+    m_string32[0] = length;
+
+    return *this;
+}
+
+T100String32New T100String32New::operator+(const T100CHAR32 ch)
+{
+    T100String32New     result;
+
+    result.m_string32 = this->m_string32;
+
+    result += ch;
+
+    return result;
+}
+
+T100String32New T100String32New::operator+=(const T100String32New& str)
+{
+
+}
+
+T100String32New T100String32New::operator+(const T100String32New& str)
+{
+
+}
+
 T100BOOL operator==(const T100CHAR32* source, const T100String32New& target)
 {
     T100String32New     result((T100CHAR32*)source);
@@ -104,4 +151,9 @@ T100BOOL operator!=(const T100CHAR32* source, const T100String32New& target)
     T100String32New     result((T100CHAR32*)source);
 
     return result != target;
+}
+
+T100String32New operator+(const T100CHAR32* source, const T100String32New& target)
+{
+
 }

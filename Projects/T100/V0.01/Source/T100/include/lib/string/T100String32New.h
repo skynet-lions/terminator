@@ -10,6 +10,8 @@ class T100String32New;
 T100BOOL    operator == (const T100CHAR32*, const T100String32New&);
 T100BOOL    operator != (const T100CHAR32*, const T100String32New&);
 
+T100String32New     operator +  (const T100CHAR32*, const T100String32New&);
+
 
 class T100String32New
 {
@@ -32,6 +34,12 @@ class T100String32New
     public:
         T100BOOL    operator == (const T100String32New&);
         T100BOOL    operator != (const T100String32New&);
+
+        T100String32New     operator += (const T100CHAR32);
+        T100String32New     operator +  (const T100CHAR32);
+
+        T100String32New     operator += (const T100String32New&);
+        T100String32New     operator +  (const T100String32New&);
 
     protected:
 

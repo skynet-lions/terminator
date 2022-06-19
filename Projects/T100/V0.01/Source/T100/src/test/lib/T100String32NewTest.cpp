@@ -121,6 +121,45 @@ T100BOOL T100String32NewTest::test_string32()
         if(source != target)result = T100FALSE;
     }
 
+    if(result){
+        source.clear();
+        target.clear();
+
+        if(!source.empty())result = T100FALSE;
+        if(!target.empty())result = T100FALSE;
+
+        if(0 != source.length())result = T100FALSE;
+        if(0 != target.length())result = T100FALSE;
+
+        if(source != target)result = T100FALSE;
+
+        source  = U"hello";
+        target  = U"hello";
+        if(source.empty())result = T100FALSE;
+        if(target.empty())result = T100FALSE;
+
+        if(12 != source.length())result = T100FALSE;
+        if(12 != target.length())result = T100FALSE;
+
+        if(source != target)result = T100FALSE;
+
+        source += U' ';
+        source += U'w';
+        source += U'o';
+        source += U'r';
+        source += U'l';
+        source += U'd';
+        source += U'!';
+
+        target += U' ';
+        target += U"world!";
+
+        if(12 != source.length())result = T100FALSE;
+        if(12 != target.length())result = T100FALSE;
+
+        if(source != target)result = T100FALSE;
+    }
+
     show_result(result, T100TEST_HINT_LIB_STRING_CUSTOM_TEST_STOP);
     return result;
 }
