@@ -276,10 +276,8 @@
 		<Unit filename="include/lib/state/T100Token.h" />
 		<Unit filename="include/lib/string/T100String.h" />
 		<Unit filename="include/lib/string/T100String32.h" />
-		<Unit filename="include/lib/string/T100String32New.h" />
 		<Unit filename="include/lib/string/T100StringEqual.h" />
 		<Unit filename="include/lib/string/T100StringHash.h" />
-		<Unit filename="include/lib/string/T100StringNew.h" />
 		<Unit filename="include/lib/string/T100StringTools.h" />
 		<Unit filename="include/lib/test/T100Test.h" />
 		<Unit filename="include/lib/thread/T100Thread.h" />
@@ -294,7 +292,6 @@
 		<Unit filename="include/test/T100AppTest.h" />
 		<Unit filename="include/test/lib/T100LibTest.h" />
 		<Unit filename="include/test/lib/T100LibTestHint.h" />
-		<Unit filename="include/test/lib/T100String32NewTest.h" />
 		<Unit filename="include/test/lib/T100StringTest.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
@@ -354,10 +351,8 @@
 		<Unit filename="src/lib/state/T100Token.cpp" />
 		<Unit filename="src/lib/string/T100String.cpp" />
 		<Unit filename="src/lib/string/T100String32.cpp" />
-		<Unit filename="src/lib/string/T100String32New.cpp" />
 		<Unit filename="src/lib/string/T100StringEqual.cpp" />
 		<Unit filename="src/lib/string/T100StringHash.cpp" />
-		<Unit filename="src/lib/string/T100StringNew.cpp" />
 		<Unit filename="src/lib/string/T100StringTools.cpp" />
 		<Unit filename="src/lib/test/T100Test.cpp" />
 		<Unit filename="src/lib/thread/T100Thread.cpp" />
@@ -371,7 +366,6 @@
 		<Unit filename="src/test/T100AppTest.cpp" />
 		<Unit filename="src/test/lib/T100LibTest.cpp" />
 		<Unit filename="src/test/lib/T100LibTestHint.cpp" />
-		<Unit filename="src/test/lib/T100String32NewTest.cpp" />
 		<Unit filename="src/test/lib/T100StringTest.cpp" />
 		<Unit filename="third/sqlite3/sqlite3.c">
 			<Option compilerVar="CC" />

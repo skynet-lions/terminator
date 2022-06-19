@@ -15,6 +15,8 @@ class T100StringTest : public T100Test
 
         T100BOOL                test_string();
 
+        T100BOOL                test_operate();
+
     private:
         static T100WSTRING      m_name;
 

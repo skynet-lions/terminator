@@ -7,6 +7,8 @@
 T100BOOL        operator == (const T100WCHAR*, const T100String&);
 T100BOOL        operator != (const T100WCHAR*, const T100String&);
 
+T100String      operator +  (const T100WCHAR*, const T100String&);
+
 
 class T100String
 {
@@ -27,8 +29,15 @@ class T100String
         T100WSTRING                 to_wstring();
         T100String32                to_string();
 
-        T100BOOL                    operator == (const T100String&);
-        T100BOOL                    operator != (const T100String&);
+    public:
+        T100BOOL        operator == (const T100String&);
+        T100BOOL        operator != (const T100String&);
+
+        T100String      operator += (const T100WCHAR);
+        T100String      operator +  (const T100WCHAR);
+
+        T100String      operator += (const T100String&);
+        T100String      operator +  (const T100String&);
 
     protected:
         T100WSTRING                 m_wstring;

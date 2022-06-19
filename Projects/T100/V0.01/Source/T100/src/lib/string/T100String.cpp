@@ -11,17 +11,35 @@ T100String::T100String()
 
 T100String::T100String(T100WCHAR* chars)
 {
+    T100STRING32    result;
+
     m_wstring   = chars;
+
+    result      = T100Unicode::to_string32(m_wstring);
+
+    m_string32  = T100String32(result.data());
 }
 
 T100String::T100String(T100WSTRING str)
 {
+    T100STRING32    result;
+
     m_wstring   = str;
+
+    result      = T100Unicode::to_string32(m_wstring);
+
+    m_string32  = T100String32(result.data());
 }
 
 T100String::T100String(T100String32 str)
 {
+    T100STRING32    result;
+
     m_string32  = str;
+
+    result      = m_string32.data();
+
+    m_wstring   = T100Unicode::to_wstring(result);
 }
 
 T100String::~T100String()
@@ -74,6 +92,41 @@ T100BOOL T100String::operator!=(const T100String& str)
     return m_wstring != str.m_wstring;
 }
 
+T100String T100String::operator+=(const T100WCHAR ch)
+{
+    m_wstring   += ch;
+    m_string32  += ch;
+}
+
+T100String T100String::operator+(const T100WCHAR ch)
+{
+    T100String      result;
+
+    result = *this;
+    result += ch;
+
+    return result;
+}
+
+T100String T100String::operator+=(const T100String& str)
+{
+    m_wstring   += str.m_wstring;
+    m_string32  += str.m_string32;
+
+    return *this;
+}
+
+T100String T100String::operator+(const T100String& str)
+{
+    T100String      result;
+
+    result = *this;
+
+    result += str;
+
+    return result;
+}
+
 T100BOOL operator == (const T100WCHAR* str1, const T100String& str2)
 {
     T100String  result(str1);
@@ -86,4 +139,13 @@ T100BOOL operator != (const T100WCHAR* str1, const T100String& str2)
     T100String  result(str1);
 
     return result != str2;
+}
+
+T100String operator + (const T100WCHAR* source, const T100String& target)
+{
+    T100String  result(source);
+
+    result += target;
+
+    return result;
 }
