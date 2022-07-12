@@ -17,6 +17,8 @@
 					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add directory="include/lib/service" />
+					<Add directory="include/lib/library" />
+					<Add directory="include/lib" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -30,14 +32,22 @@
 					<Add option="-Wall" />
 					<Add option="-O2" />
 					<Add directory="include/lib/service" />
+					<Add directory="include/lib/library" />
+					<Add directory="include/lib" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 				</Linker>
 			</Target>
 		</Build>
+		<Unit filename="include/lib/T100Notify.h" />
+		<Unit filename="include/lib/T100Unicode.h" />
+		<Unit filename="include/lib/library/T100Library.h" />
 		<Unit filename="include/lib/service/T100Service.h" />
 		<Unit filename="include/lib/service/T100ServiceTank.h" />
+		<Unit filename="src/lib/T100Notify.cpp" />
+		<Unit filename="src/lib/T100Unicode.cpp" />
+		<Unit filename="src/lib/library/T100Library.cpp" />
 		<Unit filename="src/lib/service/T100Service.cpp" />
 		<Unit filename="src/lib/service/T100ServiceTank.cpp" />
 		<Extensions>
