@@ -21,6 +21,12 @@ bool T100Library::open(std::wstring& name, void*& handle)
 
     file = T100Unicode::to_string(name);
 
+    mode = RTLD_LAZY;
+
+    //test
+    //file = "..\\T100Log\\bin\\Debug\\libT100Log.dll";
+    file = "libT100Log.dll";
+
     handle = dlopen(file.c_str(), mode);
 }
 
