@@ -23,11 +23,13 @@ void test()
 
     handle  = dlopen(file.c_str(), mode);
 
-    obj = dlsym(handle, "test");
+    obj = dlsym(handle, "log");
 
-    void(*temp)() = reinterpret_cast<void(*)()>(obj);
+    void(*temp)(std::string) = reinterpret_cast<void(*)(std::string)>(obj);
 
-    temp();
+    temp(file);
+
+    dlclose(handle);
 }
 
 int main()
@@ -57,6 +59,8 @@ int main()
 
 
     test();
+
+    //return 0;
 
 
     //

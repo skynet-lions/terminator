@@ -18,8 +18,8 @@
 					<Add directory="../T100Lib/include/lib/library" />
 				</Compiler>
 				<Linker>
-					<Add library="../T100Lib/bin/Debug/libT100Lib.a" />
 					<Add library="dl" />
+					<Add library="../T100Lib/bin/Release/libT100Lib.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">

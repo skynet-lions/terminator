@@ -27,7 +27,8 @@ bool T100Library::open(std::wstring& name, void*& handle)
     //file = "..\\T100Log\\bin\\Debug\\libT100Log.dll";
     file = "libT100Log.dll";
 
-    handle = dlopen(file.c_str(), mode);
+    //handle =
+    dlopen(file.c_str(), mode);
 }
 
 bool T100Library::find(void* handle, std::wstring& name)
@@ -42,4 +43,14 @@ bool T100Library::find(void* handle, std::wstring& name)
 bool T100Library::close(void* handle)
 {
     dlclose(handle);
+}
+
+bool T100Library::open(std::string name)
+{
+    int         mode;
+    void*       handle;
+
+    mode = RTLD_LAZY;
+
+    handle = dlopen(name.c_str(), mode);
 }

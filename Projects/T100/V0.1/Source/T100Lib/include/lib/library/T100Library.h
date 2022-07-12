@@ -15,6 +15,9 @@ class T100Library
         bool        find(void*, std::wstring&);
         bool        close(void*);
 
+
+        bool        open(std::string);
+
     protected:
 
     private:
