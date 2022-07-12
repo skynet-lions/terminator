@@ -16,6 +16,7 @@
 				<Compiler>
 					<Add option="-Wall" />
 					<Add option="-g" />
+					<Add directory="include/lib/service" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -28,12 +29,15 @@
 				<Compiler>
 					<Add option="-Wall" />
 					<Add option="-O2" />
+					<Add directory="include/lib/service" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 				</Linker>
 			</Target>
 		</Build>
+		<Unit filename="include/lib/service/T100Service.h" />
+		<Unit filename="src/lib/service/T100Service.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
