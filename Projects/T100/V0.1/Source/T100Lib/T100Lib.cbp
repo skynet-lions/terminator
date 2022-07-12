@@ -37,7 +37,9 @@
 			</Target>
 		</Build>
 		<Unit filename="include/lib/service/T100Service.h" />
+		<Unit filename="include/lib/service/T100ServiceTank.h" />
 		<Unit filename="src/lib/service/T100Service.cpp" />
+		<Unit filename="src/lib/service/T100ServiceTank.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
