@@ -33,3 +33,12 @@
 /Projects/T100/V0.1/Source/T100Demo/T100Demo.layout
 /Projects/T100/V0.1/Source/T100Lib/obj/Debug/src/lib/*.o
 /Projects/T100/V0.1/Source/T100Lib/obj/Debug/src/lib/library/*.o
+/Projects/T100/V0.1/Source/T100Log/T100Log.depend
+/Projects/T100/V0.1/Source/T100Log/T100Log.layout
+/Projects/T100/V0.1/Source/T100Log/bin/Debug/libT100Log.a
+/Projects/T100/V0.1/Source/T100Log/bin/Debug/libT100Log.def
+/Projects/T100/V0.1/Source/T100Log/bin/Debug/libT100Log.dll
+/Projects/T100/V0.1/Source/T100Log/obj/Debug/*.o
+/Projects/T100/V0.1/Source/T100Log/obj/Debug/src/*.o
+/Projects/T100/V0.1/Source/T100Lib/obj/Debug/*.o
+/Projects/T100/V0.1/Source/T100Lib/obj/Release/src/lib/*.o

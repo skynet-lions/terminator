@@ -8,72 +8,48 @@
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/T100Lib" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="bin/Debug" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-Wall" />
 					<Add option="-g" />
-					<Add directory="include/lib/service" />
-					<Add directory="include/lib/library" />
-					<Add directory="include/lib" />
+					<Add directory="include" />
+					<Add directory="include/service" />
+					<Add directory="include/library" />
 				</Compiler>
-				<Linker>
-					<Add library="dl" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/T100Lib" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="" />
 				<Option object_output="obj/Release/" />
-				<Option type="2" />
-				<Option compiler="gcc" />
-				<Option createDefFile="1" />
-				<Compiler>
-					<Add option="-O2" />
-					<Add option="-Wall" />
-					<Add directory="include/lib/service" />
-					<Add directory="include/lib/library" />
-					<Add directory="include/lib" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-					<Add library="dl" />
-				</Linker>
-			</Target>
-			<Target title="Test">
-				<Option output="bin/Debug/T100Lib" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="bin/Debug" />
-				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-Wall" />
-					<Add option="-g" />
-					<Add directory="include/lib/service" />
-					<Add directory="include/lib/library" />
-					<Add directory="include/lib" />
+					<Add option="-O2" />
+					<Add directory="include" />
+					<Add directory="include/service" />
+					<Add directory="include/library" />
 				</Compiler>
 				<Linker>
-					<Add library="dl" />
+					<Add option="-s" />
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="include/lib/T100Notify.h" />
-		<Unit filename="include/lib/T100Unicode.h" />
-		<Unit filename="include/lib/library/T100Library.h" />
-		<Unit filename="include/lib/service/T100Service.h" />
-		<Unit filename="include/lib/service/T100ServiceTank.h" />
-		<Unit filename="main.cpp">
-			<Option target="Test" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/lib/T100Notify.cpp" />
-		<Unit filename="src/lib/T100Unicode.cpp" />
-		<Unit filename="src/lib/library/T100Library.cpp" />
-		<Unit filename="src/lib/service/T100Service.cpp" />
-		<Unit filename="src/lib/service/T100ServiceTank.cpp" />
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/T100Common.h" />
+		<Unit filename="include/T100DataStructure.h" />
+		<Unit filename="include/T100DataTypes.h" />
+		<Unit filename="include/T100StringCommon.h" />
+		<Unit filename="include/T100Unicode.h" />
+		<Unit filename="include/T100UnicodeCommon.h" />
+		<Unit filename="include/library/T100Library.h" />
+		<Unit filename="include/service/T100Service.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/T100Unicode.cpp" />
+		<Unit filename="src/library/T100Library.cpp" />
+		<Unit filename="src/service/T100Service.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
