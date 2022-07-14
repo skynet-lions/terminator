@@ -19,6 +19,7 @@ T100BOOL T100Library::load()
 {
     T100WSTRING         source;
     T100STDSTRING       target;
+    int                 result;
     int                 mode;
     void*               handle      = T100NULL;
 
@@ -29,11 +30,17 @@ T100BOOL T100Library::load()
 
     handle  = dlopen(target.c_str(), mode);
 
-    if(handle){
-        return T100TRUE;
+    if(!handle){
+        return T100FALSE;
     }
 
-    return T100FALSE;
+    result  = dlclose(handle);
+
+    if(-1 == result){
+        return T100FALSE;
+    }
+
+    return T100TRUE;
 }
 
 T100BOOL T100Library::unload()

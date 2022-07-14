@@ -45,3 +45,6 @@
 /Projects/T100/V0.1/Source/T100Lib/obj/Debug/src/*.o
 /Projects/T100/V0.1/Source/T100Lib/obj/Debug/src/library/*.o
 /Projects/T100/V0.1/Source/T100Lib/obj/Debug/src/service/*.o
+/Projects/T100/V0.1/Source/T100Lib/obj/Release/src/*.o
+/Projects/T100/V0.1/Source/T100Lib/obj/Release/src/library/*.o
+/Projects/T100/V0.1/Source/T100Lib/obj/Release/src/service/*.o

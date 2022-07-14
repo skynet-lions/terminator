@@ -23,8 +23,9 @@
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/T100Lib" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
 				<Option object_output="obj/Release/" />
-				<Option type="1" />
+				<Option type="2" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
@@ -34,6 +35,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="dl" />
 				</Linker>
 			</Target>
 		</Build>
@@ -53,7 +55,9 @@
 		<Unit filename="include/T100UnicodeCommon.h" />
 		<Unit filename="include/library/T100Library.h" />
 		<Unit filename="include/service/T100Service.h" />
-		<Unit filename="main.cpp" />
+		<Unit filename="main.cpp">
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="src/T100DirectoryEntry.cpp" />
 		<Unit filename="src/T100File.cpp" />
 		<Unit filename="src/T100Folder.cpp" />
