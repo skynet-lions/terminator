@@ -13,14 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="include" />
-					<Add directory="../T100Lib/include/lib/service" />
-					<Add directory="../T100Lib/include/lib/library" />
 				</Compiler>
-				<Linker>
-					<Add library="dl" />
-					<Add library="../T100Lib/bin/Release/libT100Lib.a" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/T100Demo" prefix_auto="1" extension_auto="1" />
@@ -29,7 +22,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -40,11 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/T100DemoService.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/T100DemoService.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

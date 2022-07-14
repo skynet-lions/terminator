@@ -13,6 +13,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="../T100Lib/include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,9 +24,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
+					<Add directory="../T100Lib/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="../T100Lib/bin/Release/libT100Lib.a" />
 				</Linker>
 			</Target>
 		</Build>
@@ -32,7 +37,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/T100Service.h" />
+		<Unit filename="include/T100ServiceTank.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/T100Service.cpp" />
+		<Unit filename="src/T100ServiceTank.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

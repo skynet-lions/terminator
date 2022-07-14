@@ -50,20 +50,18 @@
 		<Unit filename="include/T100File.h" />
 		<Unit filename="include/T100FileCommon.h" />
 		<Unit filename="include/T100Folder.h" />
+		<Unit filename="include/T100Library.h" />
 		<Unit filename="include/T100StringCommon.h" />
 		<Unit filename="include/T100Unicode.h" />
 		<Unit filename="include/T100UnicodeCommon.h" />
-		<Unit filename="include/library/T100Library.h" />
-		<Unit filename="include/service/T100Service.h" />
 		<Unit filename="main.cpp">
 			<Option target="Debug" />
 		</Unit>
 		<Unit filename="src/T100DirectoryEntry.cpp" />
 		<Unit filename="src/T100File.cpp" />
 		<Unit filename="src/T100Folder.cpp" />
+		<Unit filename="src/T100Library.cpp" />
 		<Unit filename="src/T100Unicode.cpp" />
-		<Unit filename="src/library/T100Library.cpp" />
-		<Unit filename="src/service/T100Service.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
