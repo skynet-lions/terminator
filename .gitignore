@@ -52,3 +52,14 @@
 /Projects/T100/V0.1/Source/T100Log/bin/Debug/T100Log.exe
 /Projects/T100/V0.1/Source/T100Service/obj/Debug/main.o
 /Projects/T100/V0.1/Source/T100Lib/bin/Debug/T100Lib.exe
+/Projects/T100/V0.1/Source/T100Lib/bin/Release/libT100Lib.a
+/Projects/T100/V0.1/Source/T100Service/T100Service.depend
+/Projects/T100/V0.1/Source/T100Service/T100Service.layout
+/Projects/T100/V0.1/Source/T100Service/bin/Release/T100Service.exe
+/Projects/T100/V0.1/Source/T100Service/obj/Debug/src/*.o
+/Projects/T100/V0.1/Source/T100Service/obj/Release/*.o
+/Projects/T100/V0.1/Source/T100Service/obj/Release/src/*.o
+/Projects/T100/V0.1/Source/T100Service/bin/Release/T100Service.dll
+/Projects/T100/V0.1/Source/T100Demo/obj/Release/*.o
+/Projects/T100/V0.1/Source/T100Demo/obj/Release/src/*.o
+/Projects/T100/V0.1/Source/build
