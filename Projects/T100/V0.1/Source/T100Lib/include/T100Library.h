@@ -12,11 +12,15 @@ class T100Library : public T100File
 
         T100BOOL            load();
 
+        T100VOID*           getMethod(T100WSTRING);
+
         T100BOOL            unload();
 
     protected:
 
     private:
+        T100VOID*           m_handle        = T100NULL;
+
 };
 
 #endif // T100LIBRARY_H

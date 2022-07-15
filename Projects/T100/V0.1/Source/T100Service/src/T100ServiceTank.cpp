@@ -35,19 +35,21 @@ T100BOOL T100ServiceTank::stop()
     return T100FALSE;
 }
 
-T100BOOL T100ServiceTank::find(T100WSTRING name, T100VOID* handle)
+T100BOOL T100ServiceTank::find(T100WSTRING name, T100Library*& lib)
 {
+    lib = m_hash[name];
     return T100FALSE;
 }
 
-T100BOOL T100ServiceTank::load(T100WSTRING file)
+T100BOOL T100ServiceTank::load(T100WSTRING name, T100WSTRING file)
 {
-    T100BOOL        result;
-    T100WSTRING     name;
+    T100BOOL            result;
+    T100WSTRING         path;
+    T100VOID*           handle;
 
-    name = m_root + L"\\" + file;
+    path = m_root + L"\\" + file;
 
-    T100Library*    obj     = T100NEW T100Library(name);
+    T100Library*    obj     = T100NEW T100Library(path);
 
     if(!obj){
         return T100FALSE;
@@ -57,6 +59,8 @@ T100BOOL T100ServiceTank::load(T100WSTRING file)
     if(!result){
         return T100FALSE;
     }
+
+    m_hash[name] = obj;
 
     return T100TRUE;
 }

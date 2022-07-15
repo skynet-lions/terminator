@@ -21,22 +21,15 @@ T100BOOL T100Library::load()
     T100STDSTRING       target;
     int                 result;
     int                 mode;
-    void*               handle      = T100NULL;
 
     source  = getName();
     target  = T100Unicode::to_string8(source);
 
     mode    = RTLD_LAZY;
 
-    handle  = dlopen(target.c_str(), mode);
+    m_handle = dlopen(target.c_str(), mode);
 
-    if(!handle){
-        return T100FALSE;
-    }
-
-    result  = dlclose(handle);
-
-    if(-1 == result){
+    if(!m_handle){
         return T100FALSE;
     }
 
@@ -45,5 +38,25 @@ T100BOOL T100Library::load()
 
 T100BOOL T100Library::unload()
 {
+    T100BOOL        result;
+
+    result  = dlclose(m_handle);
+
+    if(-1 == result){
+        return T100FALSE;
+    }
+
     return T100FALSE;
+}
+
+T100VOID* T100Library::getMethod(T100WSTRING name)
+{
+    T100VOID*           result      = T100NULL;
+    T100STDSTRING       target;
+
+    target = T100Unicode::to_string8(name);
+
+    result = dlsym(m_handle, target.c_str());
+
+    return result;
 }

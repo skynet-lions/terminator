@@ -9,26 +9,31 @@
 // Feel free to add more files in this project. They will be
 // included in the resulting library.
 
+#include "T100AssemblyService.h"
+
+
 extern "C"
 {
-    // A function adding two integers and returning the result
-    int SampleAddInt(int i1, int i2)
+    static T100AssemblyService*     service         = nullptr;
+
+    bool    create()
     {
-        return i1 + i2;
+        service = new T100AssemblyService;
+        return false;
     }
 
-    // A function doing nothing ;)
-    void SampleFunction1()
+    void*   getService()
     {
-        // insert code here
+        return service;
+
+        return nullptr;
     }
 
-    // A function always returning zero
-    int SampleFunction2()
+    bool    destroy()
     {
-        // insert code here
+        delete service;
 
-        return 0;
+        return false;
     }
 }
 

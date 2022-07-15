@@ -21,6 +21,7 @@
 				<Linker>
 					<Add library="../build/lib/libT100Lib.a" />
 					<Add library="../build/lib/T100Service.dll" />
+					<Add library="../build/plugin/T100Assembly.dll" />
 				</Linker>
 			</Target>
 			<Target title="Release">
