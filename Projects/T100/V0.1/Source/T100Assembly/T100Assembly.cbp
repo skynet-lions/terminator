@@ -33,9 +33,12 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
+					<Add directory="../T100Lib/include" />
+					<Add directory="../T100Service/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="../build/lib/T100Service.dll" />
 				</Linker>
 			</Target>
 		</Build>

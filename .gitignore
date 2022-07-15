@@ -69,3 +69,10 @@
 /Projects/T100/V0.1/Source/T100VPC/bin/Debug/T100VPC.exe
 /Projects/T100/V0.1/Source/T100VPC/obj/Debug/*.o
 /Projects/T100/V0.1/Source/T100VPC/obj/Debug/resource.res
+/Projects/T100/V0.1/Source/T100Assembly/obj/Release/*.o
+/Projects/T100/V0.1/Source/T100Assembly/T100Assembly.depend
+/Projects/T100/V0.1/Source/T100Assembly/T100Assembly.layout
+/Projects/T100/V0.1/Source/T100Assembly/bin/Release/T100Assembly.exe
+/Projects/T100/V0.1/Source/T100Assembly/obj/Debug/src/*.o
+/Projects/T100/V0.1/Source/T100Assembly/obj/Release/src/*.o
+/Projects/T100/V0.1/Source/T100VPC/T100VPC.layout

@@ -41,7 +41,7 @@ T100BOOL T100Assembly::run(T100WSTRING source, T100WSTRING target)
 
     service = reinterpret_cast<T100AssemblyService*>(handle);
 
-
+    result = service->run(source, target);
 
     return T100TRUE;
 }
