@@ -1,9 +1,16 @@
-#include <iostream>
+#include "T100Assembly.h"
 
-using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    T100BOOL            result;
+    T100Assembly        assembly;
+    T100WSTRING         source;
+    T100WSTRING         target;
+
+    source = L"test.txt";
+
+    result = assembly.run(source, target);
+
     return 0;
 }
