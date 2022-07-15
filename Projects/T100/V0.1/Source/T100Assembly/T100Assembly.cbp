@@ -55,6 +55,9 @@
 		<Unit filename="main.cpp">
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="share.cpp">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="src/T100Assembly.cpp">
 			<Option target="Debug" />
 		</Unit>
