@@ -9,6 +9,7 @@
 // Feel free to add more files in this project. They will be
 // included in the resulting library.
 
+#include <iostream>
 #include "T100AssemblyService.h"
 
 
@@ -22,7 +23,7 @@ extern "C"
         return false;
     }
 
-    void*   getService()
+    extern "C" __declspec(dllexport) void*   getService()
     {
         return service;
 
@@ -33,6 +34,12 @@ extern "C"
     {
         delete service;
 
+        return false;
+    }
+
+    __declspec(dllexport) bool    assembly(T100WSTRING, T100WSTRING)
+    {
+        std::cout << "assembly";
         return false;
     }
 }

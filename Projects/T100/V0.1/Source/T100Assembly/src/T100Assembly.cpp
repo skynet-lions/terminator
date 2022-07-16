@@ -17,10 +17,9 @@ T100BOOL T100Assembly::run(T100WSTRING source, T100WSTRING target)
 {
     T100BOOL                result;
     T100ServiceTank         tank;
-    T100VOID*(*method)()    = T100NULL;
+    T100BOOL(*method)(T100WSTRING, T100WSTRING)         = T100NULL;
     T100Library*            lib             = T100NULL;
     T100VOID*               handle          = T100NULL;
-    T100AssemblyService*    service         = T100NULL;
 
 
     result = tank.start();
@@ -41,15 +40,11 @@ T100BOOL T100Assembly::run(T100WSTRING source, T100WSTRING target)
         return T100FALSE;
     }
 
-    handle = lib->getMethod(L"getService");
+    handle = lib->getMethod(L"assembly");
 
-    method = reinterpret_cast<T100VOID*(*)()>(handle);
+    method = reinterpret_cast<T100BOOL(*)(T100WSTRING, T100WSTRING)>(handle);
 
-    handle = method();
-
-    service = reinterpret_cast<T100AssemblyService*>(handle);
-
-    result = service->run(source, target);
+    result = method(source, target);
 
     return T100TRUE;
 }

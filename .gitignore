@@ -76,3 +76,6 @@
 /Projects/T100/V0.1/Source/T100Assembly/obj/Debug/src/*.o
 /Projects/T100/V0.1/Source/T100Assembly/obj/Release/src/*.o
 /Projects/T100/V0.1/Source/T100VPC/T100VPC.layout
+/Projects/T100/V0.1/Source/T100Log/obj/Release/*.o
+/Projects/T100/V0.1/Source/T100Log/obj/Release/src/*.o
+/Projects/T100/V0.1/Source/T100Log/bin/Release/T100Log.exe

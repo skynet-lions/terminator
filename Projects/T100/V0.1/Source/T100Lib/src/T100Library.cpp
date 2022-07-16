@@ -56,6 +56,9 @@ T100VOID* T100Library::getMethod(T100WSTRING name)
 
     target = T100Unicode::to_string8(name);
 
+    //test
+    target = "assembly";
+
     result = dlsym(m_handle, target.c_str());
 
     return result;

@@ -38,7 +38,7 @@ T100BOOL T100ServiceTank::stop()
 T100BOOL T100ServiceTank::find(T100WSTRING name, T100Library*& lib)
 {
     lib = m_hash[name];
-    return T100FALSE;
+    return T100TRUE;
 }
 
 T100BOOL T100ServiceTank::load(T100WSTRING name, T100WSTRING file)
