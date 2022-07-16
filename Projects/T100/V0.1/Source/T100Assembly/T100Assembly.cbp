@@ -56,6 +56,7 @@
 			<Option target="Debug" />
 		</Unit>
 		<Unit filename="include/T100AssemblyApp.h" />
+		<Unit filename="include/T100AssemblyCommon.h" />
 		<Unit filename="include/T100AssemblyService.h">
 			<Option target="Release" />
 		</Unit>
