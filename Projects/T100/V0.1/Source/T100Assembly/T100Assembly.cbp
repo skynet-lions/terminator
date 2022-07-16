@@ -49,6 +49,7 @@
 		<Unit filename="include/T100Assembly.h">
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="include/T100AssemblyApp.h" />
 		<Unit filename="include/T100AssemblyService.h">
 			<Option target="Release" />
 		</Unit>
@@ -61,6 +62,7 @@
 		<Unit filename="src/T100Assembly.cpp">
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="src/T100AssemblyApp.cpp" />
 		<Unit filename="src/T100AssemblyService.cpp">
 			<Option target="Release" />
 		</Unit>

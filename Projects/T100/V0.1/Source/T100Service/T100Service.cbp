@@ -39,11 +39,13 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/T100Service.h" />
+		<Unit filename="include/T100ServiceApp.h" />
 		<Unit filename="include/T100ServiceTank.h" />
 		<Unit filename="main.cpp">
 			<Option target="Debug" />
 		</Unit>
 		<Unit filename="src/T100Service.cpp" />
+		<Unit filename="src/T100ServiceApp.cpp" />
 		<Unit filename="src/T100ServiceTank.cpp" />
 		<Extensions />
 	</Project>

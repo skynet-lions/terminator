@@ -1,16 +1,16 @@
-#include "T100Assembly.h"
+#include "T100AssemblyApp.h"
 
 
 int main()
 {
     T100BOOL            result;
-    T100Assembly        assembly;
+    T100AssemblyApp     app;
     T100WSTRING         source;
     T100WSTRING         target;
 
     source = L"test.txt";
 
-    result = assembly.run(source, target);
+    result = app.run(source, target);
 
     return 0;
 }
