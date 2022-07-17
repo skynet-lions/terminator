@@ -20,6 +20,8 @@
 					<Add directory="include/produce" />
 					<Add directory="include/scanner" />
 					<Add directory="include/syntax" />
+					<Add directory="include/produce/real" />
+					<Add directory="include/produce/virtual" />
 				</Compiler>
 				<Linker>
 					<Add library="../build/bin/libT100Lib.a" />
@@ -41,6 +43,8 @@
 					<Add directory="include/produce" />
 					<Add directory="include/scanner" />
 					<Add directory="include/syntax" />
+					<Add directory="include/produce/real" />
+					<Add directory="include/produce/virtual" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -61,11 +65,34 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="include/produce/T100Produce.h" />
+		<Unit filename="include/produce/T100ProduceBuilder.h" />
+		<Unit filename="include/produce/T100ProduceFile.h" />
+		<Unit filename="include/produce/T100ProduceMerger.h" />
+		<Unit filename="include/produce/T100ProduceParser.h" />
+		<Unit filename="include/produce/T100Segment.h" />
+		<Unit filename="include/produce/T100SegmentCode.h" />
+		<Unit filename="include/produce/T100SegmentData.h" />
+		<Unit filename="include/produce/real/T100RealBuilder.h" />
+		<Unit filename="include/produce/real/T100RealFile.h" />
+		<Unit filename="include/produce/real/T100RealMerger.h" />
+		<Unit filename="include/produce/virtual/T100VirtualBuilder.h" />
+		<Unit filename="include/produce/virtual/T100VirtualFile.h" />
+		<Unit filename="include/produce/virtual/T100VirtualMerger.h" />
 		<Unit filename="include/scanner/T100ByteScanner.h" />
 		<Unit filename="include/scanner/T100ByteToken.h" />
+		<Unit filename="include/scanner/T100CharScanner.h" />
+		<Unit filename="include/scanner/T100CharToken.h" />
+		<Unit filename="include/scanner/T100KeywordScanner.h" />
+		<Unit filename="include/scanner/T100KeywordToken.h" />
 		<Unit filename="include/scanner/T100PartScanner.h" />
 		<Unit filename="include/scanner/T100PartToken.h" />
 		<Unit filename="include/scanner/T100Scanner.h" />
+		<Unit filename="include/scanner/T100SegmentScanner.h" />
+		<Unit filename="include/scanner/T100SegmentToken.h" />
+		<Unit filename="include/scanner/T100SentenceScanner.h" />
+		<Unit filename="include/scanner/T100SentenceToken.h" />
+		<Unit filename="include/scanner/T100StringScanner.h" />
+		<Unit filename="include/scanner/T100StringToken.h" />
 		<Unit filename="include/scanner/T100Token.h" />
 		<Unit filename="include/syntax/T100AllSentences.h" />
 		<Unit filename="include/syntax/T100Sentence.h" />
@@ -117,11 +144,34 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="src/produce/T100Produce.cpp" />
+		<Unit filename="src/produce/T100ProduceBuilder.cpp" />
+		<Unit filename="src/produce/T100ProduceFile.cpp" />
+		<Unit filename="src/produce/T100ProduceMerger.cpp" />
+		<Unit filename="src/produce/T100ProduceParser.cpp" />
+		<Unit filename="src/produce/T100Segment.cpp" />
+		<Unit filename="src/produce/T100SegmentCode.cpp" />
+		<Unit filename="src/produce/T100SegmentData.cpp" />
+		<Unit filename="src/produce/real/T100RealBuilder.cpp" />
+		<Unit filename="src/produce/real/T100RealFile.cpp" />
+		<Unit filename="src/produce/real/T100RealMerger.cpp" />
+		<Unit filename="src/produce/virtual/T100VirtualBuilder.cpp" />
+		<Unit filename="src/produce/virtual/T100VirtualFile.cpp" />
+		<Unit filename="src/produce/virtual/T100VirtualMerger.cpp" />
 		<Unit filename="src/scanner/T100ByteScanner.cpp" />
 		<Unit filename="src/scanner/T100ByteToken.cpp" />
+		<Unit filename="src/scanner/T100CharScanner.cpp" />
+		<Unit filename="src/scanner/T100CharToken.cpp" />
+		<Unit filename="src/scanner/T100KeywordScanner.cpp" />
+		<Unit filename="src/scanner/T100KeywordToken.cpp" />
 		<Unit filename="src/scanner/T100PartScanner.cpp" />
 		<Unit filename="src/scanner/T100PartToken.cpp" />
 		<Unit filename="src/scanner/T100Scanner.cpp" />
+		<Unit filename="src/scanner/T100SegmentScanner.cpp" />
+		<Unit filename="src/scanner/T100SegmentToken.cpp" />
+		<Unit filename="src/scanner/T100SentenceScanner.cpp" />
+		<Unit filename="src/scanner/T100SentenceToken.cpp" />
+		<Unit filename="src/scanner/T100StringScanner.cpp" />
+		<Unit filename="src/scanner/T100StringToken.cpp" />
 		<Unit filename="src/scanner/T100Token.cpp" />
 		<Unit filename="src/syntax/T100Sentence.cpp" />
 		<Unit filename="src/syntax/T100SentenceAdd.cpp" />
