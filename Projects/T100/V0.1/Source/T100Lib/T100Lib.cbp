@@ -30,6 +30,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=c++17" />
 					<Add directory="include" />
 					<Add directory="include/service" />
 					<Add directory="include/library" />
@@ -83,7 +84,6 @@
 			<Option target="Debug" />
 		</Unit>
 		<Unit filename="src/T100App.cpp" />
-		<Unit filename="src/T100Buffer.cpp" />
 		<Unit filename="src/T100Callback.cpp" />
 		<Unit filename="src/T100Clock.cpp" />
 		<Unit filename="src/T100DirectoryEntry.cpp" />
@@ -109,7 +109,6 @@
 		<Unit filename="src/T100StringTools.cpp" />
 		<Unit filename="src/T100Thread.cpp" />
 		<Unit filename="src/T100Unicode.cpp" />
-		<Unit filename="src/T100Vessel.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
