@@ -12,6 +12,14 @@ T100ByteScanner::~T100ByteScanner()
 
 T100BOOL T100ByteScanner::open(T100WSTRING file)
 {
+    if(m_ifs){
+        return T100FALSE;
+    }
+
+
+
+    m_file = file;
+
     return T100FALSE;
 }
 
