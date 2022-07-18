@@ -3,7 +3,7 @@
 
 
 //常量
-#define     T100NULL                        0
+#define     T100NULL                        nullptr
 #define     T100TRUE                        1
 #define     T100FALSE                       0
 
