@@ -27,8 +27,6 @@ class T100ServiceTank
         T100VOID                create();
         T100VOID                destroy();
 
-
-
     private:
         T100WSTRING             m_root;
         T100SERVICE_HASH        m_hash;
