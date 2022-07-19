@@ -17,6 +17,7 @@
 					<Add directory="include" />
 					<Add directory="include/service" />
 					<Add directory="include/library" />
+					<Add directory="include/test" />
 				</Compiler>
 				<Linker>
 					<Add library="dl" />
@@ -34,6 +35,7 @@
 					<Add directory="include" />
 					<Add directory="include/service" />
 					<Add directory="include/library" />
+					<Add directory="include/test" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -93,6 +95,7 @@
 		<Unit filename="include/T100UnicodeCommon.h" />
 		<Unit filename="include/T100ValuingCommon.h" />
 		<Unit filename="include/T100Vessel.h" />
+		<Unit filename="include/test/T100LibTest.h" />
 		<Unit filename="main.cpp">
 			<Option target="Debug" />
 		</Unit>
@@ -131,6 +134,7 @@
 		<Unit filename="src/T100Test.cpp" />
 		<Unit filename="src/T100Thread.cpp" />
 		<Unit filename="src/T100Unicode.cpp" />
+		<Unit filename="src/test/T100LibTest.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
