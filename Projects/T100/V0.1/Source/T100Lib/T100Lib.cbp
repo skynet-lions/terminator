@@ -50,7 +50,13 @@
 		<Unit filename="include/T100Callback.h" />
 		<Unit filename="include/T100CallbackCommon.h" />
 		<Unit filename="include/T100Clock.h" />
+		<Unit filename="include/T100CmdLineParser.h" />
 		<Unit filename="include/T100Common.h" />
+		<Unit filename="include/T100Console.h" />
+		<Unit filename="include/T100ConsoleBase.h" />
+		<Unit filename="include/T100ConsoleCommon.h" />
+		<Unit filename="include/T100ConsoleLog.h" />
+		<Unit filename="include/T100ConsoleWin.h" />
 		<Unit filename="include/T100DataStructure.h" />
 		<Unit filename="include/T100DataTypes.h" />
 		<Unit filename="include/T100DirectoryEntry.h" />
@@ -59,10 +65,15 @@
 		<Unit filename="include/T100FileCommon.h" />
 		<Unit filename="include/T100FileTools.h" />
 		<Unit filename="include/T100Folder.h" />
+		<Unit filename="include/T100GraphicCommon.h" />
 		<Unit filename="include/T100Help.h" />
 		<Unit filename="include/T100Hint.h" />
 		<Unit filename="include/T100Leak.h" />
 		<Unit filename="include/T100Library.h" />
+		<Unit filename="include/T100Log.h" />
+		<Unit filename="include/T100LogAppenderBase.h" />
+		<Unit filename="include/T100LogAppenderFile.h" />
+		<Unit filename="include/T100LogCommon.h" />
 		<Unit filename="include/T100PathTools.h" />
 		<Unit filename="include/T100Pool.h" />
 		<Unit filename="include/T100Random.h" />
@@ -76,9 +87,11 @@
 		<Unit filename="include/T100StringEqual.h" />
 		<Unit filename="include/T100StringHash.h" />
 		<Unit filename="include/T100StringTools.h" />
+		<Unit filename="include/T100Test.h" />
 		<Unit filename="include/T100Thread.h" />
 		<Unit filename="include/T100Unicode.h" />
 		<Unit filename="include/T100UnicodeCommon.h" />
+		<Unit filename="include/T100ValuingCommon.h" />
 		<Unit filename="include/T100Vessel.h" />
 		<Unit filename="main.cpp">
 			<Option target="Debug" />
@@ -86,6 +99,11 @@
 		<Unit filename="src/T100App.cpp" />
 		<Unit filename="src/T100Callback.cpp" />
 		<Unit filename="src/T100Clock.cpp" />
+		<Unit filename="src/T100CmdLineParser.cpp" />
+		<Unit filename="src/T100Console.cpp" />
+		<Unit filename="src/T100ConsoleBase.cpp" />
+		<Unit filename="src/T100ConsoleLog.cpp" />
+		<Unit filename="src/T100ConsoleWin.cpp" />
 		<Unit filename="src/T100DirectoryEntry.cpp" />
 		<Unit filename="src/T100Error.cpp" />
 		<Unit filename="src/T100File.cpp" />
@@ -95,6 +113,9 @@
 		<Unit filename="src/T100Hint.cpp" />
 		<Unit filename="src/T100Leak.cpp" />
 		<Unit filename="src/T100Library.cpp" />
+		<Unit filename="src/T100Log.cpp" />
+		<Unit filename="src/T100LogAppenderBase.cpp" />
+		<Unit filename="src/T100LogAppenderFile.cpp" />
 		<Unit filename="src/T100PathTools.cpp" />
 		<Unit filename="src/T100Pool.cpp" />
 		<Unit filename="src/T100Random.cpp" />
@@ -107,6 +128,7 @@
 		<Unit filename="src/T100StringEqual.cpp" />
 		<Unit filename="src/T100StringHash.cpp" />
 		<Unit filename="src/T100StringTools.cpp" />
+		<Unit filename="src/T100Test.cpp" />
 		<Unit filename="src/T100Thread.cpp" />
 		<Unit filename="src/T100Unicode.cpp" />
 		<Extensions>
