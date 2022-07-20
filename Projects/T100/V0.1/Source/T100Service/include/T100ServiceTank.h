@@ -23,6 +23,8 @@ class __declspec(dllexport) T100ServiceTank
 
         T100BOOL                find(T100WSTRING, T100Library*&);
 
+        T100BOOL                verify(T100WSTRING, T100BOOL loaded = T100TRUE);
+
     protected:
         T100VOID                create();
         T100VOID                destroy();

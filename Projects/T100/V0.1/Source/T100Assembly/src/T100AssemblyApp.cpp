@@ -45,7 +45,7 @@ T100BOOL T100AssemblyApp::run(T100WSTRING source, T100WSTRING target)
     T100VOID*           handle          = T100NULL;
 
 
-    handle = m_library->getMethod(L"assembly");
+    handle = m_library->getMethod(L"assembly_run");
 
     method = reinterpret_cast<T100BOOL(*)(T100WSTRING, T100WSTRING)>(handle);
 

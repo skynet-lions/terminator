@@ -9,52 +9,63 @@
 // Feel free to add more files in this project. They will be
 // included in the resulting library.
 
+#include <string>
 #include <iostream>
 #include "T100AssemblyService.h"
 
 
 extern "C"
 {
-    static T100AssemblyService*     service         = nullptr;
+    __declspec(dllexport) std::wstring      service_name()
+    {
+        return L"Assembly";
+    }
 
-    __declspec(dllexport) bool      service_register()
+    __declspec(dllexport) bool              service_register()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_unsubscribe()
+    __declspec(dllexport) bool              service_unsubscribe()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_load()
+    __declspec(dllexport) bool              service_load()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_unload()
+    __declspec(dllexport) bool              service_unload()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_create()
+    __declspec(dllexport) bool              service_create()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_destroy()
+    __declspec(dllexport) bool              service_destroy()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_start()
+    __declspec(dllexport) bool              service_start()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_stop()
+    __declspec(dllexport) bool              service_stop()
     {
         return false;
+    }
+
+    __declspec(dllexport) bool              assembly_run(std::wstring source, std::wstring target)
+    {
+        T100AssemblyService             service;
+
+        return service.Run(source, target);
     }
 }
 

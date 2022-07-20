@@ -10,7 +10,9 @@ class T100AssemblyService : public T100Service
         T100AssemblyService();
         virtual ~T100AssemblyService();
 
-        T100BOOL            run(T100WSTRING, T100WSTRING);
+        virtual T100WSTRING         Name();
+
+        virtual T100BOOL            Run(T100WSTRING, T100WSTRING);
 
     protected:
 

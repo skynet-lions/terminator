@@ -9,48 +9,51 @@
 // Also, it's not necessary to write every function in this file.
 // Feel free to add more files in this project. They will be
 // included in the resulting library.
-
+#include <string>
 
 extern "C"
 {
-    class __declspec(dllexport) T100Service;
+    __declspec(dllexport)std::wstring       service_name()
+    {
+        return L"";
+    }
 
-    __declspec(dllexport) bool      service_register()
+    __declspec(dllexport) bool              service_register()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_unsubscribe()
+    __declspec(dllexport) bool              service_unsubscribe()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_load()
+    __declspec(dllexport) bool              service_load()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_unload()
+    __declspec(dllexport) bool              service_unload()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_create()
+    __declspec(dllexport) bool              service_create()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_destroy()
+    __declspec(dllexport) bool              service_destroy()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_start()
+    __declspec(dllexport) bool              service_start()
     {
         return false;
     }
 
-    __declspec(dllexport) bool      service_stop()
+    __declspec(dllexport) bool              service_stop()
     {
         return false;
     }

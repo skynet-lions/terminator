@@ -34,6 +34,8 @@
 				<Option object_output="obj/Release/" />
 				<Option type="3" />
 				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
@@ -57,10 +59,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/T100Assembly.h">
+		<Unit filename="include/T100Assembly.h" />
+		<Unit filename="include/T100AssemblyApp.h">
 			<Option target="Debug" />
 		</Unit>
-		<Unit filename="include/T100AssemblyApp.h" />
 		<Unit filename="include/T100AssemblyCommon.h" />
 		<Unit filename="include/T100AssemblyService.h">
 			<Option target="Release" />
@@ -137,10 +139,10 @@
 		<Unit filename="share.cpp">
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="src/T100Assembly.cpp">
+		<Unit filename="src/T100Assembly.cpp" />
+		<Unit filename="src/T100AssemblyApp.cpp">
 			<Option target="Debug" />
 		</Unit>
-		<Unit filename="src/T100AssemblyApp.cpp" />
 		<Unit filename="src/T100AssemblyService.cpp">
 			<Option target="Release" />
 		</Unit>

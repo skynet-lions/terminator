@@ -12,14 +12,14 @@
 //start
 //stop
 
-//__declspec(dllexport)
 class __declspec(dllexport) T100Service
 {
     public:
         T100Service();
         virtual ~T100Service();
 
-        /*
+        virtual T100WSTRING     Name();
+
         virtual T100BOOL        Register();
         virtual T100BOOL        Unsubscribe();
 
@@ -31,7 +31,6 @@ class __declspec(dllexport) T100Service
 
         virtual T100BOOL        Start();
         virtual T100BOOL        Stop();
-        */
 
     protected:
 
