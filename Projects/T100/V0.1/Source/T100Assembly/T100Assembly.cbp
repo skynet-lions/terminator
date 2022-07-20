@@ -64,9 +64,13 @@
 			<Option target="Debug" />
 		</Unit>
 		<Unit filename="include/T100AssemblyCommon.h" />
+		<Unit filename="include/T100AssemblyError.h" />
+		<Unit filename="include/T100AssemblyHelp.h" />
+		<Unit filename="include/T100AssemblyHint.h" />
 		<Unit filename="include/T100AssemblyService.h">
 			<Option target="Release" />
 		</Unit>
+		<Unit filename="include/T100AssemblySetup.h" />
 		<Unit filename="include/produce/T100Produce.h" />
 		<Unit filename="include/produce/T100ProduceBuilder.h" />
 		<Unit filename="include/produce/T100ProduceFile.h" />
@@ -143,9 +147,13 @@
 		<Unit filename="src/T100AssemblyApp.cpp">
 			<Option target="Debug" />
 		</Unit>
+		<Unit filename="src/T100AssemblyError.cpp" />
+		<Unit filename="src/T100AssemblyHelp.cpp" />
+		<Unit filename="src/T100AssemblyHint.cpp" />
 		<Unit filename="src/T100AssemblyService.cpp">
 			<Option target="Release" />
 		</Unit>
+		<Unit filename="src/T100AssemblySetup.cpp" />
 		<Unit filename="src/produce/T100Produce.cpp" />
 		<Unit filename="src/produce/T100ProduceBuilder.cpp" />
 		<Unit filename="src/produce/T100ProduceFile.cpp" />

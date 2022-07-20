@@ -1,6 +1,8 @@
 #ifndef T100ASSEMBLYCOMMON_H
 #define T100ASSEMBLYCOMMON_H
 
+#include "T100Common.h"
+
 
 enum T100ASCII_TYPE{
     T100ASCII_NONE                      = -1,
