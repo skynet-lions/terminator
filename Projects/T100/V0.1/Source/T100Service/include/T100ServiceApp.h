@@ -5,7 +5,7 @@
 #include "T100ServiceTank.h"
 
 
-class T100ServiceApp : public T100App
+class __declspec(dllexport) T100ServiceApp : public T100App
 {
     public:
         T100ServiceApp();

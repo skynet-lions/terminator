@@ -22,7 +22,7 @@ void T100Tank::stop()
 
 bool T100Tank::signin(T100Service* service)
 {
-    m_hash[service->name] = service;
+    //m_hash[service->name] = service;
 
     //m_hash.insert(service->name, service);
 
@@ -39,5 +39,5 @@ void* T100Tank::find(std::wstring& name)
 
     size = m_hash.size();
 
-    return m_hash[name];
+    //return m_hash[name];
 }

@@ -9,7 +9,7 @@ class T100Service;
 #define     T100SERVICE_HASH        std::unordered_map<T100WSTRING, T100Library*>
 
 
-class T100ServiceTank
+class __declspec(dllexport) T100ServiceTank
 {
     public:
         T100ServiceTank();

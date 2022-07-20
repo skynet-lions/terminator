@@ -3,12 +3,35 @@
 
 #include "T100Common.h"
 
+//register
+//unsubscribe
+//load
+//unload
+//create
+//destroy
+//start
+//stop
 
-class T100Service
+//__declspec(dllexport)
+class __declspec(dllexport) T100Service
 {
     public:
         T100Service();
         virtual ~T100Service();
+
+        /*
+        virtual T100BOOL        Register();
+        virtual T100BOOL        Unsubscribe();
+
+        virtual T100BOOL        Load();
+        virtual T100BOOL        Unload();
+
+        virtual T100BOOL        Create();
+        virtual T100BOOL        Destroy();
+
+        virtual T100BOOL        Start();
+        virtual T100BOOL        Stop();
+        */
 
     protected:
 

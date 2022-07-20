@@ -17,29 +17,43 @@ extern "C"
 {
     static T100AssemblyService*     service         = nullptr;
 
-    bool    create()
+    __declspec(dllexport) bool      service_register()
     {
-        service = new T100AssemblyService;
         return false;
     }
 
-    extern "C" __declspec(dllexport) void*   getService()
+    __declspec(dllexport) bool      service_unsubscribe()
     {
-        return service;
-
-        return nullptr;
-    }
-
-    bool    destroy()
-    {
-        delete service;
-
         return false;
     }
 
-    __declspec(dllexport) bool    assembly(T100WSTRING, T100WSTRING)
+    __declspec(dllexport) bool      service_load()
     {
-        std::cout << "assembly";
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_unload()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_create()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_destroy()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_start()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_stop()
+    {
         return false;
     }
 }

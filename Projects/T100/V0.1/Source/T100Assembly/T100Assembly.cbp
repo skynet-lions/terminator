@@ -24,8 +24,9 @@
 					<Add directory="include/produce/virtual" />
 				</Compiler>
 				<Linker>
+					<Add library="../build/bin/libT100Service.dll" />
 					<Add library="../build/bin/libT100Lib.a" />
-					<Add library="../build/bin/T100Service.dll" />
+					<Add library="dl" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -33,13 +34,11 @@
 				<Option object_output="obj/Release/" />
 				<Option type="3" />
 				<Option compiler="gcc" />
-				<Option createDefFile="1" />
-				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
-					<Add directory="../T100Lib/include" />
 					<Add directory="../T100Service/include" />
+					<Add directory="../T100Lib/include" />
 					<Add directory="include/produce" />
 					<Add directory="include/scanner" />
 					<Add directory="include/syntax" />
@@ -48,7 +47,9 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="../build/bin/T100Service.dll" />
+					<Add library="../build/bin/libT100Service.dll" />
+					<Add library="../build/bin/libT100Lib.a" />
+					<Add library="dl" />
 				</Linker>
 			</Target>
 		</Build>

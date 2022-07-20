@@ -13,11 +13,13 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="../T100Lib/include/lib/service" />
+					<Add directory="../T100Service/include" />
 					<Add directory="include" />
+					<Add directory="../T100Lib/include" />
 				</Compiler>
 				<Linker>
-					<Add library="../T100Lib/bin/Debug/libT100Lib.a" />
+					<Add library="../build/bin/libT100Lib.a" />
+					<Add library="../build/bin/libT100Service.dll" />
 				</Linker>
 			</Target>
 			<Target title="Release">

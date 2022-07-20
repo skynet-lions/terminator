@@ -13,27 +13,46 @@
 
 extern "C"
 {
+    class __declspec(dllexport) T100Service;
 
-    bool    create()
+    __declspec(dllexport) bool      service_register()
     {
-        service = new T100AssemblyService;
         return false;
     }
 
-    extern "C" __declspec(dllexport) void*   getService()
+    __declspec(dllexport) bool      service_unsubscribe()
     {
-        return service;
-
-        return nullptr;
-    }
-
-    bool    destroy()
-    {
-        delete service;
-
         return false;
     }
 
+    __declspec(dllexport) bool      service_load()
+    {
+        return false;
+    }
 
+    __declspec(dllexport) bool      service_unload()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_create()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_destroy()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_start()
+    {
+        return false;
+    }
+
+    __declspec(dllexport) bool      service_stop()
+    {
+        return false;
+    }
 }
 

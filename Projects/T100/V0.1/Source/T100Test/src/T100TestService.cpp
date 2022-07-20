@@ -14,7 +14,7 @@ T100TestService::~T100TestService()
 
 void T100TestService::create()
 {
-    name = L"test";
+    //name = L"test";
 }
 
 void T100TestService::destroy()

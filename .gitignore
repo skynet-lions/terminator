@@ -93,3 +93,5 @@
 /Projects/T100/V0.1/Source/T100Lib/obj/Debug/src/test/*.o
 /Projects/T100/V0.1/Source/T100Lib/obj/Release/src/test/*.o
 /Projects/T100/V0.1/Source/T100Service/obj/Debug/*.o
+/Projects/T100/V0.1/Source/T100Assembly/obj/Release/src/produce/real/*.o
+/Projects/T100/V0.1/Source/T100Assembly/obj/Release/src/produce/virtual/*.o
