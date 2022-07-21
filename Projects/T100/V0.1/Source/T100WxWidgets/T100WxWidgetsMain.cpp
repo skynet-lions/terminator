@@ -1,5 +1,5 @@
 /***************************************************************
- * Name:      T100VPCMain.cpp
+ * Name:      T100WxWidgetsMain.cpp
  * Purpose:   Code for Application Frame
  * Author:    ZhengFeng Qu ()
  * Created:   2022-07-21
@@ -7,10 +7,10 @@
  * License:
  **************************************************************/
 
-#include "T100VPCMain.h"
+#include "T100WxWidgetsMain.h"
 #include <wx/msgdlg.h>
 
-//(*InternalHeaders(T100VPCFrame)
+//(*InternalHeaders(T100WxWidgetsFrame)
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
@@ -41,20 +41,20 @@ wxString wxbuildinfo(wxbuildinfoformat format)
     return wxbuild;
 }
 
-//(*IdInit(T100VPCFrame)
-const long T100VPCFrame::idMenuQuit = wxNewId();
-const long T100VPCFrame::idMenuAbout = wxNewId();
-const long T100VPCFrame::ID_STATUSBAR1 = wxNewId();
+//(*IdInit(T100WxWidgetsFrame)
+const long T100WxWidgetsFrame::idMenuQuit = wxNewId();
+const long T100WxWidgetsFrame::idMenuAbout = wxNewId();
+const long T100WxWidgetsFrame::ID_STATUSBAR1 = wxNewId();
 //*)
 
-BEGIN_EVENT_TABLE(T100VPCFrame,wxFrame)
-    //(*EventTable(T100VPCFrame)
+BEGIN_EVENT_TABLE(T100WxWidgetsFrame,wxFrame)
+    //(*EventTable(T100WxWidgetsFrame)
     //*)
 END_EVENT_TABLE()
 
-T100VPCFrame::T100VPCFrame(wxWindow* parent,wxWindowID id)
+T100WxWidgetsFrame::T100WxWidgetsFrame(wxWindow* parent,wxWindowID id)
 {
-    //(*Initialize(T100VPCFrame)
+    //(*Initialize(T100WxWidgetsFrame)
     wxMenu* Menu1;
     wxMenu* Menu2;
     wxMenuBar* MenuBar1;
@@ -79,23 +79,23 @@ T100VPCFrame::T100VPCFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
-    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnQuit);
-    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnAbout);
+    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100WxWidgetsFrame::OnQuit);
+    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100WxWidgetsFrame::OnAbout);
     //*)
 }
 
-T100VPCFrame::~T100VPCFrame()
+T100WxWidgetsFrame::~T100WxWidgetsFrame()
 {
-    //(*Destroy(T100VPCFrame)
+    //(*Destroy(T100WxWidgetsFrame)
     //*)
 }
 
-void T100VPCFrame::OnQuit(wxCommandEvent& event)
+void T100WxWidgetsFrame::OnQuit(wxCommandEvent& event)
 {
     Close();
 }
 
-void T100VPCFrame::OnAbout(wxCommandEvent& event)
+void T100WxWidgetsFrame::OnAbout(wxCommandEvent& event)
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("Welcome to..."));

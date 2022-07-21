@@ -77,6 +77,7 @@
 		<Unit filename="include/produce/T100Produce.h" />
 		<Unit filename="include/produce/T100ProduceBuilder.h" />
 		<Unit filename="include/produce/T100ProduceFile.h" />
+		<Unit filename="include/produce/T100ProduceInfo.h" />
 		<Unit filename="include/produce/T100ProduceMerger.h" />
 		<Unit filename="include/produce/T100ProduceParser.h" />
 		<Unit filename="include/produce/T100Segment.h" />
@@ -166,6 +167,7 @@
 		<Unit filename="src/produce/T100Produce.cpp" />
 		<Unit filename="src/produce/T100ProduceBuilder.cpp" />
 		<Unit filename="src/produce/T100ProduceFile.cpp" />
+		<Unit filename="src/produce/T100ProduceInfo.cpp" />
 		<Unit filename="src/produce/T100ProduceMerger.cpp" />
 		<Unit filename="src/produce/T100ProduceParser.cpp" />
 		<Unit filename="src/produce/T100Segment.cpp" />

@@ -1,5 +1,5 @@
 /***************************************************************
- * Name:      T100VPCMain.h
+ * Name:      T100WxWidgetsMain.h
  * Purpose:   Defines Application Frame
  * Author:    ZhengFeng Qu ()
  * Created:   2022-07-21
@@ -7,40 +7,40 @@
  * License:
  **************************************************************/
 
-#ifndef T100VPCMAIN_H
-#define T100VPCMAIN_H
+#ifndef T100WXWIDGETSMAIN_H
+#define T100WXWIDGETSMAIN_H
 
-//(*Headers(T100VPCFrame)
+//(*Headers(T100WxWidgetsFrame)
 #include <wx/frame.h>
 #include <wx/menu.h>
 #include <wx/statusbr.h>
 //*)
 
-class T100VPCFrame: public wxFrame
+class T100WxWidgetsFrame: public wxFrame
 {
     public:
 
-        T100VPCFrame(wxWindow* parent,wxWindowID id = -1);
-        virtual ~T100VPCFrame();
+        T100WxWidgetsFrame(wxWindow* parent,wxWindowID id = -1);
+        virtual ~T100WxWidgetsFrame();
 
     private:
 
-        //(*Handlers(T100VPCFrame)
+        //(*Handlers(T100WxWidgetsFrame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         //*)
 
-        //(*Identifiers(T100VPCFrame)
+        //(*Identifiers(T100WxWidgetsFrame)
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
-        //(*Declarations(T100VPCFrame)
+        //(*Declarations(T100WxWidgetsFrame)
         wxStatusBar* StatusBar1;
         //*)
 
         DECLARE_EVENT_TABLE()
 };
 
-#endif // T100VPCMAIN_H
+#endif // T100WXWIDGETSMAIN_H

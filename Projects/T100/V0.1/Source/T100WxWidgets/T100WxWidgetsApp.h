@@ -1,5 +1,5 @@
 /***************************************************************
- * Name:      T100VPCApp.h
+ * Name:      T100WxWidgetsApp.h
  * Purpose:   Defines Application Class
  * Author:    ZhengFeng Qu ()
  * Created:   2022-07-21
@@ -7,15 +7,15 @@
  * License:
  **************************************************************/
 
-#ifndef T100VPCAPP_H
-#define T100VPCAPP_H
+#ifndef T100WXWIDGETSAPP_H
+#define T100WXWIDGETSAPP_H
 
 #include <wx/app.h>
 
-class T100VPCApp : public wxApp
+class T100WxWidgetsApp : public wxApp
 {
     public:
         virtual bool OnInit();
 };
 
-#endif // T100VPCAPP_H
+#endif // T100WXWIDGETSAPP_H
