@@ -72,6 +72,8 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="include/T100AssemblySetup.h" />
+		<Unit filename="include/produce/T100BuildInfo.h" />
+		<Unit filename="include/produce/T100ParseInfo.h" />
 		<Unit filename="include/produce/T100Produce.h" />
 		<Unit filename="include/produce/T100ProduceBuilder.h" />
 		<Unit filename="include/produce/T100ProduceFile.h" />
@@ -159,6 +161,8 @@
 			<Option target="Release" />
 		</Unit>
 		<Unit filename="src/T100AssemblySetup.cpp" />
+		<Unit filename="src/produce/T100BuildInfo.cpp" />
+		<Unit filename="src/produce/T100ParseInfo.cpp" />
 		<Unit filename="src/produce/T100Produce.cpp" />
 		<Unit filename="src/produce/T100ProduceBuilder.cpp" />
 		<Unit filename="src/produce/T100ProduceFile.cpp" />

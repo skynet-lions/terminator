@@ -8,6 +8,8 @@ class T100RealBuilder
         T100RealBuilder();
         virtual ~T100RealBuilder();
 
+        T100BOOL            save(T100STRING&, T100BuildInfo*);
+
     protected:
 
     private:

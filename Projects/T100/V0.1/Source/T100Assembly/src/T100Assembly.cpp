@@ -1,6 +1,6 @@
 #include "T100Assembly.h"
 
-#include "T100AssemblyService.h"
+#include "T100Produce.h"
 
 
 T100Assembly::T100Assembly()
@@ -15,7 +15,7 @@ T100Assembly::~T100Assembly()
 
 T100BOOL T100Assembly::run(T100WSTRING source, T100WSTRING target)
 {
+    T100Produce         produce;
 
-
-    return T100TRUE;
+    return produce.run(source, target);
 }
