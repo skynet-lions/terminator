@@ -14,6 +14,8 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="include/device" />
+					<Add directory="include/order" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -24,6 +26,8 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
+					<Add directory="include/device" />
+					<Add directory="include/order" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -41,6 +45,33 @@
 		<Unit filename="include/T100Memory32.h" />
 		<Unit filename="include/T100Port32.h" />
 		<Unit filename="include/T100Register32.h" />
+		<Unit filename="include/device/T100Device.h" />
+		<Unit filename="include/order/T100Order.h" />
+		<Unit filename="include/order/T100OrderAdd.h" />
+		<Unit filename="include/order/T100OrderAnd.h" />
+		<Unit filename="include/order/T100OrderCall.h" />
+		<Unit filename="include/order/T100OrderCmt.h" />
+		<Unit filename="include/order/T100OrderDbg.h" />
+		<Unit filename="include/order/T100OrderDiv.h" />
+		<Unit filename="include/order/T100OrderHalt.h" />
+		<Unit filename="include/order/T100OrderIn.h" />
+		<Unit filename="include/order/T100OrderInt.h" />
+		<Unit filename="include/order/T100OrderIret.h" />
+		<Unit filename="include/order/T100OrderJnz.h" />
+		<Unit filename="include/order/T100OrderJump.h" />
+		<Unit filename="include/order/T100OrderJz.h" />
+		<Unit filename="include/order/T100OrderLock.h" />
+		<Unit filename="include/order/T100OrderLoop.h" />
+		<Unit filename="include/order/T100OrderMove.h" />
+		<Unit filename="include/order/T100OrderMul.h" />
+		<Unit filename="include/order/T100OrderNop.h" />
+		<Unit filename="include/order/T100OrderNot.h" />
+		<Unit filename="include/order/T100OrderOr.h" />
+		<Unit filename="include/order/T100OrderOut.h" />
+		<Unit filename="include/order/T100OrderRet.h" />
+		<Unit filename="include/order/T100OrderSub.h" />
+		<Unit filename="include/order/T100OrderUnlock.h" />
+		<Unit filename="include/order/T100OrderXor.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/T100AU32.cpp" />
 		<Unit filename="src/T100CU32.cpp" />
@@ -49,6 +80,33 @@
 		<Unit filename="src/T100Memory32.cpp" />
 		<Unit filename="src/T100Port32.cpp" />
 		<Unit filename="src/T100Register32.cpp" />
+		<Unit filename="src/device/T100Device.cpp" />
+		<Unit filename="src/order/T100Order.cpp" />
+		<Unit filename="src/order/T100OrderAdd.cpp" />
+		<Unit filename="src/order/T100OrderAnd.cpp" />
+		<Unit filename="src/order/T100OrderCall.cpp" />
+		<Unit filename="src/order/T100OrderCmt.cpp" />
+		<Unit filename="src/order/T100OrderDbg.cpp" />
+		<Unit filename="src/order/T100OrderDiv.cpp" />
+		<Unit filename="src/order/T100OrderHalt.cpp" />
+		<Unit filename="src/order/T100OrderIn.cpp" />
+		<Unit filename="src/order/T100OrderInt.cpp" />
+		<Unit filename="src/order/T100OrderIret.cpp" />
+		<Unit filename="src/order/T100OrderJnz.cpp" />
+		<Unit filename="src/order/T100OrderJump.cpp" />
+		<Unit filename="src/order/T100OrderJz.cpp" />
+		<Unit filename="src/order/T100OrderLock.cpp" />
+		<Unit filename="src/order/T100OrderLoop.cpp" />
+		<Unit filename="src/order/T100OrderMove.cpp" />
+		<Unit filename="src/order/T100OrderMul.cpp" />
+		<Unit filename="src/order/T100OrderNop.cpp" />
+		<Unit filename="src/order/T100OrderNot.cpp" />
+		<Unit filename="src/order/T100OrderOr.cpp" />
+		<Unit filename="src/order/T100OrderOut.cpp" />
+		<Unit filename="src/order/T100OrderRet.cpp" />
+		<Unit filename="src/order/T100OrderSub.cpp" />
+		<Unit filename="src/order/T100OrderUnlock.cpp" />
+		<Unit filename="src/order/T100OrderXor.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
