@@ -90,6 +90,7 @@
 		<Unit filename="include/scanner/T100CharScanner.h" />
 		<Unit filename="include/scanner/T100CharToken.h" />
 		<Unit filename="include/scanner/T100KeywordScanner.h" />
+		<Unit filename="include/scanner/T100KeywordTable.h" />
 		<Unit filename="include/scanner/T100KeywordToken.h" />
 		<Unit filename="include/scanner/T100PartScanner.h" />
 		<Unit filename="include/scanner/T100PartToken.h" />
@@ -173,6 +174,7 @@
 		<Unit filename="src/scanner/T100CharScanner.cpp" />
 		<Unit filename="src/scanner/T100CharToken.cpp" />
 		<Unit filename="src/scanner/T100KeywordScanner.cpp" />
+		<Unit filename="src/scanner/T100KeywordTable.cpp" />
 		<Unit filename="src/scanner/T100KeywordToken.cpp" />
 		<Unit filename="src/scanner/T100PartScanner.cpp" />
 		<Unit filename="src/scanner/T100PartToken.cpp" />

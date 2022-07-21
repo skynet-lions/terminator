@@ -9,3 +9,10 @@ T100StringToken::~T100StringToken()
 {
     //dtor
 }
+
+T100VOID T100StringToken::clear()
+{
+    T100Token::clear();
+
+    value.clear();
+}
