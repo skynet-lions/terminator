@@ -46,6 +46,7 @@
 					<Add directory="include/syntax" />
 					<Add directory="include/produce/real" />
 					<Add directory="include/produce/virtual" />
+					<Add directory="../T100Common/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -121,11 +122,14 @@
 		<Unit filename="include/syntax/T100SentenceInt.h" />
 		<Unit filename="include/syntax/T100SentenceIret.h" />
 		<Unit filename="include/syntax/T100SentenceJnz.h" />
+		<Unit filename="include/syntax/T100SentenceJump.h" />
+		<Unit filename="include/syntax/T100SentenceJz.h" />
 		<Unit filename="include/syntax/T100SentenceLabel.h" />
 		<Unit filename="include/syntax/T100SentenceLoad.h" />
 		<Unit filename="include/syntax/T100SentenceLock.h" />
 		<Unit filename="include/syntax/T100SentenceLoop.h" />
 		<Unit filename="include/syntax/T100SentenceMode.h" />
+		<Unit filename="include/syntax/T100SentenceMove.h" />
 		<Unit filename="include/syntax/T100SentenceMul.h" />
 		<Unit filename="include/syntax/T100SentenceNop.h" />
 		<Unit filename="include/syntax/T100SentenceNot.h" />
@@ -204,11 +208,14 @@
 		<Unit filename="src/syntax/T100SentenceInt.cpp" />
 		<Unit filename="src/syntax/T100SentenceIret.cpp" />
 		<Unit filename="src/syntax/T100SentenceJnz.cpp" />
+		<Unit filename="src/syntax/T100SentenceJump.cpp" />
+		<Unit filename="src/syntax/T100SentenceJz.cpp" />
 		<Unit filename="src/syntax/T100SentenceLabel.cpp" />
 		<Unit filename="src/syntax/T100SentenceLoad.cpp" />
 		<Unit filename="src/syntax/T100SentenceLock.cpp" />
 		<Unit filename="src/syntax/T100SentenceLoop.cpp" />
 		<Unit filename="src/syntax/T100SentenceMode.cpp" />
+		<Unit filename="src/syntax/T100SentenceMove.cpp" />
 		<Unit filename="src/syntax/T100SentenceMul.cpp" />
 		<Unit filename="src/syntax/T100SentenceNop.cpp" />
 		<Unit filename="src/syntax/T100SentenceNot.cpp" />
