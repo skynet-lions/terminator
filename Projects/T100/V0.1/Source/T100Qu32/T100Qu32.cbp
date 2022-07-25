@@ -28,6 +28,7 @@
 					<Add directory="include" />
 					<Add directory="include/device" />
 					<Add directory="include/order" />
+					<Add directory="../T100Lib/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -44,6 +45,7 @@
 		<Unit filename="include/T100Interrupt32.h" />
 		<Unit filename="include/T100Memory32.h" />
 		<Unit filename="include/T100Port32.h" />
+		<Unit filename="include/T100QU32.h" />
 		<Unit filename="include/T100Register32.h" />
 		<Unit filename="include/device/T100Device.h" />
 		<Unit filename="include/order/T100Order.h" />
@@ -79,6 +81,7 @@
 		<Unit filename="src/T100Interrupt32.cpp" />
 		<Unit filename="src/T100Memory32.cpp" />
 		<Unit filename="src/T100Port32.cpp" />
+		<Unit filename="src/T100QU32.cpp" />
 		<Unit filename="src/T100Register32.cpp" />
 		<Unit filename="src/device/T100Device.cpp" />
 		<Unit filename="src/order/T100Order.cpp" />
