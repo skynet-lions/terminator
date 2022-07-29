@@ -71,6 +71,16 @@ T100VOID T100Test::destroy()
     }
 }
 
+T100BOOL T100Test::find()
+{
+
+}
+
+T100VOID T100Test::show_report()
+{
+
+}
+
 T100VOID T100Test::skip()
 {
     if(m_parent){

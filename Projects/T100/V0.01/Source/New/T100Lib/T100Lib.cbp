@@ -12,9 +12,13 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++17" />
 					<Add option="-g" />
 					<Add directory="include" />
 				</Compiler>
+				<Linker>
+					<Add library="dl" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/T100Lib" prefix_auto="1" extension_auto="1" />
@@ -29,6 +33,21 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="Lib">
+				<Option output="bin/Debug/T100Lib" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++17" />
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add library="dl" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
@@ -41,20 +60,33 @@
 		<Unit filename="include/T100Clock.h" />
 		<Unit filename="include/T100Common.h" />
 		<Unit filename="include/T100Console.h" />
+		<Unit filename="include/T100ConsoleBase.h" />
+		<Unit filename="include/T100ConsoleCommon.h" />
+		<Unit filename="include/T100ConsoleLinux.h" />
+		<Unit filename="include/T100ConsoleWindows.h" />
 		<Unit filename="include/T100DataStructure.h" />
 		<Unit filename="include/T100DataTypes.h" />
 		<Unit filename="include/T100DirectoryEntry.h" />
 		<Unit filename="include/T100File.h" />
 		<Unit filename="include/T100FileCommon.h" />
 		<Unit filename="include/T100Folder.h" />
+		<Unit filename="include/T100GraphicCommon.h" />
 		<Unit filename="include/T100Help.h" />
 		<Unit filename="include/T100Hint.h" />
 		<Unit filename="include/T100Leak.h" />
+		<Unit filename="include/T100Library.h" />
 		<Unit filename="include/T100Log.h" />
 		<Unit filename="include/T100LogAppender.h" />
+		<Unit filename="include/T100LogAppenderFile.h" />
+		<Unit filename="include/T100LogCommon.h" />
+		<Unit filename="include/T100PathTools.h" />
+		<Unit filename="include/T100Service.h" />
+		<Unit filename="include/T100ServiceTank.h" />
 		<Unit filename="include/T100Setup.h" />
 		<Unit filename="include/T100String.h" />
 		<Unit filename="include/T100String32.h" />
+		<Unit filename="include/T100StringEqual.h" />
+		<Unit filename="include/T100StringHash.h" />
 		<Unit filename="include/T100StringTypes.h" />
 		<Unit filename="include/T100Test.h" />
 		<Unit filename="include/T100Thread.h" />
@@ -65,17 +97,27 @@
 		<Unit filename="src/T100Callback.cpp" />
 		<Unit filename="src/T100Clock.cpp" />
 		<Unit filename="src/T100Console.cpp" />
+		<Unit filename="src/T100ConsoleBase.cpp" />
+		<Unit filename="src/T100ConsoleLinux.cpp" />
+		<Unit filename="src/T100ConsoleWindows.cpp" />
 		<Unit filename="src/T100DirectoryEntry.cpp" />
 		<Unit filename="src/T100File.cpp" />
 		<Unit filename="src/T100Folder.cpp" />
 		<Unit filename="src/T100Help.cpp" />
 		<Unit filename="src/T100Hint.cpp" />
 		<Unit filename="src/T100Leak.cpp" />
+		<Unit filename="src/T100Library.cpp" />
 		<Unit filename="src/T100Log.cpp" />
 		<Unit filename="src/T100LogAppender.cpp" />
+		<Unit filename="src/T100LogAppenderFile.cpp" />
+		<Unit filename="src/T100PathTools.cpp" />
+		<Unit filename="src/T100Service.cpp" />
+		<Unit filename="src/T100ServiceTank.cpp" />
 		<Unit filename="src/T100Setup.cpp" />
 		<Unit filename="src/T100String.cpp" />
 		<Unit filename="src/T100String32.cpp" />
+		<Unit filename="src/T100StringEqual.cpp" />
+		<Unit filename="src/T100StringHash.cpp" />
 		<Unit filename="src/T100Test.cpp" />
 		<Unit filename="src/T100Thread.cpp" />
 		<Unit filename="src/T100Unicode.cpp" />
