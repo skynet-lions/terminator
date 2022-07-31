@@ -22,7 +22,7 @@ enum T100ASCII_TYPE{
     T100ASCII_DOLLAR                    = 36,
     T100ASCII_PERCENT                   = 37,
     T100ASCII_AND                       = 38,
-    T100ASCII_CLOSED_SINGLE_QUOTES      = 39,
+    T100ASCII_APOSTROPHE                = 39,
     T100ASCII_OPEN_PARENS               = 40,
     T100ASCII_CLOSED_PARENS             = 41,
     T100ASCII_ASTERISK                  = 42,
@@ -47,7 +47,7 @@ enum T100ASCII_TYPE{
     T100ASCII_BACKSLASH                 = 92,
     T100ASCII_CARET                     = 94,
     T100ASCII_UNDERLINE                 = 95,
-    T100ASCII_OPEN_SINGLE_QUOTES        = 96,
+    T100ASCII_GRAVE                     = 96,
     T100ASCII_LOWER_A                   = 97,
     T100ASCII_LOWER_Z                   = 122,
     T100ASCII_OPEN_BRACE                = 123,
@@ -82,7 +82,7 @@ enum T100TOKEN_TYPE{
     T100CHAR_DOLLAR,                       //$
     T100CHAR_PERCENT,                      //%
     T100CHAR_AND,                          //&
-    T100CHAR_CLOSED_SINGLE_QUOTES,         //'
+    T100CHAR_APOSTROPHE,                   //'
     T100CHAR_OPEN_PARENS,                  //(
     T100CHAR_CLOSED_PARENS,                //)
     T100CHAR_ASTERISK,                     //*
@@ -105,7 +105,7 @@ enum T100TOKEN_TYPE{
     T100CHAR_BACKSLASH,                    //"\"
     T100CHAR_CARET,                        //^
     T100CHAR_UNDERLINE,                    //_
-    T100CHAR_OPEN_SINGLE_QUOTES,           //'
+    T100CHAR_GRAVE,                        //'
     T100CHAR_LOWER,                        //a~z
     T100CHAR_OPEN_BRACE,                   //{
     T100CHAR_CLOSED_BRACE,                 //}

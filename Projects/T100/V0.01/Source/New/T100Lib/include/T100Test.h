@@ -26,7 +26,7 @@ class T100Test
         virtual T100VOID                list();
         virtual T100BOOL                find();
 
-        virtual T100VOID                show_result();
+        virtual T100VOID                show_result(T100BOOL, T100WSTRING&);
         virtual T100VOID                show_report();
         virtual T100VOID                skip();
 

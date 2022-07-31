@@ -1,9 +1,11 @@
-#include <iostream>
+#include "T100TestApp.h"
 
-using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    T100TestApp         app;
+
+    app.run();
+
     return 0;
 }

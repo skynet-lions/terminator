@@ -12,6 +12,9 @@ class T100CharScanner : public T100Scanner
         T100CharScanner();
         virtual ~T100CharScanner();
 
+        T100VOID                setSource(T100Scanner*);
+        T100Scanner*            getSource();
+
         T100BOOL                next(T100Token&);
 
     protected:

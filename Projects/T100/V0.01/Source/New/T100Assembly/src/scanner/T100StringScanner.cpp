@@ -10,6 +10,16 @@ T100StringScanner::~T100StringScanner()
     //dtor
 }
 
+T100VOID T100StringScanner::setSource(T100Scanner* obj)
+{
+    m_scanner   = dynamic_cast<T100CharScanner*>(obj);
+}
+
+T100Scanner* T100StringScanner::getSource()
+{
+    return m_scanner;
+}
+
 T100StringToken* T100StringScanner::getToken()
 {
     return m_token;

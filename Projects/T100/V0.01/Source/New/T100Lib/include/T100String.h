@@ -4,6 +4,15 @@
 #include "T100StringTypes.h"
 #include "T100String32.h"
 
+T100BOOL        operator == (const T100STDCHAR*, const T100String&);
+T100BOOL        operator != (const T100STDCHAR*, const T100String&);
+
+T100BOOL        operator == (const T100CHAR16*, const T100String&);
+T100BOOL        operator != (const T100CHAR16*, const T100String&);
+
+T100BOOL        operator == (const T100CHAR32*, const T100String&);
+T100BOOL        operator != (const T100CHAR32*, const T100String&);
+
 T100BOOL        operator == (const T100WCHAR*, const T100String&);
 T100BOOL        operator != (const T100WCHAR*, const T100String&);
 
@@ -16,9 +25,12 @@ class T100String
     friend class T100StringHash;
     public:
         T100String();
-        T100String(T100WCHAR*);
-        T100String(T100WSTRING);
-        T100String(T100String32);
+        T100String(const T100STDCHAR*);
+        T100String(const T100CHAR16*);
+        T100String(const T100CHAR32*);
+        T100String(const T100WCHAR*);
+        T100String(const T100WSTRING);
+        T100String(const T100String32);
         virtual ~T100String();
 
         T100BOOL                    empty();

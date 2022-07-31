@@ -239,39 +239,87 @@ T100BOOL T100Test::do_test()
     return T100TRUE;
 }
 
-T100VOID T100Test::show_result()
+T100VOID T100Test::show_result(T100BOOL result, T100WSTRING& msg)
 {
+    std::wstringstream      ss;
 
+    if(result){
+        ss << L"[SUCCESS]" << " " << msg;
+    }else{
+        ss << L"[FAILURE]" << " " << msg;
+    }
+
+    out(ss.str());
 }
 
 T100VOID T100Test::out_test_begin(T100WSTRING& name)
 {
+    std::wstringstream   result;
 
+    result << L"Unit [ " << m_index << L"/" << m_units << L" ] : [ " << name << L" ] test is beginning ... ";
+
+    out(result.str());
 }
 
 T100VOID T100Test::out_test_end(T100WSTRING& name, T100BOOL result)
 {
+    std::wstringstream      ss;
 
+    if(result){
+        ss << L"[SUCCESS] ";
+    }else{
+        ss << L"[FAILURE]";
+    }
+
+    ss << L"Unit [ " << m_index - 1 << L"/" << m_units << L" ] : [ " << name << L" ] test is ended . ";
+
+    if(!m_parent){
+        ss << L"\n";
+        ss << L"Test result: ";
+        if(result){
+            ss << L"[SUCCESS] ";
+        }else{
+            ss << L"[FAILURE] ";
+        }
+
+        ss << L"Success " << m_success << L" units. ";
+        ss << L"Failure " << m_failure << L" units. ";
+        ss << L"\n" << L"Total be tested " << m_units << L" units. ";
+    }
+
+    out(ss.str());
 }
 
 T100VOID T100Test::out_list(T100WSTRING& name)
 {
+    std::wstringstream   result;
 
+    result << L"\tTest unit: [ " << name << L" ]";
+
+    out(result.str());
 }
 
 T100VOID T100Test::out_list_element(T100WSTRING& name)
 {
+    std::wstringstream   result;
 
+    result << L"\t\tTest element: [ " << name << L" ]";
+
+    out(result.str());
 }
 
 T100VOID T100Test::out_list_begin()
 {
-
+    out(L"All test units: ");
 }
 
 T100VOID T100Test::out_list_end()
 {
+    std::wstringstream  result;
 
+    result << L"Total test " << m_units << L" " << L"units . ";
+
+    out(result.str());
 }
 
 T100VOID T100Test::out(T100WSTRING msg)

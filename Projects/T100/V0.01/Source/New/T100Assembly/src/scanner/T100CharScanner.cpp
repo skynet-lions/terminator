@@ -10,6 +10,16 @@ T100CharScanner::~T100CharScanner()
     //dtor
 }
 
+T100VOID T100CharScanner::setSource(T100Scanner* obj)
+{
+    m_scanner   = dynamic_cast<T100ByteScanner*>(obj);
+}
+
+T100Scanner* T100CharScanner::getSource()
+{
+    return m_scanner;
+}
+
 T100CharToken* T100CharScanner::getToken()
 {
     return m_token;
@@ -391,14 +401,9 @@ T100TOKEN_TYPE T100CharScanner::classify()
             result = T100CHAR_AND;
         }
         break;
-    case T100ASCII_OPEN_SINGLE_QUOTES:
+    case T100ASCII_APOSTROPHE:
         {
-            result = T100CHAR_OPEN_SINGLE_QUOTES;
-        }
-        break;
-    case T100ASCII_CLOSED_SINGLE_QUOTES:
-        {
-            result = T100CHAR_CLOSED_SINGLE_QUOTES;
+            result = T100CHAR_APOSTROPHE;
         }
         break;
     case T100ASCII_OPEN_PARENS:
@@ -499,6 +504,11 @@ T100TOKEN_TYPE T100CharScanner::classify()
     case T100ASCII_UNDERLINE:
         {
             result = T100CHAR_UNDERLINE;
+        }
+        break;
+    case T100ASCII_GRAVE:
+        {
+            result = T100CHAR_GRAVE;
         }
         break;
     case T100ASCII_OPEN_BRACE:

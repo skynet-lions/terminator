@@ -11,6 +11,8 @@ class T100App
         virtual ~T100App();
 
     protected:
+        virtual T100VOID        create();
+        virtual T100VOID        destroy();
 
     private:
 };

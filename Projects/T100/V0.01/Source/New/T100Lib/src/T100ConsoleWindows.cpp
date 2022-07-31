@@ -88,7 +88,7 @@ T100VOID T100ConsoleWindows::setForegroundColour(T100COLOUR_PRIMITIVE_TYPE type)
 
 T100VOID T100ConsoleWindows::outline(T100WSTRING& msg)
 {
-    wprintf(L"%s\n", msg);
+    wprintf(L"%ls\n", msg.c_str());
 }
 
 T100VOID T100ConsoleWindows::getline(T100WSTRING& msg)

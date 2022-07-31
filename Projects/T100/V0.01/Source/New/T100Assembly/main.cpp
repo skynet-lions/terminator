@@ -1,13 +1,11 @@
-#include "T100AssemblyApp.h"
-
-#include "T100AppTest.h"
+#include "T100AssemblyTest.h"
 
 
 int main(int argc, wchar_t** argv)
 {
+    T100AssemblyTest        app;
 
-    T100AppTest             test;
-    T100AssemblyApp         app;
+    app.test_all();
 
-    return app.run(argc, argv);
+    return 0;
 }
