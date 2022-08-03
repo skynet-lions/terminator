@@ -7,6 +7,7 @@ T100LibTest::T100LibTest(T100Test* parent)
     :T100Test(parent, m_name),
     test_log(this),
     test_console(this),
+    test_cmdline(this),
     test_string(this)
 {
     //ctor

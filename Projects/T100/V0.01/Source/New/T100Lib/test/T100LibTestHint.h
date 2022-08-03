@@ -11,6 +11,9 @@ static T100WSTRING          T100TEST_HINT_LIB_LOG_TEST_STOP                     
 static T100WSTRING          T100TEST_HINT_LIB_CONSOLE_TEST_START                    = L"Lib console test is starting ... ";
 static T100WSTRING          T100TEST_HINT_LIB_CONSOLE_TEST_STOP                     = L"Lib console test is stopped . ";
 
+static T100WSTRING          T100TEST_HINT_LIB_CMDLINE_TEST_START                    = L"Lib cmdline test is starting ... ";
+static T100WSTRING          T100TEST_HINT_LIB_CMDLINE_TEST_STOP                     = L"Lib cmdline test is stopped . ";
+
 static T100WSTRING          T100TEST_HINT_LIB_BUFFER_TEST_START                     = L"Lib buffer test is starting ... ";
 static T100WSTRING          T100TEST_HINT_LIB_BUFFER_TEST_STOP                      = L"Lib buffer test is stopped . ";
 

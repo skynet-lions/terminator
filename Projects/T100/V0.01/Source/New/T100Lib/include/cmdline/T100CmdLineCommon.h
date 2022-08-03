@@ -1,0 +1,15 @@
+#ifndef T100CMDLINECOMMON_H
+#define T100CMDLINECOMMON_H
+
+
+#include "T100Common.h"
+
+
+typedef enum{
+    T100_SWITCH,
+    T100_OPTION,
+    T100_PARA
+}T100CMDLINE_TYPE;
+
+
+#endif // T100CMDLINECOMMON_H

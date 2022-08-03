@@ -78,6 +78,7 @@
 		<Unit filename="include/T100AssemblyError.h" />
 		<Unit filename="include/T100AssemblyHelp.h" />
 		<Unit filename="include/T100AssemblyHint.h" />
+		<Unit filename="include/T100AssemblyInfo.h" />
 		<Unit filename="include/T100AssemblyLog.h" />
 		<Unit filename="include/T100AssemblySetup.h" />
 		<Unit filename="include/produce/T100BuildInfo.h" />
@@ -107,14 +108,12 @@
 		<Unit filename="include/scanner/T100KeywordToken.h" />
 		<Unit filename="include/scanner/T100PartScanner.h" />
 		<Unit filename="include/scanner/T100PartToken.h" />
-		<Unit filename="include/scanner/T100Scanner.h" />
 		<Unit filename="include/scanner/T100SegmentScanner.h" />
 		<Unit filename="include/scanner/T100SegmentToken.h" />
 		<Unit filename="include/scanner/T100SentenceScanner.h" />
 		<Unit filename="include/scanner/T100SentenceToken.h" />
 		<Unit filename="include/scanner/T100StringScanner.h" />
 		<Unit filename="include/scanner/T100StringToken.h" />
-		<Unit filename="include/scanner/T100Token.h" />
 		<Unit filename="include/syntax/T100AllSentences.h" />
 		<Unit filename="include/syntax/T100Sentence.h" />
 		<Unit filename="include/syntax/T100SentenceAdd.h" />
@@ -160,6 +159,7 @@
 		<Unit filename="src/T100AssemblyError.cpp" />
 		<Unit filename="src/T100AssemblyHelp.cpp" />
 		<Unit filename="src/T100AssemblyHint.cpp" />
+		<Unit filename="src/T100AssemblyInfo.cpp" />
 		<Unit filename="src/T100AssemblyLog.cpp" />
 		<Unit filename="src/T100AssemblySetup.cpp" />
 		<Unit filename="src/produce/T100BuildInfo.cpp" />
@@ -189,14 +189,12 @@
 		<Unit filename="src/scanner/T100KeywordToken.cpp" />
 		<Unit filename="src/scanner/T100PartScanner.cpp" />
 		<Unit filename="src/scanner/T100PartToken.cpp" />
-		<Unit filename="src/scanner/T100Scanner.cpp" />
 		<Unit filename="src/scanner/T100SegmentScanner.cpp" />
 		<Unit filename="src/scanner/T100SegmentToken.cpp" />
 		<Unit filename="src/scanner/T100SentenceScanner.cpp" />
 		<Unit filename="src/scanner/T100SentenceToken.cpp" />
 		<Unit filename="src/scanner/T100StringScanner.cpp" />
 		<Unit filename="src/scanner/T100StringToken.cpp" />
-		<Unit filename="src/scanner/T100Token.cpp" />
 		<Unit filename="src/syntax/T100Sentence.cpp" />
 		<Unit filename="src/syntax/T100SentenceAdd.cpp" />
 		<Unit filename="src/syntax/T100SentenceAnd.cpp" />
@@ -241,6 +239,8 @@
 		<Unit filename="test/T100AssemblyTestHint.h" />
 		<Unit filename="test/T100ScannerTest.cpp" />
 		<Unit filename="test/T100ScannerTest.h" />
+		<Unit filename="test/T100SentenceScannerTest.cpp" />
+		<Unit filename="test/T100SentenceScannerTest.h" />
 		<Unit filename="test/T100StringScannerTest.cpp" />
 		<Unit filename="test/T100StringScannerTest.h" />
 		<Extensions>

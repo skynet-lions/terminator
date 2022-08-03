@@ -3,6 +3,7 @@
 T100String32::T100String32()
 {
     //ctor
+    clear();
 }
 
 T100String32::T100String32(T100CHAR32* str)
@@ -139,6 +140,10 @@ T100String32 T100String32::operator+=(const T100String32& str)
     T100WORD        size;
     T100WORD        source;
     T100WORD        target;
+
+    //test
+    size    = m_string32.size();
+    size    = str.m_string32.size();
 
     strlength   = m_string32.size() + str.m_string32.size() - 4;
     length      = str.m_string32.size();

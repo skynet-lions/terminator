@@ -3,6 +3,7 @@
 T100StringScanner::T100StringScanner()
 {
     //ctor
+    T100Scanner::clear();
 }
 
 T100StringScanner::~T100StringScanner()

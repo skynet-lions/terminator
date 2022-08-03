@@ -6,11 +6,22 @@
 T100KeywordScanner::T100KeywordScanner()
 {
     //ctor
+    clear();
 }
 
 T100KeywordScanner::~T100KeywordScanner()
 {
     //dtor
+}
+
+T100VOID T100KeywordScanner::setSource(T100Scanner* obj)
+{
+    m_scanner   = dynamic_cast<T100StringScanner*>(obj);
+}
+
+T100Scanner* T100KeywordScanner::getSource()
+{
+    return m_scanner;
 }
 
 T100KeywordToken* T100KeywordScanner::getToken()
@@ -26,8 +37,7 @@ T100StringToken* T100KeywordScanner::getItem()
 T100BOOL T100KeywordScanner::append()
 {
     m_token->row    = m_item.row;
-    //m_token->data.append(m_item.data);
-    m_token->value += m_item.value;
+    m_token->value  += m_item.value;
 
     //m_token->bytes.insert(m_token->bytes.end(), m_item.bytes.begin(), m_item.bytes.end());
 

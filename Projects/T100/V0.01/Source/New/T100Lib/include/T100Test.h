@@ -21,6 +21,9 @@ class T100Test
         T100Test(T100Test* parent = T100NULL, T100WSTRING name = L"");
         virtual ~T100Test();
 
+        static int                      argc;
+        static wchar_t**                argv;
+
         virtual T100BOOL                test_all();
 
         virtual T100VOID                list();

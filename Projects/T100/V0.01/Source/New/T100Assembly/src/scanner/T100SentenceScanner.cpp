@@ -15,6 +15,16 @@ T100SentenceScanner::~T100SentenceScanner()
     //dtor
 }
 
+T100VOID T100SentenceScanner::setSource(T100Scanner* obj)
+{
+    m_scanner   = dynamic_cast<T100KeywordScanner*>(obj);
+}
+
+T100Scanner* T100SentenceScanner::getSource()
+{
+    return m_scanner;
+}
+
 T100SentenceToken* T100SentenceScanner::getToken()
 {
     return m_token;
@@ -207,7 +217,7 @@ READ_NEXT:
 
         T100AssemblyLog::info(T100LOG_SENTENCE, T100AssemblyHint::sentence_hint(getToken(), T100SENTENCESCAN_SENTENCE_READ_SUCCESS));
     }else{
-        T100AssemblyError::error(T100AssemblyHint::sentence_hint(getToken(), T100SENTENCESCAN_SENTENCE_SYNTAX_ERROR));
+        //T100AssemblyError::error(T100AssemblyHint::sentence_hint(getToken(), T100SENTENCESCAN_SENTENCE_SYNTAX_ERROR));
 
         nextLine();
         setLoaded(T100FALSE);

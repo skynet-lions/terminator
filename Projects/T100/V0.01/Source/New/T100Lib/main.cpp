@@ -1,11 +1,11 @@
 #include "T100TestApp.h"
 
 
-int main()
+int main(int argc, wchar_t** argv)
 {
     T100TestApp         app;
 
-    app.run();
+    app.run(argc, argv);
 
     return 0;
 }

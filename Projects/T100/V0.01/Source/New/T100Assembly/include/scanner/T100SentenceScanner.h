@@ -12,6 +12,9 @@ class T100SentenceScanner : public T100Scanner
         T100SentenceScanner();
         virtual ~T100SentenceScanner();
 
+        T100VOID                setSource(T100Scanner*);
+        T100Scanner*            getSource();
+
         T100BOOL                next(T100Token&);
 
 

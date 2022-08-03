@@ -10,6 +10,9 @@
 #endif // __LOG__
 
 
+int                     T100Test::argc                  = 0;
+wchar_t**               T100Test::argv                  = T100NULL;
+
 T100Console*            T100Test::m_console             = T100NULL;
 T100WORD                T100Test::m_units               = 0;
 T100WORD                T100Test::m_elements            = 0;
