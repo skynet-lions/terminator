@@ -2,6 +2,8 @@
 #define T100TOKEN_H
 
 #include "T100Common.h"
+#include "T100String.h"
+
 
 #define     T100TOKEN_TYPE              T100WORD
 #define     T100TOKEN_NONE              0

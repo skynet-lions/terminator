@@ -10,6 +10,13 @@ class T100SentenceOut : public T100Sentence
         T100SentenceOut(T100SentenceScanner*);
         virtual ~T100SentenceOut();
 
+        T100OPERATOR                target;
+        T100OPERATOR_COMPLEXUS      source;
+
+        T100BOOL                    parse();
+
+        T100BOOL                    build(T100BuildInfo*);
+
     protected:
 
     private:

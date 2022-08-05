@@ -3,6 +3,7 @@
 
 #include "T100AssemblyCommon.h"
 #include "T100Token.h"
+#include "T100SentenceToken.h"
 
 #define     T100SEGMENT_VECTOR      std::vector<T100SegmentToken*>
 
@@ -16,9 +17,11 @@ class T100SegmentToken : public T100Token
         T100STRING              name;
         T100WORD                type;
 
-        T100SEGMENT_VECTOR      sentences;
+        T100SENTENCE_VECTOR     sentences;
 
     protected:
+        T100VOID                create();
+        T100VOID                destroy();
 
     private:
 };

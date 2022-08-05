@@ -58,7 +58,7 @@ class T100ParseInfo
         T100BOOL                        setDefaultSegment(T100SegmentToken*);
 
     private:
-        T100CODEDATA_VECTOR             m_files;
+        T100PART_INFO_VECTOR            m_files;
         T100PartInfo*                   m_file;
 
         T100BOOL                        m_istiny                = T100FALSE;

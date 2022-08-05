@@ -109,15 +109,272 @@ T100BOOL T100SentenceScannerTest::test_sentence()
     if(result){
 
         value = senscanner->next(token);
-        if((!value) || (T100TOKEN_BR != token.type)){
+        if((!value) || (T100SENTENCE_ADD != token.type)){
             result = T100FALSE;
         }
         if(result){
             value = senscanner->next(token);
-            if((!value) || (T100TOKEN_SPACE != token.type)){
+            if((!value) || (T100SENTENCE_SUB != token.type)){
                 result = T100FALSE;
             }
         }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MUL != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_DIV != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_AND != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_OR != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_NOT != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_XOR != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_LOCK != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_UNLOCK != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_NOP != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_HALT != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_CMT != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_DEBUG != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_CALL != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_RETURN != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_INT != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_IRET != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_JUMP != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_JZ != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_JNZ != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_LOOP != token.type)){
+                result = T100FALSE;
+            }
+        }
+
+
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_IN != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_OUT != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MOVE != token.type)){
+                result = T100FALSE;
+            }
+        }
+
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_VARIABLE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_VARIABLE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_VARIABLE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MODE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_MODE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_IMPORT != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_CODE != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_DATA != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_END != token.type)){
+                result = T100FALSE;
+            }
+        }
+        if(result){
+            value = senscanner->next(token);
+            if((!value) || (T100SENTENCE_PROCEDURE != token.type)){
+                result = T100FALSE;
+            }
+        }
+
+
 
         //
         if(result){

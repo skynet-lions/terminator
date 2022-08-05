@@ -10,3 +10,22 @@ T100SentenceSub::~T100SentenceSub()
 {
     //dtor
 }
+
+T100BOOL T100SentenceSub::parse()
+{
+    T100BOOL        result          = T100TRUE;
+
+    setLoaded(T100FALSE);
+
+    if(result){
+        type            = T100SENTENCE_SUB;
+        m_token->type   = T100SENTENCE_SUB;
+    }
+
+    return result;
+}
+
+T100BOOL T100SentenceSub::build(T100BuildInfo* info)
+{
+
+}

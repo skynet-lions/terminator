@@ -10,6 +10,12 @@ class T100SentenceImport : public T100Sentence
         T100SentenceImport(T100SentenceScanner*);
         virtual ~T100SentenceImport();
 
+        T100String          file;
+
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
 
     private:

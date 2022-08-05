@@ -4,6 +4,7 @@
 #include "T100ScannerTest.h"
 #include "T100StringScannerTest.h"
 #include "T100SentenceScannerTest.h"
+#include "T100SegmentScannerTest.h"
 
 
 class T100AssemblyTest : public T100Test
@@ -16,6 +17,7 @@ class T100AssemblyTest : public T100Test
         T100ScannerTest             test_scanner;
         T100StringScannerTest       test_string;
         T100SentenceScannerTest     test_sentence;
+        T100SegmentScannerTest      test_segment;
 
     private:
 };

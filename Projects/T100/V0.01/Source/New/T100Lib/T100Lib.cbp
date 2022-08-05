@@ -125,6 +125,7 @@
 		<Unit filename="include/cmdline/T100CmdLineCharScanner.h" />
 		<Unit filename="include/cmdline/T100CmdLineCharToken.h" />
 		<Unit filename="include/cmdline/T100CmdLineCommon.h" />
+		<Unit filename="include/cmdline/T100CmdLineInfo.h" />
 		<Unit filename="include/cmdline/T100CmdLineParameterScanner.h" />
 		<Unit filename="include/cmdline/T100CmdLineParameterToken.h" />
 		<Unit filename="include/cmdline/T100CmdLineParser.h" />
@@ -167,6 +168,7 @@
 		<Unit filename="src/T100Writer.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineCharScanner.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineCharToken.cpp" />
+		<Unit filename="src/cmdline/T100CmdLineInfo.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineParameterScanner.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineParameterToken.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineParser.cpp" />

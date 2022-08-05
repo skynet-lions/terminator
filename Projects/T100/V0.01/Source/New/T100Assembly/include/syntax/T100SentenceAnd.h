@@ -10,6 +10,10 @@ class T100SentenceAnd : public T100Sentence
         T100SentenceAnd(T100SentenceScanner*);
         virtual ~T100SentenceAnd();
 
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
 
     private:

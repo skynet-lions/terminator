@@ -26,7 +26,16 @@ class T100SentenceMode : public T100Sentence
         T100SentenceMode(T100SentenceScanner*);
         virtual ~T100SentenceMode();
 
+        T100BOOL            istiny          = T100FALSE;
+        T100MODE            mode            = T100MODE_VIRTUAL;
+        T100TYPE            segment_type    = T100TYPE_NONE;
+
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
+        T100BOOL            parseConfig();
 
     private:
 };

@@ -10,7 +10,14 @@ class T100SentenceInt : public T100Sentence
         T100SentenceInt(T100SentenceScanner*);
         virtual ~T100SentenceInt();
 
+        T100BYTE            id;
+
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
+        T100BOOL            parseValue();
 
     private:
 };

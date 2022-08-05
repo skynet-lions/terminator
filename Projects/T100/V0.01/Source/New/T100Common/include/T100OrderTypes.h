@@ -182,6 +182,7 @@ enum T100OPERATOR_TYPE{
 
 typedef struct{
     T100BOOL                ISARRAY     = T100FALSE;
+    T100BOOL                ISSHARE     = T100FALSE;
     T100WORD                VALUE;
     T100String              NAME;
     T100WORD                LENGTH;

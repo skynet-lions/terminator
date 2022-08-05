@@ -10,7 +10,14 @@ class T100SentenceCall : public T100Sentence
         T100SentenceCall(T100SentenceScanner*);
         virtual ~T100SentenceCall();
 
+        T100String          name;
+
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
+        T100BOOL            parseProcedure();
 
     private:
 };

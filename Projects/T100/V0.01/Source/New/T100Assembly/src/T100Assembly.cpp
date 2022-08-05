@@ -1,6 +1,6 @@
 #include "T100Assembly.h"
 
-#include "T100ProduceParser.h"
+#include "T100Produce.h"
 
 
 T100Assembly::T100Assembly()
@@ -16,11 +16,12 @@ T100Assembly::~T100Assembly()
 T100BOOL T100Assembly::run(T100WSTRING& source, T100WSTRING& target)
 {
     T100BOOL                result;
-    T100ParseInfo           info;
-    T100ProduceParser       parser;
-    T100String              name(source);
+    T100Produce             produce;
 
-    result = parser.parse(name, info);
+    T100String              s(source);
+    T100String              t(target);
+
+    result = produce.run(s, t);
 
     return result;
 }

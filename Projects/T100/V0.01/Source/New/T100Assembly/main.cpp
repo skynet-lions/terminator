@@ -1,4 +1,4 @@
-/*
+
 #include "T100AssemblyTest.h"
 
 
@@ -10,8 +10,9 @@ int main(int argc, wchar_t** argv)
 
     return 0;
 }
-*/
 
+
+/*
 #include "T100AssemblyApp.h"
 
 int main(int argc, wchar_t** argv)
@@ -20,3 +21,4 @@ int main(int argc, wchar_t** argv)
 
     return app.run(argc, argv);
 }
+*/

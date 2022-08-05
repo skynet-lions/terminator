@@ -10,7 +10,14 @@ class T100SentenceCmt : public T100Sentence
         T100SentenceCmt(T100SentenceScanner*);
         virtual ~T100SentenceCmt();
 
+        T100WORD            id;
+
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
+        T100BOOL            parseValue();
 
     private:
 };

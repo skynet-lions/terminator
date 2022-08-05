@@ -4,6 +4,7 @@
 #include "T100Scanner.h"
 #include "T100CmdLineParameterToken.h"
 #include "T100CmdLineStringScanner.h"
+#include "T100CmdLineInfo.h"
 
 
 class T100CmdLineParameterScanner : public T100Scanner
@@ -15,6 +16,8 @@ class T100CmdLineParameterScanner : public T100Scanner
         T100VOID                        setSource(T100Scanner*);
         T100Scanner*                    getSource();
 
+        T100VOID                        setInfo(T100CmdLineInfo*);
+
         T100BOOL                        next(T100Token&);
 
     protected:
@@ -25,6 +28,7 @@ class T100CmdLineParameterScanner : public T100Scanner
 
     private:
         T100CmdLineStringScanner*       m_scanner       = T100NULL;
+        T100CmdLineInfo*                m_info          = T100NULL;
 
 };
 

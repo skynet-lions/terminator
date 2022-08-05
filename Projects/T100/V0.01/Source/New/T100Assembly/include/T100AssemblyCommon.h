@@ -4,6 +4,7 @@
 #include "T100Common.h"
 #include "T100String.h"
 #include "T100Log.h"
+class T100PartInfo;
 
 
 #define     T100STRING              T100String
@@ -59,10 +60,10 @@ enum T100ASCII_TYPE{
 
 
 
-enum T100TOKEN_TYPE{
-    T100TOKEN_NONE          = 0,
+enum T100ASSEMBLY_TOKEN_TYPE{
+    //T100TOKEN_NONE          = 0,
     //
-    T100TOKEN_EOF,
+    T100TOKEN_EOF               = 1,
     T100TOKEN_ERROR,
     T100TOKEN_SPACE,
     T100TOKEN_BR,
@@ -119,8 +120,10 @@ enum T100TOKEN_TYPE{
     //
     T100KEYWORD_MODE,
     T100KEYWORD_REAL,
+    T100KEYWORD_NORMAL,
     T100KEYWORD_TINY,
     T100KEYWORD_VIRTUAL,
+    T100KEYWORD_SHARE,
     T100KEYWORD_LOCATION,
     T100KEYWORD_LENGTH,
     T100KEYWORD_DEFAULT,
@@ -235,10 +238,10 @@ enum T100TOKEN_TYPE{
     T100TOKEN_MAX
 };
 
-enum T100ERROR_TYPE{
-    T100ERROR_NONE          = 0,
+enum T100ASSEMBLY_ERROR_TYPE{
+    //T100ERROR_NONE          = 0,
 
-    T100ERROR_BYTE,
+    T100ERROR_BYTE          = 1,
     T100ERROR_CHAR,
     T100ERROR_STRING,
     T100ERROR_KEYWORD,
@@ -279,7 +282,7 @@ typedef struct{
 
 #define     T100SEGMENTDATA_VECTOR      std::vector<T100Segment*>
 
-#define     T100CODEDATA_VECTOR         std::vector<T100FileData*>
+#define     T100PART_INFO_VECTOR        std::vector<T100PartInfo*>
 
 #define     T100VARIABLE_CALL           T100ITEM
 #define     T100LABEL_CALL              T100ITEM

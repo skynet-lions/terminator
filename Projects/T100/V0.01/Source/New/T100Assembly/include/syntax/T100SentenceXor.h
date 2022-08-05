@@ -10,6 +10,10 @@ class T100SentenceXor : public T100Sentence
         T100SentenceXor(T100SentenceScanner*);
         virtual ~T100SentenceXor();
 
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo* info);
+
     protected:
 
     private:

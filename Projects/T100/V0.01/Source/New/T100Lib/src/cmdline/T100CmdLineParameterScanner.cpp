@@ -20,6 +20,11 @@ T100Scanner* T100CmdLineParameterScanner::getSource()
     return m_scanner;
 }
 
+T100VOID T100CmdLineParameterScanner::setInfo(T100CmdLineInfo* info)
+{
+    m_info = info;
+}
+
 T100BOOL T100CmdLineParameterScanner::next(T100Token& token)
 {
     m_token = (T100CmdLineParameterToken*)&token;

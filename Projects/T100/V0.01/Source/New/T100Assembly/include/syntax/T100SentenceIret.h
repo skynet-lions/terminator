@@ -10,6 +10,10 @@ class T100SentenceIret : public T100Sentence
         T100SentenceIret(T100SentenceScanner*);
         virtual ~T100SentenceIret();
 
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
 
     private:

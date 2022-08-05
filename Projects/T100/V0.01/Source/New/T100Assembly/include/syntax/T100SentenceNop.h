@@ -10,6 +10,10 @@ class T100SentenceNop : public T100Sentence
         T100SentenceNop(T100SentenceScanner*);
         virtual ~T100SentenceNop();
 
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
 
     private:

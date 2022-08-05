@@ -10,6 +10,12 @@ class T100SentenceJump : public T100Sentence
         T100SentenceJump(T100SentenceScanner*);
         virtual ~T100SentenceJump();
 
+        T100OPERATOR_COMPLEXUS      target;
+
+        T100BOOL                    parse();
+
+        T100BOOL                    build(T100BuildInfo*);
+
     protected:
 
     private:

@@ -23,6 +23,10 @@ class T100Sentence
         virtual T100BOOL            build(T100BuildInfo*) = 0;
 
     protected:
+        T100BOOL                    parseOperator(T100OPERATOR&);
+        T100BOOL                    parseOperator(T100OPERATOR_COMPLEXUS&);
+        T100BOOL                    parseOperator(T100OPERATOR_BINOCULAR&);
+        T100BOOL                    parseComplexus(T100OPERATOR_COMPLEXUS&);
 
         T100BOOL                    parseNumber(T100OPERATOR&);
         T100BOOL                    parseRegister(T100OPERATOR&);
@@ -34,10 +38,14 @@ class T100Sentence
 
     protected:
 
+
     protected:
         T100SentenceToken*          m_token         = T100NULL;
         T100KeywordToken*           m_item          = T100NULL;
         std::atomic_bool*           m_loaded        = T100NULL;
+
+        T100SYMBOL_TYPE             m_type          = S_NONE;
+
 
         T100VOID                    create();
         T100VOID                    destroy();

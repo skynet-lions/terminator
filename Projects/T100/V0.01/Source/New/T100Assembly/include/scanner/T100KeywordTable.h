@@ -4,6 +4,7 @@
 #include "T100StringHash.h"
 #include "T100StringEqual.h"
 #include "T100String.h"
+#include "T100Token.h"
 #include "T100AssemblyCommon.h"
 
 

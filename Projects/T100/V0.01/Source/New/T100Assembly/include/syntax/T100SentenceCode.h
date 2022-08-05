@@ -10,7 +10,19 @@ class T100SentenceCode : public T100Sentence
         T100SentenceCode(T100SentenceScanner*);
         virtual ~T100SentenceCode();
 
+        T100String          name;
+        T100BOOL            isVirtual       = T100FALSE;
+        T100BOOL            isDefault       = T100FALSE;
+        T100BOOL            isShare         = T100FALSE;
+        T100WORD            location        = 0;
+        T100WORD            length          = 0;
+
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo*);
+
     protected:
+        T100BOOL            parseConfig();
 
     private:
 };

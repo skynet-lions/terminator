@@ -10,6 +10,10 @@ class T100SentenceDiv : public T100Sentence
         T100SentenceDiv(T100SentenceScanner*);
         virtual ~T100SentenceDiv();
 
+        T100BOOL            parse();
+
+        T100BOOL            build(T100BuildInfo* info);
+
     protected:
 
     private:

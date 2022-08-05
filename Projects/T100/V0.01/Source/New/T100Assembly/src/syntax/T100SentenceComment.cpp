@@ -10,3 +10,13 @@ T100SentenceComment::~T100SentenceComment()
 {
     //dtor
 }
+
+T100BOOL T100SentenceComment::parse()
+{
+    return T100TRUE;
+}
+
+T100BOOL T100SentenceComment::build(T100BuildInfo* info)
+{
+
+}
