@@ -43,6 +43,7 @@
 					<Add directory="include/syntax" />
 					<Add directory="test" />
 					<Add directory="include/cmdline" />
+					<Add directory="include/scanner" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -90,6 +91,7 @@
 		<Unit filename="include/produce/T100BuildInfo.h" />
 		<Unit filename="include/produce/T100ParseInfo.h" />
 		<Unit filename="include/produce/T100PartDrawer.h" />
+		<Unit filename="include/produce/T100PartFile.h" />
 		<Unit filename="include/produce/T100PartInfo.h" />
 		<Unit filename="include/produce/T100Produce.h" />
 		<Unit filename="include/produce/T100ProduceBuilder.h" />
@@ -114,6 +116,7 @@
 		<Unit filename="include/scanner/T100KeywordTable.h" />
 		<Unit filename="include/scanner/T100KeywordToken.h" />
 		<Unit filename="include/scanner/T100PartScanner.h" />
+		<Unit filename="include/scanner/T100PartScannerTools.h" />
 		<Unit filename="include/scanner/T100PartToken.h" />
 		<Unit filename="include/scanner/T100SegmentScanner.h" />
 		<Unit filename="include/scanner/T100SegmentToken.h" />
@@ -174,6 +177,7 @@
 		<Unit filename="src/produce/T100BuildInfo.cpp" />
 		<Unit filename="src/produce/T100ParseInfo.cpp" />
 		<Unit filename="src/produce/T100PartDrawer.cpp" />
+		<Unit filename="src/produce/T100PartFile.cpp" />
 		<Unit filename="src/produce/T100PartInfo.cpp" />
 		<Unit filename="src/produce/T100Produce.cpp" />
 		<Unit filename="src/produce/T100ProduceBuilder.cpp" />
@@ -198,6 +202,7 @@
 		<Unit filename="src/scanner/T100KeywordTable.cpp" />
 		<Unit filename="src/scanner/T100KeywordToken.cpp" />
 		<Unit filename="src/scanner/T100PartScanner.cpp" />
+		<Unit filename="src/scanner/T100PartScannerTools.cpp" />
 		<Unit filename="src/scanner/T100PartToken.cpp" />
 		<Unit filename="src/scanner/T100SegmentScanner.cpp" />
 		<Unit filename="src/scanner/T100SegmentToken.cpp" />
@@ -247,6 +252,10 @@
 		<Unit filename="test/T100AssemblyTest.h" />
 		<Unit filename="test/T100AssemblyTestHint.cpp" />
 		<Unit filename="test/T100AssemblyTestHint.h" />
+		<Unit filename="test/T100PartScannerTest.cpp" />
+		<Unit filename="test/T100PartScannerTest.h" />
+		<Unit filename="test/T100RealProduceTest.cpp" />
+		<Unit filename="test/T100RealProduceTest.h" />
 		<Unit filename="test/T100ScannerTest.cpp" />
 		<Unit filename="test/T100ScannerTest.h" />
 		<Unit filename="test/T100SegmentScannerTest.cpp" />

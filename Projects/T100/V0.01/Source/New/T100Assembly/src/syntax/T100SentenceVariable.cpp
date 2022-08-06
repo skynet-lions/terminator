@@ -228,4 +228,144 @@ READ_NEXT:
 T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
 {
 
+    T100BOOL    result      = T100TRUE;
+    T100WORD    offset;
+
+    switch(target.DATA_TYPE)
+    {
+    case T100DATA_FLOAT:
+        {
+            if(1 == target.LENGTH){
+                result = info->getData()->setWord(offset, target.VALUE);
+            }else{
+                result = info->getData()->setArray(offset, target.LENGTH);
+            }
+
+            if(result){
+                info->setVariable(name, offset);
+
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDefine(name);
+                if(T100NULL == vd){
+                    //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                    return T100FALSE;
+                }
+
+                vd->name        = name;
+                vd->length      = target.LENGTH;
+                vd->type        = target.DATA_TYPE;
+                vd->offset      = offset;
+                vd->isvirtual   = info->getData()->isVirtual;
+                vd->isshare     = info->getData()->isShare;
+
+                T100BOOL value = vd->isshare;
+
+                T100ProduceInfo::setVariableDefine(name, vd);
+            }
+            break;
+        }
+    case T100DATA_INTEGER:
+        {
+            if(S_ADD == target.ADDR_TYPE){
+                result = info->getData()->setWord(offset, target.VALUE);
+
+                if(result){
+                    info->setVariable(name, offset);
+
+                    T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDefine(name);
+                    if(T100NULL == vd){
+                        //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                        return T100FALSE;
+                    }
+
+                    vd->name        = name;
+                    vd->length      = target.LENGTH;
+                    vd->type        = target.DATA_TYPE;
+                    vd->offset      = offset;
+                    vd->isvirtual   = info->getData()->isVirtual;
+                    vd->isshare     = info->getData()->isShare;
+
+                    T100BOOL value = vd->isshare;
+
+                    T100ProduceInfo::setVariableDefine(name, vd);
+
+                    //
+
+                    T100Log::info("DATA add label call");
+
+                    result = info->getLabel(target.NAME, offset);
+                    T100LABEL_CALL* item    = T100NEW T100LABEL_CALL();
+                    item->name              = target.NAME;
+                    //test
+                    item->offset            = info->getOffset() - 1;
+
+                    info->addLabelCall(item);
+
+                    return T100TRUE;
+                }
+
+                return T100FALSE;
+            }
+
+            if(1 == target.LENGTH){
+                result = info->getData()->setWord(offset, target.VALUE);
+            }else{
+                result = info->getData()->setArray(offset, target.LENGTH);
+            }
+
+            if(result){
+                info->setVariable(name, offset);
+
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDefine(name);
+                if(T100NULL == vd){
+                    //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                    return T100FALSE;
+                }
+
+                vd->name        = name;
+                vd->length      = target.LENGTH;
+                vd->type        = target.DATA_TYPE;
+                vd->offset      = offset;
+                vd->isvirtual   = info->getData()->isVirtual;
+                vd->isshare     = info->getData()->isShare;
+
+                T100BOOL value = vd->isshare;
+
+                T100ProduceInfo::setVariableDefine(name, vd);
+            }
+            break;
+        }
+    case T100DATA_STRING:
+        {
+            //test
+            T100String temp;
+
+            temp = T100StringTools::format(target.NAME);
+
+            result = info->getData()->setString(offset, temp);
+            if(result){
+                info->setVariable(name, offset);
+
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDefine(name);
+                if(T100NULL == vd){
+                    //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                    return T100FALSE;
+                }
+
+                vd->name        = name;
+                vd->type        = target.DATA_TYPE;
+                vd->offset      = offset;
+                vd->isvirtual   = info->getData()->isVirtual;
+                vd->isshare     = info->getData()->isShare;
+
+                T100ProduceInfo::setVariableDefine(name, vd);
+            }
+            break;
+        }
+    };
+
+    if(result){
+        info->setVariable(name, offset);
+    }
+
+    return result;
 }

@@ -27,5 +27,12 @@ T100BOOL T100SentenceHalt::parse()
 
 T100BOOL T100SentenceHalt::build(T100BuildInfo* info)
 {
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_HALT;
+
+    info->setValue(order.WORD);
+    info->next();
+
+    return T100TRUE;
 }

@@ -16,6 +16,9 @@ T100BOOL        operator != (const T100CHAR32*, const T100String&);
 T100BOOL        operator == (const T100WCHAR*, const T100String&);
 T100BOOL        operator != (const T100WCHAR*, const T100String&);
 
+T100BOOL        operator == (const T100String&, const T100String&);
+T100BOOL        operator != (const T100String&, const T100String&);
+
 T100String      operator +  (const T100WCHAR*, const T100String&);
 
 

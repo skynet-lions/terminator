@@ -218,6 +218,16 @@ T100BOOL operator != (const T100WCHAR* str1, const T100String& str2)
     return result != str2;
 }
 
+T100BOOL operator == (const T100String& str1, const T100String& str2)
+{
+    return str1 == str2;
+}
+
+T100BOOL operator != (const T100String& str1, const T100String& str2)
+{
+    return !(str1 == str2);
+}
+
 T100String operator + (const T100WCHAR* source, const T100String& target)
 {
     T100String  result(source);

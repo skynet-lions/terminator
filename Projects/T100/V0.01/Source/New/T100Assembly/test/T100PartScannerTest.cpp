@@ -1,4 +1,4 @@
-#include "T100SegmentScannerTest.h"
+#include "T100PartScannerTest.h"
 
 #include "T100AssemblySetup.h"
 #include "T100AssemblyTestHint.h"
@@ -8,30 +8,31 @@
 #include "T100KeywordScanner.h"
 #include "T100SentenceScanner.h"
 #include "T100SegmentScanner.h"
+#include "T100PartScanner.h"
 
 
-T100WSTRING         T100SegmentScannerTest::m_name                      = L"scanner.segment";
+T100WSTRING         T100PartScannerTest::m_name                         = L"scanner.part";
 
 
-T100SegmentScannerTest::T100SegmentScannerTest(T100Test* parent)
+T100PartScannerTest::T100PartScannerTest(T100Test* parent)
     :T100Test(parent, m_name)
 {
     //ctor
 }
 
-T100SegmentScannerTest::~T100SegmentScannerTest()
+T100PartScannerTest::~T100PartScannerTest()
 {
     //dtor
 }
 
-T100BOOL T100SegmentScannerTest::do_test()
+T100BOOL T100PartScannerTest::do_test()
 {
     T100BOOL        result      = T100TRUE;
     T100BOOL        value;
 
 
     if(result){
-        value = test_segment();
+        value = test_part();
         if(!value){
             result = T100FALSE;
         }
@@ -40,12 +41,12 @@ T100BOOL T100SegmentScannerTest::do_test()
     return result;
 }
 
-T100BOOL T100SegmentScannerTest::test_segment()
+T100BOOL T100PartScannerTest::test_part()
 {
     T100BOOL        result          = T100TRUE;
     T100BOOL        value;
 
-    T100Log::info(T100TEST_HINT_ASSEMBLY_SCANNER_SEGMENT_TEST_START);
+    T100Log::info(T100TEST_HINT_ASSEMBLY_SCANNER_PART_TEST_START);
 
     T100ByteScanner*            bscanner        = T100NULL;
     T100CharScanner*            cscanner        = T100NULL;
@@ -53,11 +54,12 @@ T100BOOL T100SegmentScannerTest::test_segment()
     T100KeywordScanner*         kscanner        = T100NULL;
     T100SentenceScanner*        senscanner      = T100NULL;
     T100SegmentScanner*         segscanner      = T100NULL;
-    T100SegmentToken            token;
+    T100PartScanner*            pscanner        = T100NULL;
+    T100PartToken               token;
     T100WSTRING                 file;
 
     if(result){
-        file    = T100AssemblySetup::getTestResources(L"assembly\\scanner\\test_segment.txt");
+        file    = T100AssemblySetup::getTestResources(L"assembly\\scanner\\test_part.txt");
 
         bscanner    = T100NEW T100ByteScanner();
         if(bscanner){
@@ -115,30 +117,33 @@ T100BOOL T100SegmentScannerTest::test_segment()
                 result = T100FALSE;
             }
         }
+
+        if(result){
+            pscanner  = T100NEW T100PartScanner();
+            if(segscanner){
+                pscanner->setSource(segscanner);
+            }else{
+                result = T100FALSE;
+            }
+        }
     }
 
     if(result){
 
-        value = segscanner->next(token);
-        if((!value) || (T100SEGMENT_MODE != token.type)){
+        value = pscanner->next(token);
+        if((!value) || (T100FILE_SOURCE != token.type)){
             result = T100FALSE;
         }
         if(result){
-            value = segscanner->next(token);
-            if((!value) || (T100SEGMENT_CODE != token.type)){
-                result = T100FALSE;
-            }
-        }
-        if(result){
-            value = segscanner->next(token);
-            if((!value) || (T100SEGMENT_DATA != token.type)){
+            value = pscanner->next(token);
+            if((!value) || (T100FILE_IMPORT != token.type)){
                 result = T100FALSE;
             }
         }
 
         //
         if(result){
-            value = segscanner->next(token);
+            value = pscanner->next(token);
             if(!value || (T100TOKEN_EOF != token.type)){
                 result = T100FALSE;
             }
@@ -154,8 +159,9 @@ T100BOOL T100SegmentScannerTest::test_segment()
         T100SAFE_DELETE(kscanner);
         T100SAFE_DELETE(senscanner);
         T100SAFE_DELETE(segscanner);
+        T100SAFE_DELETE(pscanner);
     }
 
-    show_result(result, T100TEST_HINT_ASSEMBLY_SCANNER_SEGMENT_TEST_STOP);
+    show_result(result, T100TEST_HINT_ASSEMBLY_SCANNER_PART_TEST_STOP);
     return result;
 }

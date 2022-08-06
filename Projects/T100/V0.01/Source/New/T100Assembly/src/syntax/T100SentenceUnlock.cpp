@@ -27,5 +27,12 @@ T100BOOL T100SentenceUnlock::parse()
 
 T100BOOL T100SentenceUnlock::build(T100BuildInfo* info)
 {
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_UNLOCK;
+
+    info->setValue(order.WORD);
+    info->next();
+
+    return T100TRUE;
 }

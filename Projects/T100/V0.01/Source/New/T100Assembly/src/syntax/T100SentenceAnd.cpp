@@ -27,5 +27,12 @@ T100BOOL T100SentenceAnd::parse()
 
 T100BOOL T100SentenceAnd::build(T100BuildInfo* info)
 {
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_AND;
+
+    info->setValue(order.WORD);
+    info->next();
+
+    return T100TRUE;
 }

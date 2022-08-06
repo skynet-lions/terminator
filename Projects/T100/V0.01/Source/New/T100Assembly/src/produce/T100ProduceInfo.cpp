@@ -6,6 +6,10 @@
 #include "T100SegmentCode.h"
 #include "T100SegmentData.h"
 
+T100PartDrawer          T100ProduceInfo::m_drawer;
+
+T100FILE_HASH           T100ProduceInfo::m_file_hash;
+T100FILE_LIST           T100ProduceInfo::m_file_list;
 
 T100VARIABLE_HASH       T100ProduceInfo::m_variables;
 T100LABEL_HASH          T100ProduceInfo::m_labels;
@@ -100,3 +104,7 @@ T100BOOL T100ProduceInfo::setProcedureDefine(T100String name, T100PROCEDURE_DEFI
     return T100TRUE;
 }
 
+T100BOOL T100ProduceInfo::find(T100String name)
+{
+
+}

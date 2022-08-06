@@ -28,5 +28,19 @@ T100BOOL T100SentenceJnz::parse()
 
 T100BOOL T100SentenceJnz::build(T100BuildInfo* info)
 {
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_JNZ;
+
+    T100OPERATOR_BUILD  build;
+
+    buildOperator(info, target, build);
+
+    info->setValue(order.WORD);
+    info->next();
+
+    info->setValue(build.OPERATOR_OFFSET);
+    info->next();
+
+    return T100TRUE;
 }

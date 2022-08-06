@@ -105,5 +105,5 @@ READ_NEXT:
 
 T100BOOL T100SentenceProcedure::build(T100BuildInfo* info)
 {
-
+    return info->createSegment(this);
 }

@@ -18,5 +18,5 @@ T100BOOL T100SentenceComment::parse()
 
 T100BOOL T100SentenceComment::build(T100BuildInfo* info)
 {
-
+    return T100TRUE;
 }

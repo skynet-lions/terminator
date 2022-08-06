@@ -80,5 +80,15 @@ READ_NEXT:
 
 T100BOOL T100SentenceCmt::build(T100BuildInfo* info)
 {
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_CMT;
+
+    info->setValue(order.WORD);
+    info->next();
+
+    info->setValue(id);
+    info->next();
+
+    return T100TRUE;
 }

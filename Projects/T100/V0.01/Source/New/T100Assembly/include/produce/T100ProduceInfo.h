@@ -11,6 +11,8 @@
 #include "T100SegmentToken.h"
 #include "T100SentenceMode.h"
 
+#include "T100PartDrawer.h"
+
 
 class T100PartInfo;
 class T100Segment;
@@ -23,6 +25,13 @@ class T100ProduceInfo
     public:
         T100ProduceInfo();
         virtual ~T100ProduceInfo();
+
+        static T100PartDrawer           m_drawer;
+
+        static T100FILE_HASH            m_file_hash;
+        static T100FILE_LIST            m_file_list;
+
+        static T100BOOL                 find(T100String);
 
         static T100VARIABLE_DEFINE*     getVariableDefine(T100String);
         static T100BOOL                 setVariableDefine(T100String, T100VARIABLE_DEFINE*);

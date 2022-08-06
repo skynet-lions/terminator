@@ -37,6 +37,12 @@ static T100WSTRING          T100TEST_HINT_ASSEMBLY_SCANNER_PART_TEST_STOP       
 static T100WSTRING          T100TEST_HINT_ASSEMBLY_TEST_START                                   = L"Assembly test is starting ... ";
 static T100WSTRING          T100TEST_HINT_ASSEMBLY_TEST_STOP                                    = L"Assembly test is stopped . ";
 
+static T100WSTRING          T100TEST_HINT_ASSEMBLY_PRODUCE_REAL_TEST_START                      = L"Assembly real produce test is starting ... ";
+static T100WSTRING          T100TEST_HINT_ASSEMBLY_PRODUCE_REAL_TEST_STOP                       = L"Assembly real produce test is stopped . ";
+
+static T100WSTRING          T100TEST_HINT_ASSEMBLY_PRODUCE_VIRTUAL_TEST_START                   = L"Assembly virtual produce test is starting ... ";
+static T100WSTRING          T100TEST_HINT_ASSEMBLY_PRODUCE_VIRTUAL_TEST_STOP                    = L"Assembly virtual produce test is stopped . ";
+
 
 class T100AssemblyTestHint
 {

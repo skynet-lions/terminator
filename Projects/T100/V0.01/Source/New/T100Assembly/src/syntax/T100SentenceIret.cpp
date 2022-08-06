@@ -27,5 +27,12 @@ T100BOOL T100SentenceIret::parse()
 
 T100BOOL T100SentenceIret::build(T100BuildInfo* info)
 {
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_IRET;
+
+    info->setValue(order.WORD);
+    info->next();
+
+    return T100TRUE;
 }

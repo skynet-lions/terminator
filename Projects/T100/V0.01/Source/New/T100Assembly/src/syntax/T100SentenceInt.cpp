@@ -79,5 +79,13 @@ READ_NEXT:
 
 T100BOOL T100SentenceInt::build(T100BuildInfo* info)
 {
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_INT;
+    order.BYTE3.BYTE = id;
+
+    info->setValue(order.WORD);
+    info->next();
+
+    return T100TRUE;
 }

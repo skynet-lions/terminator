@@ -20,6 +20,20 @@ T100VOID T100SegmentToken::create()
 T100VOID T100SegmentToken::destroy()
 {
     for(auto item : sentences){
-        T100SAFE_DELETE(item);
+        //T100SAFE_DELETE(item);
     }
+}
+
+T100SegmentToken* T100SegmentToken::copy()
+{
+    T100SegmentToken* token = T100NEW T100SegmentToken();
+
+    token->type         = type;
+    token->eof          = eof;
+    token->err          = err;
+    token->row          = row;
+
+    token->sentences    = sentences;
+
+    return token;
 }

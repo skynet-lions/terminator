@@ -2,6 +2,7 @@
 
 #include "T100AssemblyHint.h"
 #include "T100AssemblyError.h"
+#include "T100ProduceInfo.h"
 #include "T100SentenceScanner.h"
 
 
@@ -881,4 +882,1284 @@ T100BOOL T100Sentence::parseOperator(T100OPERATOR_BINOCULAR& op)
     }
 
     return T100TRUE;
+}
+
+T100BOOL T100Sentence::buildOperator(T100BuildInfo* code, T100OPERATOR& target, T100OPERATOR_BUILD& info)
+{
+    T100BOOL    result          = T100FALSE;
+
+    //info.BASE_USED      = T100FALSE;
+    //info.BASE_TYPE      = T_NONE;
+
+    switch(target.DATA_TYPE)
+    {
+    case T100DATA_COR:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_COR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_COR;
+                }
+                break;
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_CBR:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_CBR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_CBR;
+                }
+                break;
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_CCR:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_CCR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_CCR;
+                }
+                break;
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_AAR:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_AAR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_AAR;
+                }
+                break;
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_ABR:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_ABR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_ABR;
+                }
+                break;
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_ACR:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_ACR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_ACR;
+                }
+                break;
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_ADR:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_ADR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_ADR;
+                }
+                break;
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_ACF:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_ACF;
+                }
+                break;
+            /*
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_ACF;
+                }
+                break;
+            */
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_AMF:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_AMF;
+                }
+                break;
+            /*
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_AMF;
+                }
+                break;
+            */
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_AOF:
+        {
+            info.OPERATOR_FLAG      = T100FALSE;
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_AOF;
+                }
+                break;
+            /*
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = I_AOF;
+                }
+                break;
+            */
+            default:
+                return T100FALSE;
+            }
+        }
+        break;
+    case T100DATA_INTEGER:
+        {
+            info.OPERATOR_FLAG      = T100TRUE;
+            info.OPERATOR_VALUE     = target.VALUE;
+            info.OFFSET++;
+            info.OPERATOR_OFFSET    = info.OFFSET;
+
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_IMM;
+                }
+                break;
+            case S_ADD:
+                {
+                    info.OPERATOR_TYPE      = T_COR;
+                }
+                break;
+            case S_VAL:
+                {
+                    info.OPERATOR_TYPE      = T_IMM;
+                }
+                break;
+            default:
+                return T100FALSE;
+            };
+        }
+        break;
+    case T100DATA_FLOAT:
+        {
+            info.OPERATOR_FLAG      = T100TRUE;
+            info.OPERATOR_VALUE     = target.VALUE;
+            info.OFFSET++;
+            info.OPERATOR_OFFSET    = info.OFFSET;
+
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+                {
+                    info.OPERATOR_TYPE      = T_IMM;
+                }
+                break;
+            default:
+                {
+                    //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                    return T100FALSE;
+                }
+                break;
+            };
+        }
+        break;
+    case T100DATA_STRING:
+        {
+            //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+            return T100FALSE;
+        }
+        break;
+    case T100DATA_LABEL:
+        {
+            info.OPERATOR_FLAG      = T100TRUE;
+
+            switch(target.ADDR_TYPE)
+            {
+            case S_NONE:
+            case S_ADD:
+                {
+                    T100WORD        offset;
+                    info.OPERATOR_TYPE      = T_IMM;
+
+                    result = code->getLabel(target.NAME, offset);
+                    T100LABEL_CALL* item    = T100NEW T100LABEL_CALL();
+                    item->name              = target.NAME;
+                    //test
+                    info.OFFSET++;
+                    info.OPERATOR_OFFSET    = info.OFFSET;
+
+                    T100WORD    temp;
+
+                    temp = code->getOffset() + info.OPERATOR_OFFSET;
+                    item->offset            = code->getOffset() + info.OPERATOR_OFFSET;
+
+                    code->addLabelCall(item);
+
+                    info.OPERATOR_VALUE     = offset;
+                }
+                break;
+            default:
+                {
+                    //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                    return T100FALSE;
+                }
+                break;
+            };
+        }
+        break;
+    case T100DATA_VARIABLE:
+        {
+            T100WORD        offset;
+            info.OPERATOR_FLAG      = T100TRUE;
+
+            T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDefine(target.NAME);
+            if(!vd){
+                //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                return T100FALSE;
+            }
+
+            //test
+            if(vd->isarray){
+                if(target.ISARRAY){
+                    if(target.LENGTH >= vd->length){
+                        //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                        return T100FALSE;
+                    }else{
+                        info.OPERATOR_ARRAY     = T100TRUE;
+                        info.OPERATOR_INDEX     = target.LENGTH;
+                    }
+                }else{
+
+                }
+            }else if(vd->isarray != target.ISARRAY){
+                //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                return T100FALSE;
+            }
+
+            result = code->getVariable(target.NAME, offset);
+            offset = vd->offset;
+
+            T100VARIABLE_CALL* item = T100NEW T100VARIABLE_CALL();
+
+            item->name              = target.NAME;
+            info.OFFSET++;
+            info.OPERATOR_OFFSET    = info.OFFSET;
+            item->offset            = code->getOffset() + info.OPERATOR_OFFSET;
+
+            code->addVariableCall(item);
+
+            //test
+            target.ISSHARE  = vd->isshare;
+
+            T100BOOL value = target.ISSHARE;
+
+            info.OPERATOR_VALUE     = offset;
+
+            switch(vd->type)
+            {
+            case T100DATA_INTEGER:
+            case T100DATA_FLOAT:
+                {
+                    switch(target.ADDR_TYPE)
+                    {
+                    case S_NONE:
+                        {
+                            if(info.OPERATOR_ARRAY){
+                                if(target.ISSHARE){
+                                    info.OPERATOR_TYPE      = ST_ARR;
+                                }else{
+                                    info.OPERATOR_TYPE      = T_ARR;
+                                }
+                                info.OFFSET++;
+                            }else{
+                                if(target.ISSHARE){
+                                    info.OPERATOR_TYPE      = ST_MEM;
+                                }else{
+                                    info.OPERATOR_TYPE      = T_MEM;
+                                }
+                            }
+                        }
+                        break;
+                    case S_ADD:
+                        {
+                            if(target.ISSHARE){
+                                info.OPERATOR_TYPE      = ST_IMM;
+                            }else{
+                                info.OPERATOR_TYPE      = T_IMM;
+                            }
+
+                            if(info.OPERATOR_ARRAY){
+                                return T100FALSE;
+                            }
+                        }
+                        break;
+                    case S_VAL:
+                        {
+                            if(info.OPERATOR_ARRAY){
+                                if(target.ISSHARE){
+                                    info.OPERATOR_TYPE      = SI_ARR;
+                                }else{
+                                    info.OPERATOR_TYPE      = I_ARR;
+                                }
+                                info.OFFSET++;
+                            }else{
+                                if(target.ISSHARE){
+                                    info.OPERATOR_TYPE      = SI_MEM;
+                                }else{
+                                    info.OPERATOR_TYPE      = I_MEM;
+                                }
+                            }
+                        }
+                        break;
+                    default:
+                        return T100FALSE;
+                    };
+                }
+                break;
+            case T100DATA_STRING:
+                {
+                    switch(target.ADDR_TYPE)
+                    {
+                    case S_NONE:
+                    case S_ADD:
+                        {
+                            if(target.ISSHARE){
+                                info.OPERATOR_TYPE      = ST_IMM;
+                            }else{
+                                info.OPERATOR_TYPE      = T_IMM;
+                            }
+                        }
+                        break;
+                    case S_VAL:
+                        {
+                            if(target.ISSHARE){
+                                info.OPERATOR_TYPE      = ST_MEM;
+                            }else{
+                                info.OPERATOR_TYPE      = T_MEM;
+                            }
+                        }
+                        break;
+                    default:
+                        return T100FALSE;
+                    };
+                }
+                break;
+            };
+        }
+        break;
+    };
+
+    return T100TRUE;
+}
+
+T100BOOL T100Sentence::buildOperator(T100BuildInfo* code, T100OPERATOR_COMPLEXUS& op, T100OPERATOR_BUILD& info)
+{
+    T100BOOL    result          = T100FALSE;
+
+    info.BASE_USED      = T100FALSE;
+    info.BASE_TYPE      = T_NONE;
+
+    if(op.USED){
+        info.BASE_USED      = T100TRUE;
+
+        switch(op.BASE.DATA_TYPE)
+        {
+        case T100DATA_COR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_COR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_COR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_CBR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_CBR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_CBR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_CCR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_CCR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_CCR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_AAR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_AAR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_AAR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_ABR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_ABR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_ABR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_ACR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_ACR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_ACR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_ADR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_ADR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_ADR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_INTEGER:
+            {
+                info.BASE_FLAG      = T100TRUE;
+                info.BASE_VALUE     = op.BASE.VALUE;
+                info.OFFSET++;
+                info.BASE_OFFSET    = info.OFFSET;
+
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_IMM;
+                    }
+                    break;
+                case S_ADD:
+                    {
+                        info.BASE_TYPE      = T_COR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = T_IMM;
+                    }
+                    break;
+                };
+            }
+            break;
+        case T100DATA_FLOAT:
+            {
+                info.BASE_FLAG      = T100TRUE;
+                info.BASE_VALUE     = op.BASE.VALUE;
+                info.OFFSET++;
+                info.BASE_OFFSET    = info.OFFSET;
+
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_IMM;
+                    }
+                    break;
+                default:
+                    {
+                        //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                        return T100FALSE;
+                    }
+                    break;
+                };
+            }
+            break;
+        case T100DATA_STRING:
+            {
+                //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                return T100FALSE;
+            }
+            break;
+        case T100DATA_LABEL:
+            {
+                info.BASE_FLAG      = T100TRUE;
+
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                case S_ADD:
+                    {
+                        T100WORD        offset;
+                        info.BASE_TYPE      = T_IMM;
+
+                        result = code->getLabel(op.BASE.NAME, offset);
+                        T100LABEL_CALL* item    = T100NEW T100LABEL_CALL();
+                        item->name              = op.BASE.NAME;
+                        //test
+                        info.OFFSET++;
+                        info.BASE_OFFSET        = info.OFFSET;
+                        item->offset            = code->getOffset() + info.BASE_OFFSET;
+
+                        code->addLabelCall(item);
+
+                        info.BASE_VALUE         = offset;
+                    }
+                    break;
+                default:
+                    {
+                        //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                        return T100FALSE;
+                    }
+                    break;
+                };
+            }
+            break;
+        case T100DATA_VARIABLE:
+            {
+                T100WORD        offset;
+                info.BASE_FLAG      = T100TRUE;
+
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDefine(op.BASE.NAME);
+                if(!vd){
+                    //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                    return T100FALSE;
+                }
+
+                result = code->getVariable(op.BASE.NAME, offset);
+                offset = vd->offset;
+
+                T100VARIABLE_CALL* item     = T100NEW T100VARIABLE_CALL();
+
+                item->name                  = op.BASE.NAME;
+                info.OFFSET++;
+                info.BASE_OFFSET            = info.OFFSET;
+                item->offset                = code->getOffset() + info.BASE_OFFSET;
+
+                code->addVariableCall(item);
+
+                info.BASE_VALUE             = offset;
+
+                switch(vd->type)
+                {
+                case T100DATA_INTEGER:
+                case T100DATA_FLOAT:
+                    {
+                        switch(op.BASE.ADDR_TYPE)
+                        {
+                        case S_NONE:
+                            {
+                                info.BASE_TYPE      = T_MEM;
+                            }
+                            break;
+                        case S_ADD:
+                            {
+                                info.BASE_TYPE      = T_IMM;
+                            }
+                            break;
+                        case S_VAL:
+                            {
+                                info.BASE_TYPE      = I_MEM;
+                            }
+                            break;
+                        default:
+                            return T100FALSE;
+                        };
+                    }
+                    break;
+                case T100DATA_STRING:
+                    {
+                        switch(op.BASE.ADDR_TYPE)
+                        {
+                        case S_NONE:
+                        case S_ADD:
+                            {
+                                info.BASE_TYPE      = T_IMM;
+                            }
+                            break;
+                        case S_VAL:
+                            {
+                                info.BASE_TYPE      = T_MEM;
+                            }
+                            break;
+                        default:
+                            {
+                                //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                                return T100FALSE;
+                            }
+                            break;
+                        };
+                    }
+                    break;
+                };
+            }
+            break;
+        };
+    };
+
+    result = buildOperator(code, op.OFFSET, info);
+
+    return result;
+
+}
+
+T100BOOL T100Sentence::buildOperator(T100BuildInfo* code, T100OPERATOR_BINOCULAR& op, T100OPERATOR_INFO& info)
+{
+    T100BOOL    result          = T100FALSE;
+
+    info.TYPE   = op.TYPE;
+
+    switch(op.TYPE){
+    case T100OPERATOR_ONE_ONE:
+        {
+            info.TARGET.OFFSET  = 0;
+        }
+        break;
+    case T100OPERATOR_THREE_THREE:
+        {
+            info.TARGET.OFFSET  = 1;
+        }
+        break;
+    default:
+        info.TARGET.OFFSET = 0;
+    }
+
+    result = buildComplexus(code, op.TARGET, info.TARGET);
+    if(!result){
+        return T100FALSE;
+    }
+
+    info.SOURCE.OFFSET      = info.TARGET.OFFSET;
+
+    result = buildComplexus(code, op.SOURCE, info.SOURCE);
+
+    /*
+    if(result){
+        if(S_NONE == info.TARGET.TYPE
+           && !info.TARGET.BASE_USED
+           && S_NONE == info.SOURCE.TYPE
+           && !info.SOURCE.BASE_USED){
+                info.TYPE   = T100OPERATOR_TWO;
+           }else{
+                info.TYPE   = T100OPERATOR_SIX;
+                if(info.TARGET.BASE_FLAG){
+                    info.TARGET.BASE_OFFSET++;
+                }
+                if(info.TARGET.OPERATOR_FLAG){
+                    info.TARGET.OPERATOR_OFFSET++;
+                }
+                if(info.SOURCE.BASE_FLAG){
+                    info.SOURCE.BASE_OFFSET++;
+                }
+                if(info.SOURCE.OPERATOR_FLAG){
+                    info.SOURCE.OPERATOR_OFFSET++;
+                }
+           }
+    }
+    */
+
+    return result;
+}
+
+
+T100BOOL T100Sentence::buildComplexus(T100BuildInfo* code, T100OPERATOR_COMPLEXUS& op, T100OPERATOR_BUILD& info)
+{
+    T100BOOL    result          = T100FALSE;
+
+    info.BASE_USED      = T100FALSE;
+    info.BASE_TYPE      = T_NONE;
+
+    switch(op.SYMBOL_TYPE){
+    case S_NONE:
+        {
+            info.TYPE   = T_NONE;
+        }
+        break;
+    case S_ADD:
+        {
+            info.TYPE   = T_IMM;
+        }
+        break;
+    case S_VAL:
+        {
+            info.TYPE   = I_MEM;
+        }
+        break;
+    default:
+        return result;
+    }
+
+    if(op.USED){
+        info.BASE_USED      = T100TRUE;
+
+        switch(op.BASE.DATA_TYPE)
+        {
+        case T100DATA_COR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_COR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_COR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_CBR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_CBR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_CBR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_CCR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_CCR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_CCR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_AAR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_AAR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_AAR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_ABR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_ABR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_ABR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_ACR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_ACR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_ACR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_ADR:
+            {
+                info.BASE_FLAG      = T100FALSE;
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_ADR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = I_ADR;
+                    }
+                    break;
+                default:
+                    return T100FALSE;
+                }
+            }
+            break;
+        case T100DATA_INTEGER:
+            {
+                info.BASE_FLAG      = T100TRUE;
+                info.BASE_VALUE     = op.BASE.VALUE;
+                info.OFFSET++;
+                info.BASE_OFFSET    = info.OFFSET;
+
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_IMM;
+                    }
+                    break;
+                case S_ADD:
+                    {
+                        info.BASE_TYPE      = T_COR;
+                    }
+                    break;
+                case S_VAL:
+                    {
+                        info.BASE_TYPE      = T_IMM;
+                    }
+                    break;
+                };
+            }
+            break;
+        case T100DATA_FLOAT:
+            {
+                info.BASE_FLAG      = T100TRUE;
+                info.BASE_VALUE     = op.BASE.VALUE;
+                info.OFFSET++;
+                info.BASE_OFFSET    = info.OFFSET;
+
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                    {
+                        info.BASE_TYPE      = T_IMM;
+                    }
+                    break;
+                default:
+                    {
+                        //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                        return T100FALSE;
+                    }
+                    break;
+                };
+            }
+            break;
+        case T100DATA_STRING:
+            {
+                //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                return T100FALSE;
+            }
+            break;
+        case T100DATA_LABEL:
+            {
+                info.BASE_FLAG      = T100TRUE;
+
+                switch(op.BASE.ADDR_TYPE)
+                {
+                case S_NONE:
+                case S_ADD:
+                    {
+                        T100WORD        offset;
+                        info.BASE_TYPE      = T_IMM;
+
+                        result = code->getLabel(op.BASE.NAME, offset);
+                        T100LABEL_CALL* item    = T100NEW T100LABEL_CALL();
+                        item->name              = op.BASE.NAME;
+                        //test
+                        info.OFFSET++;
+                        info.BASE_OFFSET        = info.OFFSET;
+                        item->offset            = code->getOffset() + info.BASE_OFFSET;
+
+                        code->addLabelCall(item);
+
+                        info.BASE_VALUE         = offset;
+                    }
+                    break;
+                default:
+                    {
+                        //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                        return T100FALSE;
+                    }
+                    break;
+                };
+            }
+            break;
+        case T100DATA_VARIABLE:
+            {
+                T100WORD        offset;
+                info.BASE_FLAG      = T100TRUE;
+
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDefine(op.BASE.NAME);
+                if(!vd){
+                    //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                    return T100FALSE;
+                }
+
+                result = code->getVariable(op.BASE.NAME, offset);
+                offset = vd->offset;
+
+                T100VARIABLE_CALL* item     = T100NEW T100VARIABLE_CALL();
+
+                item->name                  = op.BASE.NAME;
+                info.OFFSET++;
+                info.BASE_OFFSET            = info.OFFSET;
+                item->offset                = code->getOffset() + info.BASE_OFFSET;
+
+                code->addVariableCall(item);
+
+                info.BASE_VALUE             = offset;
+
+                switch(vd->type)
+                {
+                case T100DATA_INTEGER:
+                case T100DATA_FLOAT:
+                    {
+                        switch(op.BASE.ADDR_TYPE)
+                        {
+                        case S_NONE:
+                            {
+                                info.BASE_TYPE      = T_MEM;
+                            }
+                            break;
+                        case S_ADD:
+                            {
+                                info.BASE_TYPE      = T_IMM;
+                            }
+                            break;
+                        case S_VAL:
+                            {
+                                info.BASE_TYPE      = I_MEM;
+                            }
+                            break;
+                        default:
+                            return T100FALSE;
+                        };
+                    }
+                    break;
+                case T100DATA_STRING:
+                    {
+                        switch(op.BASE.ADDR_TYPE)
+                        {
+                        case S_NONE:
+                        case S_ADD:
+                            {
+                                info.BASE_TYPE      = T_IMM;
+                            }
+                            break;
+                        case S_VAL:
+                            {
+                                info.BASE_TYPE      = T_MEM;
+                            }
+                            break;
+                        default:
+                            {
+                                //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
+                                return T100FALSE;
+                            }
+                            break;
+                        };
+                    }
+                    break;
+                };
+            }
+            break;
+        };
+    };
+
+    result = buildOperator(code, op.OFFSET, info);
+
+    return result;
+
+}
+
+T100BOOL T100Sentence::buildInfo(T100ORDER_TYPE type, T100BuildInfo* code, T100OPERATOR_INFO& info)
+{
+    T100BOOL            result      = T100TRUE;
+    T100WORD_BITS       order;
+
+    order.BYTE0.BYTE    = type;
+
+    switch(info.TYPE){
+    case T100OPERATOR_ONE_ONE:
+        {
+            order.BYTE1.BYTE    = T100OPERATOR_ONE_ONE;
+
+            order.BYTE2.BYTE    = info.TARGET.OPERATOR_TYPE;
+            order.BYTE3.BYTE    = info.SOURCE.OPERATOR_TYPE;
+
+            code->setValue(order.WORD);
+            code->next();
+
+            if(info.TARGET.OPERATOR_FLAG){
+                code->setValue(info.TARGET.OPERATOR_VALUE);
+                code->next();
+            }
+
+            if(info.SOURCE.OPERATOR_FLAG){
+                code->setValue(info.SOURCE.OPERATOR_VALUE);
+                code->next();
+            }
+        }
+        break;
+    case T100OPERATOR_THREE_THREE:
+        {
+            order.BYTE1.BYTE    = T100OPERATOR_THREE_THREE;
+
+            order.BYTE2.BYTE    = info.TARGET.TYPE;
+            order.BYTE3.BYTE    = info.SOURCE.TYPE;
+
+            code->setValue(order.WORD);
+            code->next();
+
+            order.BYTE0.BYTE    = info.TARGET.BASE_TYPE;
+            order.BYTE1.BYTE    = info.TARGET.OPERATOR_TYPE;
+            order.BYTE2.BYTE    = info.SOURCE.BASE_TYPE;
+            order.BYTE3.BYTE    = info.SOURCE.OPERATOR_TYPE;
+
+            code->setValue(order.WORD);
+            code->next();
+
+            if(info.TARGET.BASE_USED && info.TARGET.BASE_FLAG){
+                code->setValue(info.TARGET.BASE_VALUE);
+                code->next();
+            }
+
+            if(info.TARGET.OPERATOR_FLAG){
+                code->setValue(info.TARGET.OPERATOR_VALUE);
+                code->next();
+
+                if(info.TARGET.OPERATOR_ARRAY){
+                    code->setValue(info.TARGET.OPERATOR_INDEX);
+                    code->next();
+                }
+            }
+
+            if(info.SOURCE.BASE_USED && info.SOURCE.BASE_FLAG){
+                code->setValue(info.SOURCE.BASE_VALUE);
+                code->next();
+            }
+
+            if(info.SOURCE.OPERATOR_FLAG){
+                code->setValue(info.SOURCE.OPERATOR_VALUE);
+                code->next();
+
+                if(info.SOURCE.OPERATOR_ARRAY){
+                    code->setValue(info.SOURCE.OPERATOR_INDEX);
+                    code->next();
+                }
+            }
+        }
+        break;
+    default:
+        return T100FALSE;
+    }
+
+    return result;
 }

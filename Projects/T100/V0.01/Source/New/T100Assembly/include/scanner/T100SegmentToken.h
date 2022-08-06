@@ -15,9 +15,10 @@ class T100SegmentToken : public T100Token
         virtual ~T100SegmentToken();
 
         T100STRING              name;
-        T100WORD                type;
 
         T100SENTENCE_VECTOR     sentences;
+
+        T100SegmentToken*       copy();
 
     protected:
         T100VOID                create();

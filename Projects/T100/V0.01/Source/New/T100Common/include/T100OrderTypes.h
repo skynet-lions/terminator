@@ -127,6 +127,12 @@ enum T100OPERATE_TYPE{
     //
     I_ARR,
     //
+    ST_IMM,
+    ST_MEM,
+    ST_ARR,
+    SI_MEM,
+    SI_ARR,
+    //
     T_MAX
 };
 

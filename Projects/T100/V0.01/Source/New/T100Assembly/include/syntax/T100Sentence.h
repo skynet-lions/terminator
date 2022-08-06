@@ -37,7 +37,12 @@ class T100Sentence
         T100BOOL                    parseBrace(T100OPERATOR&, T100OPERATOR&);
 
     protected:
+        T100BOOL                    buildOperator(T100BuildInfo*, T100OPERATOR&, T100OPERATOR_BUILD&);
+        T100BOOL                    buildOperator(T100BuildInfo*, T100OPERATOR_COMPLEXUS&, T100OPERATOR_BUILD&);
+        T100BOOL                    buildOperator(T100BuildInfo*, T100OPERATOR_BINOCULAR&, T100OPERATOR_INFO&);
+        T100BOOL                    buildComplexus(T100BuildInfo*, T100OPERATOR_COMPLEXUS&, T100OPERATOR_BUILD&);
 
+        T100BOOL                    buildInfo(T100ORDER_TYPE, T100BuildInfo*, T100OPERATOR_INFO&);
 
     protected:
         T100SentenceToken*          m_token         = T100NULL;

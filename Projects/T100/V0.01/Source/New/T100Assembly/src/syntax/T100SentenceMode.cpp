@@ -93,5 +93,9 @@ READ_NEXT:
 
 T100BOOL T100SentenceMode::build(T100BuildInfo* info)
 {
+    info->setTiny(istiny);
+    info->setMode(mode);
+    info->setType(segment_type);
 
+    return T100TRUE;
 }

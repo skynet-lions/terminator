@@ -1,5 +1,8 @@
 #include "T100SentenceCall.h"
 
+#include "T100ProduceInfo.h"
+
+
 T100SentenceCall::T100SentenceCall(T100SentenceScanner* scanner)
     :T100Sentence(scanner)
 {
@@ -80,5 +83,38 @@ READ_NEXT:
 
 T100BOOL T100SentenceCall::build(T100BuildInfo* info)
 {
+    T100BOOL        result          = T100FALSE;
+    T100WORD_BITS   order;
 
+    order.BYTE0.BYTE = T100ORDER_CALL;
+    order.BYTE1.BYTE = T_NONE;
+    order.BYTE2.BYTE = T_IMM;
+
+    T100WORD    offset;
+
+    result = info->getProcedure(name, offset);
+    if(!result){
+        T100PROCEDURE_DEFINE* pd = T100ProduceInfo::getProcedureDefine(name);
+
+        if(pd){
+            offset = pd->offset;
+        }else{
+            return T100FALSE;
+        }
+    }
+
+    T100PROCEDURE_CALL* item = T100NEW T100PROCEDURE_CALL;
+
+    item->name      = name;
+    item->offset    = info->getOffset() + 1;
+
+    info->addProcedureCall(item);
+
+    info->setValue(order.WORD);
+    info->next();
+
+    info->setValue(offset);
+    info->next();
+
+    return T100TRUE;
 }
