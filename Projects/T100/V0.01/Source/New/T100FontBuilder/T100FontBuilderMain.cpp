@@ -42,6 +42,7 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(T100FontBuilderFrame)
+const long T100FontBuilderFrame::ID_CUSTOM1 = wxNewId();
 const long T100FontBuilderFrame::idMenuQuit = wxNewId();
 const long T100FontBuilderFrame::idMenuAbout = wxNewId();
 const long T100FontBuilderFrame::ID_STATUSBAR1 = wxNewId();
@@ -62,6 +63,8 @@ T100FontBuilderFrame::T100FontBuilderFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem2;
 
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
+    SetClientSize(wxSize(410,600));
+    Custom1 = new T100FontPanel(this,ID_CUSTOM1,wxPoint(224,136),wxDefaultSize);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);

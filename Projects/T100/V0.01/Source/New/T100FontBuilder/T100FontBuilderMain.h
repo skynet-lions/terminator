@@ -11,6 +11,7 @@
 #define T100FONTBUILDERMAIN_H
 
 //(*Headers(T100FontBuilderFrame)
+#include "T100FontPanel.h"
 #include <wx/frame.h>
 #include <wx/menu.h>
 #include <wx/statusbr.h>
@@ -31,12 +32,14 @@ class T100FontBuilderFrame: public wxFrame
         //*)
 
         //(*Identifiers(T100FontBuilderFrame)
+        static const long ID_CUSTOM1;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(T100FontBuilderFrame)
+        T100FontPanel* Custom1;
         wxStatusBar* StatusBar1;
         //*)
 

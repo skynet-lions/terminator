@@ -16,6 +16,7 @@
 					<Add option="-g" />
 					<Add option="-D__WXDEBUG__" />
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
+					<Add directory="include/view" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -65,16 +66,20 @@
 		<Unit filename="T100FontBuilderApp.h" />
 		<Unit filename="T100FontBuilderMain.cpp" />
 		<Unit filename="T100FontBuilderMain.h" />
+		<Unit filename="include/view/T100FontPanel.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="src/view/T100FontPanel.cpp" />
 		<Unit filename="wxsmith/T100FontBuilderframe.wxs" />
+		<Unit filename="wxsmith/T100FontPanel.wxs" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="T100FontBuilderApp.cpp" main="T100FontBuilderFrame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="wxsmith/T100FontBuilderframe.wxs" src="T100FontBuilderMain.cpp" hdr="T100FontBuilderMain.h" fwddecl="0" i18n="1" name="T100FontBuilderFrame" language="CPP" />
+					<wxPanel wxs="wxsmith/T100FontPanel.wxs" src="src\view\T100FontPanel.cpp" hdr="include\view\T100FontPanel.h" fwddecl="0" i18n="1" name="T100FontPanel" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>

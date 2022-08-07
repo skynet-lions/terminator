@@ -13,7 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="../T100Lib/include" />
 				</Compiler>
+				<Linker>
+					<Add library="../build/libT100Lib.a" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/T100Common" prefix_auto="1" extension_auto="1" />
@@ -22,6 +27,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,8 +38,28 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/T100Font.h" />
+		<Unit filename="include/T100FontFile.h" />
 		<Unit filename="include/T100OrderTypes.h" />
+		<Unit filename="include/T100VDisk.h" />
+		<Unit filename="include/T100VDiskFile.h" />
+		<Unit filename="include/T100VDiskPart.h" />
+		<Unit filename="include/T100VFS.h" />
+		<Unit filename="include/T100VFSDirectory.h" />
+		<Unit filename="include/T100VFSFile.h" />
+		<Unit filename="include/T100VFSItem.h" />
+		<Unit filename="include/T100VFSTable.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/T100Font.cpp" />
+		<Unit filename="src/T100FontFile.cpp" />
+		<Unit filename="src/T100VDisk.cpp" />
+		<Unit filename="src/T100VDiskFile.cpp" />
+		<Unit filename="src/T100VDiskPart.cpp" />
+		<Unit filename="src/T100VFS.cpp" />
+		<Unit filename="src/T100VFSDirectory.cpp" />
+		<Unit filename="src/T100VFSFile.cpp" />
+		<Unit filename="src/T100VFSItem.cpp" />
+		<Unit filename="src/T100VFSTable.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

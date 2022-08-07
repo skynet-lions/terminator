@@ -14,6 +14,9 @@
 #include <wx/image.h>
 //*)
 
+#include "T100VPCCallback.h"
+
+
 IMPLEMENT_APP(T100VPCApp);
 
 bool T100VPCApp::OnInit()

@@ -10,7 +10,12 @@ class T100File : public T100DirectoryEntry
         T100File(T100WSTRING);
         virtual ~T100File();
 
+        virtual T100BOOL            create();
+        virtual T100BOOL            remove();
+
+
     protected:
+        T100DWORD                   m_length            = 0;
 
     private:
 };

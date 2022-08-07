@@ -16,6 +16,9 @@
 #include <wx/statusbr.h>
 //*)
 
+#include "T100Common.h"
+
+
 class T100VPCFrame: public wxFrame
 {
     public:
@@ -28,17 +31,26 @@ class T100VPCFrame: public wxFrame
         //(*Handlers(T100VPCFrame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
+        void OnStartMenuSelected(wxCommandEvent& event);
+        void OnStopMenuSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(T100VPCFrame)
+        static const long ID_MENUITEM_START;
+        static const long ID_MENUITEM_STOP;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(T100VPCFrame)
+        wxMenuItem* StartMenu;
+        wxMenuItem* StopMenu;
         wxStatusBar* StatusBar1;
         //*)
+
+        T100VOID            create();
+        T100VOID            destroy();
 
         DECLARE_EVENT_TABLE()
 };

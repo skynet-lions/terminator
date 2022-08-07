@@ -15,6 +15,10 @@
 #include <wx/string.h>
 //*)
 
+#include "T100VPCApp.h"
+#include "T100VPCCallback.h"
+
+
 //helper functions
 enum wxbuildinfoformat {
     short_f, long_f };
@@ -42,6 +46,8 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(T100VPCFrame)
+const long T100VPCFrame::ID_MENUITEM_START = wxNewId();
+const long T100VPCFrame::ID_MENUITEM_STOP = wxNewId();
 const long T100VPCFrame::idMenuQuit = wxNewId();
 const long T100VPCFrame::idMenuAbout = wxNewId();
 const long T100VPCFrame::ID_STATUSBAR1 = wxNewId();
@@ -64,6 +70,11 @@ T100VPCFrame::T100VPCFrame(wxWindow* parent,wxWindowID id)
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
+    StartMenu = new wxMenuItem(Menu1, ID_MENUITEM_START, _("Start"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(StartMenu);
+    StopMenu = new wxMenuItem(Menu1, ID_MENUITEM_STOP, _("Stop"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(StopMenu);
+    Menu1->AppendSeparator();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
     MenuBar1->Append(Menu1, _("&File"));
@@ -79,15 +90,31 @@ T100VPCFrame::T100VPCFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
 
+    Connect(ID_MENUITEM_START,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnStartMenuSelected);
+    Connect(ID_MENUITEM_STOP,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnStopMenuSelected);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnAbout);
     //*)
+
+    create();
 }
 
 T100VPCFrame::~T100VPCFrame()
 {
     //(*Destroy(T100VPCFrame)
     //*)
+
+    destroy();
+}
+
+T100VOID T100VPCFrame::create()
+{
+    T100VPCCallback::init(&wxGetApp().m_serve, &wxGetApp().m_view);
+}
+
+T100VOID T100VPCFrame::destroy()
+{
+
 }
 
 void T100VPCFrame::OnQuit(wxCommandEvent& event)
@@ -99,4 +126,14 @@ void T100VPCFrame::OnAbout(wxCommandEvent& event)
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("Welcome to..."));
+}
+
+void T100VPCFrame::OnStartMenuSelected(wxCommandEvent& event)
+{
+    T100VPCCallback::frame_menu_start();
+}
+
+void T100VPCFrame::OnStopMenuSelected(wxCommandEvent& event)
+{
+    T100VPCCallback::frame_menu_stop();
 }
