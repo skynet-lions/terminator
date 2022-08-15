@@ -14,7 +14,7 @@ T100TestApp::~T100TestApp()
     //dtor
 }
 
-T100VOID T100TestApp::run(int argc, wchar_t** argv)
+T100VOID T100TestApp::run(int argc, char** argv)
 {
     T100LibTest         lib;
 

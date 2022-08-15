@@ -3,7 +3,7 @@
 
 #include "T100Scanner.h"
 #include "T100CmdLineParameterToken.h"
-#include "T100CmdLineStringScanner.h"
+#include "T100CmdLineCharScanner.h"
 #include "T100CmdLineInfo.h"
 
 
@@ -22,12 +22,16 @@ class T100CmdLineParameterScanner : public T100Scanner
 
     protected:
         T100CmdLineParameterToken*      m_token         = T100NULL;
-        T100CmdLineStringToken          m_item;
+        T100CmdLineCharToken            m_item;
 
         T100BOOL                        run();
 
+        T100BOOL                        read();
+        T100BOOL                        append();
+        T100BOOL                        classify();
+
     private:
-        T100CmdLineStringScanner*       m_scanner       = T100NULL;
+        T100CmdLineCharScanner*         m_scanner       = T100NULL;
         T100CmdLineInfo*                m_info          = T100NULL;
 
 };

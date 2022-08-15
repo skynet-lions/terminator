@@ -52,12 +52,6 @@
 			<size>84,152</size>
 			<handler function="OnCountryListBoxSelect" entry="EVT_LISTBOX" />
 		</object>
-		<object class="wxListBox" name="ID_LISTBOX_FONTCODE" variable="FontCodeListBox" member="yes">
-			<default>-1</default>
-			<pos>104,88</pos>
-			<size>168,152</size>
-			<handler function="OnFontCodeListBoxSelect" entry="EVT_LISTBOX" />
-		</object>
 		<object class="wxComboBox" name="ID_COMBOBOX_CODEBEGIN" variable="CodeBeginComboBox" member="yes">
 			<pos>280,88</pos>
 			<handler function="OnCodeBeginComboBoxSelected" entry="EVT_COMBOBOX" />
@@ -103,6 +97,11 @@
 			<size>168,152</size>
 			<style>wxBORDER_SIMPLE</style>
 			<handler function="OnPaintPanelPaint" entry="EVT_PAINT" />
+		</object>
+		<object class="wxListCtrl" name="ID_LISTCTRL_FONTCODE" variable="FontCodeListCtrl" member="yes">
+			<pos>104,88</pos>
+			<size>168,152</size>
+			<style>wxLC_REPORT|wxBORDER_SIMPLE</style>
 		</object>
 	</object>
 </wxsmith>

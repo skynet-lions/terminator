@@ -17,6 +17,9 @@
 #include <wx/statusbr.h>
 //*)
 
+#include "T100Common.h"
+
+
 class T100FontBuilderFrame: public wxFrame
 {
     public:
@@ -42,6 +45,9 @@ class T100FontBuilderFrame: public wxFrame
         T100FontPanel* Custom1;
         wxStatusBar* StatusBar1;
         //*)
+
+        T100VOID            create();
+        T100VOID            destroy();
 
         DECLARE_EVENT_TABLE()
 };

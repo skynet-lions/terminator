@@ -42,6 +42,10 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(T100VDiskFrame)
+const long T100VDiskFrame::ID_MENUITEM1 = wxNewId();
+const long T100VDiskFrame::ID_MENUITEM2 = wxNewId();
+const long T100VDiskFrame::ID_MENUITEM3 = wxNewId();
+const long T100VDiskFrame::ID_MENUITEM4 = wxNewId();
 const long T100VDiskFrame::idMenuQuit = wxNewId();
 const long T100VDiskFrame::idMenuAbout = wxNewId();
 const long T100VDiskFrame::ID_STATUSBAR1 = wxNewId();
@@ -64,6 +68,15 @@ T100VDiskFrame::T100VDiskFrame(wxWindow* parent,wxWindowID id)
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
+    MenuItem3 = new wxMenuItem(Menu1, ID_MENUITEM1, _("New"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuItem3);
+    MenuItem4 = new wxMenuItem(Menu1, ID_MENUITEM2, _("Open"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuItem4);
+    MenuItem5 = new wxMenuItem(Menu1, ID_MENUITEM3, _("Save"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuItem5);
+    MenuItem6 = new wxMenuItem(Menu1, ID_MENUITEM4, _("Close"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuItem6);
+    Menu1->AppendSeparator();
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
     MenuBar1->Append(Menu1, _("&File"));

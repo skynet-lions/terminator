@@ -6,10 +6,16 @@
 #include <wx/choice.h>
 #include <wx/combobox.h>
 #include <wx/listbox.h>
+#include <wx/listctrl.h>
 #include <wx/panel.h>
 #include <wx/radiobut.h>
 #include <wx/statbox.h>
 //*)
+
+#include <atomic>
+#include "T100Common.h"
+#include "T100FontTools.h"
+
 
 class T100FontPanel: public wxPanel
 {
@@ -29,7 +35,7 @@ class T100FontPanel: public wxPanel
 		wxComboBox* FileComboBox;
 		wxComboBox* FontSizeComboBox;
 		wxListBox* CountryListBox;
-		wxListBox* FontCodeListBox;
+		wxListCtrl* FontCodeListCtrl;
 		wxPanel* PaintPanel;
 		wxRadioButton* NameCodeRadioButton1;
 		wxRadioButton* NameCodeRadioButton2;
@@ -51,7 +57,6 @@ class T100FontPanel: public wxPanel
 		static const long ID_RADIOBUTTON2;
 		static const long ID_COMBOBOX_FONTSIZE;
 		static const long ID_LISTBOX_COUNTRY;
-		static const long ID_LISTBOX_FONTCODE;
 		static const long ID_COMBOBOX_CODEBEGIN;
 		static const long ID_COMBOBOX_CODEEND;
 		static const long ID_BUTTON_APPEND;
@@ -60,9 +65,14 @@ class T100FontPanel: public wxPanel
 		static const long ID_BUTTON_BROWSE;
 		static const long ID_BUTTON_RUN;
 		static const long ID_PANEL_PAINT;
+		static const long ID_LISTCTRL_FONTCODE;
 		//*)
 
 	private:
+	    T100FontTools           m_tools;
+	    std::atomic_bool        m_running;
+	    T100LONG                m_current           = -1;
+
 
 		//(*Handlers(T100FontPanel)
 		void OnFontChoiceSelect(wxCommandEvent& event);
@@ -90,6 +100,9 @@ class T100FontPanel: public wxPanel
 		//*)
 
 	protected:
+
+	    T100VOID            create();
+	    T100VOID            destroy();
 
 		void BuildContent(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size);
 

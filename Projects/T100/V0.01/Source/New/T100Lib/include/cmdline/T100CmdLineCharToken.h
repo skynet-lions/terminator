@@ -12,6 +12,10 @@ class T100CmdLineCharToken : public T100Token
 
         T100WCHAR           value;
 
+        T100WSTRING         exec;
+
+        T100VOID            clear();
+
     protected:
 
     private:

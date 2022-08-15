@@ -1,6 +1,6 @@
 #include "T100VFSTable.h"
 
-T100VFSTable::T100VFSTable()
+T100VFSTable::T100VFSTable(T100VFS* vfs)
 {
     //ctor
 }

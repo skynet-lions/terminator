@@ -38,7 +38,7 @@ class T100QU32
         T100CU32*               m_cu            = T100NULL;
         T100AU32*               m_au            = T100NULL;
         T100Memory32*           m_memory        = T100NULL;
-        T100Port32*             m_part          = T100NULL;
+        T100Port32*             m_port          = T100NULL;
         T100Interrupt32*        m_interrupt     = T100NULL;
         T100Executor32*         m_executor      = T100NULL;
 

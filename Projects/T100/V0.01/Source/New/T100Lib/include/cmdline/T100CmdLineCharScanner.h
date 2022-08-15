@@ -20,7 +20,13 @@ class T100CmdLineCharScanner : public T100Scanner
         T100CmdLineCharToken*           m_token             = T100NULL;
         T100CmdLineStringToken          m_item;
 
+        T100WORD                        m_index             = 0;
+
         T100BOOL                        run();
+
+        T100BOOL                        read();
+        T100BOOL                        append();
+        T100BOOL                        classify();
 
     private:
         T100CmdLineStringScanner*       m_scanner           = T100NULL;

@@ -39,11 +39,17 @@ class T100VPCFrame: public wxFrame
         static const long ID_MENUITEM_START;
         static const long ID_MENUITEM_STOP;
         static const long idMenuQuit;
+        static const long ID_MENUITEM1;
+        static const long ID_MENUITEM2;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(T100VPCFrame)
+        wxMenu* Menu3;
+        wxMenu* Menu4;
+        wxMenuItem* MenuItem3;
+        wxMenuItem* MenuItem4;
         wxMenuItem* StartMenu;
         wxMenuItem* StopMenu;
         wxStatusBar* StatusBar1;

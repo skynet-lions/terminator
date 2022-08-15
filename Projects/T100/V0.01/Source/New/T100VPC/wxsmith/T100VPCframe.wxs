@@ -20,6 +20,18 @@
 					<handler function="OnQuit" entry="EVT_MENU" />
 				</object>
 			</object>
+			<object class="wxMenu" variable="Menu3" member="yes">
+				<label>Debug</label>
+				<object class="wxMenuItem" name="ID_MENUITEM1" variable="MenuItem3" member="yes">
+					<label>Debug</label>
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu4" member="yes">
+				<label>Config</label>
+				<object class="wxMenuItem" name="ID_MENUITEM2" variable="MenuItem4" member="yes">
+					<label>Setup</label>
+				</object>
+			</object>
 			<object class="wxMenu" variable="Menu2" member="no">
 				<label>Help</label>
 				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem2" member="no">

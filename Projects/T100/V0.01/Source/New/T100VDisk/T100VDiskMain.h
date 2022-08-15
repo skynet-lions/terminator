@@ -31,12 +31,20 @@ class T100VDiskFrame: public wxFrame
         //*)
 
         //(*Identifiers(T100VDiskFrame)
+        static const long ID_MENUITEM1;
+        static const long ID_MENUITEM2;
+        static const long ID_MENUITEM3;
+        static const long ID_MENUITEM4;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(T100VDiskFrame)
+        wxMenuItem* MenuItem3;
+        wxMenuItem* MenuItem4;
+        wxMenuItem* MenuItem5;
+        wxMenuItem* MenuItem6;
         wxStatusBar* StatusBar1;
         //*)
 

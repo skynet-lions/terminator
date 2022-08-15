@@ -1,9 +1,11 @@
-#include <iostream>
+#include "T100TestApp.h"
 
-using namespace std;
 
-int main()
+int main(int argc, wchar_t** argv)
 {
-    cout << "Hello world!" << endl;
+    T100TestApp         app;
+
+    app.run(argc, argv);
+
     return 0;
 }

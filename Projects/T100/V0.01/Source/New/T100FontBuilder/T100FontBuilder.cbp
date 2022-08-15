@@ -7,7 +7,8 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/T100FontBuilder" prefix_auto="1" extension_auto="1" />
+				<Option output="../build/T100FontBuilder" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../build" />
 				<Option object_output="obj/Debug/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
@@ -17,12 +18,19 @@
 					<Add option="-D__WXDEBUG__" />
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
 					<Add directory="include/view" />
+					<Add directory="include/serve" />
+					<Add directory="../T100Lib/include" />
+					<Add directory="include" />
+					<Add directory="../T100Common/include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
 				</ResourceCompiler>
 				<Linker>
 					<Add library="libwxmsw30ud.a" />
+					<Add library="../build/libT100Lib.a" />
+					<Add library="../build/libT100Common.a" />
+					<Add library="dl" />
 					<Add directory="$(#wx)/lib/gcc_dll" />
 				</Linker>
 			</Target>
@@ -35,6 +43,9 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
+					<Add directory="include/serve" />
+					<Add directory="include/view" />
+					<Add directory="include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
@@ -66,11 +77,21 @@
 		<Unit filename="T100FontBuilderApp.h" />
 		<Unit filename="T100FontBuilderMain.cpp" />
 		<Unit filename="T100FontBuilderMain.h" />
+		<Unit filename="include/T100FontHint.h" />
+		<Unit filename="include/serve/T100FontCallback.h" />
+		<Unit filename="include/serve/T100FontServe.h" />
+		<Unit filename="include/serve/T100FontTools.h" />
 		<Unit filename="include/view/T100FontPanel.h" />
+		<Unit filename="include/view/T100FontView.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="src/T100FontHint.cpp" />
+		<Unit filename="src/serve/T100FontCallback.cpp" />
+		<Unit filename="src/serve/T100FontServe.cpp" />
+		<Unit filename="src/serve/T100FontTools.cpp" />
 		<Unit filename="src/view/T100FontPanel.cpp" />
+		<Unit filename="src/view/T100FontView.cpp" />
 		<Unit filename="wxsmith/T100FontBuilderframe.wxs" />
 		<Unit filename="wxsmith/T100FontPanel.wxs" />
 		<Extensions>

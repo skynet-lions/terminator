@@ -13,7 +13,6 @@ class T100File : public T100DirectoryEntry
         virtual T100BOOL            create();
         virtual T100BOOL            remove();
 
-
     protected:
         T100DWORD                   m_length            = 0;
 

@@ -23,7 +23,7 @@ class T100Thread
         T100BOOL                wait();
         T100BOOL                wakeup();
 
-        static T100VOID         sleep();
+        static T100VOID         sleep(T100WORD);
 
     protected:
         virtual T100VOID        run();

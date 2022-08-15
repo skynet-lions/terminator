@@ -1,5 +1,8 @@
 #include "T100Thread.h"
 
+#include <chrono>
+
+
 T100Thread::T100Thread()
 {
     //ctor
@@ -53,7 +56,7 @@ T100BOOL T100Thread::wakeup()
 
 }
 
-T100VOID T100Thread::sleep()
+T100VOID T100Thread::sleep(T100WORD value)
 {
-
+    std::this_thread::sleep_for(std::chrono::milliseconds(value));
 }

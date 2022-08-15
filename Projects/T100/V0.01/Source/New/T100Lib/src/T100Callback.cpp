@@ -60,14 +60,14 @@ T100BOOL T100Callback::clear()
     return T100TRUE;
 }
 
-T100BOOL T100Callback::run(void* data)
+T100BOOL T100Callback::run(void* value)
 {
     T100BOOL        result      = T100TRUE;
 
     for(T100CALLBACK_ENTRY* entry : m_callbacks){
         if(entry){
-            entry->DATA = data;
-            if(!(entry->HANDLE(T100NULL, T100NULL, T100NULL, entry->OBJECT, data))){
+            entry->VALUE = value;
+            if(!(entry->HANDLE(T100NULL, T100NULL, T100NULL, entry->OBJECT, value))){
                 result = T100FALSE;
             }
         }else{

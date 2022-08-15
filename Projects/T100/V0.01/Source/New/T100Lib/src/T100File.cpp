@@ -18,6 +18,13 @@ T100BOOL T100File::create()
 {
     T100INT     result;
 
+    /*
+    //test
+    T100WSTRING     name;
+
+    name = getName();
+    */
+
     result = ::_wcreat(getName().c_str(), _S_IRWXU);
 
     if(-1 == result){

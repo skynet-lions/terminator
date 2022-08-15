@@ -1,6 +1,9 @@
 #include "T100VDiskFile.h"
 
-T100VDiskFile::T100VDiskFile()
+#include "T100String.h"
+
+
+T100VDiskFile::T100VDiskFile(T100String file)
 {
     //ctor
 }

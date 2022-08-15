@@ -31,9 +31,11 @@ T100BOOL T100VPCCallback::init(T100VPCServe* serve, T100VPCView* view)
 T100BOOL T100VPCCallback::frame_menu_start(void* v)
 {
     m_view->show();
+    m_serve->start();
 }
 
 T100BOOL T100VPCCallback::frame_menu_stop(void* v)
 {
+    m_serve->stop();
     m_view->hide();
 }

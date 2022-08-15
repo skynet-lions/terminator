@@ -14,13 +14,18 @@ class T100FileWriter : public T100Writer
 
         T100BOOL                    open();
         T100BOOL                    close();
+        T100BOOL                    opened();
 
-        T100BOOL                    write();
+        T100BOOL                    seek(T100DWORD);
+
+        T100BOOL                    write(T100WORD*, T100WORD&);
 
     protected:
         T100WSTRING                 m_file;
         std::atomic_bool            m_opened;
         std::ofstream*              m_ofs               = T100NULL;
+
+        std::atomic_llong           m_seek;
 
         T100VOID                    create();
         T100VOID                    destroy();

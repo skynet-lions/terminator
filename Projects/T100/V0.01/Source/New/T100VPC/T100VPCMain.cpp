@@ -49,6 +49,8 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 const long T100VPCFrame::ID_MENUITEM_START = wxNewId();
 const long T100VPCFrame::ID_MENUITEM_STOP = wxNewId();
 const long T100VPCFrame::idMenuQuit = wxNewId();
+const long T100VPCFrame::ID_MENUITEM1 = wxNewId();
+const long T100VPCFrame::ID_MENUITEM2 = wxNewId();
 const long T100VPCFrame::idMenuAbout = wxNewId();
 const long T100VPCFrame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -78,6 +80,14 @@ T100VPCFrame::T100VPCFrame(wxWindow* parent,wxWindowID id)
     MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
     MenuBar1->Append(Menu1, _("&File"));
+    Menu3 = new wxMenu();
+    MenuItem3 = new wxMenuItem(Menu3, ID_MENUITEM1, _("Debug"), wxEmptyString, wxITEM_NORMAL);
+    Menu3->Append(MenuItem3);
+    MenuBar1->Append(Menu3, _("Debug"));
+    Menu4 = new wxMenu();
+    MenuItem4 = new wxMenuItem(Menu4, ID_MENUITEM2, _("Setup"), wxEmptyString, wxITEM_NORMAL);
+    Menu4->Append(MenuItem4);
+    MenuBar1->Append(Menu4, _("Config"));
     Menu2 = new wxMenu();
     MenuItem2 = new wxMenuItem(Menu2, idMenuAbout, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
     Menu2->Append(MenuItem2);

@@ -7,7 +7,7 @@ typedef     T100BOOL (*T100CALLBACK_HANDLE)(void*, void*, void*, void*, void*);
 
 typedef struct{
     void*                   OBJECT;
-    void*                   DATA;
+    void*                   VALUE;
     T100CALLBACK_HANDLE     HANDLE;
 }T100CALLBACK_ENTRY;
 

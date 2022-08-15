@@ -13,6 +13,10 @@ class T100CmdLineTest : public T100Test
     protected:
         T100BOOL                    do_test();
 
+        T100BOOL                    test_string();
+
+        T100BOOL                    test_char();
+
         T100BOOL                    test_cmdline();
 
     private:

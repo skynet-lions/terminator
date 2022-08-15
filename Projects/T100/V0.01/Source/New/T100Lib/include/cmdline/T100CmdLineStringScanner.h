@@ -11,7 +11,7 @@ class T100CmdLineStringScanner : public T100Scanner
         T100CmdLineStringScanner();
         virtual ~T100CmdLineStringScanner();
 
-        T100VOID                    setSource(int, wchar_t**);
+        T100VOID                    setSource(int, char**);
 
         T100BOOL                    next(T100Token&);
 
@@ -23,7 +23,7 @@ class T100CmdLineStringScanner : public T100Scanner
     private:
         T100INT                     m_index         = 0;
         int                         m_argc;
-        wchar_t**                   m_argv          = T100NULL;
+        char**                      m_argv          = T100NULL;
 
 };
 

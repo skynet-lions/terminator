@@ -10,6 +10,10 @@ class T100CmdLineParameterToken : public T100Token
         T100CmdLineParameterToken();
         virtual ~T100CmdLineParameterToken();
 
+        T100WSTRING             value;
+
+        T100VOID                clear();
+
     protected:
 
     private:

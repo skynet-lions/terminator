@@ -3,6 +3,11 @@
 
 #include "T100Common.h"
 
+#define     T100CONSOLE_PROMPT_DEFAULT                  L"?"
+#define     T100CONSOLE_SEPARATOR_DEFAULT               L" "
+#define     T100CONSOLE_COMMAND_PROMPT_DEFAULT          L'-'
+
+
 typedef enum{
     T100CONSOLE_NONE        = 0,
     T100CONSOLE_WINDOWS,

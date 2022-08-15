@@ -3,6 +3,7 @@
 
 
 #include "T100Common.h"
+class T100File;
 
 #define     T100FILE_HANDLE             T100DWORD
 #define     T100FILE_VECTOR             std::vector<T100File*>

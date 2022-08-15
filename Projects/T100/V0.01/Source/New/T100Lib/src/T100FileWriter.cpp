@@ -18,6 +18,16 @@ T100FileWriter::~T100FileWriter()
 
 T100VOID T100FileWriter::create()
 {
+    m_opened = T100FALSE;
+}
+
+T100VOID T100FileWriter::destroy()
+{
+
+}
+
+T100BOOL T100FileWriter::open()
+{
     T100STDSTRING   result;
 
     result = T100Unicode::to_string8(m_file);
@@ -28,17 +38,19 @@ T100VOID T100FileWriter::create()
         if(m_ofs->is_open()){
             m_opened = T100TRUE;
         }else{
-            T100SAFE_DELETE(m_ofs);
             m_opened = T100FALSE;
-            return;
+            T100SAFE_DELETE(m_ofs);
+            return T100FALSE;
         }
     }else{
         m_opened = T100FALSE;
-        return;
+        return T100FALSE;
     }
+
+    return T100TRUE;
 }
 
-T100VOID T100FileWriter::destroy()
+T100BOOL T100FileWriter::close()
 {
     if(m_ofs){
         m_ofs->close();
@@ -46,21 +58,45 @@ T100VOID T100FileWriter::destroy()
         T100SAFE_DELETE(m_ofs);
         m_file.clear();
     }else{
-
+        return T100FALSE;
     }
+
+    return T100TRUE;
 }
 
-T100BOOL T100FileWriter::open()
+T100BOOL T100FileWriter::opened()
 {
+    return m_opened;
+}
+
+T100BOOL T100FileWriter::seek(T100DWORD seek)
+{
+    if(m_opened){
+        m_seek = seek;
+
+        m_ofs->clear();
+
+        if(m_ofs->seekp(m_seek * 4).fail()){
+            return T100FALSE;
+        }
+
+        return T100TRUE;
+    }
+
     return T100FALSE;
 }
 
-T100BOOL T100FileWriter::close()
+T100BOOL T100FileWriter::write(T100WORD* data, T100WORD& length)
 {
-    return T100FALSE;
-}
+    T100BOOL        result;
 
-T100BOOL T100FileWriter::write()
-{
+    if(m_opened){
+        result = m_ofs->write((T100STDCHAR*)data, length * 4).fail();
+
+        if(!result){
+            return T100TRUE;
+        }
+    }
+
     return T100FALSE;
 }

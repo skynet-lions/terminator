@@ -10,13 +10,13 @@ class T100Clock
         T100Clock();
         virtual ~T100Clock();
 
-        T100WORD            second();
+        T100WORD            seconds();
 
-        T100WORD            millisecond();
+        T100DWORD           milliseconds();
 
-        T100WORD            microsecond();
+        T100DWORD           microseconds();
 
-        T100WORD            nanosecond();
+        T100DWORD           nanoseconds();
 
     protected:
 

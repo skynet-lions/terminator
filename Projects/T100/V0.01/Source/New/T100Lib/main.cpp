@@ -1,7 +1,7 @@
 #include "T100TestApp.h"
 
 
-int main(int argc, wchar_t** argv)
+int main(int argc, char** argv)
 {
     T100TestApp         app;
 

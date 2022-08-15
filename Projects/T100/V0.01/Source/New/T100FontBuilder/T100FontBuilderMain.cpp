@@ -15,6 +15,10 @@
 #include <wx/string.h>
 //*)
 
+#include "T100FontBuilderApp.h"
+#include "T100FontCallback.h"
+
+
 //helper functions
 enum wxbuildinfoformat {
     short_f, long_f };
@@ -85,12 +89,26 @@ T100FontBuilderFrame::T100FontBuilderFrame(wxWindow* parent,wxWindowID id)
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100FontBuilderFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100FontBuilderFrame::OnAbout);
     //*)
+
+    create();
 }
 
 T100FontBuilderFrame::~T100FontBuilderFrame()
 {
     //(*Destroy(T100FontBuilderFrame)
     //*)
+
+    destroy();
+}
+
+T100VOID T100FontBuilderFrame::create()
+{
+    T100FontCallback::init(&wxGetApp().m_serve, &wxGetApp().m_view);
+}
+
+T100VOID T100FontBuilderFrame::destroy()
+{
+
 }
 
 void T100FontBuilderFrame::OnQuit(wxCommandEvent& event)

@@ -27,5 +27,8 @@ T100VOID T100LogAppenderFile::destroy()
 
 T100VOID T100LogAppenderFile::outline(T100WORD type, T100WSTRING msg)
 {
-    m_writer->write();
+    T100WORD*       data;
+    T100WORD        length;
+
+    m_writer->write(data, length);
 }

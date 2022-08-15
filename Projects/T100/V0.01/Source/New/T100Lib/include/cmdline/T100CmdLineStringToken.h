@@ -12,6 +12,8 @@ class T100CmdLineStringToken : public T100Token
 
         T100WSTRING         value;
 
+        T100VOID            clear();
+
     protected:
 
     private:
