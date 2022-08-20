@@ -14,6 +14,8 @@ class T100App
         T100App();
         virtual ~T100App();
 
+        static T100VOID             getCmdLine(int&, wchar_t**&);
+
         static T100VOID             quit();
 
         static T100VOID             wait();

@@ -15,7 +15,7 @@ T100CmdLineParser::~T100CmdLineParser()
     //dtor
 }
 
-T100BOOL T100CmdLineParser::parse(int argc, char** argv)
+T100BOOL T100CmdLineParser::parse(int argc, wchar_t** argv)
 {
     T100BOOL                        result;
 
@@ -34,7 +34,7 @@ T100BOOL T100CmdLineParser::parse(int argc, char** argv)
         switch(token.type){
         case T100CMDLINE_TOKEN_EXEC:
             {
-                m_exec = token.value;
+
                 return T100TRUE;
             }
             break;
@@ -53,15 +53,54 @@ T100BOOL T100CmdLineParser::findExec(T100CmdLineExec& exec)
 
 T100BOOL T100CmdLineParser::findSwitch(T100WSTRING key, T100CmdLineSwitch& target)
 {
+    T100BOOL                result          = T100TRUE;
+    T100BOOL                value;
 
+    T100CmdLineInfo*        temp            = T100NULL;
+
+    temp = m_switchs[key];
+
+    if(temp){
+        target = static_cast<T100CmdLineSwitch&>(*temp);
+    }else{
+        result = T100FALSE;
+    }
+
+    return result;
 }
 
 T100BOOL T100CmdLineParser::findOption(T100WSTRING key, T100CmdLineOption& target)
 {
+    T100BOOL                result          = T100TRUE;
+    T100BOOL                value;
 
+    T100CmdLineInfo*        temp            = T100NULL;
+
+    temp = m_options[key];
+
+    if(temp){
+        target = static_cast<T100CmdLineOption&>(*temp);
+    }else{
+        result = T100FALSE;
+    }
+
+    return result;
 }
 
 T100BOOL T100CmdLineParser::findParam(T100CmdLineParam& target)
 {
+    T100BOOL                result          = T100TRUE;
+    T100BOOL                value;
 
+    T100CmdLineInfo*        temp            = T100NULL;
+
+    temp = m_params[m_index++];
+
+    if(temp){
+        target = static_cast<T100CmdLineParam&>(*temp);
+    }else{
+        result = T100FALSE;
+    }
+
+    return result;
 }

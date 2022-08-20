@@ -12,7 +12,7 @@ T100CmdLineParameterToken::~T100CmdLineParameterToken()
 
 T100VOID T100CmdLineParameterToken::clear()
 {
-    value.clear();
+    value = T100NULL;
 
     T100Token::clear();
 }

@@ -111,13 +111,51 @@ typedef struct{
 
 class T100VFS
 {
+    friend class T100VFSFile;
+    friend class T100VFSItem;
+    friend class T100VFSTable;
+    friend class T100VFSDirectory;
     public:
-        T100VFS();
+        T100VFS(T100VDiskFile*, T100VDiskPart*);
         virtual ~T100VFS();
 
+        T100BOOL            format(T100STRING);
+        T100BOOL            format(T100STRING, T100STRING);
+
+        T100BOOL            mkdir(T100STRING, T100STRING);
+        T100BOOL            chdir(T100STRING, T100STRING);
+        T100BOOL            rmdir(T100STRING, T100STRING);
+
+        T100BOOL            create(T100STRING, T100STRING);
+        T100BOOL            remove(T100STRING, T100STRING);
+
+        T100BOOL            list(T100STRING, T100STRING);
+        T100BOOL            copy(T100STRING, T100STRING, T100STRING);
+
+        T100BOOL            read(T100DWORD, T100WORD*);
+        T100BOOL            write(T100DWORD, T100WORD*);
+
+        T100BOOL            clear(T100DWORD);
+
     protected:
+        T100VOID            create();
+        T100VOID            destroy();
+
+        T100BOOL            change_part(T100VFS_PART*);
+
+        T100DWORD           absolute(T100DWORD);
+        T100DWORD           relative(T100DWORD);
+        T100DWORD           transform(T100DWORD, T100WORD);
 
     private:
+        T100VDiskFile*      m_vdisk         = T100NULL;
+        T100VDiskPart*      m_part          = T100NULL;
+
+        T100VFSDirectory*   m_path          = T100NULL;
+
+        T100VFSItem*        m_item          = T100NULL;
+        T100VFSTable*       m_table         = T100NULL;
+
 };
 
 #endif // T100VFS_H

@@ -1,5 +1,6 @@
 #include "T100App.h"
 
+#include <windows.h>
 #include "T100Log.h"
 
 
@@ -57,4 +58,9 @@ T100VOID T100App::close()
     if(0 > m_count){
         wait();
     }
+}
+
+T100VOID T100App::getCmdLine(int& argc, wchar_t**& argv)
+{
+    argv = CommandLineToArgvW(GetCommandLineW(), &argc);
 }

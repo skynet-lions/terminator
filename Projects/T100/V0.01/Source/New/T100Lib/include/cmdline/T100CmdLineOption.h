@@ -2,9 +2,10 @@
 #define T100CMDLINEOPTION_H
 
 #include "T100Common.h"
+#include "T100CmdLineInfo.h"
 
 
-class T100CmdLineOption
+class T100CmdLineOption : public T100CmdLineInfo
 {
     public:
         T100CmdLineOption();

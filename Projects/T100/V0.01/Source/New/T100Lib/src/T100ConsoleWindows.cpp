@@ -93,5 +93,8 @@ T100VOID T100ConsoleWindows::outline(T100WSTRING& msg)
 
 T100VOID T100ConsoleWindows::getline(T100WSTRING& msg)
 {
+    T100WCHAR       buffer[1024];
 
+    wscanf(L"%ls", buffer);
+    msg = buffer;
 }

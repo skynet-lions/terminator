@@ -20,44 +20,71 @@ T100FontFileWriter::~T100FontFileWriter()
 
 T100BOOL T100FontFileWriter::save()
 {
-    T100BOOL            result;
+    T100BOOL            result          = T100TRUE;
+    T100BOOL            value;
 
     if(opened()){
-        //seek(0);
+        value = seek(0);
+        if(!value){
+            return T100FALSE;
+        }
     }else{
-        result = open();
-        if(result){
-
-        }else{
+        value = open();
+        if(!value){
             return T100FALSE;
         }
     }
 
-    result = write_head();
-    if(!result){
-        return T100FALSE;
+    if(0 >= m_font->getRowSize()){
+        result = T100FALSE;
     }
 
-    if(0 >= m_font->getSize()){
-        return T100FALSE;
+    if(result){
+        value = write_head();
+        if(!value){
+            result = T100FALSE;
+        }
     }
 
-    for(auto row : m_font->getFonts()){
-        if(row){
-            if(write_row(row)){
+    if(result){
+        for(T100FONT_ROW* item : m_font->getFonts()){
+            if(item){
+                if(write_row(item->ROW)){
 
+                }else{
+                    result = T100FALSE;
+                    break;
+                }
             }else{
-                return T100FALSE;
+                result = T100FALSE;
+                break;
             }
-        }else{
-            return T100FALSE;
         }
     }
 
-    //test
-    //result = write_item(m_data, m_length);
+    if(result){
+        for(T100FONT_ROW* item : m_font->getFonts()){
+            for(T100FONT_DATA_VECTOR* data : *(item->FONTS)){
+                if(data){
+                    if(write_item(data->data(), data->size())){
 
-    result = close();
+                    }else{
+                        result = T100FALSE;
+                        goto ERROR;
+                    }
+                }else{
+                    result = T100FALSE;
+                    goto ERROR;
+                }
+            }
+        }
+    }
+ERROR:
+
+    value = close();
+    if(!value){
+        result = T100FALSE;
+    }
 
     return result;
 }
@@ -85,7 +112,7 @@ T100BOOL T100FontFileWriter::write_head()
 
     head.FONT_WIDTH     = m_font->getWidth();
     head.FONT_HEIGHT    = m_font->getHeight();
-    head.ROW_SIZE       = m_font->getSize();
+    head.ROW_SIZE       = m_font->getRowSize();
 
     data    = (T100WORD*)&head;
     length  = sizeof(head) / 4;
@@ -99,7 +126,7 @@ T100BOOL T100FontFileWriter::write_head()
 
 T100BOOL T100FontFileWriter::write_row(T100FONTFILE_ROW* row)
 {
-    if(m_row_current >= m_row_size){
+    if(m_row_current >= m_font->getRowSize()){
         return T100FALSE;
     }
 

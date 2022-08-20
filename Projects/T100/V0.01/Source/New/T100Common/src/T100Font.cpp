@@ -16,12 +16,12 @@ T100Font::~T100Font()
 
 T100VOID T100Font::setName(T100String name)
 {
-
+    m_name = name;
 }
 
 T100String T100Font::getName()
 {
-
+    return m_name;
 }
 
 T100VOID T100Font::setWidth(T100WORD width)
@@ -44,14 +44,15 @@ T100WORD T100Font::getHeight()
     return m_height;
 }
 
-T100VOID T100Font::setSize(T100WORD size)
+T100BOOL T100Font::setRowSize(T100WORD size)
 {
-
+    m_row_size = size;
+    return T100TRUE;
 }
 
-T100WORD T100Font::getSize()
+T100WORD T100Font::getRowSize()
 {
-
+    return m_row_size;
 }
 
 T100BOOL T100Font::load(T100String file)
@@ -76,19 +77,52 @@ T100BOOL T100Font::load(T100String file)
 
 }
 
-T100BOOL T100Font::setFont(T100WORD key, T100FONT_VECTOR* font)
+T100BOOL T100Font::setFont(T100WORD key, T100FONT_DATA_VECTOR* font)
 {
     m_fonts[key] = font;
     return T100TRUE;
 }
 
-T100BOOL T100Font::getFont(T100WORD key, T100FONT_VECTOR*& font)
+T100BOOL T100Font::getFont(T100WORD key, T100FONT_DATA_VECTOR*& font)
 {
     font = m_fonts[key];
     return T100TRUE;
 }
 
-T100FONTFILE_ROW_VECTOR& T100Font::getFonts()
+T100BOOL T100Font::appendRow(T100FONTFILE_ROW* row)
+{
+    T100FONT_ROW*   item = T100NEW T100FONT_ROW();
+
+    item->ROW   = row;
+
+    m_rows.push_back(item);
+
+    m_row_size = m_rows.size();
+
+    return T100TRUE;
+}
+
+T100BOOL T100Font::removeRow(T100FONTFILE_ROW* row)
+{
+    T100FONT_ROW_VECTOR::iterator it;
+
+    for(it = m_rows.begin(); it != m_rows.end(); it++){
+        T100FONT_ROW* item = (*it);
+
+        if(item){
+            if(row == item->ROW){
+                m_rows.erase(it);
+
+                m_row_size = m_rows.size();
+                return T100TRUE;
+            }
+        }
+    }
+
+    return T100FALSE;
+}
+
+T100FONT_ROW_VECTOR& T100Font::getFonts()
 {
     return m_rows;
 }

@@ -15,6 +15,10 @@
 #include <wx/string.h>
 //*)
 
+#include "T100VDiskApp.h"
+#include "T100VDiskCallback.h"
+
+
 //helper functions
 enum wxbuildinfoformat {
     short_f, long_f };
@@ -42,6 +46,8 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(T100VDiskFrame)
+const long T100VDiskFrame::ID_CUSTOM1 = wxNewId();
+const long T100VDiskFrame::ID_PANEL1 = wxNewId();
 const long T100VDiskFrame::ID_MENUITEM1 = wxNewId();
 const long T100VDiskFrame::ID_MENUITEM2 = wxNewId();
 const long T100VDiskFrame::ID_MENUITEM3 = wxNewId();
@@ -59,6 +65,7 @@ END_EVENT_TABLE()
 T100VDiskFrame::T100VDiskFrame(wxWindow* parent,wxWindowID id)
 {
     //(*Initialize(T100VDiskFrame)
+    wxBoxSizer* BoxSizer1;
     wxMenu* Menu1;
     wxMenu* Menu2;
     wxMenuBar* MenuBar1;
@@ -66,6 +73,11 @@ T100VDiskFrame::T100VDiskFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem2;
 
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
+    BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
+    Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+    DiskCtrl = new T100DiskCtrl(Panel1,ID_CUSTOM1,wxDefaultPosition,wxSize(600,30),0,wxDefaultValidator,_T("ID_CUSTOM1"));
+    BoxSizer1->Add(Panel1, 1, wxALL|wxEXPAND, 5);
+    SetSizer(BoxSizer1);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem3 = new wxMenuItem(Menu1, ID_MENUITEM1, _("New"), wxEmptyString, wxITEM_NORMAL);
@@ -91,16 +103,37 @@ T100VDiskFrame::T100VDiskFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetFieldsCount(1,__wxStatusBarWidths_1);
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
+    BoxSizer1->Fit(this);
+    BoxSizer1->SetSizeHints(this);
 
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnAbout);
     //*)
+
+    create();
 }
 
 T100VDiskFrame::~T100VDiskFrame()
 {
     //(*Destroy(T100VDiskFrame)
     //*)
+
+    destroy();
+}
+
+T100VOID T100VDiskFrame::create()
+{
+    wxGetApp().m_view.setFrame(this);
+
+    T100VDiskCallback::init(&(wxGetApp().m_serve), &(wxGetApp().m_view));
+
+    DiskCtrl->SetSize(wxSize(600, 30));
+    DiskCtrl->SetLength(1024);
+}
+
+T100VOID T100VDiskFrame::destroy()
+{
+
 }
 
 void T100VDiskFrame::OnQuit(wxCommandEvent& event)

@@ -18,11 +18,16 @@
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
 					<Add directory="include/view" />
 					<Add directory="include/serve" />
+					<Add directory="../T100WxWidgets/include" />
+					<Add directory="../T100Lib/include" />
+					<Add directory="include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
 				</ResourceCompiler>
 				<Linker>
+					<Add library="../build/libT100WxWidgets.a" />
+					<Add library="../build/libT100Lib.a" />
 					<Add library="libwxmsw30ud.a" />
 					<Add directory="$(#wx)/lib/gcc_dll" />
 				</Linker>
@@ -38,6 +43,7 @@
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
 					<Add directory="include/view" />
 					<Add directory="include/serve" />
+					<Add directory="include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
@@ -69,6 +75,7 @@
 		<Unit filename="T100VDiskApp.h" />
 		<Unit filename="T100VDiskMain.cpp" />
 		<Unit filename="T100VDiskMain.h" />
+		<Unit filename="include/T100VDiskCommon.h" />
 		<Unit filename="include/serve/T100VDiskCallback.h" />
 		<Unit filename="include/serve/T100VDiskServe.h" />
 		<Unit filename="include/view/T100VDiskView.h" />

@@ -1,6 +1,8 @@
 #ifndef T100HELP_H
 #define T100HELP_H
 
+#include "T100Common.h"
+
 
 class T100Help
 {

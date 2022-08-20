@@ -9,6 +9,7 @@ class T100Font;
 
 class T100FontFileWriter : public T100FileWriter
 {
+    friend class T100FontTools;
     public:
         T100FontFileWriter(T100FontFile*, T100Font*);
         virtual ~T100FontFileWriter();

@@ -11,11 +11,20 @@
 #define T100VDISKAPP_H
 
 #include <wx/app.h>
+#include "T100VDiskServe.h"
+#include "T100VDiskView.h"
+
 
 class T100VDiskApp : public wxApp
 {
     public:
         virtual bool OnInit();
+
+        T100VDiskServe          m_serve;
+        T100VDiskView           m_view;
+
 };
+
+DECLARE_APP(T100VDiskApp)
 
 #endif // T100VDISKAPP_H

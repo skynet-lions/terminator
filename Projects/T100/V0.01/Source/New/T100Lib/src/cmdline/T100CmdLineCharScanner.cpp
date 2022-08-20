@@ -7,11 +7,23 @@
 T100CmdLineCharScanner::T100CmdLineCharScanner()
 {
     //ctor
+    create();
 }
 
 T100CmdLineCharScanner::~T100CmdLineCharScanner()
 {
     //dtor
+    destroy();
+}
+
+T100VOID T100CmdLineCharScanner::create()
+{
+    m_index = 1;
+}
+
+T100VOID T100CmdLineCharScanner::destroy()
+{
+
 }
 
 T100VOID T100CmdLineCharScanner::setSource(T100Scanner* scanner)
@@ -36,6 +48,11 @@ T100BOOL T100CmdLineCharScanner::run()
 {
     T100BOOL            result          = T100TRUE;
 
+    if(m_item.value.size() == m_index){
+        m_token->type   = T100CMDLINE_TOKEN_END;
+        m_index++;
+        return T100TRUE;
+    }
 
     result = read();
     if(!result){
@@ -48,21 +65,17 @@ T100BOOL T100CmdLineCharScanner::run()
             m_token->exec   = m_item.value;
             m_token->type   = m_item.type;
             m_item.value.clear();
+            m_index = 1;
             return T100TRUE;
         }
         break;
-    }
-
-    result = append();
-
-    if(!result){
-        return T100FALSE;
-    }
-
-    result = classify();
-
-    if(!result){
-        return T100FALSE;
+    default:
+        {
+            append();
+            classify();
+            m_index++;
+        }
+        break;
     }
 
     return result;
@@ -72,18 +85,21 @@ T100BOOL T100CmdLineCharScanner::read()
 {
     T100BOOL            result          = T100TRUE;
 
-    if(m_index >= m_item.value.size()){
+    if(m_item.value.size() < m_index){
         result = m_scanner->next(m_item);
         if(result){
             m_index = 0;
         }else{
-            return T100FALSE;
+            m_token->type   = m_item.type;
+            m_token->eof    = m_item.eof;
+            m_token->err    = m_item.err;
+            result = T100FALSE;
         }
     }else{
-        m_index++;
+        //m_index++;
     }
 
-    return T100TRUE;
+    return result;
 }
 
 T100BOOL T100CmdLineCharScanner::append()

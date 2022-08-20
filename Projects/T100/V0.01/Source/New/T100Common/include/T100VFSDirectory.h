@@ -6,6 +6,8 @@
 
 class T100VFSDirectory
 {
+    friend class T100VFSItem;
+    friend class T100VFSFile;
     public:
         T100VFSDirectory(T100VFS*);
         virtual ~T100VFSDirectory();

@@ -7,7 +7,7 @@
 class T100TextFileReader : public T100FileReader
 {
     public:
-        T100TextFileReader();
+        T100TextFileReader(T100WSTRING);
         virtual ~T100TextFileReader();
 
     protected:

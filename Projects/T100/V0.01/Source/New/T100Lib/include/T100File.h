@@ -2,6 +2,7 @@
 #define T100FILE_H
 
 #include "T100DirectoryEntry.h"
+#include "T100Stream.h"
 
 
 class T100File : public T100DirectoryEntry

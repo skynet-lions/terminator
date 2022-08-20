@@ -21,6 +21,10 @@ typedef     unsigned long long      T100DWORD;
 typedef     int                     T100INT;
 typedef     long long               T100LONG;
 
+
+typedef     float                   T100FLOAT;
+
+
 //位操作结构体
 typedef union{
     T100BYTE        BYTE;

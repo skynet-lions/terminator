@@ -18,7 +18,7 @@ class T100FileWriter : public T100Writer
 
         T100BOOL                    seek(T100DWORD);
 
-        T100BOOL                    write(T100WORD*, T100WORD&);
+        T100BOOL                    write(T100WORD*, T100WORD);
 
     protected:
         T100WSTRING                 m_file;

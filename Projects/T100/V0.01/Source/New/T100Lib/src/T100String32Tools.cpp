@@ -43,3 +43,13 @@ T100BOOL T100String32Tools::copy(T100WORD* target, T100WORD* source, T100WORD le
 
     return T100TRUE;
 }
+
+T100BOOL T100String32Tools::split(T100String str, T100String mask, T100STRING_VECTOR& result)
+{
+
+}
+
+T100BOOL T100String32Tools::compare(T100WORD* data, T100WORD length, T100String& str)
+{
+
+}

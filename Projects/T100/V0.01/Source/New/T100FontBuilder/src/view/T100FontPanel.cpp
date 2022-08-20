@@ -54,7 +54,7 @@ void T100FontPanel::BuildContent(wxWindow* parent,wxWindowID id,const wxPoint& p
 	FontChoice = new wxChoice(this, ID_CHOICE_FONT, wxPoint(16,24), wxSize(176,25), 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE_FONT"));
 	NameCodeRadioButton1 = new wxRadioButton(this, ID_RADIOBUTTON1, _("GBK"), wxPoint(200,16), wxDefaultSize, 0, wxDefaultValidator, _T("ID_RADIOBUTTON1"));
 	NameCodeRadioButton2 = new wxRadioButton(this, ID_RADIOBUTTON2, _("UTF-8"), wxPoint(200,40), wxSize(56,17), 0, wxDefaultValidator, _T("ID_RADIOBUTTON2"));
-	FontSizeComboBox = new wxComboBox(this, ID_COMBOBOX_FONTSIZE, wxEmptyString, wxPoint(280,24), wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_COMBOBOX_FONTSIZE"));
+	FontSizeComboBox = new wxComboBox(this, ID_COMBOBOX_FONTSIZE, wxEmptyString, wxPoint(280,24), wxDefaultSize, 0, 0, wxCB_READONLY, wxDefaultValidator, _T("ID_COMBOBOX_FONTSIZE"));
 	CountryListBox = new wxListBox(this, ID_LISTBOX_COUNTRY, wxPoint(16,88), wxSize(84,152), 0, 0, 0, wxDefaultValidator, _T("ID_LISTBOX_COUNTRY"));
 	CodeBeginComboBox = new wxComboBox(this, ID_COMBOBOX_CODEBEGIN, wxEmptyString, wxPoint(280,88), wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_COMBOBOX_CODEBEGIN"));
 	CodeEndComboBox = new wxComboBox(this, ID_COMBOBOX_CODEEND, wxEmptyString, wxPoint(280,128), wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_COMBOBOX_CODEEND"));
@@ -87,6 +87,8 @@ void T100FontPanel::BuildContent(wxWindow* parent,wxWindowID id,const wxPoint& p
 	Connect(ID_BUTTON_BROWSE,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&T100FontPanel::OnBrowseButtonClick);
 	Connect(ID_BUTTON_RUN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&T100FontPanel::OnRunButtonClick);
 	PaintPanel->Connect(wxEVT_PAINT,(wxObjectEventFunction)&T100FontPanel::OnPaintPanelPaint,0,this);
+	Connect(ID_LISTCTRL_FONTCODE,wxEVT_COMMAND_LIST_ITEM_SELECTED,(wxObjectEventFunction)&T100FontPanel::OnFontCodeListCtrlItemSelect);
+	Connect(ID_LISTCTRL_FONTCODE,wxEVT_COMMAND_LIST_ITEM_DESELECTED,(wxObjectEventFunction)&T100FontPanel::OnFontCodeListCtrlItemDeselect);
 	//*)
 }
 
@@ -101,6 +103,8 @@ T100FontPanel::~T100FontPanel()
 T100VOID T100FontPanel::create()
 {
     wxArrayString   result;
+
+    m_running = T100FALSE;
 
     result = T100FontTools::getAllFontNames();
     FontChoice->Append(result);
@@ -134,10 +138,12 @@ void T100FontPanel::OnFontChoiceSelect(wxCommandEvent& event)
 
 void T100FontPanel::OnNameCodeRadioButton1Select(wxCommandEvent& event)
 {
+    m_tools.m_convert = T100TRUE;
 }
 
 void T100FontPanel::OnNameCodeRadioButton2Select(wxCommandEvent& event)
 {
+    m_tools.m_convert = T100FALSE;
 }
 
 void T100FontPanel::OnFontSizeComboBoxSelected(wxCommandEvent& event)
@@ -211,10 +217,6 @@ void T100FontPanel::OnCountryListBoxSelect(wxCommandEvent& event)
     }else{
 
     }
-}
-
-void T100FontPanel::OnFontCodeListBoxSelect(wxCommandEvent& event)
-{
 }
 
 void T100FontPanel::OnCodeBeginComboBoxSelected(wxCommandEvent& event)
@@ -387,29 +389,20 @@ void T100FontPanel::OnRunButtonClick(wxCommandEvent& event)
 
     if(m_running){
         RunButton->SetLabel(_("运行"));
-        //m_tools.closeFile();
+        m_tools.closeFile();
         m_running = T100FALSE;
         return;
     }
 
-    //result = verify();
+    result = verify();
     if(!result){
-        return;
-    }
-
-    //result = m_tools.verify();
-    if(!result){
-        wxMessageDialog dialog(T100NULL, wxString(T100FONTBUILDER_HINT_PARAMETERS_ERROR), _("ERROR:"), wxICON_ERROR);
-
-        dialog.ShowModal();
-
         return;
     }
 
     m_running = !m_running;
 
     m_tools.m_row_size = FontCodeListCtrl->GetItemCount();
-    //result = m_tools.createFile(FileComboBox->GetValue().ToStdString());
+    result = m_tools.createFile(FileComboBox->GetValue().ToStdWstring());
     if(!result){
         m_running = T100FALSE;
         return;
@@ -421,4 +414,93 @@ void T100FontPanel::OnRunButtonClick(wxCommandEvent& event)
 
 void T100FontPanel::OnPaintPanelPaint(wxPaintEvent& event)
 {
+    if(!m_running){
+        return;
+    }
+
+    wxPaintDC   dc(PaintPanel);
+    if(m_tools.draw(dc)){
+        m_tools.capture(dc);
+        m_tools.writeItem();
+    }else{
+        m_running = T100FALSE;
+        m_tools.closeFile();
+    }
+
+    if(m_running){
+        PaintPanel->Refresh();
+    }else{
+        RunButton->SetLabel(_("运行"));
+        m_tools.m_value = m_tools.m_begin;
+    }
+
+}
+
+
+T100BOOL T100FontPanel::verify()
+{
+    int index;
+
+    index = FontChoice->GetSelection();
+
+    if(0 > index){
+        wxMessageDialog dialog(T100NULL, wxString(T100FONTBUILDER_HINT_PARAMETERS_ERROR), _("ERROR:"));
+
+        dialog.ShowModal();
+
+        return T100FALSE;
+    }
+
+    if(NameCodeRadioButton1->GetValue() || NameCodeRadioButton2->GetValue()){
+    }else{
+        wxMessageDialog dialog(T100NULL, wxString(T100FONTBUILDER_HINT_PARAMETERS_ERROR), _("ERROR:"));
+
+        dialog.ShowModal();
+
+        return T100FALSE;
+    }
+
+    if(FontSizeComboBox->GetValue().empty()){
+        wxMessageDialog dialog(T100NULL, wxString(T100FONTBUILDER_HINT_PARAMETERS_ERROR), _("ERROR:"));
+
+        dialog.ShowModal();
+
+        return T100FALSE;
+    }
+
+    if(0 > CountryListBox->GetSelection()){
+        wxMessageDialog dialog(T100NULL, wxString(T100FONTBUILDER_HINT_PARAMETERS_ERROR), _("ERROR:"));
+
+        dialog.ShowModal();
+
+        return T100FALSE;
+    }
+
+    if(0 == FontCodeListCtrl->GetItemCount()){
+        wxMessageDialog dialog(T100NULL, wxString(T100FONTBUILDER_HINT_PARAMETERS_ERROR), _("ERROR:"));
+
+        dialog.ShowModal();
+
+        return T100FALSE;
+    }
+
+    if(FileComboBox->GetValue().empty()){
+        wxMessageDialog dialog(T100NULL, wxString(T100FONTBUILDER_HINT_PARAMETERS_ERROR), _("ERROR:"), wxICON_ERROR);
+
+        dialog.ShowModal();
+
+        return T100FALSE;
+    }
+
+    return T100TRUE;
+}
+
+void T100FontPanel::OnFontCodeListCtrlItemSelect(wxListEvent& event)
+{
+    m_current = event.GetIndex();
+}
+
+void T100FontPanel::OnFontCodeListCtrlItemDeselect(wxListEvent& event)
+{
+    m_current = -1;
 }

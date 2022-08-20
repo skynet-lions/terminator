@@ -28,6 +28,8 @@ class T100FontFileReader : public T100FileReader
         T100FontFile*           m_file              = T100NULL;
         T100Font*               m_font              = T100NULL;
 
+        T100DWORD               m_length            = 0;
+
         T100WORD                m_row_size          = 0;
 
         T100WORD                m_row_current       = 0;

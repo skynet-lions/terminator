@@ -82,7 +82,6 @@ class T100FontPanel: public wxPanel
 		void OnFontSizeComboBoxTextUpdated(wxCommandEvent& event);
 		void OnFontSizeComboBoxTextEnter(wxCommandEvent& event);
 		void OnCountryListBoxSelect(wxCommandEvent& event);
-		void OnFontCodeListBoxSelect(wxCommandEvent& event);
 		void OnCodeBeginComboBoxSelected(wxCommandEvent& event);
 		void OnCodeBeginComboBoxTextUpdated(wxCommandEvent& event);
 		void OnCodeBeginComboBoxTextEnter(wxCommandEvent& event);
@@ -97,12 +96,17 @@ class T100FontPanel: public wxPanel
 		void OnBrowseButtonClick(wxCommandEvent& event);
 		void OnRunButtonClick(wxCommandEvent& event);
 		void OnPaintPanelPaint(wxPaintEvent& event);
+		void OnFontCodeListCtrlItemSelect(wxListEvent& event);
+		void OnFontCodeListCtrlItemDeselect(wxListEvent& event);
 		//*)
 
 	protected:
 
 	    T100VOID            create();
 	    T100VOID            destroy();
+
+	    T100BOOL            verify();
+
 
 		void BuildContent(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size);
 

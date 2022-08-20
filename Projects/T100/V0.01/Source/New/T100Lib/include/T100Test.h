@@ -22,7 +22,7 @@ class T100Test
         virtual ~T100Test();
 
         static int                      argc;
-        static char**                   argv;
+        static wchar_t**                argv;
 
         virtual T100BOOL                test_all();
 

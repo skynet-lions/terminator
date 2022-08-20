@@ -10,7 +10,7 @@ class T100TestApp : public T100App
         T100TestApp();
         virtual ~T100TestApp();
 
-        T100VOID            run(int argc, char** argv);
+        T100VOID            run(int argc, wchar_t** argv);
 
     protected:
 

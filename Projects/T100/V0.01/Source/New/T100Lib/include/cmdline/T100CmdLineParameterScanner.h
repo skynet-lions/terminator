@@ -9,6 +9,8 @@
 
 class T100CmdLineParameterScanner : public T100Scanner
 {
+    friend class T100CmdLineInfo;
+    friend class T100CmdLineParam;
     public:
         T100CmdLineParameterScanner();
         virtual ~T100CmdLineParameterScanner();

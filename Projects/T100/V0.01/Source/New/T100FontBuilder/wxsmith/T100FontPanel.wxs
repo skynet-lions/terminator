@@ -42,6 +42,7 @@
 		</object>
 		<object class="wxComboBox" name="ID_COMBOBOX_FONTSIZE" variable="FontSizeComboBox" member="yes">
 			<pos>280,24</pos>
+			<style>wxCB_READONLY</style>
 			<handler function="OnFontSizeComboBoxSelected" entry="EVT_COMBOBOX" />
 			<handler function="OnFontSizeComboBoxTextUpdated" entry="EVT_TEXT" />
 			<handler function="OnFontSizeComboBoxTextEnter" entry="EVT_TEXT_ENTER" />
@@ -102,6 +103,8 @@
 			<pos>104,88</pos>
 			<size>168,152</size>
 			<style>wxLC_REPORT|wxBORDER_SIMPLE</style>
+			<handler function="OnFontCodeListCtrlItemSelect" entry="EVT_LIST_ITEM_SELECTED" />
+			<handler function="OnFontCodeListCtrlItemDeselect" entry="EVT_LIST_ITEM_DESELECTED" />
 		</object>
 	</object>
 </wxsmith>

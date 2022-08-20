@@ -119,6 +119,8 @@ T100VPCFrame::~T100VPCFrame()
 
 T100VOID T100VPCFrame::create()
 {
+    wxGetApp().m_view.setFrame(this);
+
     T100VPCCallback::init(&wxGetApp().m_serve, &wxGetApp().m_view);
 }
 

@@ -2,11 +2,11 @@
 #define T100VDISKFILE_H
 
 #include "T100VDiskCommon.h"
-//#include "T100File.h"
+#include "T100File.h"
 #include "T100VFS.h"
 
 
-class T100VDiskFile
+class T100VDiskFile : public T100File
 {
     public:
         T100VDiskFile(T100String);
@@ -31,10 +31,11 @@ class T100VDiskFile
         const T100HWORD             m_block_size            = T100VFS_BLOCK_SIZE;
         T100VDISK_INFO              m_info;
 
+        T100Stream*                 m_stream                = T100NULL;
+
         T100BOOL                    read_head();
         T100BOOL                    write_head();
 
-        //T100File                    m_file;
 
     private:
 };

@@ -28,9 +28,10 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add library="libwxmsw30ud.a" />
-					<Add library="../build/libT100Lib.a" />
 					<Add library="../build/libT100Common.a" />
+					<Add library="../build/libT100Lib.a" />
 					<Add library="dl" />
+					<Add library="iconv" />
 					<Add directory="$(#wx)/lib/gcc_dll" />
 				</Linker>
 			</Target>

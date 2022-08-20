@@ -15,15 +15,27 @@ T100Thread::~T100Thread()
 
 T100BOOL T100Thread::start()
 {
+    if(m_running){
+        return T100FALSE;
+    }
+
     m_thread    = T100NEW std::thread(&T100Thread::run, this);
     m_running   = T100TRUE;
+
+    return T100TRUE;
 }
 
 T100BOOL T100Thread::stop()
 {
-    m_running = T100FALSE;
+    if(!m_running){
+        return T100FALSE;
+    }
+
     wait();
     T100SAFE_DELETE(m_thread);
+    m_running = T100FALSE;
+
+    return T100TRUE;
 }
 
 T100BOOL T100Thread::running()
@@ -38,7 +50,12 @@ T100VOID T100Thread::run()
 
 T100BOOL T100Thread::detach()
 {
+    if(m_thread){
+        m_thread->detach();
+        return T100TRUE;
+    }
 
+    return T100FALSE;
 }
 
 T100BOOL T100Thread::hangup()
@@ -48,7 +65,12 @@ T100BOOL T100Thread::hangup()
 
 T100BOOL T100Thread::wait()
 {
+    if(m_thread){
+        m_thread->join();
+        return T100TRUE;
+    }
 
+    return T100FALSE;
 }
 
 T100BOOL T100Thread::wakeup()

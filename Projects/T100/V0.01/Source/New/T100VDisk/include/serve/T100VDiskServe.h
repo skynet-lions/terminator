@@ -1,6 +1,8 @@
 #ifndef T100VDISKSERVE_H
 #define T100VDISKSERVE_H
 
+#include "T100VDiskCommon.h"
+
 
 class T100VDiskServe
 {

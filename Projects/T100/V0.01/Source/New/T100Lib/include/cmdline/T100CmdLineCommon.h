@@ -4,6 +4,9 @@
 
 #include "T100Common.h"
 
+#define     T100CMDLINE_INFO_VECTOR         std::vector<T100CmdLineInfo*>
+#define     T100CMDLINE_INFO_HASH           std::unordered_map<T100WSTRING, T100CmdLineInfo*>
+
 
 typedef enum{
     T100CMDLINE_NONE        = 0,
@@ -26,6 +29,8 @@ typedef enum{
 
     T100CMDLINE_TOKEN_PROMPT,
     T100CMDLINE_TOKEN_CHAR,
+    T100CMDLINE_TOKEN_EQUAL,
+    T100CMDLINE_TOKEN_END,
 
     T100CMDLINE_TOKEN_EXEC,
     T100CMDLINE_TOKEN_SWITCH,

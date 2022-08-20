@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="T100DiskCreatePartDialog">
+		<pos_arg>1</pos_arg>
+		<size_arg>1</size_arg>
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>256,320</pos>
+			<object class="wxStaticBox" name="ID_STATICBOX1" variable="StaticBox1" member="yes">
+				<label>Create Part：</label>
+				<pos>0,0</pos>
+				<size>400,448</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+				<label>Name：</label>
+				<pos>8,32</pos>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+				<value>Text</value>
+				<pos>56,24</pos>
+				<size>336,25</size>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+				<label>Size：</label>
+				<pos>8,72</pos>
+			</object>
+			<object class="wxComboBox" name="ID_COMBOBOX1" variable="ComboBox1" member="yes">
+				<pos>56,64</pos>
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+				<label>Type：</label>
+				<pos>8,112</pos>
+			</object>
+			<object class="wxChoice" name="ID_CHOICE1" variable="Choice1" member="yes">
+				<pos>56,104</pos>
+			</object>
+		</object>
+	</object>
+</wxsmith>

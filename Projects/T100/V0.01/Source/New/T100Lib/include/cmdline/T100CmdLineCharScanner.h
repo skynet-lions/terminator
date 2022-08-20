@@ -17,6 +17,9 @@ class T100CmdLineCharScanner : public T100Scanner
         T100BOOL                        next(T100Token&);
 
     protected:
+        T100VOID                        create();
+        T100VOID                        destroy();
+
         T100CmdLineCharToken*           m_token             = T100NULL;
         T100CmdLineStringToken          m_item;
 

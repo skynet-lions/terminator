@@ -15,6 +15,10 @@ class T100String32Tools
 
         static T100BOOL             copy(T100WORD*, T100WORD*, T100WORD);
 
+        static T100BOOL             split(T100String, T100String, T100STRING_VECTOR&);
+
+        static T100BOOL             compare(T100WORD*, T100WORD, T100String&);
+
     protected:
 
     private:

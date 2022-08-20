@@ -4,6 +4,9 @@
 #include "T100StringTypes.h"
 #include "T100String32.h"
 
+#define         T100STRING_VECTOR           std::vector<T100String>
+
+
 T100BOOL        operator == (const T100STDCHAR*, const T100String&);
 T100BOOL        operator != (const T100STDCHAR*, const T100String&);
 
@@ -53,6 +56,8 @@ class T100String
 
         T100String      operator += (const T100String&);
         T100String      operator +  (const T100String&);
+
+        T100WCHAR       operator [] (const T100WORD);
 
     protected:
         T100WSTRING                 m_wstring;

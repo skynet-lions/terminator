@@ -3,9 +3,13 @@
 
 int main(int argc, char** argv)
 {
+    int                 wargc;
+    wchar_t**           wargv;
     T100TestApp         app;
 
-    app.run(argc, argv);
+
+    app.getCmdLine(wargc, wargv);
+    app.run(wargc, wargv);
 
     return 0;
 }

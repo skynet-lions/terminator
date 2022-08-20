@@ -2,6 +2,7 @@
 #define T100CMDLINEPARAMETERTOKEN_H
 
 #include "T100Token.h"
+#include "T100CmdLineInfo.h"
 
 
 class T100CmdLineParameterToken : public T100Token
@@ -10,7 +11,7 @@ class T100CmdLineParameterToken : public T100Token
         T100CmdLineParameterToken();
         virtual ~T100CmdLineParameterToken();
 
-        T100WSTRING             value;
+        T100CmdLineInfo*        value           = T100NULL;
 
         T100VOID                clear();
 

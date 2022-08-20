@@ -6,7 +6,8 @@
 
 
 T100FontFileReader::T100FontFileReader(T100FontFile* file, T100Font* font)
-    :m_file(file), m_font(font)
+    :m_file(file), m_font(font),
+    T100FileReader(file->getName())
 {
     //ctor
 }
@@ -18,7 +19,79 @@ T100FontFileReader::~T100FontFileReader()
 
 T100BOOL T100FontFileReader::load()
 {
+    T100BOOL            result          = T100TRUE;
+    T100BOOL            value;
 
+    T100FONTFILE_ROW_VECTOR     rows;
+
+    if(opened()){
+        value = seek(0);
+        if(!value){
+            return T100FALSE;
+        }
+    }else{
+        value = open();
+        if(!value){
+            return T100FALSE;
+        }
+    }
+
+    value = read_head();
+    if(!value){
+        result = T100FALSE;
+    }
+
+    if(result){
+        T100FONTFILE_ROW*       row;
+        T100INT                 i;
+
+        for(i=0;i<m_row_size;i++){
+            row     = T100NEW T100FONTFILE_ROW();
+            value   = read_row(row);
+            if(!value){
+                result = T100FALSE;
+                break;
+            }else{
+                rows.push_back(row);
+            }
+        }
+    }
+
+    if(result){
+        T100FONTFILE_ROW*       row         = T100NULL;
+        T100WORD*               data        = T100NULL;
+        T100WORD                length;
+        T100INT                 i;
+        T100WORD                total;
+        T100WORD                index;
+
+        length = m_length;
+
+        for(i=0;i<m_row_size;i++){
+            row = rows.at(i);
+            if(row){
+                total = row->LENGTH;
+
+                for(index=0;index<total;index++){
+                    value = read_item(data, length);
+
+                    if(value){
+
+                    }else{
+                        result = T100FALSE;
+                        break;
+                    }
+                }
+
+                if(!result)break;
+            }else{
+                result = T100FALSE;
+                break;
+            }
+        }
+    }
+
+    return result;
 }
 
 T100BOOL T100FontFileReader::read_head()
@@ -45,7 +118,7 @@ T100BOOL T100FontFileReader::read_head()
     m_font->setName(T100String32Tools::to_string(head.FONT_NAME, 128));
     m_font->setWidth(head.FONT_WIDTH);
     m_font->setHeight(head.FONT_HEIGHT);
-    m_font->setSize(head.ROW_SIZE);
+    m_font->setRowSize(head.ROW_SIZE);
 
     //m_seek_row  = sizeof(T100FONTFILE_HEAD) / 4;
 

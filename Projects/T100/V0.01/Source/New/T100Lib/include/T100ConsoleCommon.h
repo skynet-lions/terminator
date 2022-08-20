@@ -3,8 +3,8 @@
 
 #include "T100Common.h"
 
-#define     T100CONSOLE_PROMPT_DEFAULT                  L"?"
-#define     T100CONSOLE_SEPARATOR_DEFAULT               L" "
+#define     T100CONSOLE_PROMPT_DEFAULT                  L'?'
+#define     T100CONSOLE_SEPARATOR_DEFAULT               L' '
 #define     T100CONSOLE_COMMAND_PROMPT_DEFAULT          L'-'
 
 

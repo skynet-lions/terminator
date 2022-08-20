@@ -7,6 +7,7 @@
 
 class T100VFSItem
 {
+    friend class T100VFS;
     public:
         T100VFSItem(T100VFS*);
         virtual ~T100VFSItem();

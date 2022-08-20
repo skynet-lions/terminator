@@ -168,6 +168,11 @@ T100String T100String::operator+(const T100String& str)
     return result;
 }
 
+T100WCHAR T100String::operator[](const T100WORD key)
+{
+    return m_wstring[key];
+}
+
 T100BOOL operator == (const T100STDCHAR* str1, const T100String& str2)
 {
     T100String str(str1);

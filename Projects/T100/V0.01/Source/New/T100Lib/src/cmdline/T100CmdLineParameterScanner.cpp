@@ -3,6 +3,8 @@
 #include "T100CmdLineCommon.h"
 
 #include "T100CmdLineInfo.h"
+#include "T100CmdLineExec.h"
+#include "T100CmdLineParam.h"
 
 
 T100CmdLineParameterScanner::T100CmdLineParameterScanner()
@@ -40,7 +42,9 @@ T100BOOL T100CmdLineParameterScanner::next(T100Token& token)
 
 T100BOOL T100CmdLineParameterScanner::run()
 {
-    T100BOOL        result          = T100TRUE;
+    T100BOOL                result          = T100TRUE;
+    T100BOOL                value;
+    T100CmdLineInfo*        info            = T100NULL;
 
     result = read();
     if(!result){
@@ -50,23 +54,26 @@ T100BOOL T100CmdLineParameterScanner::run()
     switch(m_item.type){
     case T100CMDLINE_TOKEN_PROMPT:
         {
+            info = T100NEW T100CmdLineInfo();
 
+            info->parse(this);
         }
         break;
     case T100CMDLINE_TOKEN_EXEC:
         {
-            m_token->value  = m_item.exec;
+            m_token->value  = T100NEW T100CmdLineExec();
             m_token->type   = T100CMDLINE_TOKEN_EXEC;
             return T100TRUE;
         }
         break;
     case T100CMDLINE_TOKEN_CHAR:
         {
+            info = T100NEW T100CmdLineParam();
 
+            info->parse(this);
         }
         break;
     }
-
 
     return result;
 }

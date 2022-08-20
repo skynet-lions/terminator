@@ -7,6 +7,8 @@
 
 class T100VFSTable
 {
+    friend class T100VFS;
+    friend class T100VFSDirectory;
     public:
         T100VFSTable(T100VFS*);
         virtual ~T100VFSTable();

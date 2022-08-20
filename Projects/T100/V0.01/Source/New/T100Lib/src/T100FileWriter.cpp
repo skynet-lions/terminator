@@ -86,7 +86,7 @@ T100BOOL T100FileWriter::seek(T100DWORD seek)
     return T100FALSE;
 }
 
-T100BOOL T100FileWriter::write(T100WORD* data, T100WORD& length)
+T100BOOL T100FileWriter::write(T100WORD* data, T100WORD length)
 {
     T100BOOL        result;
 

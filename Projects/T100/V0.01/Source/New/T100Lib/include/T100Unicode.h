@@ -28,6 +28,10 @@ class T100Unicode
         static T100STRING32         to_string32(T100WSTRING&);
         static T100WSTRING          to_wstring(T100STRING32&);
 
+
+        static T100STDSTRING        gbk_to_utf8(T100STDSTRING);
+
+
     protected:
 
     private:

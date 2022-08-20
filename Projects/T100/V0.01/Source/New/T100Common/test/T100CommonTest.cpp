@@ -1,6 +1,7 @@
 #include "T100CommonTest.h"
 
 #include "T100AppSetup.h"
+#include "T100TestTools.h"
 #include "T100Font.h"
 #include "T100FontFile.h"
 #include "T100FontFileReader.h"
@@ -36,54 +37,123 @@ T100BOOL T100CommonTest::do_test()
 
 T100BOOL T100CommonTest::test_font()
 {
-    T100BOOL            result          = T100TRUE;
-    T100BOOL            value;
+    T100BOOL                result          = T100TRUE;
+    T100BOOL                value;
 
-    T100WORD                key;
-    T100WORD_VECTOR         data = {0, 1, 2, 3, 4, 5, 6, 7};
+    T100WORD                source_code;
+    T100WORD_VECTOR         source_data;
+    T100Font                source_font;
 
-    T100Font                font;
+    T100WORD                target_code;
+    T100WORD_VECTOR*        target_data     = T100NULL;
+    T100Font                target_font;
+
     T100WSTRING             name;
-    T100FontFileReader*     reader;
-    T100FontFileWriter*     writer;
-
-    font.setFont(key, &data);
 
     name = T100AppSetup::getTestStores(L"test_font.fnt");
-    T100FontFile            file(name);
 
-    writer = file.getWriter(&font);
-    if(!writer){
+    T100FontFile            source_file(name);
+    T100FontFile            target_file(name);
+
+
+    T100FontFileReader*     reader          = T100NULL;
+    T100FontFileWriter*     writer          = T100NULL;
+
+
+    //
+    source_code     = 1;
+    source_data     = {0, 1, 2, 3, 4, 5, 6, 7};
+
+    T100FONT_VECTOR         fonts;
+    T100FONTFILE_ROW        row;
+    T100FONT_ROW            item;
+    T100FONT_ROW_VECTOR     rows;
+
+    row.BEGIN       = 0;
+    row.END         = 1;
+    row.LENGTH      = 1;
+    row.SEEK        = 0;
+
+    item.ROW    = &row;
+    item.FONTS  = &fonts;
+
+    fonts.push_back(&source_data);
+
+
+    value = source_font.setFont(source_code, &source_data);
+    if(!value){
         result = T100FALSE;
     }
 
     if(result){
-        value = file.exists();
-        if(value){
+        source_font.setRowSize(1);
 
-        }else{
-            value = file.create();
-            if(value){
-
-            }else{
-                result = T100FALSE;
-            }
+        value = source_font.appendRow(&row);
+        if(!value){
+            result = T100FALSE;
         }
     }
 
     if(result){
-        writer->save();
+        source_font.getFonts()[0]->FONTS = &fonts;
     }
 
     if(result){
-        reader = file.getReader(&font);
+        writer = source_file.getWriter(&source_font);
+        if(!writer){
+            result = T100FALSE;
+        }
+    }
+
+    if(result){
+        value = T100TestTools::CleanAndCreate(source_file);
+        if(!value){
+            result = T100FALSE;
+        }
+    }
+
+    if(result){
+        value = writer->save();
+        if(!value){
+            result = T100FALSE;
+        }
+    }
+
+    if(result){
+        reader = target_file.getReader(&target_font);
         if(!reader){
             result = T100FALSE;
         }
     }
 
     if(result){
-        reader->load();
+        value = reader->load();
+        if(!value){
+            result = T100FALSE;
+        }
+    }
+
+    if(result){
+        target_code = 1;
+        value = target_font.getFont(target_code, target_data);
+        if(!value){
+            result = T100FALSE;
+        }
+    }
+
+    if(result){
+        if(target_data){
+            for(int i=0;i<target_data->size();i++){
+                if(i == (*target_data)[i]){
+
+                }else{
+                    result = T100FALSE;
+                    break;
+                }
+            }
+        }else{
+            result = T100FALSE;
+        }
     }
 
     return result;
