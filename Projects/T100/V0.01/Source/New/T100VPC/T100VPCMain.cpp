@@ -50,6 +50,7 @@ const long T100VPCFrame::ID_MENUITEM_START = wxNewId();
 const long T100VPCFrame::ID_MENUITEM_STOP = wxNewId();
 const long T100VPCFrame::idMenuQuit = wxNewId();
 const long T100VPCFrame::ID_MENUITEM1 = wxNewId();
+const long T100VPCFrame::ID_MENU_HARDWARE = wxNewId();
 const long T100VPCFrame::ID_MENUITEM2 = wxNewId();
 const long T100VPCFrame::idMenuAbout = wxNewId();
 const long T100VPCFrame::ID_STATUSBAR1 = wxNewId();
@@ -85,6 +86,8 @@ T100VPCFrame::T100VPCFrame(wxWindow* parent,wxWindowID id)
     Menu3->Append(MenuItem3);
     MenuBar1->Append(Menu3, _("Debug"));
     Menu4 = new wxMenu();
+    MenuHardware = new wxMenuItem(Menu4, ID_MENU_HARDWARE, _("Hardware"), wxEmptyString, wxITEM_NORMAL);
+    Menu4->Append(MenuHardware);
     MenuItem4 = new wxMenuItem(Menu4, ID_MENUITEM2, _("Setup"), wxEmptyString, wxITEM_NORMAL);
     Menu4->Append(MenuItem4);
     MenuBar1->Append(Menu4, _("Config"));
@@ -103,6 +106,7 @@ T100VPCFrame::T100VPCFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_MENUITEM_START,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnStartMenuSelected);
     Connect(ID_MENUITEM_STOP,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnStopMenuSelected);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnQuit);
+    Connect(ID_MENU_HARDWARE,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnMenuHardwareSelected);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VPCFrame::OnAbout);
     //*)
 
@@ -148,4 +152,8 @@ void T100VPCFrame::OnStartMenuSelected(wxCommandEvent& event)
 void T100VPCFrame::OnStopMenuSelected(wxCommandEvent& event)
 {
     T100VPCCallback::frame_menu_stop();
+}
+
+void T100VPCFrame::OnMenuHardwareSelected(wxCommandEvent& event)
+{
 }

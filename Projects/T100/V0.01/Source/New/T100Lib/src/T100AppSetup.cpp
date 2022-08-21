@@ -6,6 +6,7 @@ T100WSTRING         T100AppSetup::APP_TEST_PATH                 = L".\\test";
 T100WSTRING         T100AppSetup::m_resources                   = L"resources";
 T100WSTRING         T100AppSetup::m_build                       = L"build";
 T100WSTRING         T100AppSetup::m_stores                      = L"stores";
+T100WSTRING         T100AppSetup::m_work                        = L"work";
 
 
 T100AppSetup::T100AppSetup()
@@ -54,3 +55,14 @@ T100WSTRING T100AppSetup::getTestStores(T100WSTRING path)
     return result.str();
 }
 
+T100WSTRING T100AppSetup::getWork(T100WSTRING path)
+{
+    std::wstringstream      result;
+
+    if(path.empty()){
+        result << m_work;
+    }else{
+        result << m_work << L"\\" << path;
+    }
+    return result.str();
+}

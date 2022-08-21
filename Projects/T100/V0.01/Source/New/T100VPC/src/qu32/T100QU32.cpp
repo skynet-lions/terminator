@@ -66,10 +66,22 @@ T100BOOL T100QU32::start()
 
 T100BOOL T100QU32::stop()
 {
+    T100BOOL            result          = T100TRUE;
+    T100BOOL            value;
+
+    value = m_executor->stop();
+
     T100SAFE_DELETE(m_executor);
     T100SAFE_DELETE(m_interrupt);
     T100SAFE_DELETE(m_port);
     T100SAFE_DELETE(m_memory);
     T100SAFE_DELETE(m_au);
     T100SAFE_DELETE(m_cu);
+
+    return T100TRUE;
+}
+
+T100BOOL T100QU32::done()
+{
+
 }

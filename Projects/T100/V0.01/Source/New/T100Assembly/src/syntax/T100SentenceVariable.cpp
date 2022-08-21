@@ -1,6 +1,7 @@
 #include "T100SentenceVariable.h"
 
 #include "T100ProduceInfo.h"
+#include "T100String32Tools.h"
 
 
 T100SentenceVariable::T100SentenceVariable(T100SentenceScanner* scanner)
@@ -236,9 +237,9 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
     case T100DATA_FLOAT:
         {
             if(1 == target.LENGTH){
-                result = info->getData()->setWord(offset, target.VALUE);
+                //result = info->getData()->setWord(offset, target.VALUE);
             }else{
-                result = info->getData()->setArray(offset, target.LENGTH);
+                //result = info->getData()->setArray(offset, target.LENGTH);
             }
 
             if(result){
@@ -254,8 +255,8 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
                 vd->length      = target.LENGTH;
                 vd->type        = target.DATA_TYPE;
                 vd->offset      = offset;
-                vd->isvirtual   = info->getData()->isVirtual;
-                vd->isshare     = info->getData()->isShare;
+                //vd->isvirtual   = info->getData()->isVirtual;
+                //vd->isshare     = info->getData()->isShare;
 
                 T100BOOL value = vd->isshare;
 
@@ -266,7 +267,7 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
     case T100DATA_INTEGER:
         {
             if(S_ADD == target.ADDR_TYPE){
-                result = info->getData()->setWord(offset, target.VALUE);
+                //result = info->getData()->setWord(offset, target.VALUE);
 
                 if(result){
                     info->setVariable(name, offset);
@@ -281,8 +282,8 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
                     vd->length      = target.LENGTH;
                     vd->type        = target.DATA_TYPE;
                     vd->offset      = offset;
-                    vd->isvirtual   = info->getData()->isVirtual;
-                    vd->isshare     = info->getData()->isShare;
+                    //vd->isvirtual   = info->getData()->isVirtual;
+                    //vd->isshare     = info->getData()->isShare;
 
                     T100BOOL value = vd->isshare;
 
@@ -290,7 +291,7 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
 
                     //
 
-                    T100Log::info("DATA add label call");
+                    //T100Log::info("DATA add label call");
 
                     result = info->getLabel(target.NAME, offset);
                     T100LABEL_CALL* item    = T100NEW T100LABEL_CALL();
@@ -307,9 +308,9 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
             }
 
             if(1 == target.LENGTH){
-                result = info->getData()->setWord(offset, target.VALUE);
+                //result = info->getData()->setWord(offset, target.VALUE);
             }else{
-                result = info->getData()->setArray(offset, target.LENGTH);
+                //result = info->getData()->setArray(offset, target.LENGTH);
             }
 
             if(result){
@@ -325,8 +326,8 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
                 vd->length      = target.LENGTH;
                 vd->type        = target.DATA_TYPE;
                 vd->offset      = offset;
-                vd->isvirtual   = info->getData()->isVirtual;
-                vd->isshare     = info->getData()->isShare;
+                //vd->isvirtual   = info->getData()->isVirtual;
+                //vd->isshare     = info->getData()->isShare;
 
                 T100BOOL value = vd->isshare;
 
@@ -339,9 +340,9 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
             //test
             T100String temp;
 
-            temp = T100StringTools::format(target.NAME);
+            //temp = T100String32Tools::format(target.NAME);
 
-            result = info->getData()->setString(offset, temp);
+            //result = info->getData()->setString(offset, temp);
             if(result){
                 info->setVariable(name, offset);
 
@@ -354,8 +355,8 @@ T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
                 vd->name        = name;
                 vd->type        = target.DATA_TYPE;
                 vd->offset      = offset;
-                vd->isvirtual   = info->getData()->isVirtual;
-                vd->isshare     = info->getData()->isShare;
+                //vd->isvirtual   = info->getData()->isVirtual;
+                //vd->isshare     = info->getData()->isShare;
 
                 T100ProduceInfo::setVariableDefine(name, vd);
             }

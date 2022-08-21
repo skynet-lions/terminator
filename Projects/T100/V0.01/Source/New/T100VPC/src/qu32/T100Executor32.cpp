@@ -16,15 +16,20 @@ T100Executor32::~T100Executor32()
 
 T100BOOL T100Executor32::start()
 {
-
+    return T100Thread::start();
 }
 
 T100BOOL T100Executor32::stop()
 {
-
+    return T100Thread::stop();
 }
 
 T100VOID T100Executor32::run()
+{
+
+}
+
+T100VOID T100Executor32::debug()
 {
 
 }

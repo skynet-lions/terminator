@@ -4,6 +4,8 @@
 #include "T100ProduceParser.h"
 #include "T100ProduceBuilder.h"
 
+#include "T100RealBuilder.h"
+
 
 T100Produce::T100Produce()
 {
@@ -17,7 +19,11 @@ T100Produce::~T100Produce()
 
 T100ProduceBuilder* T100Produce::create_builder(T100ParseInfo* info)
 {
+    T100ProduceBuilder*         result          = T100NULL;
 
+    result = T100NEW T100RealBuilder();
+
+    return result;
 }
 
 T100BOOL T100Produce::run(T100STRING& source, T100STRING& target)

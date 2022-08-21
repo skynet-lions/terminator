@@ -35,10 +35,12 @@ T100BOOL T100SentenceLabel::build(T100BuildInfo* info)
 
     T100LABEL_DEFINE*   ld = T100NEW T100LABEL_DEFINE;
 
+    /*
     ld->isvirtual       = info->getCode()->isVirtual;
     ld->isshare         = info->getCode()->isShare;
     ld->name            = name;
     ld->offset          = info->getOffset();
+    */
 
     T100ProduceInfo::setLabelDefine(name, ld);
 

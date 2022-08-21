@@ -12,6 +12,9 @@
 #include "T100SentenceMode.h"
 
 #include "T100PartDrawer.h"
+#include "T100VariableDrawer.h"
+#include "T100LabelDrawer.h"
+#include "T100ProcedureDrawer.h"
 
 
 class T100PartInfo;
@@ -26,7 +29,6 @@ class T100ProduceInfo
         T100ProduceInfo();
         virtual ~T100ProduceInfo();
 
-        static T100PartDrawer           m_drawer;
 
         static T100FILE_HASH            m_file_hash;
         static T100FILE_LIST            m_file_list;
@@ -63,6 +65,20 @@ class T100ProduceInfo
         T100BOOL                        m_istiny                = T100FALSE;
         T100MODE                        m_mode                  = T100MODE_VIRTUAL;
         T100TYPE                        m_type                  = T100TYPE_NONE;
+
+
+
+    public:
+        static T100PartDrawer&          getPartDrawer();
+        static T100VariableDrawer&      getVariableDrawser();
+        static T100LabelDrawer&         getLabelDrawser();
+        static T100ProcedureDrawer&     getProcedureDrawer();
+
+    private:
+        static T100PartDrawer           m_part;
+        static T100VariableDrawer       m_variable;
+        static T100LabelDrawer          m_label;
+        static T100ProcedureDrawer      m_procedure;
 
 };
 

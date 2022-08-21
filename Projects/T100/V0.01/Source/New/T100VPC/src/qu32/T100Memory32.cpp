@@ -22,3 +22,23 @@ T100VOID T100Memory32::destroy()
 {
 
 }
+
+T100BOOL T100Memory32::read(T100WORD offset, T100WORD& value)
+{
+
+}
+
+T100BOOL T100Memory32::write(T100WORD offset, T100WORD value)
+{
+
+}
+
+T100BOOL T100Memory32::raw_read(T100WORD base, T100WORD offset, T100WORD& value)
+{
+
+}
+
+T100BOOL T100Memory32::raw_write(T100WORD base, T100WORD offset, T100WORD value)
+{
+
+}

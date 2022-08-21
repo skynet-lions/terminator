@@ -26,6 +26,9 @@ class T100Thread
         static T100VOID         sleep(T100WORD);
 
     protected:
+        T100VOID                create();
+        T100VOID                destroy();
+
         virtual T100VOID        run();
 
     private:

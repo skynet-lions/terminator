@@ -2,15 +2,10 @@
 #define T100DEVICE_H
 
 #include <atomic>
-#include "T100Common.h"
+#include "T100VPCCommon.h"
 class T100QU32;
 class T100Port32;
 class T100Device;
-
-
-#define     T100DEVICE_VECTOR       std::vector<T100Device*>
-#define     T100BLOCK_HASH          std::unordered_map<T100WORD, T100DEVICE_BLOCK*>
-#define     T100PAGE_HASH           std::unordered_map<T100WORD, T100DEVICE_PAGE*>
 
 
 class T100Device
@@ -30,6 +25,7 @@ class T100Device
         T100VOID                    create();
         T100VOID                    destroy();
 
+        T100WORD                    m_data[4];
         T100BYTE                    m_id            = 0;
         T100QU32*                   m_host          = T100NULL;
         T100Port32*                 m_port          = T100NULL;

@@ -15,11 +15,12 @@ T100Port32::~T100Port32()
 
 T100VOID T100Port32::create()
 {
+    /*
     m_cu        = T100NEW T100CUDevice(m_host);
     m_au        = T100NEW T100AUDevice(m_host);
     m_memory    = T100NEW T100MemoryDevice(m_host);
     m_port      = T100NEW T100PortDevice(m_host);
-
+    */
 }
 
 T100VOID T100Port32::destroy()
@@ -63,4 +64,39 @@ T100BOOL T100Port32::removeDevice(T100BYTE id)
     }
 
     return T100FALSE;
+}
+
+T100Device* T100Port32::getDevice(T100BYTE id)
+{
+
+}
+
+T100BOOL T100Port32::in(T100WORD offset, T100WORD& value)
+{
+
+}
+
+T100BOOL T100Port32::out(T100WORD offset, T100WORD value)
+{
+
+}
+
+T100BOOL T100Port32::allotBlock(T100BlockDevice* dev, T100WORD length, T100WORD_VECTOR& blocks)
+{
+
+}
+
+T100DEVICE_BLOCK* T100Port32::getBlock(T100WORD id)
+{
+
+}
+
+T100BOOL T100Port32::allotPage(T100PageDevice* dev, T100WORD length, T100WORD_VECTOR& pages)
+{
+
+}
+
+T100DEVICE_PAGE* T100Port32::getPage(T100WORD id)
+{
+
 }

@@ -17,7 +17,7 @@ T100VDiskFile::~T100VDiskFile()
 
 T100BOOL T100VDiskFile::exists()
 {
-    //return T100File::exists();
+    return T100File::exists();
 }
 
 T100BOOL T100VDiskFile::create(T100DWORD length)
@@ -42,6 +42,11 @@ T100BOOL T100VDiskFile::create(T100DWORD length)
     size                        = sizeof(T100VDISK_INFO);
     m_info.PHYSICAL_LEGNTH      = size + m_info.DATA_LENGTH * 4;
     m_info.FILE_LENGTH          = m_info.PHYSICAL_LEGNTH / 4;
+
+    m_stream = T100NEW T100Stream(getName());
+    if(!m_stream){
+        return T100FALSE;
+    }
 
     value = m_stream->open();
     if(value){

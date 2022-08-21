@@ -6,11 +6,23 @@
 T100Thread::T100Thread()
 {
     //ctor
+    create();
 }
 
 T100Thread::~T100Thread()
 {
     //dtor
+    destroy();
+}
+
+T100VOID T100Thread::create()
+{
+    m_running = T100FALSE;
+}
+
+T100VOID T100Thread::destroy()
+{
+
 }
 
 T100BOOL T100Thread::start()

@@ -22,3 +22,53 @@ T100VOID T100Interrupt32::destroy()
 {
 
 }
+
+T100VOID T100Interrupt32::interrupt(T100BYTE id)
+{
+
+}
+
+T100VOID T100Interrupt32::call(T100WORD base, T100WORD offset)
+{
+
+}
+
+T100VOID T100Interrupt32::call(T100WORD offset)
+{
+
+}
+
+T100VOID T100Interrupt32::ret()
+{
+
+}
+
+T100VOID T100Interrupt32::icall(T100BYTE id)
+{
+
+}
+
+T100VOID T100Interrupt32::iret()
+{
+
+}
+
+T100VOID T100Interrupt32::lock()
+{
+
+}
+
+T100VOID T100Interrupt32::unlock()
+{
+
+}
+
+T100VOID T100Interrupt32::push()
+{
+
+}
+
+T100VOID T100Interrupt32::pop()
+{
+
+}

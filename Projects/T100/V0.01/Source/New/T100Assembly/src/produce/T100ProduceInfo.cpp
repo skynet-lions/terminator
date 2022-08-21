@@ -6,7 +6,11 @@
 #include "T100SegmentCode.h"
 #include "T100SegmentData.h"
 
-T100PartDrawer          T100ProduceInfo::m_drawer;
+T100PartDrawer          T100ProduceInfo::m_part;
+T100VariableDrawer      T100ProduceInfo::m_variable;
+T100LabelDrawer         T100ProduceInfo::m_label;
+T100ProcedureDrawer     T100ProduceInfo::m_procedure;
+
 
 T100FILE_HASH           T100ProduceInfo::m_file_hash;
 T100FILE_LIST           T100ProduceInfo::m_file_list;

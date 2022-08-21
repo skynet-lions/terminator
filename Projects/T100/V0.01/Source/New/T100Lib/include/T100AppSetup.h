@@ -13,6 +13,7 @@ class T100AppSetup : public T100Setup
         static T100WSTRING              getTestResources(T100WSTRING);
         static T100WSTRING              getTestBuild(T100WSTRING);
         static T100WSTRING              getTestStores(T100WSTRING);
+        static T100WSTRING              getWork(T100WSTRING);
 
         static T100WSTRING              APP_TEST_PATH;
 
@@ -22,6 +23,7 @@ class T100AppSetup : public T100Setup
         static T100WSTRING              m_resources;
         static T100WSTRING              m_build;
         static T100WSTRING              m_stores;
+        static T100WSTRING              m_work;
 
 
 };

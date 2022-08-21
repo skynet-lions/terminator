@@ -1,12 +1,14 @@
 #ifndef T100PORT32_H
 #define T100PORT32_H
 
-#include "T100Common.h"
+#include "T100VPCCommon.h"
 #include "T100CUDevice.h"
 #include "T100AUDevice.h"
 #include "T100MemoryDevice.h"
 #include "T100PortDevice.h"
 class T100QU32;
+class T100BlockDevice;
+class T100PageDevice;
 
 
 class T100Port32
@@ -22,6 +24,11 @@ class T100Port32
         T100BOOL                in(T100WORD, T100WORD&);
         T100BOOL                out(T100WORD, T100WORD);
 
+        T100BOOL                allotBlock(T100BlockDevice*, T100WORD, T100WORD_VECTOR&);
+        T100DEVICE_BLOCK*       getBlock(T100WORD);
+
+        T100BOOL                allotPage(T100PageDevice*, T100WORD, T100WORD_VECTOR&);
+        T100DEVICE_PAGE*        getPage(T100WORD);
 
     protected:
         T100VOID                create();

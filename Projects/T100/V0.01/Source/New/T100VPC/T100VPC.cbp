@@ -7,9 +7,10 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/T100VPC" prefix_auto="1" extension_auto="1" />
+				<Option output="../build/T100VPC" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../build" />
 				<Option object_output="obj/Debug/" />
-				<Option type="0" />
+				<Option type="1" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
@@ -25,6 +26,7 @@
 					<Add directory="include/qu32" />
 					<Add directory="include/order" />
 					<Add directory="../T100Common/include" />
+					<Add directory="test" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -32,6 +34,7 @@
 				<Linker>
 					<Add library="libwxmsw30ud.a" />
 					<Add library="../build/libT100Lib.a" />
+					<Add library="../build/libT100Common.a" />
 					<Add directory="$(#wx)/lib/gcc_dll" />
 				</Linker>
 			</Target>
@@ -50,6 +53,7 @@
 					<Add directory="include/device" />
 					<Add directory="include/qu32" />
 					<Add directory="include/order" />
+					<Add directory="test" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
@@ -77,10 +81,18 @@
 		<Linker>
 			<Add option="-mthreads" />
 		</Linker>
-		<Unit filename="T100VPCApp.cpp" />
-		<Unit filename="T100VPCApp.h" />
-		<Unit filename="T100VPCMain.cpp" />
-		<Unit filename="T100VPCMain.h" />
+		<Unit filename="T100VPCApp.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="T100VPCApp.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="T100VPCMain.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="T100VPCMain.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="include/T100VPCCommon.h" />
 		<Unit filename="include/T100VPCSetup.h" />
 		<Unit filename="include/device/T100AUDevice.h" />
@@ -131,8 +143,12 @@
 		<Unit filename="include/qu32/T100Register32.h" />
 		<Unit filename="include/serve/T100VPCCallback.h" />
 		<Unit filename="include/serve/T100VPCServe.h" />
+		<Unit filename="include/view/T100HardwareDialog.h" />
 		<Unit filename="include/view/T100VPCScreen.h" />
 		<Unit filename="include/view/T100VPCView.h" />
+		<Unit filename="main.cpp">
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
@@ -185,8 +201,16 @@
 		<Unit filename="src/qu32/T100Register32.cpp" />
 		<Unit filename="src/serve/T100VPCCallback.cpp" />
 		<Unit filename="src/serve/T100VPCServe.cpp" />
+		<Unit filename="src/view/T100HardwareDialog.cpp" />
 		<Unit filename="src/view/T100VPCScreen.cpp" />
 		<Unit filename="src/view/T100VPCView.cpp" />
+		<Unit filename="test/T100QU32Test.cpp" />
+		<Unit filename="test/T100QU32Test.h" />
+		<Unit filename="test/T100TestApp.cpp" />
+		<Unit filename="test/T100TestApp.h" />
+		<Unit filename="test/T100VPCTest.cpp" />
+		<Unit filename="test/T100VPCTest.h" />
+		<Unit filename="wxsmith/T100HardwareDialog.wxs" />
 		<Unit filename="wxsmith/T100VPCScreen.wxs" />
 		<Unit filename="wxsmith/T100VPCframe.wxs" />
 		<Extensions>
@@ -196,6 +220,7 @@
 				<resources>
 					<wxFrame wxs="wxsmith/T100VPCframe.wxs" src="T100VPCMain.cpp" hdr="T100VPCMain.h" fwddecl="0" i18n="1" name="T100VPCFrame" language="CPP" />
 					<wxFrame wxs="wxsmith/T100VPCScreen.wxs" src="src\view\T100VPCScreen.cpp" hdr="include\view\T100VPCScreen.h" fwddecl="0" i18n="1" name="T100VPCScreen" language="CPP" />
+					<wxDialog wxs="wxsmith/T100HardwareDialog.wxs" src="src\view\T100HardwareDialog.cpp" hdr="include\view\T100HardwareDialog.h" fwddecl="0" i18n="1" name="T100HardwareDialog" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>

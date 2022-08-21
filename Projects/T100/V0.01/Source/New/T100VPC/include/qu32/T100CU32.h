@@ -7,6 +7,11 @@ class T100QU32;
 
 class T100CU32
 {
+    friend class T100Order;
+    friend class T100OrderJz;
+    friend class T100OrderJnz;
+    friend class T100OrderJump;
+    friend class T100OrderLoop;
     public:
         T100CU32(T100QU32*);
         virtual ~T100CU32();

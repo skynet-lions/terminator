@@ -19,10 +19,12 @@
 					<Add directory="include" />
 					<Add directory="../T100Lib/include" />
 					<Add directory="test" />
+					<Add directory="T100Common/test" />
 				</Compiler>
 				<Linker>
 					<Add library="../build/libT100Lib.a" />
 					<Add library="dl" />
+					<Add library="iconv" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -36,6 +38,7 @@
 					<Add directory="include" />
 					<Add directory="test" />
 					<Add directory="../T100Lib/include" />
+					<Add directory="T100Common/test" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -56,6 +59,7 @@
 					<Add directory="include" />
 					<Add directory="../T100Lib/include" />
 					<Add directory="test" />
+					<Add directory="T100Common/test" />
 				</Compiler>
 				<Linker>
 					<Add library="../build/libT100Lib.a" />
@@ -87,6 +91,7 @@
 		<Unit filename="include/T100VFSTable.h" />
 		<Unit filename="main.cpp">
 			<Option target="Debug" />
+			<Option target="Release" />
 		</Unit>
 		<Unit filename="src/T100Font.cpp" />
 		<Unit filename="src/T100FontFile.cpp" />
@@ -105,8 +110,18 @@
 		<Unit filename="test/T100CommonTest.h" />
 		<Unit filename="test/T100CommonTestHint.cpp" />
 		<Unit filename="test/T100CommonTestHint.h" />
-		<Unit filename="test/T100TestApp.cpp" />
-		<Unit filename="test/T100TestApp.h" />
+		<Unit filename="test/T100FontTest.cpp" />
+		<Unit filename="test/T100FontTest.h" />
+		<Unit filename="test/T100TestApp.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="test/T100TestApp.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="test/T100VDiskTest.cpp" />
+		<Unit filename="test/T100VDiskTest.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

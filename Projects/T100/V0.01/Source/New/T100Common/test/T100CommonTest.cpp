@@ -12,7 +12,9 @@ T100WSTRING         T100CommonTest::m_name                  = L"common.font";
 
 
 T100CommonTest::T100CommonTest(T100Test* parent)
-    :T100Test(parent, m_name)
+    :T100Test(parent, m_name),
+    test_font(this),
+    test_vdisk(this)
 {
     //ctor
 }
@@ -27,7 +29,7 @@ T100BOOL T100CommonTest::do_test()
     T100BOOL            result          = T100TRUE;
     T100BOOL            value;
 
-    value = test_font();
+    value = test_common();
     if(!value){
         result = T100FALSE;
     }
@@ -35,7 +37,7 @@ T100BOOL T100CommonTest::do_test()
     return result;
 }
 
-T100BOOL T100CommonTest::test_font()
+T100BOOL T100CommonTest::test_common()
 {
     T100BOOL                result          = T100TRUE;
     T100BOOL                value;

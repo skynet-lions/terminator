@@ -7,6 +7,8 @@ class T100QU32;
 
 class T100Memory32
 {
+    friend class T100Order;
+    friend class T100MemoryDevice;
     public:
         T100Memory32(T100QU32*);
         virtual ~T100Memory32();
@@ -17,6 +19,9 @@ class T100Memory32
     protected:
         T100VOID            create();
         T100VOID            destroy();
+
+        T100BOOL            raw_read(T100WORD, T100WORD, T100WORD&);
+        T100BOOL            raw_write(T100WORD, T100WORD, T100WORD);
 
     private:
         T100QU32*           m_host          = T100NULL;

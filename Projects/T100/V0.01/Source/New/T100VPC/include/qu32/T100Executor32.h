@@ -15,6 +15,8 @@ class T100Executor32 : public T100Thread
         T100BOOL            start();
         T100BOOL            stop();
 
+        T100VOID            debug();
+
     protected:
         T100VOID            run();
 

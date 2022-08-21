@@ -23,6 +23,7 @@
 				</Compiler>
 				<Linker>
 					<Add library="dl" />
+					<Add library="iconv" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -201,8 +202,14 @@
 		<Unit filename="test/T100LogTest.h" />
 		<Unit filename="test/T100StringTest.cpp" />
 		<Unit filename="test/T100StringTest.h" />
-		<Unit filename="test/T100TestApp.cpp" />
-		<Unit filename="test/T100TestApp.h" />
+		<Unit filename="test/T100TestApp.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="test/T100TestApp.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

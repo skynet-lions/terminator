@@ -27,6 +27,7 @@ class T100QU32
         T100BOOL                start();
         T100BOOL                stop();
 
+        T100BOOL                done();
 
 
     protected:
