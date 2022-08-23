@@ -11,7 +11,7 @@ class T100ProduceBuilder
         T100ProduceBuilder();
         virtual ~T100ProduceBuilder();
 
-        T100BOOL            build(T100STRING&, T100BuildInfo&);
+        virtual T100BOOL            run(T100STRING&, T100BuildInfo&);
 
     protected:
 

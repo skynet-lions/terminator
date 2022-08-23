@@ -3,6 +3,10 @@
 
 #include "T100ProduceBuilder.h"
 #include "T100BuildInfo.h"
+#include "T100SentenceToken.h"
+#include "T100SegmentToken.h"
+#include "T100PartToken.h"
+#include "T100PartInfo.h"
 
 
 class T100RealBuilder : public T100ProduceBuilder
@@ -11,11 +15,24 @@ class T100RealBuilder : public T100ProduceBuilder
         T100RealBuilder();
         virtual ~T100RealBuilder();
 
-        T100BOOL            save(T100STRING&, T100BuildInfo*);
-
-    protected:
+        T100BOOL            run(T100STRING&, T100BuildInfo&);
 
     private:
+
+        T100BOOL            build();
+
+        T100BOOL            merge();
+
+        T100BOOL            save(T100STRING&, T100BuildInfo&);
+
+    protected:
+        T100BOOL            build(T100PartToken*);
+        T100BOOL            build(T100SegmentToken*);
+        T100BOOL            build(T100SentenceToken*);
+
+    private:
+        T100PartInfo        m_info;
+
 };
 
 #endif // T100REALBUILDER_H

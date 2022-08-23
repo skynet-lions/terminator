@@ -14,7 +14,7 @@ class T100SentenceLoop : public T100Sentence
 
         T100BOOL            parse();
 
-        T100BOOL            build(T100BuildInfo* info);
+        T100BOOL            build(T100PartInfo* info);
 
     protected:
 

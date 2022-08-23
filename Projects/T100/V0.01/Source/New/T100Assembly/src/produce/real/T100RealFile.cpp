@@ -10,3 +10,13 @@ T100RealFile::~T100RealFile()
 {
     //dtor
 }
+
+T100RealFileReader* T100RealFile::getReader()
+{
+
+}
+
+T100RealFileWriter* T100RealFile::getWriter()
+{
+
+}

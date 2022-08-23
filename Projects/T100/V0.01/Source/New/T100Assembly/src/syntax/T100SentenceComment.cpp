@@ -16,7 +16,7 @@ T100BOOL T100SentenceComment::parse()
     return T100TRUE;
 }
 
-T100BOOL T100SentenceComment::build(T100BuildInfo* info)
+T100BOOL T100SentenceComment::build(T100PartInfo* info)
 {
     return T100TRUE;
 }

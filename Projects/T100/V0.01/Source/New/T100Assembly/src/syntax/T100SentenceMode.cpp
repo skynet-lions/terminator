@@ -1,5 +1,8 @@
 #include "T100SentenceMode.h"
 
+#include "T100ParseInfo.h"
+
+
 T100SentenceMode::T100SentenceMode(T100SentenceScanner* scanner)
     :T100Sentence(scanner)
 {
@@ -63,6 +66,14 @@ READ_NEXT:
         {
             mode        = T100MODE_REAL;
             setLoaded(T100FALSE);
+
+            if(T100ParseInfo::setMode(T100MODE_REAL)){
+
+            }else{
+                return T100FALSE;
+            }
+
+
             goto READ_NEXT;
         }
     case T100KEYWORD_NORMAL:
@@ -74,6 +85,13 @@ READ_NEXT:
         {
             mode        = T100MODE_VIRTUAL;
             setLoaded(T100FALSE);
+
+            if(T100ParseInfo::setMode(T100MODE_VIRTUAL)){
+
+            }else{
+                return T100FALSE;
+            }
+
             goto READ_NEXT;
         }
     case T100KEYWORD_TINY:
@@ -91,7 +109,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceMode::build(T100BuildInfo* info)
+T100BOOL T100SentenceMode::build(T100PartInfo* info)
 {
     /*
     info->setTiny(istiny);

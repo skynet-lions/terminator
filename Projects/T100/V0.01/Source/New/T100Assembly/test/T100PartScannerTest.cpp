@@ -129,22 +129,38 @@ T100BOOL T100PartScannerTest::test_part()
     }
 
     if(result){
-
         value = pscanner->next(token);
-        if((!value) || (T100FILE_SOURCE != token.type)){
+        if((!value) || (T100FILE_IMPORT != token.type)){
             result = T100FALSE;
         }
         if(result){
+            int i;
+
+            i = token.segments.size();
+            //i = token.segments[0]->sentences.size();
+
+        }
+
+        if(result){
             value = pscanner->next(token);
-            if((!value) || (T100FILE_IMPORT != token.type)){
+            if((!value) || (T100FILE_SOURCE != token.type)){
                 result = T100FALSE;
+            }
+            if(result){
+                if(3 != token.segments.size()){
+                    result = T100FALSE;
+                }else if(1 != token.segments[0]->sentences.size()
+                         || 2 != token.segments[1]->sentences.size()
+                         || 2 != token.segments[2]->sentences.size()){
+                    result = T100FALSE;
+                }
             }
         }
 
         //
         if(result){
             value = pscanner->next(token);
-            if(!value || (T100TOKEN_EOF != token.type)){
+            if((!value) || (T100TOKEN_EOF != token.type)){
                 result = T100FALSE;
             }
         }

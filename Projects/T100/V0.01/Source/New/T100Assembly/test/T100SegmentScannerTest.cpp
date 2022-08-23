@@ -118,15 +118,24 @@ T100BOOL T100SegmentScannerTest::test_segment()
     }
 
     if(result){
-
         value = segscanner->next(token);
         if((!value) || (T100SEGMENT_MODE != token.type)){
             result = T100FALSE;
         }
         if(result){
+            if(1 != token.sentences.size()){
+                result = T100FALSE;
+            }
+        }
+        if(result){
             value = segscanner->next(token);
             if((!value) || (T100SEGMENT_CODE != token.type)){
                 result = T100FALSE;
+            }
+            if(result){
+                if(2 != token.sentences.size()){
+                    result = T100FALSE;
+                }
             }
         }
         if(result){
@@ -134,12 +143,17 @@ T100BOOL T100SegmentScannerTest::test_segment()
             if((!value) || (T100SEGMENT_DATA != token.type)){
                 result = T100FALSE;
             }
+            if(result){
+                if(2 != token.sentences.size()){
+                    result = T100FALSE;
+                }
+            }
         }
 
         //
         if(result){
             value = segscanner->next(token);
-            if(!value || (T100TOKEN_EOF != token.type)){
+            if((!value) || (T100TOKEN_EOF != token.type)){
                 result = T100FALSE;
             }
         }

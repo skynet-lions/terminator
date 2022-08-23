@@ -20,6 +20,8 @@ class T100SegmentToken : public T100Token
 
         T100SegmentToken*       copy();
 
+        T100VOID                clear();
+
     protected:
         T100VOID                create();
         T100VOID                destroy();

@@ -35,5 +35,18 @@ T100SegmentToken* T100SegmentToken::copy()
 
     token->sentences    = sentences;
 
+    //test
+    int i;
+
+    i = token->sentences.size();
+
     return token;
+}
+
+T100VOID T100SegmentToken::clear()
+{
+    name.clear();
+    sentences.clear();
+
+    T100Token::clear();
 }

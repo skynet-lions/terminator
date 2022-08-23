@@ -3,11 +3,23 @@
 T100Scanner::T100Scanner()
 {
     //ctor
+    create();
 }
 
 T100Scanner::~T100Scanner()
 {
     //dtor
+    destroy();
+}
+
+T100VOID T100Scanner::create()
+{
+    m_loaded = T100FALSE;
+}
+
+T100VOID T100Scanner::destroy()
+{
+
 }
 
 T100VOID T100Scanner::clear()

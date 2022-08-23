@@ -18,6 +18,8 @@ class T100PartScannerTools
 
         T100PartScanner*        create(T100WSTRING);
 
+        T100BOOL                close();
+
         T100VOID                destroy();
 
     protected:

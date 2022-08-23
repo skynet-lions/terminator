@@ -107,5 +107,20 @@ T100PartScanner* T100PartScannerTools::create(T100WSTRING file)
 
 T100VOID T100PartScannerTools::destroy()
 {
+    T100SAFE_DELETE(m_byte_scanner);
+    T100SAFE_DELETE(m_char_scanner);
+    T100SAFE_DELETE(m_string_scanner);
+    T100SAFE_DELETE(m_keyword_scanner);
+    T100SAFE_DELETE(m_sentence_scanner);
+    T100SAFE_DELETE(m_segment_scanner);
+    T100SAFE_DELETE(m_part_scanner);
+}
 
+T100BOOL T100PartScannerTools::close()
+{
+    if(m_byte_scanner){
+        return m_byte_scanner->close();
+    }
+
+    return T100FALSE;
 }

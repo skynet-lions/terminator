@@ -1,6 +1,7 @@
 #include "T100SentenceLabel.h"
 
-#include "T100ProduceInfo.h"
+#include "T100ParseInfo.h"
+#include "T100LabelDrawer.h"
 
 
 T100SentenceLabel::T100SentenceLabel(T100SentenceScanner* scanner)
@@ -29,7 +30,7 @@ T100BOOL T100SentenceLabel::parse()
     return result;
 }
 
-T100BOOL T100SentenceLabel::build(T100BuildInfo* info)
+T100BOOL T100SentenceLabel::build(T100PartInfo* info)
 {
     info->setLabel(name, info->getOffset());
 
@@ -42,7 +43,9 @@ T100BOOL T100SentenceLabel::build(T100BuildInfo* info)
     ld->offset          = info->getOffset();
     */
 
-    T100ProduceInfo::setLabelDefine(name, ld);
+    //T100ProduceInfo::setLabelDefine(name, ld);
+
+    T100ParseInfo::getLabelDrawer().setLabelDefine(name, ld);
 
     return T100TRUE;
 }

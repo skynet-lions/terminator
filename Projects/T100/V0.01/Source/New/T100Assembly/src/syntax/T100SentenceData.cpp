@@ -180,7 +180,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceData::build(T100BuildInfo* info)
+T100BOOL T100SentenceData::build(T100PartInfo* info)
 {
-    return info->createSegment(this);
+    return info->openSegment(this);
 }

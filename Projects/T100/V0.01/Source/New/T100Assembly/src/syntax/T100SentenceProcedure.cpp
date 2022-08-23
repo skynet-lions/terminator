@@ -1,6 +1,7 @@
 #include "T100SentenceProcedure.h"
 
-#include "T100ProduceInfo.h"
+#include "T100ParseInfo.h"
+#include "T100ProcedureDrawer.h"
 
 
 T100SentenceProcedure::T100SentenceProcedure(T100SentenceScanner* scanner)
@@ -28,7 +29,9 @@ T100BOOL T100SentenceProcedure::parse()
 
         pd->name        = name;
 
-        T100ProduceInfo::setProcedureDefine(name, pd);
+        T100ParseInfo::getProcedureDrawer().setProcedureDefine(name, pd);
+
+        //T100ProduceInfo::setProcedureDefine(name, pd);
     }
 
     return result;
@@ -103,7 +106,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceProcedure::build(T100BuildInfo* info)
+T100BOOL T100SentenceProcedure::build(T100PartInfo* info)
 {
-    return info->createSegment(this);
+    return info->openSegment(this);
 }

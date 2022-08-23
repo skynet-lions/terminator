@@ -2,6 +2,7 @@
 #define T100PARTDRAWER_H
 
 #include "T100AssemblyCommon.h"
+#include "T100String.h"
 #include "T100PartInfo.h"
 
 
@@ -11,12 +12,23 @@ class T100PartDrawer
         T100PartDrawer();
         virtual ~T100PartDrawer();
 
-        T100BOOL            load(T100String, T100PartInfo*);
-        T100BOOL            save(T100String, T100PartInfo*);
+        static T100BOOL                     exists(T100String);
+
+        static T100BOOL                     append(T100String&, T100PartInfo*);
+
+        static T100PART_INFO_VECTOR&        getPartInfos();
+
+
+
+        static T100BOOL                     load(T100String, T100PartInfo*);
+        static T100BOOL                     save(T100String, T100PartInfo*);
 
     protected:
 
     private:
+        static T100PART_INFO_VECTOR         m_part_vector;
+        static T100PART_INFO_HASH           m_part_hash;
+
 };
 
 #endif // T100PARTDRAWER_H

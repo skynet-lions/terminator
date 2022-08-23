@@ -3,6 +3,8 @@
 
 #include "T100Common.h"
 #include "T100String.h"
+#include "T100StringHash.h"
+#include "T100StringEqual.h"
 #include "T100Log.h"
 class T100PartInfo;
 
@@ -283,6 +285,7 @@ typedef struct{
 #define     T100SEGMENTDATA_VECTOR      std::vector<T100Segment*>
 
 #define     T100PART_INFO_VECTOR        std::vector<T100PartInfo*>
+#define     T100PART_INFO_HASH          std::unordered_map<T100String, T100PartInfo*, T100StringHash, T100StringEqual>
 
 #define     T100VARIABLE_CALL           T100ITEM
 #define     T100LABEL_CALL              T100ITEM

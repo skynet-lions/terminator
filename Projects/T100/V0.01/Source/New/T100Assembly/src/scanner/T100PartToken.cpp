@@ -43,5 +43,7 @@ T100PartToken* T100PartToken::copy()
 
 T100VOID T100PartToken::clear()
 {
+    segments.clear();
 
+    T100Token::clear();
 }

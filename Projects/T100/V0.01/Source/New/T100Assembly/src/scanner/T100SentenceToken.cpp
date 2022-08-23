@@ -23,7 +23,6 @@ T100SentenceToken* T100SentenceToken::copy()
     token->row      = row;
 
     token->value    = value;
-    //token->bytes    = bytes;
 
     return token;
 }
@@ -31,7 +30,6 @@ T100SentenceToken* T100SentenceToken::copy()
 T100VOID T100SentenceToken::clear()
 {
     value       = T100NULL;
-    //bytes.clear();
 
     T100Token::clear();
 }

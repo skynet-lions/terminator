@@ -15,9 +15,6 @@ class T100PartScanner : public T100Scanner
         T100VOID                    setSource(T100Scanner*);
         T100Scanner*                getSource();
 
-        T100BOOL                    open();
-        T100BOOL                    close();
-
         T100BOOL                    next(T100Token&);
 
     protected:

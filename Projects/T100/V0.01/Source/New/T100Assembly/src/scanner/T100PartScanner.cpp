@@ -32,16 +32,6 @@ T100Scanner* T100PartScanner::getSource()
     return m_scanner;
 }
 
-T100BOOL T100PartScanner::open()
-{
-    return T100FALSE;
-}
-
-T100BOOL T100PartScanner::close()
-{
-    return T100FALSE;
-}
-
 T100PartToken* T100PartScanner::getToken()
 {
     return m_token;

@@ -17,6 +17,9 @@ class T100Scanner
     protected:
         std::atomic_bool        m_loaded;
 
+        T100VOID                create();
+        T100VOID                destroy();
+
         virtual T100VOID        clear();
         virtual T100BOOL        read();
         virtual T100BOOL        append();

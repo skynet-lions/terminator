@@ -6,6 +6,9 @@
 #include "T100PartScannerTools.h"
 #include "T100ProduceInfo.h"
 
+#include "T100ParseInfo.h"
+#include "T100PartDrawer.h"
+
 
 T100ProduceParser::T100ProduceParser()
 {
@@ -17,7 +20,7 @@ T100ProduceParser::~T100ProduceParser()
     //dtor
 }
 
-T100BOOL T100ProduceParser::parse(T100STRING& name, T100ParseInfo& info)
+T100BOOL T100ProduceParser::run(T100STRING& name, T100ParseInfo& info)
 {
     T100BOOL            result;
 
@@ -56,7 +59,7 @@ T100BOOL T100ProduceParser::load(T100STRING& file, T100BOOL flag)
 
 T100BOOL T100ProduceParser::scan(T100WSTRING& name)
 {
-    T100BOOL                result;
+    T100BOOL                result          = T100TRUE;
     T100PartScannerTools    tools;
     T100PartToken           token;
     T100PartScanner*        scanner         = T100NULL;
@@ -67,6 +70,7 @@ T100BOOL T100ProduceParser::scan(T100WSTRING& name)
     }
 
     while(scanner->next(token)){
+        if(token.eof)break;
         if(append(token, T100FALSE)){
 
         }else{
@@ -75,11 +79,9 @@ T100BOOL T100ProduceParser::scan(T100WSTRING& name)
         }
     }
 
-    if(!scanner->close()){
+    if(!tools.close()){
         result = T100FALSE;
     }
-
-    tools.destroy();
 
     return result;
 }
@@ -95,21 +97,43 @@ T100BOOL T100ProduceParser::append(T100PartToken& token, T100BOOL flag)
 
     T100PathTools::full(name, full);
 
-    if(T100ProduceInfo::find(T100String(full))){
+    if(T100ProduceInfo::getPartDrawer().exists(T100String(full))){
         return T100TRUE;
     }else{
         if(T100FILE_IMPORT == token.type){
             T100String  temp(name);
             result = load(temp, flag);
         }else{
-            T100PartToken* item = token.copy();
-
-            T100String  temp(full);
-            T100ProduceInfo::m_file_hash[temp] = item;
-            T100ProduceInfo::m_file_list.push_back(item);
-
-            result = T100TRUE;
+            result = add(full, token);
         }
+    }
+
+    return result;
+}
+
+T100BOOL T100ProduceParser::add(T100WSTRING& full, T100PartToken& token)
+{
+    T100BOOL            result          = T100TRUE;
+    T100String          name(full);
+    T100PartToken*      item            = T100NULL;
+    T100PartInfo*       info            = T100NULL;
+
+    item = token.copy();
+
+    if(item){
+        info = T100NEW T100PartInfo();
+
+        info->token = item;
+    }else{
+        return T100FALSE;
+    }
+
+    if(T100ProduceInfo::getPartDrawer().append(name, info)){
+
+    }else{
+        T100SAFE_DELETE(item);
+        T100SAFE_DELETE(info);
+        result = T100FALSE;
     }
 
     return result;

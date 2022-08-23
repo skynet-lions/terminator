@@ -2319,7 +2319,7 @@ T100BOOL T100StringScannerTest::test_string()
         //
         if(result){
             value = sscanner->next(token);
-            if(!value || (T100TOKEN_EOF != token.type)){
+            if((!value) || (T100TOKEN_EOF != token.type)){
                 result = T100FALSE;
             }
         }

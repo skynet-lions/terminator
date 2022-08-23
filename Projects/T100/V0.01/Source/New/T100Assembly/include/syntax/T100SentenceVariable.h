@@ -15,7 +15,7 @@ class T100SentenceVariable : public T100Sentence
 
         T100BOOL                parse();
 
-        T100BOOL                build(T100BuildInfo*);
+        T100BOOL                build(T100PartInfo*);
 
     protected:
         T100BOOL                parseType();

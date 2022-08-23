@@ -25,7 +25,7 @@ T100BOOL T100SentenceAnd::parse()
     return result;
 }
 
-T100BOOL T100SentenceAnd::build(T100BuildInfo* info)
+T100BOOL T100SentenceAnd::build(T100PartInfo* info)
 {
     T100WORD_BITS   order;
 

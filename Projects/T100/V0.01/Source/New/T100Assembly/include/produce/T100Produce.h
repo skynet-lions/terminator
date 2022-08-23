@@ -5,6 +5,15 @@
 #include "T100ParseInfo.h"
 class T100ProduceBuilder;
 
+/*
+ProduceInfo
+        Parse
+                ParseInfo
+                        PartToken
+        Build
+                BuildInfo
+                        PartInfo
+*/
 
 class T100Produce
 {

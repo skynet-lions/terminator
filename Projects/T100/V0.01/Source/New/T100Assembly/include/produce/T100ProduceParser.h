@@ -3,6 +3,7 @@
 
 #include "T100Common.h"
 #include "T100ParseInfo.h"
+#include "T100PartToken.h"
 
 
 class T100ProduceParser
@@ -11,12 +12,14 @@ class T100ProduceParser
         T100ProduceParser();
         virtual ~T100ProduceParser();
 
-        T100BOOL            parse(T100STRING&, T100ParseInfo&);
+        T100BOOL            run(T100STRING&, T100ParseInfo&);
 
     protected:
         T100BOOL            load(T100STRING&, T100BOOL);
         T100BOOL            scan(T100WSTRING&);
         T100BOOL            append(T100PartToken&, T100BOOL);
+
+        T100BOOL            add(T100WSTRING&, T100PartToken&);
 
     private:
         T100WSTRING         m_root;

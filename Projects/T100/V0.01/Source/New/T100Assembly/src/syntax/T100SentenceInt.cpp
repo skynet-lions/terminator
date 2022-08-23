@@ -77,7 +77,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceInt::build(T100BuildInfo* info)
+T100BOOL T100SentenceInt::build(T100PartInfo* info)
 {
     T100WORD_BITS   order;
 

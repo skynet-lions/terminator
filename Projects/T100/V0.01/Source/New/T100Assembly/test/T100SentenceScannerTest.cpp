@@ -379,7 +379,7 @@ T100BOOL T100SentenceScannerTest::test_sentence()
         //
         if(result){
             value = senscanner->next(token);
-            if(!value || (T100TOKEN_EOF != token.type)){
+            if((!value) || (T100TOKEN_EOF != token.type)){
                 result = T100FALSE;
             }
         }
