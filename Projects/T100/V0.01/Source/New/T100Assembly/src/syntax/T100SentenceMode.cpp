@@ -1,6 +1,6 @@
 #include "T100SentenceMode.h"
 
-#include "T100ParseInfo.h"
+#include "T100ProduceInfo.h"
 
 
 T100SentenceMode::T100SentenceMode(T100SentenceScanner* scanner)
@@ -67,7 +67,7 @@ READ_NEXT:
             mode        = T100MODE_REAL;
             setLoaded(T100FALSE);
 
-            if(T100ParseInfo::setMode(T100MODE_REAL)){
+            if(T100ProduceInfo::setMode(T100MODE_REAL)){
 
             }else{
                 return T100FALSE;
@@ -86,7 +86,7 @@ READ_NEXT:
             mode        = T100MODE_VIRTUAL;
             setLoaded(T100FALSE);
 
-            if(T100ParseInfo::setMode(T100MODE_VIRTUAL)){
+            if(T100ProduceInfo::setMode(T100MODE_VIRTUAL)){
 
             }else{
                 return T100FALSE;
@@ -109,7 +109,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceMode::build(T100PartInfo* info)
+T100BOOL T100SentenceMode::build(T100BuildInfo* info)
 {
     /*
     info->setTiny(istiny);

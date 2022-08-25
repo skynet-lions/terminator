@@ -12,7 +12,7 @@ class T100SentenceComment : public T100Sentence
 
         T100BOOL            parse();
 
-        T100BOOL            build(T100PartInfo*);
+        T100BOOL            build(T100BuildInfo*);
 
     protected:
 

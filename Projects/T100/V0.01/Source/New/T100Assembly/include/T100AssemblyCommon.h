@@ -305,6 +305,18 @@ typedef struct{
 #define     T100PROCEDUREOFFSET_HASH    std::unordered_map<T100String, T100WORD, T100StringHash, T100StringEqual>
 #define     T100PROCEDURECALL_VECTOR    std::vector<T100PROCEDURE_CALL*>
 
+typedef struct{
+    T100String          name;
+    T100WORD            location;
+}T100SEGMENT_KEY;
 
+/*
+typedef enum{
+    T100SEGMENT_NONE        = 0,
+    T100SEGMENT_CODE,
+    T100SEGMENT_DATA,
+    T100SEGMENT_MAX
+}T100SEGMENT_TYPE;
+*/
 
 #endif // T100ASSEMBLYCOMMON_H

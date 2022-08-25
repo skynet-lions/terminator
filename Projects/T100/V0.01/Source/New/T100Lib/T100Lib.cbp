@@ -124,9 +124,8 @@
 		<Unit filename="include/cmdline/T100CmdLineInfo.h" />
 		<Unit filename="include/cmdline/T100CmdLineOption.h" />
 		<Unit filename="include/cmdline/T100CmdLineParam.h" />
-		<Unit filename="include/cmdline/T100CmdLineParameterScanner.h" />
-		<Unit filename="include/cmdline/T100CmdLineParameterToken.h" />
 		<Unit filename="include/cmdline/T100CmdLineParser.h" />
+		<Unit filename="include/cmdline/T100CmdLineResult.h" />
 		<Unit filename="include/cmdline/T100CmdLineStringScanner.h" />
 		<Unit filename="include/cmdline/T100CmdLineStringToken.h" />
 		<Unit filename="include/cmdline/T100CmdLineSwitch.h" />
@@ -182,9 +181,8 @@
 		<Unit filename="src/cmdline/T100CmdLineInfo.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineOption.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineParam.cpp" />
-		<Unit filename="src/cmdline/T100CmdLineParameterScanner.cpp" />
-		<Unit filename="src/cmdline/T100CmdLineParameterToken.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineParser.cpp" />
+		<Unit filename="src/cmdline/T100CmdLineResult.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineStringScanner.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineStringToken.cpp" />
 		<Unit filename="src/cmdline/T100CmdLineSwitch.cpp" />

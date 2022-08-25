@@ -29,7 +29,7 @@ T100BOOL T100SentenceProcedure::parse()
 
         pd->name        = name;
 
-        T100ParseInfo::getProcedureDrawer().setProcedureDefine(name, pd);
+        //T100ParseInfo::getProcedureDrawer().setProcedureDefine(name, pd);
 
         //T100ProduceInfo::setProcedureDefine(name, pd);
     }
@@ -106,7 +106,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceProcedure::build(T100PartInfo* info)
+T100BOOL T100SentenceProcedure::build(T100BuildInfo* info)
 {
     return info->openSegment(this);
 }

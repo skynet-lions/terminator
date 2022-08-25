@@ -11,10 +11,9 @@ class T100AssemblyApp : public T100App
         T100AssemblyApp();
         virtual ~T100AssemblyApp();
 
-        T100BOOL            run(int argc, wchar_t** argv);
+        T100BOOL            run();
 
     protected:
-        T100BOOL            parse(int, wchar_t**, T100AssemblyCmdLineInfo*);
 
     private:
 };

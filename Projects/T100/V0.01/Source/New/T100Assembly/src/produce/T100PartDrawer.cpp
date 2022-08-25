@@ -32,14 +32,6 @@ T100BOOL T100PartDrawer::exists(T100String name)
 
 T100BOOL T100PartDrawer::append(T100String& name, T100PartInfo* info)
 {
-    int i;
-
-    i = info->token->segments.size();
-
-    i = info->token->segments[0]->sentences.size();
-    i = info->token->segments[1]->sentences.size();
-    i = info->token->segments[2]->sentences.size();
-
     m_part_hash[name] = info;
     m_part_vector.push_back(info);
     return T100TRUE;

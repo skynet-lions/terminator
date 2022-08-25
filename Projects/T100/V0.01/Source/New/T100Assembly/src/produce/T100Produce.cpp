@@ -18,11 +18,11 @@ T100Produce::~T100Produce()
     //dtor
 }
 
-T100ProduceBuilder* T100Produce::create_builder(T100ParseInfo* info)
+T100ProduceBuilder* T100Produce::create_builder(T100ProduceInfo& info)
 {
     T100ProduceBuilder*         result          = T100NULL;
 
-    switch(info->getMode()){
+    switch(info.getMode()){
     case T100MODE_REAL:
         {
             result = T100NEW T100RealBuilder();
@@ -43,8 +43,7 @@ T100ProduceBuilder* T100Produce::create_builder(T100ParseInfo* info)
 T100BOOL T100Produce::run(T100STRING& source, T100STRING& target)
 {
     T100BOOL                    result          = T100TRUE;
-    T100ParseInfo               info;
-    T100BuildInfo               build;
+    T100ProduceInfo             info;
     T100ProduceParser           parser;
     T100ProduceBuilder*         builder         = T100NULL;
 
@@ -53,15 +52,15 @@ T100BOOL T100Produce::run(T100STRING& source, T100STRING& target)
         return T100FALSE;
     }
 
-    builder = create_builder(&info);
+    builder = create_builder(info);
     if(!builder){
         return T100FALSE;
     }
 
-    result = builder->run(target, build);
-    if(!result){
-        return T100FALSE;
-    }
+    result = builder->run(target, info);
 
     return result;
 }
+
+
+

@@ -31,7 +31,7 @@ T100BOOL T100SentenceOut::parse()
     return result;
 }
 
-T100BOOL T100SentenceOut::build(T100PartInfo* info)
+T100BOOL T100SentenceOut::build(T100BuildInfo* info)
 {
     T100BOOL                result      = T100FALSE;
     T100OPERATOR_INFO       build;

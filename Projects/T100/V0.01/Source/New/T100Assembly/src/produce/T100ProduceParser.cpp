@@ -20,16 +20,13 @@ T100ProduceParser::~T100ProduceParser()
     //dtor
 }
 
-T100BOOL T100ProduceParser::run(T100STRING& name, T100ParseInfo& info)
+T100BOOL T100ProduceParser::run(T100STRING& file, T100ProduceInfo& info)
 {
     T100BOOL            result;
 
     m_root = T100PathTools::getCwd();
 
-    result = load(name, T100TRUE);
-    if(!result){
-        return T100FALSE;
-    }
+    result = load(file, T100TRUE);
 
     return result;
 }
@@ -43,34 +40,34 @@ T100BOOL T100ProduceParser::load(T100STRING& file, T100BOOL flag)
     T100WSTRING         path;
     T100WSTRING         name;
 
-    cwd = T100PathTools::getCwd();
-
+    cwd     = T100PathTools::getCwd();
     current = file.to_wstring();
 
     T100PathTools::format(current, path, name);
-
     T100PathTools::chdir(path);
 
     result = scan(name);
 
     T100PathTools::chdir(cwd);
+
     return result;
 }
 
-T100BOOL T100ProduceParser::scan(T100WSTRING& name)
+T100BOOL T100ProduceParser::scan(T100WSTRING& file)
 {
-    T100BOOL                result          = T100TRUE;
-    T100PartScannerTools    tools;
-    T100PartToken           token;
-    T100PartScanner*        scanner         = T100NULL;
+    T100BOOL                    result          = T100TRUE;
+    T100PartScannerTools        tools;
+    T100PartToken               token;
+    T100PartScanner*            scanner         = T100NULL;
 
-    scanner = tools.create(name);
+    scanner = tools.create(file);
     if(!scanner){
         return T100FALSE;
     }
 
     while(scanner->next(token)){
         if(token.eof)break;
+
         if(append(token, T100FALSE)){
 
         }else{
@@ -88,21 +85,21 @@ T100BOOL T100ProduceParser::scan(T100WSTRING& name)
 
 T100BOOL T100ProduceParser::append(T100PartToken& token, T100BOOL flag)
 {
-    T100BOOL        result      = T100FALSE;
-    T100WSTRING     path;
-    T100WSTRING     name;
-    T100WSTRING     full;
+    T100BOOL            result          = T100FALSE;
+    T100WSTRING         path;
+    T100WSTRING         name;
+    T100WSTRING         full;
 
     name = token.file.to_wstring();
 
     T100PathTools::full(name, full);
 
-    if(T100ProduceInfo::getPartDrawer().exists(T100String(full))){
+    if(m_produce->getPartDrawer().exists(T100String(full))){
         return T100TRUE;
     }else{
         if(T100FILE_IMPORT == token.type){
-            T100String  temp(name);
-            result = load(temp, flag);
+            T100String  part(name);
+            result = load(part, flag);
         }else{
             result = add(full, token);
         }
@@ -115,20 +112,19 @@ T100BOOL T100ProduceParser::add(T100WSTRING& full, T100PartToken& token)
 {
     T100BOOL            result          = T100TRUE;
     T100String          name(full);
-    T100PartToken*      item            = T100NULL;
     T100PartInfo*       info            = T100NULL;
+    T100PartToken*      item            = T100NULL;
 
     item = token.copy();
 
     if(item){
         info = T100NEW T100PartInfo();
-
-        info->token = item;
+        info->getParseInfo().setToken(item);
     }else{
         return T100FALSE;
     }
 
-    if(T100ProduceInfo::getPartDrawer().append(name, info)){
+    if(m_produce->getPartDrawer().append(name, info)){
 
     }else{
         T100SAFE_DELETE(item);
@@ -138,3 +134,8 @@ T100BOOL T100ProduceParser::add(T100WSTRING& full, T100PartToken& token)
 
     return result;
 }
+
+
+
+
+

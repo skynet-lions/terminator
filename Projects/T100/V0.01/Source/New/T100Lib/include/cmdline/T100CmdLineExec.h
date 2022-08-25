@@ -14,6 +14,8 @@ class T100CmdLineExec : public T100CmdLineInfo
         T100WSTRING         value;
 
     protected:
+        T100VOID            create();
+        T100VOID            destroy();
 
     private:
 };

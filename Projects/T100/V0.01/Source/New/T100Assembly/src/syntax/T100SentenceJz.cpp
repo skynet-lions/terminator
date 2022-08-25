@@ -26,7 +26,7 @@ T100BOOL T100SentenceJz::parse()
     return result;
 }
 
-T100BOOL T100SentenceJz::build(T100PartInfo* info)
+T100BOOL T100SentenceJz::build(T100BuildInfo* info)
 {
     T100BOOL            result;
     T100WORD_BITS       order;

@@ -12,7 +12,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="-t -u assembly" />
+				<Option parameters="work/os/rom.txt  build/rom.bin" />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
@@ -115,10 +115,8 @@
 		<Unit filename="include/T100AssemblyHint.h" />
 		<Unit filename="include/T100AssemblyLog.h" />
 		<Unit filename="include/T100AssemblySetup.h" />
-		<Unit filename="include/cmdline/T100AssemblyCmdLineInfo.h" />
-		<Unit filename="include/cmdline/T100AssemblyCmdLineParameterScanner.h" />
 		<Unit filename="include/cmdline/T100AssemblyCmdLineParser.h" />
-		<Unit filename="include/cmdline/T100AssemblyCmdLineParserTools.h" />
+		<Unit filename="include/cmdline/T100AssemblyCmdLineResult.h" />
 		<Unit filename="include/produce/T100BuildInfo.h" />
 		<Unit filename="include/produce/T100LabelDrawer.h" />
 		<Unit filename="include/produce/T100ParseInfo.h" />
@@ -152,11 +150,13 @@
 		<Unit filename="include/produce/real/T100RealFile.h" />
 		<Unit filename="include/produce/real/T100RealFileReader.h" />
 		<Unit filename="include/produce/real/T100RealFileWriter.h" />
+		<Unit filename="include/produce/real/T100RealInfo.h" />
 		<Unit filename="include/produce/real/T100RealMerger.h" />
 		<Unit filename="include/produce/virtual/T100VirtualBuilder.h" />
 		<Unit filename="include/produce/virtual/T100VirtualFile.h" />
 		<Unit filename="include/produce/virtual/T100VirtualFileReader.h" />
 		<Unit filename="include/produce/virtual/T100VirtualFileWriter.h" />
+		<Unit filename="include/produce/virtual/T100VirtualInfo.h" />
 		<Unit filename="include/produce/virtual/T100VirtualMerger.h" />
 		<Unit filename="include/scanner/T100ByteScanner.h" />
 		<Unit filename="include/scanner/T100ByteToken.h" />
@@ -225,10 +225,8 @@
 		<Unit filename="src/T100AssemblyHint.cpp" />
 		<Unit filename="src/T100AssemblyLog.cpp" />
 		<Unit filename="src/T100AssemblySetup.cpp" />
-		<Unit filename="src/cmdline/T100AssemblyCmdLineInfo.cpp" />
-		<Unit filename="src/cmdline/T100AssemblyCmdLineParameterScanner.cpp" />
 		<Unit filename="src/cmdline/T100AssemblyCmdLineParser.cpp" />
-		<Unit filename="src/cmdline/T100AssemblyCmdLineParserTools.cpp" />
+		<Unit filename="src/cmdline/T100AssemblyCmdLineResult.cpp" />
 		<Unit filename="src/produce/T100BuildInfo.cpp" />
 		<Unit filename="src/produce/T100LabelDrawer.cpp" />
 		<Unit filename="src/produce/T100ParseInfo.cpp" />
@@ -262,11 +260,13 @@
 		<Unit filename="src/produce/real/T100RealFile.cpp" />
 		<Unit filename="src/produce/real/T100RealFileReader.cpp" />
 		<Unit filename="src/produce/real/T100RealFileWriter.cpp" />
+		<Unit filename="src/produce/real/T100RealInfo.cpp" />
 		<Unit filename="src/produce/real/T100RealMerger.cpp" />
 		<Unit filename="src/produce/virtual/T100VirtualBuilder.cpp" />
 		<Unit filename="src/produce/virtual/T100VirtualFile.cpp" />
 		<Unit filename="src/produce/virtual/T100VirtualFileReader.cpp" />
 		<Unit filename="src/produce/virtual/T100VirtualFileWriter.cpp" />
+		<Unit filename="src/produce/virtual/T100VirtualInfo.cpp" />
 		<Unit filename="src/produce/virtual/T100VirtualMerger.cpp" />
 		<Unit filename="src/scanner/T100ByteScanner.cpp" />
 		<Unit filename="src/scanner/T100ByteToken.cpp" />

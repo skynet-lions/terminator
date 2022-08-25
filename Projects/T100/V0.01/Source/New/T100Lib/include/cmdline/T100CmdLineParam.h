@@ -3,6 +3,7 @@
 
 #include "T100Common.h"
 #include "T100CmdLineInfo.h"
+#include "T100CmdLineParameterScanner.h"
 
 
 class T100CmdLineParam : public T100CmdLineInfo
@@ -11,11 +12,11 @@ class T100CmdLineParam : public T100CmdLineInfo
         T100CmdLineParam();
         virtual ~T100CmdLineParam();
 
-        T100BOOL            parse(T100CmdLineParameterScanner*);
-
         T100WSTRING         value;
 
     protected:
+        T100VOID            create();
+        T100VOID            destroy();
 
     private:
 };

@@ -1,7 +1,10 @@
 #ifndef T100BUILDINFO_H
 #define T100BUILDINFO_H
 
+#include "T100Token.h"
 #include "T100AssemblyCommon.h"
+#include "T100SegmentCode.h"
+#include "T100SegmentData.h"
 class T100Sentence;
 
 
@@ -11,12 +14,13 @@ class T100BuildInfo
         T100BuildInfo();
         virtual ~T100BuildInfo();
 
+
         T100BOOL                    setValue(T100WORD);
         T100WORD                    getOffset();
         T100VOID                    next();
 
-        T100BOOL                    createSegment(T100Sentence*);
-        T100BOOL                    addSegment();
+        T100BOOL                    openSegment(T100Sentence*);
+        T100BOOL                    closeSegment();
 
         T100BOOL                    setVariable(T100String, T100WORD);
         T100BOOL                    getVariable(T100String, T100WORD&);
@@ -32,6 +36,9 @@ class T100BuildInfo
 
 
     protected:
+        T100TOKEN_TYPE              m_type          = T100TOKEN_NONE;
+        T100SegmentCode*            m_code          = T100NULL;
+        T100SegmentData*            m_data          = T100NULL;
 
     private:
 };

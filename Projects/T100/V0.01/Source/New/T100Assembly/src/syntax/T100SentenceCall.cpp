@@ -81,7 +81,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceCall::build(T100PartInfo* info)
+T100BOOL T100SentenceCall::build(T100BuildInfo* info)
 {
     T100BOOL        result          = T100FALSE;
     T100WORD_BITS   order;

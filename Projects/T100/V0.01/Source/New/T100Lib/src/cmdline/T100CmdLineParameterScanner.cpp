@@ -4,6 +4,8 @@
 
 #include "T100CmdLineInfo.h"
 #include "T100CmdLineExec.h"
+#include "T100CmdLineSwitch.h"
+#include "T100CmdLineOption.h"
 #include "T100CmdLineParam.h"
 
 
@@ -54,9 +56,7 @@ T100BOOL T100CmdLineParameterScanner::run()
     switch(m_item.type){
     case T100CMDLINE_TOKEN_PROMPT:
         {
-            info = T100NEW T100CmdLineInfo();
-
-            info->parse(this);
+            info = parse();
         }
         break;
     case T100CMDLINE_TOKEN_EXEC:
@@ -69,8 +69,6 @@ T100BOOL T100CmdLineParameterScanner::run()
     case T100CMDLINE_TOKEN_CHAR:
         {
             info = T100NEW T100CmdLineParam();
-
-            info->parse(this);
         }
         break;
     }
@@ -95,4 +93,104 @@ T100BOOL T100CmdLineParameterScanner::append()
 T100BOOL T100CmdLineParameterScanner::classify()
 {
 
+}
+
+T100CmdLineInfo* T100CmdLineParameterScanner::parse()
+{
+    T100CmdLineInfo*    result          = T100NULL;
+    T100BOOL            value;
+
+    T100WCHAR           first;
+
+    value = read();
+    if(!value){
+        return T100NULL;
+    }
+
+    switch(m_item.type){
+    case T100CMDLINE_TOKEN_PROMPT:
+        {
+            value = read();
+            if(!value){
+                return T100NULL;
+            }
+
+            switch(m_item.type){
+            case T100CMDLINE_TOKEN_CHAR:
+                {
+                    first = m_item.value;
+
+                    value = read();
+                    if(!value){
+                        return T100NULL;
+                    }
+
+                    switch(m_item.type){
+                    case T100CMDLINE_TOKEN_EQUAL:
+                        {
+                            result = T100NEW T100CmdLineOption();
+
+                        }
+                        break;
+                    case T100CMDLINE_TOKEN_CHAR:
+                        {
+                            result = T100NEW T100CmdLineSwitch();
+
+                            result = T100NEW T100CmdLineSwitch();
+                        }
+                        break;
+                    default:
+                        return T100NULL;
+                    }
+                }
+                break;
+            default:
+                return T100NULL;
+            }
+        }
+        break;
+    case T100CMDLINE_TOKEN_END:
+        {
+            return T100NULL;
+        }
+        break;
+    case T100CMDLINE_TOKEN_EOF:
+        {
+            return T100NULL;
+        }
+        break;
+    case T100CMDLINE_TOKEN_CHAR:
+        {
+
+            value = read();
+            if(!value){
+                return T100NULL;
+            }
+
+            switch(m_item.type){
+            case T100CMDLINE_TOKEN_END:
+                {
+                    return T100NULL;
+                }
+                break;
+            case T100CMDLINE_TOKEN_EOF:
+                {
+                    return T100NULL;
+                }
+                break;
+            case T100CMDLINE_TOKEN_CHAR:
+                {
+                    result = T100NEW T100CmdLineParam();
+                }
+                break;
+            default:
+                return T100NULL;
+            }
+        }
+        break;
+    default:
+        return T100NULL;
+    }
+
+    return result;
 }

@@ -12,7 +12,7 @@ class T100SentenceXor : public T100Sentence
 
         T100BOOL            parse();
 
-        T100BOOL            build(T100PartInfo* info);
+        T100BOOL            build(T100BuildInfo* info);
 
     protected:
 

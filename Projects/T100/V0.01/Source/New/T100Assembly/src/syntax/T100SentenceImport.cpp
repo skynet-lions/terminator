@@ -32,7 +32,7 @@ T100BOOL T100SentenceImport::parse()
     return result;
 }
 
-T100BOOL T100SentenceImport::build(T100PartInfo* info)
+T100BOOL T100SentenceImport::build(T100BuildInfo* info)
 {
 
 }

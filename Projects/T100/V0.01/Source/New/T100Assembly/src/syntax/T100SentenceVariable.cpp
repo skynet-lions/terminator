@@ -1,7 +1,7 @@
 #include "T100SentenceVariable.h"
 
 #include "T100String32Tools.h"
-#include "T100ParseInfo.h"
+#include "T100ProduceInfo.h"
 #include "T100VariableDrawer.h"
 
 
@@ -43,7 +43,7 @@ T100BOOL T100SentenceVariable::parse()
         vd->isarray     = target.ISARRAY;
         vd->isshare     = target.ISSHARE;
 
-        T100ParseInfo::getVariableDrawer().setVariableDefine(name, vd);
+        //T100ParseInfo::getVariableDrawer().setVariableDefine(name, vd);
         //T100ProduceInfo::setVariableDefine(name, vd);
     }
 
@@ -228,7 +228,7 @@ READ_NEXT:
     return T100FALSE;
 }
 
-T100BOOL T100SentenceVariable::build(T100PartInfo* info)
+T100BOOL T100SentenceVariable::build(T100BuildInfo* info)
 {
 
     T100BOOL    result      = T100TRUE;
@@ -247,7 +247,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
             if(result){
                 info->setVariable(name, offset);
 
-                T100VARIABLE_DEFINE* vd = T100ParseInfo::getVariableDrawer().getVariableDefine(name);           // = T100ProduceInfo::getVariableDefine(name);
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDrawer().getVariableDefine(name);           // = T100ProduceInfo::getVariableDefine(name);
                 if(T100NULL == vd){
                     //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
                     return T100FALSE;
@@ -262,7 +262,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
 
                 T100BOOL value = vd->isshare;
 
-                T100ParseInfo::getVariableDrawer().setVariableDefine(name, vd);
+                T100ProduceInfo::getVariableDrawer().setVariableDefine(name, vd);
 
                 //T100ProduceInfo::setVariableDefine(name, vd);
             }
@@ -276,7 +276,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
                 if(result){
                     info->setVariable(name, offset);
 
-                    T100VARIABLE_DEFINE* vd = T100ParseInfo::getVariableDrawer().getVariableDefine(name);       //T100ProduceInfo::getVariableDefine(name);
+                    T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDrawer().getVariableDefine(name);       //T100ProduceInfo::getVariableDefine(name);
                     if(T100NULL == vd){
                         //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
                         return T100FALSE;
@@ -291,7 +291,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
 
                     T100BOOL value = vd->isshare;
 
-                    T100ParseInfo::getVariableDrawer().setVariableDefine(name, vd);
+                    T100ProduceInfo::getVariableDrawer().setVariableDefine(name, vd);
                     //T100ProduceInfo::setVariableDefine(name, vd);
 
                     //
@@ -321,7 +321,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
             if(result){
                 info->setVariable(name, offset);
 
-                T100VARIABLE_DEFINE* vd = T100ParseInfo::getVariableDrawer().getVariableDefine(name);       //T100ProduceInfo::getVariableDefine(name);
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDrawer().getVariableDefine(name);       //T100ProduceInfo::getVariableDefine(name);
                 if(T100NULL == vd){
                     //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
                     return T100FALSE;
@@ -336,7 +336,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
 
                 T100BOOL value = vd->isshare;
 
-                T100ParseInfo::getVariableDrawer().setVariableDefine(name, vd);
+                T100ProduceInfo::getVariableDrawer().setVariableDefine(name, vd);
                 //T100ProduceInfo::setVariableDefine(name, vd);
             }
             break;
@@ -352,7 +352,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
             if(result){
                 info->setVariable(name, offset);
 
-                T100VARIABLE_DEFINE* vd = T100ParseInfo::getVariableDrawer().getVariableDefine(name);       //T100ProduceInfo::getVariableDefine(name);
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDrawer().getVariableDefine(name);       //T100ProduceInfo::getVariableDefine(name);
                 if(T100NULL == vd){
                     //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
                     return T100FALSE;
@@ -364,7 +364,7 @@ T100BOOL T100SentenceVariable::build(T100PartInfo* info)
                 //vd->isvirtual   = info->getData()->isVirtual;
                 //vd->isshare     = info->getData()->isShare;
 
-                T100ParseInfo::getVariableDrawer().setVariableDefine(name, vd);
+                T100ProduceInfo::getVariableDrawer().setVariableDefine(name, vd);
                 //T100ProduceInfo::setVariableDefine(name, vd);
             }
             break;

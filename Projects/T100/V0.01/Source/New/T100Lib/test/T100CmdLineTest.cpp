@@ -395,6 +395,7 @@ T100BOOL T100CmdLineTest::test_parameter()
     T100BOOL            result          = T100TRUE;
     T100BOOL            value;
 
+    /*
     T100CmdLineStringScanner        strscanner;
     T100CmdLineCharScanner          chscanner;
     T100CmdLineParameterScanner     parascanner;
@@ -444,6 +445,7 @@ T100BOOL T100CmdLineTest::test_parameter()
             result = T100FALSE;
         }
     }
+    */
 
     return result;
 }
@@ -455,6 +457,7 @@ T100BOOL T100CmdLineTest::test_cmdline()
 
     T100Log::info(T100TEST_HINT_LIB_CMDLINE_TEST_START);
 
+    /*
     T100CmdLineParser       cmdline;
     T100CmdLineExec         exec;
 
@@ -552,7 +555,7 @@ T100BOOL T100CmdLineTest::test_cmdline()
             result = T100FALSE;
         }
     }
-
+    */
     show_result(result, T100TEST_HINT_LIB_CMDLINE_TEST_STOP);
     return result;
 }

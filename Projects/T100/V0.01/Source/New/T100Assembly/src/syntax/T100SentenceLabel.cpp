@@ -30,7 +30,7 @@ T100BOOL T100SentenceLabel::parse()
     return result;
 }
 
-T100BOOL T100SentenceLabel::build(T100PartInfo* info)
+T100BOOL T100SentenceLabel::build(T100BuildInfo* info)
 {
     info->setLabel(name, info->getOffset());
 
@@ -45,7 +45,7 @@ T100BOOL T100SentenceLabel::build(T100PartInfo* info)
 
     //T100ProduceInfo::setLabelDefine(name, ld);
 
-    T100ParseInfo::getLabelDrawer().setLabelDefine(name, ld);
+    //T100ParseInfo::getLabelDrawer().setLabelDefine(name, ld);
 
     return T100TRUE;
 }

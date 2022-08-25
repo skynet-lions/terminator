@@ -8,6 +8,7 @@
 #include "T100PartInfo.h"
 #include "T100ParseInfo.h"
 #include "T100PartDrawer.h"
+#include "T100RealInfo.h"
 
 
 T100RealBuilder::T100RealBuilder()
@@ -20,46 +21,37 @@ T100RealBuilder::~T100RealBuilder()
     //dtor
 }
 
-T100BOOL T100RealBuilder::run(T100STRING& file, T100BuildInfo& info)
+T100BOOL T100RealBuilder::run(T100STRING& file, T100ProduceInfo& info)
 {
     T100BOOL            result          = T100TRUE;
     T100BOOL            value;
+    T100RealInfo        real;
 
-    value = build();
+    value = build(info);
     if(!value){
         return T100FALSE;
     }
 
-    value = merge();
+    value = merge(info, real);
     if(!value){
         return T100FALSE;
     }
 
-    value = save(file, info);
+    value = save(file, real);
     result = value;
 
     return result;
 }
 
-T100BOOL T100RealBuilder::build()
+T100BOOL T100RealBuilder::build(T100ProduceInfo& info)
 {
     T100BOOL            result          = T100TRUE;
 
-    T100PartInfo*   info;
-
-    info = T100ProduceInfo::getPartDrawer().getPartInfos()[0];
-    int i;
-
-    i = info->token->segments.size();
-
-    i = info->token->segments[0]->sentences.size();
-    i = info->token->segments[1]->sentences.size();
-    i = info->token->segments[2]->sentences.size();
-
-
-    for(T100PartInfo* info : T100ProduceInfo::getPartDrawer().getPartInfos()){
-        if(info){
-            result = build(info->token);
+    for(T100PartInfo* item : info.getPartDrawer().getPartInfos()){
+        if(item){
+            //m_part = T100NEW T100PartInfo();
+            m_part = item;
+            result = build(item->getParseInfo().getToken());
             if(result){
 
             }else{
@@ -73,16 +65,14 @@ T100BOOL T100RealBuilder::build()
     return result;
 }
 
-T100BOOL T100RealBuilder::build(T100PartToken* part)
+T100BOOL T100RealBuilder::build(T100PartToken* token)
 {
     T100BOOL            result          = T100TRUE;
 
-    for(T100SegmentToken* token : part->segments){
-        if(token){
-            result = build(token);
-            if(result){
-
-            }else{
+    for(T100SegmentToken* item : token->segments){
+        if(item){
+            result = build(item);
+            if(!result){
                 return T100FALSE;
             }
         }else{
@@ -91,22 +81,20 @@ T100BOOL T100RealBuilder::build(T100PartToken* part)
     }
 
     if(result){
-        //result = T100ParseInfo::getPartDrawer().save(name, info);
+        //result = m_produce->getPartDrawer().save(name, info);
     }
 
     return result;
 }
 
-T100BOOL T100RealBuilder::build(T100SegmentToken* segment)
+T100BOOL T100RealBuilder::build(T100SegmentToken* token)
 {
     T100BOOL            result          = T100TRUE;
 
-    for(T100SentenceToken* token : segment->sentences){
-        if(token){
-            result = build(token);
-            if(result){
-
-            }else{
+    for(T100SentenceToken* item : token->sentences){
+        if(item){
+            result = build(item);
+            if(!result){
                 return T100FALSE;
             }
         }else{
@@ -117,25 +105,25 @@ T100BOOL T100RealBuilder::build(T100SegmentToken* segment)
     return result;
 }
 
-T100BOOL T100RealBuilder::build(T100SentenceToken* sentence)
+T100BOOL T100RealBuilder::build(T100SentenceToken* token)
 {
     T100BOOL            result          = T100TRUE;
 
-    if(sentence->value){
-        result = sentence->value->build(&m_info);
+    if(token->value){
+        result = token->value->build(&(m_part->getBuildInfo()));
     }
 
     return result;
 }
 
-T100BOOL T100RealBuilder::merge()
+T100BOOL T100RealBuilder::merge(T100ProduceInfo& source, T100RealInfo& target)
 {
     T100BOOL            result          = T100TRUE;
 
     return result;
 }
 
-T100BOOL T100RealBuilder::save(T100STRING& file, T100BuildInfo& info)
+T100BOOL T100RealBuilder::save(T100STRING& file, T100RealInfo& info)
 {
     T100BOOL                result          = T100TRUE;
     T100RealFileWriter*     writer          = T100NULL;
@@ -144,7 +132,7 @@ T100BOOL T100RealBuilder::save(T100STRING& file, T100BuildInfo& info)
     writer = real.getWriter();
 
     if(writer){
-        result = writer->save();
+        result = writer->save(info);
     }else{
         result = T100FALSE;
     }

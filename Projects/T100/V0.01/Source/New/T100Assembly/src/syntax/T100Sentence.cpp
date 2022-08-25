@@ -5,7 +5,7 @@
 #include "T100ProduceInfo.h"
 #include "T100SentenceScanner.h"
 
-#include "T100ParseInfo.h"
+#include "T100BuildInfo.h"
 #include "T100VariableDrawer.h"
 #include "T100ProcedureDrawer.h"
 
@@ -39,7 +39,7 @@ T100BOOL T100Sentence::parse()
     return T100FALSE;
 }
 
-T100BOOL T100Sentence::build(T100PartInfo* info)
+T100BOOL T100Sentence::build(T100BuildInfo* info)
 {
     return T100FALSE;
 }
@@ -888,7 +888,7 @@ T100BOOL T100Sentence::parseOperator(T100OPERATOR_BINOCULAR& op)
     return T100TRUE;
 }
 
-T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR& target, T100OPERATOR_BUILD& info)
+T100BOOL T100Sentence::buildOperator(T100BuildInfo* code, T100OPERATOR& target, T100OPERATOR_BUILD& info)
 {
     T100BOOL    result          = T100FALSE;
 
@@ -1204,7 +1204,7 @@ T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR& target, T
             T100WORD        offset;
             info.OPERATOR_FLAG      = T100TRUE;
 
-            T100VARIABLE_DEFINE* vd = T100ParseInfo::getVariableDrawer().getVariableDefine(target.NAME);           //T100ProduceInfo::getVariableDefine(target.NAME);
+            T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDrawer().getVariableDefine(target.NAME);           //T100ProduceInfo::getVariableDefine(target.NAME);
             if(!vd){
                 //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
                 return T100FALSE;
@@ -1344,7 +1344,7 @@ T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR& target, T
     return T100TRUE;
 }
 
-T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR_COMPLEXUS& op, T100OPERATOR_BUILD& info)
+T100BOOL T100Sentence::buildOperator(T100BuildInfo* code, T100OPERATOR_COMPLEXUS& op, T100OPERATOR_BUILD& info)
 {
     T100BOOL    result          = T100FALSE;
 
@@ -1591,7 +1591,7 @@ T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR_COMPLEXUS&
                 T100WORD        offset;
                 info.BASE_FLAG      = T100TRUE;
 
-                T100VARIABLE_DEFINE* vd = T100ParseInfo::getVariableDrawer().getVariableDefine(op.BASE.NAME);
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDrawer().getVariableDefine(op.BASE.NAME);
                 if(!vd){
                     //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
                     return T100FALSE;
@@ -1674,7 +1674,7 @@ T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR_COMPLEXUS&
 
 }
 
-T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR_BINOCULAR& op, T100OPERATOR_INFO& info)
+T100BOOL T100Sentence::buildOperator(T100BuildInfo* code, T100OPERATOR_BINOCULAR& op, T100OPERATOR_INFO& info)
 {
     T100BOOL    result          = T100FALSE;
 
@@ -1733,7 +1733,7 @@ T100BOOL T100Sentence::buildOperator(T100PartInfo* code, T100OPERATOR_BINOCULAR&
 }
 
 
-T100BOOL T100Sentence::buildComplexus(T100PartInfo* code, T100OPERATOR_COMPLEXUS& op, T100OPERATOR_BUILD& info)
+T100BOOL T100Sentence::buildComplexus(T100BuildInfo* code, T100OPERATOR_COMPLEXUS& op, T100OPERATOR_BUILD& info)
 {
     T100BOOL    result          = T100FALSE;
 
@@ -2000,7 +2000,7 @@ T100BOOL T100Sentence::buildComplexus(T100PartInfo* code, T100OPERATOR_COMPLEXUS
                 T100WORD        offset;
                 info.BASE_FLAG      = T100TRUE;
 
-                T100VARIABLE_DEFINE* vd = T100ParseInfo::getVariableDrawer().getVariableDefine(op.BASE.NAME);
+                T100VARIABLE_DEFINE* vd = T100ProduceInfo::getVariableDrawer().getVariableDefine(op.BASE.NAME);
                 if(!vd){
                     //T100AssemblyError::error(T100AssemblyHint::build_hint(type, data, T100BUILD_SENTENCE_ERROR));
                     return T100FALSE;
@@ -2083,7 +2083,7 @@ T100BOOL T100Sentence::buildComplexus(T100PartInfo* code, T100OPERATOR_COMPLEXUS
 
 }
 
-T100BOOL T100Sentence::buildInfo(T100ORDER_TYPE type, T100PartInfo* code, T100OPERATOR_INFO& info)
+T100BOOL T100Sentence::buildInfo(T100ORDER_TYPE type, T100BuildInfo* code, T100OPERATOR_INFO& info)
 {
     T100BOOL            result      = T100TRUE;
     T100WORD_BITS       order;
@@ -2168,14 +2168,14 @@ T100BOOL T100Sentence::buildInfo(T100ORDER_TYPE type, T100PartInfo* code, T100OP
     return result;
 }
 
-T100BOOL T100Sentence::getProcedureOffset(T100PartInfo* info, T100String name, T100WORD& offset)
+T100BOOL T100Sentence::getProcedureOffset(T100BuildInfo* info, T100String name, T100WORD& offset)
 {
         T100BOOL            result          = T100TRUE;
 
         result = info->getProcedure(name, offset);
 
         if(!result){
-            T100PROCEDURE_DEFINE*   pd = T100ParseInfo::getProcedureDrawer().getProcedureDefine(name);
+            T100PROCEDURE_DEFINE*   pd = T100ProduceInfo::getProcedureDrawer().getProcedureDefine(name);
 
             if(pd){
                 offset = pd->offset;

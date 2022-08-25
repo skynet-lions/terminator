@@ -6,26 +6,21 @@
 T100CmdLineParam::T100CmdLineParam()
 {
     //ctor
+    create();
 }
 
 T100CmdLineParam::~T100CmdLineParam()
 {
     //dtor
+    destroy();
 }
 
-T100BOOL T100CmdLineParam::parse(T100CmdLineParameterScanner* scanner)
+T100VOID T100CmdLineParam::create()
 {
-    while(scanner->read()){
-        if(T100CMDLINE_TOKEN_END == scanner->m_item.type){
-            return T100TRUE;
-        }else{
-            scanner->append();
-        }
-    }
+    type = T100CMDLINE_PARAM;
+}
 
-    if(T100CMDLINE_TOKEN_EOF == scanner->m_item.type){
+T100VOID T100CmdLineParam::destroy()
+{
 
-    }else{
-
-    }
 }

@@ -28,6 +28,8 @@ class T100CmdLineParameterScanner : public T100Scanner
 
         T100BOOL                        run();
 
+        T100CmdLineInfo*                parse();
+
         T100BOOL                        read();
         T100BOOL                        append();
         T100BOOL                        classify();

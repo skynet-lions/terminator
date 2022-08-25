@@ -19,7 +19,7 @@ class T100SentenceCode : public T100Sentence
 
         T100BOOL            parse();
 
-        T100BOOL            build(T100PartInfo*);
+        T100BOOL            build(T100BuildInfo*);
 
     protected:
         T100BOOL            parseConfig();

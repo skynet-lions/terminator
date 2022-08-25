@@ -10,6 +10,12 @@ class T100AssemblyCmdLineInfo : public T100CmdLineInfo
         T100AssemblyCmdLineInfo();
         virtual ~T100AssemblyCmdLineInfo();
 
+        T100BOOL            TEST            = T100FALSE;
+        T100BOOL            UNIT            = T100FALSE;
+
+        T100WSTRING         SOURCE;
+        T100WSTRING         TARGET;
+
     protected:
 
     private:

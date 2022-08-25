@@ -25,7 +25,7 @@ T100BOOL T100SentenceEnd::parse()
     return result;
 }
 
-T100BOOL T100SentenceEnd::build(T100PartInfo* info)
+T100BOOL T100SentenceEnd::build(T100BuildInfo* info)
 {
     return info->closeSegment();
 }

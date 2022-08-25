@@ -3,7 +3,6 @@
 
 #include "T100OrderTypes.h"
 #include "T100AssemblyCommon.h"
-#include "T100PartInfo.h"
 #include "T100BuildInfo.h"
 #include "T100SentenceToken.h"
 #include "T100KeywordToken.h"
@@ -21,7 +20,7 @@ class T100Sentence
 
         virtual T100BOOL            parse() = 0;
 
-        virtual T100BOOL            build(T100PartInfo*) = 0;
+        virtual T100BOOL            build(T100BuildInfo*) = 0;
 
     protected:
         T100BOOL                    parseOperator(T100OPERATOR&);
@@ -38,15 +37,15 @@ class T100Sentence
         T100BOOL                    parseBrace(T100OPERATOR&, T100OPERATOR&);
 
     protected:
-        T100BOOL                    buildOperator(T100PartInfo*, T100OPERATOR&, T100OPERATOR_BUILD&);
-        T100BOOL                    buildOperator(T100PartInfo*, T100OPERATOR_COMPLEXUS&, T100OPERATOR_BUILD&);
-        T100BOOL                    buildOperator(T100PartInfo*, T100OPERATOR_BINOCULAR&, T100OPERATOR_INFO&);
-        T100BOOL                    buildComplexus(T100PartInfo*, T100OPERATOR_COMPLEXUS&, T100OPERATOR_BUILD&);
+        T100BOOL                    buildOperator(T100BuildInfo*, T100OPERATOR&, T100OPERATOR_BUILD&);
+        T100BOOL                    buildOperator(T100BuildInfo*, T100OPERATOR_COMPLEXUS&, T100OPERATOR_BUILD&);
+        T100BOOL                    buildOperator(T100BuildInfo*, T100OPERATOR_BINOCULAR&, T100OPERATOR_INFO&);
+        T100BOOL                    buildComplexus(T100BuildInfo*, T100OPERATOR_COMPLEXUS&, T100OPERATOR_BUILD&);
 
-        T100BOOL                    buildInfo(T100ORDER_TYPE, T100PartInfo*, T100OPERATOR_INFO&);
+        T100BOOL                    buildInfo(T100ORDER_TYPE, T100BuildInfo*, T100OPERATOR_INFO&);
 
     protected:
-        T100BOOL                    getProcedureOffset(T100PartInfo*, T100String, T100WORD&);
+        T100BOOL                    getProcedureOffset(T100BuildInfo*, T100String, T100WORD&);
 
     protected:
         T100SentenceToken*          m_token         = T100NULL;

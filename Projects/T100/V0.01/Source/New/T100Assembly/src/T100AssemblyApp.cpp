@@ -2,10 +2,8 @@
 
 #include "T100Assembly.h"
 #include "T100AssemblyCmdLineParser.h"
-#include "T100CmdLineStringScanner.h"
-#include "T100CmdLineCharScanner.h"
-#include "T100AssemblyCmdLineParameterScanner.h"
-
+#include "T100TestApp.h"
+#include "T100AssemblyCmdLineResult.h"
 
 
 T100AssemblyApp::T100AssemblyApp()
@@ -18,32 +16,29 @@ T100AssemblyApp::~T100AssemblyApp()
     //dtor
 }
 
-T100BOOL T100AssemblyApp::run(int argc, wchar_t** argv)
+T100BOOL T100AssemblyApp::run()
 {
-    T100BOOL        result;
-    T100WSTRING     source;
-    T100WSTRING     target;
-    T100Assembly    assembly;
+    T100BOOL                        result          = T100TRUE;
+    int                             argc;
+    wchar_t**                       argv;
+    T100AssemblyCmdLineResult       data;
+    T100AssemblyCmdLineParser       parser;
 
-    T100AssemblyCmdLineInfo         info;
+    getCmdLine(argc, argv);
 
-    result = parse(argc, argv, &info);
-    if(!result){
-        return T100FALSE;
-    }
+    result = parser.parse(argc, argv, data);
+    if(result){
+        if(data.TEST){
+            T100TestApp             app;
 
-    return assembly.run(source, target);
-}
+            result = app.run();
+        }else{
+            T100Assembly            assembly;
 
-T100BOOL T100AssemblyApp::parse(int argc, wchar_t** argv, T100AssemblyCmdLineInfo* info)
-{
-    T100BOOL                                result;
-    T100AssemblyCmdLineParser               parser;
-
-    result = parser.parse(argc, argv);
-    if(!result){
-        return T100FALSE;
+            result = assembly.run(data.SOURCE, data.TARGET);
+        }
     }
 
     return result;
 }
+
