@@ -3,6 +3,7 @@
 
 #include "T100Common.h"
 #include "T100GraphicCommon.h"
+#include "T100String.h"
 
 
 typedef enum{
@@ -23,7 +24,10 @@ typedef struct{
 }T100DISK;
 
 typedef struct{
+    T100STRING      NAME;
+    T100DWORD       LOCATION;
     T100DWORD       LENGTH;
+    T100BOOL        BOOT;
 }T100DISK_PART;
 
 typedef struct{

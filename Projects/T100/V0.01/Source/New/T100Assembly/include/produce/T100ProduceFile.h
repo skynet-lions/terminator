@@ -11,8 +11,6 @@ class T100ProduceFile : public T100File
         T100ProduceFile(T100STRING);
         virtual ~T100ProduceFile();
 
-        virtual T100BOOL            save();
-
     protected:
 
     private:

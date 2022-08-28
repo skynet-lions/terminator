@@ -48,10 +48,10 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 //(*IdInit(T100VDiskFrame)
 const long T100VDiskFrame::ID_CUSTOM1 = wxNewId();
 const long T100VDiskFrame::ID_PANEL1 = wxNewId();
-const long T100VDiskFrame::ID_MENUITEM1 = wxNewId();
-const long T100VDiskFrame::ID_MENUITEM2 = wxNewId();
-const long T100VDiskFrame::ID_MENUITEM3 = wxNewId();
-const long T100VDiskFrame::ID_MENUITEM4 = wxNewId();
+const long T100VDiskFrame::ID_MENU_NEW = wxNewId();
+const long T100VDiskFrame::ID_MENU_OPEN = wxNewId();
+const long T100VDiskFrame::ID_MENU_SAVE = wxNewId();
+const long T100VDiskFrame::ID_MENU_CLOSE = wxNewId();
 const long T100VDiskFrame::idMenuQuit = wxNewId();
 const long T100VDiskFrame::idMenuAbout = wxNewId();
 const long T100VDiskFrame::ID_STATUSBAR1 = wxNewId();
@@ -69,28 +69,28 @@ T100VDiskFrame::T100VDiskFrame(wxWindow* parent,wxWindowID id)
     wxMenu* Menu1;
     wxMenu* Menu2;
     wxMenuBar* MenuBar1;
-    wxMenuItem* MenuItem1;
     wxMenuItem* MenuItem2;
+    wxMenuItem* MenuQuit;
 
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
     BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
     Panel1 = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
-    DiskCtrl = new T100DiskCtrl(Panel1,ID_CUSTOM1,wxDefaultPosition,wxSize(600,30),0,wxDefaultValidator,_T("ID_CUSTOM1"));
+    VDiskCtrl = new T100VDiskCtrl(Panel1,ID_CUSTOM1,wxDefaultPosition,wxSize(600,30),0,wxDefaultValidator,_T("ID_CUSTOM1"));
     BoxSizer1->Add(Panel1, 1, wxALL|wxEXPAND, 5);
     SetSizer(BoxSizer1);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
-    MenuItem3 = new wxMenuItem(Menu1, ID_MENUITEM1, _("New"), wxEmptyString, wxITEM_NORMAL);
-    Menu1->Append(MenuItem3);
-    MenuItem4 = new wxMenuItem(Menu1, ID_MENUITEM2, _("Open"), wxEmptyString, wxITEM_NORMAL);
-    Menu1->Append(MenuItem4);
-    MenuItem5 = new wxMenuItem(Menu1, ID_MENUITEM3, _("Save"), wxEmptyString, wxITEM_NORMAL);
-    Menu1->Append(MenuItem5);
-    MenuItem6 = new wxMenuItem(Menu1, ID_MENUITEM4, _("Close"), wxEmptyString, wxITEM_NORMAL);
-    Menu1->Append(MenuItem6);
+    MenuNew = new wxMenuItem(Menu1, ID_MENU_NEW, _("New"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuNew);
+    MenuOpen = new wxMenuItem(Menu1, ID_MENU_OPEN, _("Open"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuOpen);
+    MenuSave = new wxMenuItem(Menu1, ID_MENU_SAVE, _("Save"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuSave);
+    MenuClose = new wxMenuItem(Menu1, ID_MENU_CLOSE, _("Close"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuClose);
     Menu1->AppendSeparator();
-    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
-    Menu1->Append(MenuItem1);
+    MenuQuit = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
+    Menu1->Append(MenuQuit);
     MenuBar1->Append(Menu1, _("&File"));
     Menu2 = new wxMenu();
     MenuItem2 = new wxMenuItem(Menu2, idMenuAbout, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
@@ -106,6 +106,10 @@ T100VDiskFrame::T100VDiskFrame(wxWindow* parent,wxWindowID id)
     BoxSizer1->Fit(this);
     BoxSizer1->SetSizeHints(this);
 
+    Connect(ID_MENU_NEW,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnMenuNewSelected);
+    Connect(ID_MENU_OPEN,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnMenuOpenSelected);
+    Connect(ID_MENU_SAVE,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnMenuSaveSelected);
+    Connect(ID_MENU_CLOSE,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnMenuCloseSelected);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&T100VDiskFrame::OnAbout);
     //*)
@@ -127,8 +131,10 @@ T100VOID T100VDiskFrame::create()
 
     T100VDiskCallback::init(&(wxGetApp().m_serve), &(wxGetApp().m_view));
 
-    DiskCtrl->SetSize(wxSize(600, 30));
-    DiskCtrl->SetLength(1024);
+    VDiskCtrl->SetSize(wxSize(600, 30));
+    VDiskCtrl->SetLength(1024);
+
+    VDiskCtrl->Hide();
 }
 
 T100VOID T100VDiskFrame::destroy()
@@ -145,4 +151,43 @@ void T100VDiskFrame::OnAbout(wxCommandEvent& event)
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("Welcome to..."));
+}
+
+void T100VDiskFrame::OnMenuNewSelected(wxCommandEvent& event)
+{
+    T100VDiskCallback::frame_menu_new(this);
+}
+
+void T100VDiskFrame::OnMenuOpenSelected(wxCommandEvent& event)
+{
+    T100VDiskCallback::frame_menu_open(this);
+}
+
+void T100VDiskFrame::OnMenuSaveSelected(wxCommandEvent& event)
+{
+}
+
+void T100VDiskFrame::OnMenuCloseSelected(wxCommandEvent& event)
+{
+}
+
+T100BOOL T100VDiskFrame::load(T100VDisk* vdisk)
+{
+    T100VFS_PART_VECTOR             parts;
+    T100DISK_PART_VECTOR            ctrls;
+
+    vdisk->part_list(parts);
+
+    for(T100VFS_PART item : parts){
+        T100DISK_PART*          part = T100NEW T100DISK_PART();
+
+        part->LOCATION      = item.LOCATION;
+        part->LENGTH        = item.LENGTH;
+        //part->BOOT          = item->BOOT;
+
+        ctrls.push_back(part);
+    }
+
+    VDiskCtrl->Load(ctrls);
+    VDiskCtrl->Show();
 }

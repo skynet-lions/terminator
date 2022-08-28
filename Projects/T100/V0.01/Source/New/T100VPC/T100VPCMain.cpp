@@ -156,4 +156,5 @@ void T100VPCFrame::OnStopMenuSelected(wxCommandEvent& event)
 
 void T100VPCFrame::OnMenuHardwareSelected(wxCommandEvent& event)
 {
+    T100VPCCallback::frame_menu_hardware();
 }

@@ -1,4 +1,6 @@
 #include "T100PartDrawer.h"
+#include "T100PartFile.h"
+
 
 T100PART_INFO_VECTOR    T100PartDrawer::m_part_vector;
 T100PART_INFO_HASH      T100PartDrawer::m_part_hash;
@@ -44,10 +46,45 @@ T100PART_INFO_VECTOR& T100PartDrawer::getPartInfos()
 
 T100BOOL T100PartDrawer::load(T100String name, T100PartInfo* info)
 {
+    T100BOOL                result          = T100TRUE;
+    T100String              file;
 
+    T100PartFileReader*     reader          = T100NULL;
+
+    file = getName(name);
+    T100PartFile            part(file);
+
+    reader = part.getReader();
+    if(!reader){
+        return T100FALSE;
+    }
+
+    result = reader->load(*info);
+
+    return result;
 }
 
 T100BOOL T100PartDrawer::save(T100String name, T100PartInfo* info)
 {
+    T100BOOL                result          = T100TRUE;
+    T100String              file;
 
+    T100PartFileWriter*     writer          = T100NULL;
+
+    file = getName(name);
+    T100PartFile            part(file);
+
+    writer = part.getWriter();
+    if(!writer){
+        return T100FALSE;
+    }
+
+    result = writer->save(info);
+
+    return result;
+}
+
+T100String T100PartDrawer::getName(T100String name)
+{
+    return name;
 }

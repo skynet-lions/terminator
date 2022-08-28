@@ -11,6 +11,7 @@ class T100CmdLineOption : public T100CmdLineInfo
         T100CmdLineOption();
         virtual ~T100CmdLineOption();
 
+        T100WCHAR           key;
         T100WSTRING         value;
 
     protected:

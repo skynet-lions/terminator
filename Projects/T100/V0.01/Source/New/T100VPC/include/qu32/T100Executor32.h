@@ -20,6 +20,8 @@ class T100Executor32 : public T100Thread
     protected:
         T100VOID            run();
 
+        T100VOID            execute();
+
     private:
         T100QU32*           m_host          = T100NULL;
 

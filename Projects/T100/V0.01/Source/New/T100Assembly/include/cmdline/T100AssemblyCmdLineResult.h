@@ -12,6 +12,7 @@ class T100AssemblyCmdLineResult : public T100CmdLineResult
 
         T100BOOL            TEST            = T100FALSE;
         T100BOOL            UNIT            = T100FALSE;
+        T100WSTRING         NAME;
 
         T100WSTRING         SOURCE;
         T100WSTRING         TARGET;

@@ -1,6 +1,7 @@
 #include "T100Device.h"
 
 T100Device::T100Device(T100QU32* host)
+    :m_host(host)
 {
     //ctor
     create();

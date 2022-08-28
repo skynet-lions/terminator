@@ -59,12 +59,37 @@ T100BOOL T100AssemblyCmdLineParser::classify(T100CmdLineInfo& info, T100CmdLineR
 
 T100BOOL T100AssemblyCmdLineParser::setSwitch(T100CmdLineSwitch& info, T100AssemblyCmdLineResult& data)
 {
+    T100BOOL            result          = T100TRUE;
 
+    switch(info.value){
+    case L't':
+        {
+            data.TEST   = T100TRUE;
+        }
+        break;
+    default:
+        result = T100FALSE;
+    }
+
+    return result;
 }
 
 T100BOOL T100AssemblyCmdLineParser::setOption(T100CmdLineOption& info, T100AssemblyCmdLineResult& data)
 {
+    T100BOOL            result          = T100TRUE;
 
+    switch(info.key){
+    case L'u':
+        {
+            data.UNIT   = T100TRUE;
+            data.NAME   = info.value;
+        }
+        break;
+    default:
+        result = T100FALSE;
+    }
+
+    return result;
 }
 
 T100BOOL T100AssemblyCmdLineParser::setParam(T100CmdLineParam& info, T100AssemblyCmdLineResult& data)
@@ -84,6 +109,8 @@ T100BOOL T100AssemblyCmdLineParser::setParam(T100CmdLineParam& info, T100Assembl
             m_index++;
         }
         break;
+    default:
+        result = T100FALSE;
     }
 
     return result;

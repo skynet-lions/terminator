@@ -24,6 +24,13 @@ class T100SegmentCode : public T100Segment
         T100BOOL                    addProcedureCall(T100PROCEDURE_CALL*);
 
     protected:
+        T100LABELOFFSET_HASH        m_label_hash;
+        T100LABElCALL_VECTOR        m_label_call;
+
+        T100VARIABLECALL_VECTOR     m_variable_call;
+
+        T100PROCEDUREOFFSET_HASH    m_procedure_hash;
+        T100PROCEDURECALL_VECTOR    m_procedure_call;
 
     private:
 };

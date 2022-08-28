@@ -13,6 +13,9 @@ class T100PartInfo
         T100PartInfo();
         virtual ~T100PartInfo();
 
+        T100VOID                setName(T100String);
+        T100String              getName();
+
         T100ParseInfo&          getParseInfo();
         T100BuildInfo&          getBuildInfo();
 
@@ -21,6 +24,7 @@ class T100PartInfo
         T100BuildInfo           m_build_info;
 
     private:
+        T100String              m_name;
 
 };
 

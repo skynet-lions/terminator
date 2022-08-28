@@ -18,6 +18,7 @@
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
 					<Add directory="include" />
 					<Add directory="../T100Lib/include" />
+					<Add directory="include/view" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -39,6 +40,7 @@
 					<Add option="-O2" />
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
 					<Add directory="include" />
+					<Add directory="include/view" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswu" />
@@ -62,6 +64,7 @@
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
 					<Add directory="include" />
 					<Add directory="../T100Lib/include" />
+					<Add directory="include/view" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -106,27 +109,55 @@
 			<Option target="Debug" />
 			<Option target="Release" />
 		</Unit>
-		<Unit filename="include/T100DiskCreatePartDialog.h" />
 		<Unit filename="include/T100DiskCtrl.h" />
 		<Unit filename="include/T100DiskDialog.h" />
+		<Unit filename="include/view/T100DiskBrowsePartDemoDialog.h" />
+		<Unit filename="include/view/T100DiskBrowsePartDialog.h" />
+		<Unit filename="include/view/T100DiskCreateDemoDialog.h" />
+		<Unit filename="include/view/T100DiskCreateDialog.h" />
+		<Unit filename="include/view/T100DiskCreatePartDemoDialog.h" />
+		<Unit filename="include/view/T100DiskCreatePartDialog.h" />
+		<Unit filename="include/view/T100DiskEditPartDemoDialog.h" />
+		<Unit filename="include/view/T100DiskEditPartDialog.h" />
+		<Unit filename="include/view/T100DiskFormatPartDemoDialog.h" />
+		<Unit filename="include/view/T100DiskFormatPartDialog.h" />
+		<Unit filename="include/view/T100DiskRemovePartDemoDialog.h" />
+		<Unit filename="include/view/T100DiskRemovePartDialog.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
-		<Unit filename="src/T100DiskCreatePartDialog.cpp" />
 		<Unit filename="src/T100DiskCtrl.cpp" />
 		<Unit filename="src/T100DiskDialog.cpp" />
-		<Unit filename="wxsmith/T100DiskCreatePartDialog.wxs" />
-		<Unit filename="wxsmith/T100WxWidgetsframe.wxs">
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
+		<Unit filename="src/view/T100DiskBrowsePartDemoDialog.cpp" />
+		<Unit filename="src/view/T100DiskBrowsePartDialog.cpp" />
+		<Unit filename="src/view/T100DiskCreateDemoDialog.cpp" />
+		<Unit filename="src/view/T100DiskCreateDialog.cpp" />
+		<Unit filename="src/view/T100DiskCreatePartDemoDialog.cpp" />
+		<Unit filename="src/view/T100DiskCreatePartDialog.cpp" />
+		<Unit filename="src/view/T100DiskEditPartDemoDialog.cpp" />
+		<Unit filename="src/view/T100DiskEditPartDialog.cpp" />
+		<Unit filename="src/view/T100DiskFormatPartDemoDialog.cpp" />
+		<Unit filename="src/view/T100DiskFormatPartDialog.cpp" />
+		<Unit filename="src/view/T100DiskRemovePartDemoDialog.cpp" />
+		<Unit filename="src/view/T100DiskRemovePartDialog.cpp" />
+		<Unit filename="wxsmith/T100DiskBrowsePartDemoDialog.wxs" />
+		<Unit filename="wxsmith/T100DiskCreateDemoDialog.wxs" />
+		<Unit filename="wxsmith/T100DiskCreatePartDemoDialog.wxs" />
+		<Unit filename="wxsmith/T100DiskEditPartDemoDialog.wxs" />
+		<Unit filename="wxsmith/T100DiskFormatPartDemoDialog.wxs" />
+		<Unit filename="wxsmith/T100DiskRemovePartDemoDialog.wxs" />
+		<Unit filename="wxsmith/T100WxWidgetsframe.wxs" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="T100WxWidgetsApp.cpp" main="T100WxWidgetsFrame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="wxsmith/T100WxWidgetsframe.wxs" src="T100WxWidgetsMain.cpp" hdr="T100WxWidgetsMain.h" fwddecl="0" i18n="1" name="T100WxWidgetsFrame" language="CPP" />
-					<wxDialog wxs="wxsmith/T100DiskCreatePartDialog.wxs" src="src\T100DiskCreatePartDialog.cpp" hdr="include\T100DiskCreatePartDialog.h" fwddecl="0" i18n="1" name="T100DiskCreatePartDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/T100DiskCreatePartDemoDialog.wxs" src="src\view\T100DiskCreatePartDemoDialog.cpp" hdr="include\view\T100DiskCreatePartDemoDialog.h" fwddecl="0" i18n="1" name="T100DiskCreatePartDemoDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/T100DiskEditPartDemoDialog.wxs" src="src\view\T100DiskEditPartDemoDialog.cpp" hdr="include\view\T100DiskEditPartDemoDialog.h" fwddecl="0" i18n="1" name="T100DiskEditPartDemoDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/T100DiskRemovePartDemoDialog.wxs" src="src\view\T100DiskRemovePartDemoDialog.cpp" hdr="include\view\T100DiskRemovePartDemoDialog.h" fwddecl="0" i18n="1" name="T100DiskRemovePartDemoDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/T100DiskFormatPartDemoDialog.wxs" src="src\view\T100DiskFormatPartDemoDialog.cpp" hdr="include\view\T100DiskFormatPartDemoDialog.h" fwddecl="0" i18n="1" name="T100DiskFormatPartDemoDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/T100DiskBrowsePartDemoDialog.wxs" src="src\view\T100DiskBrowsePartDemoDialog.cpp" hdr="include\view\T100DiskBrowsePartDemoDialog.h" fwddecl="0" i18n="1" name="T100DiskBrowsePartDemoDialog" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>

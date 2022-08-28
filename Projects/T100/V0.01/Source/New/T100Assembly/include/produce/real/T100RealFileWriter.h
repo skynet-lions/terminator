@@ -20,6 +20,8 @@ class T100RealFileWriter : public T100FileWriter
         T100BOOL            write_code();
 
     private:
+        T100RealInfo*       m_info          = T100NULL;
+
 };
 
 #endif // T100REALFILEWRITER_H

@@ -44,12 +44,42 @@ T100BOOL T100String32Tools::copy(T100WORD* target, T100WORD* source, T100WORD le
     return T100TRUE;
 }
 
-T100BOOL T100String32Tools::split(T100String str, T100String mask, T100STRING_VECTOR& result)
+T100BOOL T100String32Tools::split(T100String line, T100String mask, T100STRING_VECTOR& result)
 {
 
 }
 
-T100BOOL T100String32Tools::compare(T100WORD* data, T100WORD length, T100String& str)
+T100BOOL T100String32Tools::compare(T100WORD* data, T100WORD length, T100String& source)
 {
+    T100BOOL    result      = T100TRUE;
+    T100BOOL    value;
+    T100WORD    slength;
+    T100WORD    tlength;
+    T100WORD*   sdata;
 
+    slength = source.length();
+    if(slength > length){
+        return T100FALSE;
+    }
+
+    if(!data){
+        return T100FALSE;
+    }
+
+    tlength = data[0];
+
+    if(slength == tlength){
+        sdata   = source.to_string().raw_data();
+        for(int i=0;i<slength+2;i++){
+            if(data[i] == sdata[i]){
+
+            }else{
+                return T100FALSE;
+            }
+        }
+    }else{
+        result = T100FALSE;
+    }
+
+    return result;
 }

@@ -1,5 +1,8 @@
 #include "T100QU32.h"
 
+#include "T100String.h"
+
+
 T100QU32::T100QU32()
 {
     //ctor
@@ -61,6 +64,8 @@ T100BOOL T100QU32::start()
     m_interrupt = T100NEW T100Interrupt32(this);
     m_executor  = T100NEW T100Executor32(this);
 
+    m_port->create();
+
     return m_executor->start();
 }
 
@@ -84,4 +89,9 @@ T100BOOL T100QU32::stop()
 T100BOOL T100QU32::done()
 {
 
+}
+
+T100BOOL T100QU32::load(T100STRING file, T100WORD location, T100WORD length)
+{
+    return m_memory->load(file, location, length);
 }

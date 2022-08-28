@@ -10,6 +10,16 @@ T100PartInfo::~T100PartInfo()
     //dtor
 }
 
+T100VOID T100PartInfo::setName(T100String name)
+{
+    m_name = name;
+}
+
+T100String T100PartInfo::getName()
+{
+    return m_name;
+}
+
 T100ParseInfo& T100PartInfo::getParseInfo()
 {
     return m_parse_info;

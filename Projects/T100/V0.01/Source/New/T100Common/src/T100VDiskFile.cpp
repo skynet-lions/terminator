@@ -69,6 +69,7 @@ T100BOOL T100VDiskFile::create(T100DWORD length)
         if(!value){
             result = T100FALSE;
         }
+        T100SAFE_DELETE(m_stream);
     }else{
         result = T100FALSE;
     }
@@ -141,6 +142,15 @@ T100BOOL T100VDiskFile::open(T100FILE_MODE mode)
     T100BOOL    result      = T100TRUE;
     T100BOOL    value;
 
+    if(m_stream){
+        return T100FALSE;
+    }
+
+    m_stream = T100NEW T100Stream(getName());
+    if(!m_stream){
+        return T100FALSE;
+    }
+
     if(m_stream->open()){
         value = read_head();
         if(!value){
@@ -154,7 +164,12 @@ T100BOOL T100VDiskFile::open(T100FILE_MODE mode)
 
 T100BOOL T100VDiskFile::close()
 {
-    return m_stream->close();
+    T100BOOL            result          = T100TRUE;
+
+    result = m_stream->close();
+    T100SAFE_DELETE(m_stream);
+
+    return result;
 }
 
 T100BOOL T100VDiskFile::opened()

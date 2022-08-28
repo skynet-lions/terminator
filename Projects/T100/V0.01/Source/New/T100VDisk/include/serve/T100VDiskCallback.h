@@ -14,6 +14,17 @@ class T100VDiskCallback
 
         static T100BOOL                 init(T100VDiskServe*, T100VDiskView*);
 
+    public:
+        static T100BOOL                 frame_menu_new(void* = T100NULL);
+        static T100BOOL                 frame_menu_open(void* = T100NULL);
+        static T100BOOL                 frame_menu_save(void* = T100NULL);
+        static T100BOOL                 frame_menu_close(void* = T100NULL);
+
+        static T100BOOL                 ctrl_menu_new(void* = T100NULL);
+
+
+        static T100BOOL                 dialog_new_browse(void* = T100NULL);
+
     protected:
 
     private:

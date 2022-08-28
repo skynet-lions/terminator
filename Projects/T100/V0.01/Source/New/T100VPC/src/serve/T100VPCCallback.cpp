@@ -3,6 +3,9 @@
 #include "T100VPCServe.h"
 #include "T100VPCView.h"
 
+#include "T100VPCHardwareDialog.h"
+
+
 T100VPCServe*       T100VPCCallback::m_serve            = T100NULL;
 T100VPCView*        T100VPCCallback::m_view             = T100NULL;
 
@@ -38,4 +41,13 @@ T100BOOL T100VPCCallback::frame_menu_stop(void* v)
 {
     m_serve->stop();
     m_view->hide();
+}
+
+T100BOOL T100VPCCallback::frame_menu_hardware(void* v)
+{
+    T100VPCHardwareDialog       dialog(m_view->getFrame());
+
+    if(dialog.ShowModal() == wxID_OK){
+
+    }
 }

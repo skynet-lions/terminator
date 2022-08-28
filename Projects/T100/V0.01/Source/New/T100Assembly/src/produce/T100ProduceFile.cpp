@@ -11,7 +11,3 @@ T100ProduceFile::~T100ProduceFile()
     //dtor
 }
 
-T100BOOL T100ProduceFile::save()
-{
-
-}

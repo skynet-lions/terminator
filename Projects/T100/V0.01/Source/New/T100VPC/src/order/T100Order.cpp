@@ -21,6 +21,20 @@ T100Executor32* T100Order::getExecutor()
     return m_exec;
 }
 
+T100BOOL T100Order::execute(T100WORD value)
+{
+    T100BOOL            result;
+
+    m_order             = value;
+    m_base              = getHost()->getCU32()->getCBR();
+    m_offset            = getHost()->getCU32()->getCurrent() - 1;
+
+    result = run();
+    log();
+
+    return result;
+}
+
 T100BOOL T100Order::load(T100OPERATOR_DOUBLE& target, T100OPERATOR_DOUBLE& source)
 {
     T100WORD_BITS   order;

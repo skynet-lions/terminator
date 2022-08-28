@@ -18,6 +18,8 @@ class T100VPCCallback
         static T100BOOL                 frame_menu_start(void* = T100NULL);
         static T100BOOL                 frame_menu_stop(void* = T100NULL);
 
+        static T100BOOL                 frame_menu_hardware(void* = T100NULL);
+
     protected:
 
     private:

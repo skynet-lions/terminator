@@ -11,7 +11,7 @@
 #define T100VDISKMAIN_H
 
 //(*Headers(T100VDiskFrame)
-#include <T100DiskCtrl.h>
+#include <T100VDiskCtrl.h>
 #include <wx/frame.h>
 #include <wx/menu.h>
 #include <wx/panel.h>
@@ -21,6 +21,7 @@
 
 
 #include "T100Common.h"
+#include "T100VDisk.h"
 
 
 class T100VDiskFrame: public wxFrame
@@ -30,31 +31,37 @@ class T100VDiskFrame: public wxFrame
         T100VDiskFrame(wxWindow* parent,wxWindowID id = -1);
         virtual ~T100VDiskFrame();
 
+        T100BOOL            load(T100VDisk*);
+
     private:
 
         //(*Handlers(T100VDiskFrame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
+        void OnMenuNewSelected(wxCommandEvent& event);
+        void OnMenuOpenSelected(wxCommandEvent& event);
+        void OnMenuSaveSelected(wxCommandEvent& event);
+        void OnMenuCloseSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(T100VDiskFrame)
         static const long ID_CUSTOM1;
         static const long ID_PANEL1;
-        static const long ID_MENUITEM1;
-        static const long ID_MENUITEM2;
-        static const long ID_MENUITEM3;
-        static const long ID_MENUITEM4;
+        static const long ID_MENU_NEW;
+        static const long ID_MENU_OPEN;
+        static const long ID_MENU_SAVE;
+        static const long ID_MENU_CLOSE;
         static const long idMenuQuit;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
 
         //(*Declarations(T100VDiskFrame)
-        T100DiskCtrl* DiskCtrl;
-        wxMenuItem* MenuItem3;
-        wxMenuItem* MenuItem4;
-        wxMenuItem* MenuItem5;
-        wxMenuItem* MenuItem6;
+        T100VDiskCtrl* VDiskCtrl;
+        wxMenuItem* MenuClose;
+        wxMenuItem* MenuNew;
+        wxMenuItem* MenuOpen;
+        wxMenuItem* MenuSave;
         wxPanel* Panel1;
         wxStatusBar* StatusBar1;
         //*)

@@ -49,11 +49,13 @@ T100BOOL T100RealBuilder::build(T100ProduceInfo& info)
 
     for(T100PartInfo* item : info.getPartDrawer().getPartInfos()){
         if(item){
-            //m_part = T100NEW T100PartInfo();
             m_part = item;
             result = build(item->getParseInfo().getToken());
             if(result){
-
+                result = save(item);
+                if(!result){
+                    return T100FALSE;
+                }
             }else{
                 return T100FALSE;
             }
@@ -119,6 +121,9 @@ T100BOOL T100RealBuilder::build(T100SentenceToken* token)
 T100BOOL T100RealBuilder::merge(T100ProduceInfo& source, T100RealInfo& target)
 {
     T100BOOL            result          = T100TRUE;
+    T100RealMerger      merger;
+
+    result = merger.run(source, target);
 
     return result;
 }
@@ -136,6 +141,15 @@ T100BOOL T100RealBuilder::save(T100STRING& file, T100RealInfo& info)
     }else{
         result = T100FALSE;
     }
+
+    return result;
+}
+
+T100BOOL T100RealBuilder::save(T100PartInfo* part)
+{
+    T100BOOL            result          = T100TRUE;
+
+    result = T100ProduceInfo::getPartDrawer().save(part->getName(), part);
 
     return result;
 }

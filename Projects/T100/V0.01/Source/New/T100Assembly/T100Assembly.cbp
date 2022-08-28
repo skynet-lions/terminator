@@ -107,6 +107,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="../build/build/rom.bin" />
 		<Unit filename="include/T100Assembly.h" />
 		<Unit filename="include/T100AssemblyApp.h" />
 		<Unit filename="include/T100AssemblyCommon.h" />
@@ -130,6 +131,8 @@
 			<Option target="Release" />
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="include/produce/T100PartFileReader.h" />
+		<Unit filename="include/produce/T100PartFileWriter.h" />
 		<Unit filename="include/produce/T100PartInfo.h">
 			<Option target="Debug" />
 			<Option target="Release" />
@@ -240,6 +243,8 @@
 			<Option target="Release" />
 			<Option target="Test" />
 		</Unit>
+		<Unit filename="src/produce/T100PartFileReader.cpp" />
+		<Unit filename="src/produce/T100PartFileWriter.cpp" />
 		<Unit filename="src/produce/T100PartInfo.cpp">
 			<Option target="Debug" />
 			<Option target="Release" />

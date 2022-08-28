@@ -17,6 +17,8 @@ class T100Port32
         T100Port32(T100QU32*);
         virtual ~T100Port32();
 
+        T100VOID                create();
+
         T100BOOL                appendDevice(T100BYTE&, T100Device*);
         T100BOOL                removeDevice(T100BYTE);
         T100Device*             getDevice(T100BYTE);
@@ -31,7 +33,6 @@ class T100Port32
         T100DEVICE_PAGE*        getPage(T100WORD);
 
     protected:
-        T100VOID                create();
         T100VOID                destroy();
 
 

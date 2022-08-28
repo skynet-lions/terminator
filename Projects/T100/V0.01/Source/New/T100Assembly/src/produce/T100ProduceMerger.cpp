@@ -10,7 +10,3 @@ T100ProduceMerger::~T100ProduceMerger()
     //dtor
 }
 
-T100BOOL T100ProduceMerger::run()
-{
-
-}

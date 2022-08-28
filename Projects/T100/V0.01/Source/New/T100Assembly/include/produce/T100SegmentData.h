@@ -17,6 +17,7 @@ class T100SegmentData : public T100Segment
         T100BOOL                    getVariable(T100String, T100WORD&);
 
     protected:
+        T100VARIABLEOFFSET_HASH     m_variable_hash;
 
     private:
 };

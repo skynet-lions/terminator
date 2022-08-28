@@ -24,6 +24,7 @@ class T100PartDrawer
         static T100BOOL                     save(T100String, T100PartInfo*);
 
     protected:
+        static T100String                   getName(T100String);
 
     private:
         static T100PART_INFO_VECTOR         m_part_vector;

@@ -18,11 +18,25 @@ class T100DiskCtrl : public wxControl
                      const wxString& name = wxControlNameStr);
         virtual ~T100DiskCtrl();
 
+        T100BOOL                    Load(T100DISK_PART_CTRL_VECTOR&);
+
+        T100BOOL                    Load(T100DISK_PART_VECTOR&);
+
+
         T100VOID                    SetLength(T100DWORD);
         T100DWORD                   GetLength();
 
         T100BOOL                    AppendPart(T100DISK_PART*);
         T100BOOL                    RemovePart(T100DISK_PART*);
+
+    protected:
+        virtual T100BOOL            OnMenuCreate(void* = T100NULL) = 0;
+        virtual T100BOOL            OnMenuEdit(void* = T100NULL) = 0;
+        virtual T100BOOL            OnMenuRemove(void* = T100NULL) = 0;
+
+        virtual T100BOOL            OnMenuFormat(void* = T100NULL) = 0;
+
+        virtual T100BOOL            OnMenuBrowse(void* = T100NULL) = 0;
 
     protected:
         T100VOID                    create();
@@ -33,10 +47,22 @@ class T100DiskCtrl : public wxControl
     private:
         static const long ID_PAINT;
 
+        static const long ID_PART_CREATE;
+        static const long ID_PART_EDIT;
+        static const long ID_PART_REMOVE;
+        static const long ID_PART_BROWSE;
+        static const long ID_PART_FORMAT;
+
+        void OnEraseBackground(wxEraseEvent& event);
+
         void OnPaint(wxPaintEvent& event);
         void OnMouse(wxMouseEvent& event);
 
-        void OnNew(wxCommandEvent& event);
+        void OnCreatePart(wxCommandEvent& event);
+        void OnEditPart(wxCommandEvent& event);
+        void OnRemovePart(wxCommandEvent& event);
+        void OnBrowsePart(wxCommandEvent& event);
+        void OnFormatPart(wxCommandEvent& event);
 
     private:
         T100WORD                    m_current           = 0;
@@ -52,6 +78,9 @@ class T100DiskCtrl : public wxControl
         T100DISK                    m_disk;
 
         T100DISK_PART_CTRL_VECTOR   m_parts;
+        T100DWORD                   m_location          = 1;
+
+
 
         const wxBrush*              GetBrush(T100COLOUR_PRIMITIVE_TYPE);
 

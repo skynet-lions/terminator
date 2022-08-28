@@ -12,6 +12,8 @@ class T100Order
         T100Order(T100QU32*, T100Executor32*);
         virtual ~T100Order();
 
+        T100BOOL                    execute(T100WORD);
+
     protected:
         virtual T100BOOL            run() = 0;
         virtual T100VOID            log() = 0;

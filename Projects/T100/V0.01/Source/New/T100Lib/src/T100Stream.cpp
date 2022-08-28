@@ -57,7 +57,7 @@ T100BOOL T100Stream::close()
         m_stream->close();
         m_opened = T100FALSE;
         T100SAFE_DELETE(m_stream);
-        m_file.clear();
+        //m_file.clear();
     }else{
         return T100FALSE;
     }

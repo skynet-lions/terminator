@@ -10,6 +10,8 @@ class T100Segment
         T100Segment();
         virtual ~T100Segment();
 
+        T100WORD                    size();
+
         T100WORD_VECTOR&            getMem();
 
         T100WORD                    getOffset();

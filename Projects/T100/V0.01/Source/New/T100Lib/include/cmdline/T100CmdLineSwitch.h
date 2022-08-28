@@ -10,7 +10,7 @@ class T100CmdLineSwitch : public T100CmdLineInfo
         T100CmdLineSwitch();
         virtual ~T100CmdLineSwitch();
 
-        T100WSTRING         value;
+        T100WCHAR           value;
 
     protected:
         T100VOID            create();

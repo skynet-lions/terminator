@@ -26,6 +26,8 @@ class T100RealBuilder : public T100ProduceBuilder
         T100BOOL            build(T100SegmentToken*);
         T100BOOL            build(T100SentenceToken*);
 
+        T100BOOL            save(T100PartInfo*);
+
         T100BOOL            merge(T100ProduceInfo&, T100RealInfo&);
         T100BOOL            save(T100STRING&, T100RealInfo&);
 

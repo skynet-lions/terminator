@@ -29,6 +29,8 @@ class T100QU32
 
         T100BOOL                done();
 
+        T100BOOL                load(T100STRING, T100WORD, T100WORD);
+
 
     protected:
         T100VOID                create();

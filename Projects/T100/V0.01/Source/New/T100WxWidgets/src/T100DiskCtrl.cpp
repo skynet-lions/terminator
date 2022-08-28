@@ -4,8 +4,16 @@
 #include "T100DiskCreatePartDialog.h"
 #include "T100DiskDialog.h"
 
+//
+#include "T100DiskBrowsePartDemoDialog.h"
+
 
 const long T100DiskCtrl::ID_PAINT = wxNewId();
+const long T100DiskCtrl::ID_PART_CREATE = wxNewId();
+const long T100DiskCtrl::ID_PART_EDIT = wxNewId();
+const long T100DiskCtrl::ID_PART_REMOVE = wxNewId();
+const long T100DiskCtrl::ID_PART_BROWSE = wxNewId();
+const long T100DiskCtrl::ID_PART_FORMAT = wxNewId();
 
 
 T100DiskCtrl::T100DiskCtrl(wxWindow* parent, wxWindowID id, const wxPoint& pos,
@@ -25,12 +33,24 @@ T100DiskCtrl::~T100DiskCtrl()
 
 T100VOID T100DiskCtrl::create()
 {
+    Connect(wxEVT_ERASE_BACKGROUND, (wxObjectEventFunction)&T100DiskCtrl::OnEraseBackground);
+
     Connect(wxEVT_PAINT, (wxObjectEventFunction)&T100DiskCtrl::OnPaint);
     Connect(wxEVT_RIGHT_DOWN, (wxObjectEventFunction)&T100DiskCtrl::OnMouse);
 
-    Connect(wxID_NEW, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&T100DiskCtrl::OnNew);
+    Connect(ID_PART_CREATE, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&T100DiskCtrl::OnCreatePart);
+    Connect(ID_PART_EDIT, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&T100DiskCtrl::OnEditPart);
+    Connect(ID_PART_REMOVE, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&T100DiskCtrl::OnRemovePart);
+    Connect(ID_PART_BROWSE, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&T100DiskCtrl::OnBrowsePart);
+    Connect(ID_PART_FORMAT, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&T100DiskCtrl::OnFormatPart);
 
-    menu.Append(wxID_NEW);
+    menu.Append(ID_PART_CREATE, _T("Create"));
+    menu.Append(ID_PART_EDIT, _T("Edit"));
+    menu.Append(ID_PART_REMOVE, _T("Remove"));
+    menu.AppendSeparator();
+    menu.Append(ID_PART_FORMAT, _T("Format"));
+    menu.AppendSeparator();
+    menu.Append(ID_PART_BROWSE, _T("Browse"));
 }
 
 T100VOID T100DiskCtrl::destroy()
@@ -96,19 +116,71 @@ T100BOOL T100DiskCtrl::RemovePart(T100DISK_PART* part)
     return T100FALSE;
 }
 
-T100VOID T100DiskCtrl::OnNew(wxCommandEvent& event)
+T100VOID T100DiskCtrl::OnCreatePart(wxCommandEvent& event)
 {
-    T100DiskCreatePartDialog        dialog(this, wxID_ANY, wxEmptyString);
+    T100DiskCreatePartDialog        dialog(this);
 
     if(dialog.ShowModal() == wxID_OK){
-        T100DISK_PART*   part    = T100NEW T100DISK_PART();
+        T100String          name;
+        T100LONG            length;
+        T100BOOL            boot;
+        T100DISK_PART       part;
 
-        part->LENGTH    = 512;
+        name    = dialog.NameTextCtrl->GetValue().ToStdWstring();
+        if(dialog.LengthComboBox->GetValue().ToLongLong(&length)){
 
-        AppendPart(part);
+        }else{
+            return;
+        }
+        boot    = dialog.BootCheckBox->IsChecked();
 
-        Refresh();
+        part.NAME       = name;
+        part.LOCATION   = m_location;
+        part.LENGTH     = length;
+        part.BOOT       = boot;
+
+        if(OnMenuCreate(&part)){
+            T100DISK_PART*      item    = T100NEW T100DISK_PART();
+
+            item->NAME      = part.NAME;
+            item->LOCATION  = part.LOCATION;
+            item->LENGTH    = part.LENGTH;
+            item->BOOT      = part.BOOT;
+
+            AppendPart(item);
+
+            Refresh();
+        }
     }
+}
+
+T100VOID T100DiskCtrl::OnEditPart(wxCommandEvent& event)
+{
+
+}
+
+T100VOID T100DiskCtrl::OnRemovePart(wxCommandEvent& event)
+{
+
+}
+
+T100VOID T100DiskCtrl::OnBrowsePart(wxCommandEvent& event)
+{
+    T100DiskBrowsePartDemoDialog        dialog(this);
+
+    if(dialog.ShowModal() == wxID_OK){
+
+    }
+}
+
+T100VOID T100DiskCtrl::OnFormatPart(wxCommandEvent& event)
+{
+
+}
+
+T100VOID T100DiskCtrl::OnEraseBackground(wxEraseEvent& event)
+{
+
 }
 
 T100VOID T100DiskCtrl::OnPaint(wxPaintEvent& event)
@@ -145,7 +217,7 @@ T100VOID T100DiskCtrl::DrawDisk(wxDC& dc)
 
     dc.DrawRectangle(wxPoint(0, 0), wxSize(width, height));
 
-    dc.DrawText(L"1G", wxPoint(150, 5));
+    //dc.DrawText(L"1G", wxPoint(150, 5));
 
 
 }
@@ -175,7 +247,7 @@ T100VOID T100DiskCtrl::DrawPart(wxDC& dc, T100DISK_PART_CTRL* item)
 
     dc.DrawRectangle(wxPoint(item->X, item->Y), wxSize(item->WIDTH, item->HEIGHT));
 
-    dc.DrawText(L"1G", wxPoint(150, 5));
+    //dc.DrawText(L"1G", wxPoint(150, 5));
 }
 
 
@@ -257,21 +329,67 @@ T100INT T100DiskCtrl::Hit(T100WORD x)
 
 T100VOID T100DiskCtrl::ShowMenu(T100WORD index)
 {
-    switch(index){
-    case 1:
-        {
+    if(index < 0 || index >= m_parts.size()){
+        PopupMenu(&menu);
+    }else{
+        T100DISK_PART_CTRL*     ctrl    = T100NULL;
 
-        }
-        break;
-    case 2:
-        {
+        ctrl = m_parts[index];
 
+        if(ctrl){
+            PopupMenu(&menu);
         }
-        break;
-    case 3:
-        {
-
-        }
-        break;
     }
+}
+
+T100BOOL T100DiskCtrl::Load(T100DISK_PART_CTRL_VECTOR& parts)
+{
+    T100BOOL            result          = T100TRUE;
+    T100DWORD           total           = 0;
+
+    m_parts = parts;
+
+    for(T100DISK_PART_CTRL* item : parts){
+        if(item){
+            total += item->PART->LENGTH;
+        }else{
+            return T100FALSE;
+        }
+    }
+
+    m_location = total + 1;
+
+    return result;
+}
+
+T100BOOL T100DiskCtrl::Load(T100DISK_PART_VECTOR& parts)
+{
+    T100BOOL            result          = T100TRUE;
+    T100DWORD           total           = 0;
+
+    for(T100DISK_PART* item : parts){
+        if(item){
+            T100DISK_PART_CTRL*     part = T100NEW T100DISK_PART_CTRL();
+
+            part->RATIO     = item->LENGTH * 1.0 / m_disk.LENGTH;
+            part->HEIGHT    = 30;
+            part->WIDTH     = GetSize().GetWidth() * part->RATIO;
+            part->X         = GetSize().GetWidth() * (total * 1.0 / m_disk.LENGTH);
+            part->Y         = 0;
+
+            part->PART      = item;
+
+            T100DISK_PART_CTRL& temp = *part;
+
+            m_parts.push_back(part);
+
+            total += item->LENGTH;
+        }else{
+            return T100FALSE;
+        }
+    }
+
+    m_location = total + 1;
+
+    return result;
 }
