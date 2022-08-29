@@ -28,6 +28,7 @@
 					<Add directory="../T100Common/include" />
 					<Add directory="test" />
 					<Add directory="include/view/dialog" />
+					<Add directory="../T100VPC" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="$(#wx)/lib/gcc_dll/mswud" />
@@ -95,16 +96,25 @@
 		<Unit filename="include/T100VPCCommon.h" />
 		<Unit filename="include/T100VPCSetup.h" />
 		<Unit filename="include/device/T100AUDevice.h" />
+		<Unit filename="include/device/T100AUDeviceInfo.h" />
 		<Unit filename="include/device/T100BlockDevice.h" />
 		<Unit filename="include/device/T100CUDevice.h" />
+		<Unit filename="include/device/T100CUDeviceInfo.h" />
 		<Unit filename="include/device/T100Device.h" />
+		<Unit filename="include/device/T100DeviceInfo.h" />
 		<Unit filename="include/device/T100Disk.h" />
+		<Unit filename="include/device/T100DiskInfo.h" />
 		<Unit filename="include/device/T100Display.h" />
+		<Unit filename="include/device/T100DisplayInfo.h" />
 		<Unit filename="include/device/T100Keyboard.h" />
+		<Unit filename="include/device/T100KeyboardInfo.h" />
 		<Unit filename="include/device/T100MemoryDevice.h" />
+		<Unit filename="include/device/T100MemoryInfo.h" />
 		<Unit filename="include/device/T100Mouse.h" />
+		<Unit filename="include/device/T100MouseInfo.h" />
 		<Unit filename="include/device/T100PageDevice.h" />
 		<Unit filename="include/device/T100PortDevice.h" />
+		<Unit filename="include/device/T100PortDeviceInfo.h" />
 		<Unit filename="include/order/T100AllOrders.h" />
 		<Unit filename="include/order/T100Order.h" />
 		<Unit filename="include/order/T100OrderAdd.h" />
@@ -143,7 +153,6 @@
 		<Unit filename="include/qu32/T100Register32.h" />
 		<Unit filename="include/serve/T100VPCCallback.h" />
 		<Unit filename="include/serve/T100VPCServe.h" />
-		<Unit filename="include/view/T100HardwareDialog.h" />
 		<Unit filename="include/view/T100VPCScreen.h" />
 		<Unit filename="include/view/T100VPCView.h" />
 		<Unit filename="include/view/dialog/T100VPCDebugDemoDialog.h" />
@@ -162,16 +171,25 @@
 		</Unit>
 		<Unit filename="src/T100VPCSetup.cpp" />
 		<Unit filename="src/device/T100AUDevice.cpp" />
+		<Unit filename="src/device/T100AUDeviceInfo.cpp" />
 		<Unit filename="src/device/T100BlockDevice.cpp" />
 		<Unit filename="src/device/T100CUDevice.cpp" />
+		<Unit filename="src/device/T100CUDeviceInfo.cpp" />
 		<Unit filename="src/device/T100Device.cpp" />
+		<Unit filename="src/device/T100DeviceInfo.cpp" />
 		<Unit filename="src/device/T100Disk.cpp" />
+		<Unit filename="src/device/T100DiskInfo.cpp" />
 		<Unit filename="src/device/T100Display.cpp" />
+		<Unit filename="src/device/T100DisplayInfo.cpp" />
 		<Unit filename="src/device/T100Keyboard.cpp" />
+		<Unit filename="src/device/T100KeyboardInfo.cpp" />
 		<Unit filename="src/device/T100MemoryDevice.cpp" />
+		<Unit filename="src/device/T100MemoryInfo.cpp" />
 		<Unit filename="src/device/T100Mouse.cpp" />
+		<Unit filename="src/device/T100MouseInfo.cpp" />
 		<Unit filename="src/device/T100PageDevice.cpp" />
 		<Unit filename="src/device/T100PortDevice.cpp" />
+		<Unit filename="src/device/T100PortDeviceInfo.cpp" />
 		<Unit filename="src/order/T100Order.cpp" />
 		<Unit filename="src/order/T100OrderAdd.cpp" />
 		<Unit filename="src/order/T100OrderAnd.cpp" />
@@ -209,7 +227,6 @@
 		<Unit filename="src/qu32/T100Register32.cpp" />
 		<Unit filename="src/serve/T100VPCCallback.cpp" />
 		<Unit filename="src/serve/T100VPCServe.cpp" />
-		<Unit filename="src/view/T100HardwareDialog.cpp" />
 		<Unit filename="src/view/T100VPCScreen.cpp" />
 		<Unit filename="src/view/T100VPCView.cpp" />
 		<Unit filename="src/view/dialog/T100VPCDebugDemoDialog.cpp" />

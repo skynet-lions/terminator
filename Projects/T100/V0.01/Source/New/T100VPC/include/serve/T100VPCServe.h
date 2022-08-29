@@ -17,6 +17,10 @@ class T100VPCServe
         T100VOID            create();
         T100VOID            destroy();
 
+        T100BOOL            load();
+
+        T100BOOL            createDevice(T100QU32*, T100DeviceInfo*);
+
     private:
         T100QU32*           m_host          = T100NULL;
 

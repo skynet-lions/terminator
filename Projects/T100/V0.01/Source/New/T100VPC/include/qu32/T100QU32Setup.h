@@ -2,6 +2,8 @@
 #define T100QU32SETUP_H
 
 #include "T100AppSetup.h"
+#include "T100String.h"
+
 
 class T100QU32Setup : public T100AppSetup
 {
@@ -9,6 +11,15 @@ class T100QU32Setup : public T100AppSetup
     public:
         T100QU32Setup();
         virtual ~T100QU32Setup();
+
+        static T100BOOL             needLoadRom;
+
+        static T100String           getRomFile();
+
+        static T100String           getBuild();
+        static T100String           getStores();
+        static T100String           getResources();
+
 
         static T100WORD             getRamBase();
         static T100WORD             getRamSize();
@@ -26,6 +37,12 @@ class T100QU32Setup : public T100AppSetup
         static T100WORD             m_ram_size;
         static T100WORD             m_rom_base;
         static T100WORD             m_rom_size;
+
+        static T100String           m_rom_file;
+
+        static T100String           m_build_path;
+        static T100String           m_stores_path;
+        static T100String           m_resources_path;
 
 };
 

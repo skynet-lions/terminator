@@ -4,6 +4,7 @@
 //(*Headers(T100VPCHardwareDemoDialog)
 #include <wx/button.h>
 #include <wx/dialog.h>
+#include <wx/imaglist.h>
 #include <wx/listctrl.h>
 #include <wx/sizer.h>
 //*)
@@ -17,14 +18,16 @@ class T100VPCHardwareDemoDialog: public wxDialog
 
 		//(*Declarations(T100VPCHardwareDemoDialog)
 		wxButton* AppendButton;
+		wxButton* CloseButton;
 		wxButton* RemoveButton;
-		wxListView* ListView1;
+		wxImageList* ImageList;
+		wxListView* HardwareListView;
 		//*)
 
 	protected:
 
 		//(*Identifiers(T100VPCHardwareDemoDialog)
-		static const long ID_LISTVIEW1;
+		static const long ID_LISTVIEW_HARDWARE;
 		static const long ID_BUTTON_APPEND;
 		static const long ID_BUTTON_REMOVE;
 		//*)
@@ -34,6 +37,8 @@ class T100VPCHardwareDemoDialog: public wxDialog
 		//(*Handlers(T100VPCHardwareDemoDialog)
 		void OnAppendButtonClick(wxCommandEvent& event);
 		void OnRemoveButtonClick(wxCommandEvent& event);
+		void OnHardwareListViewItemSelect(wxListEvent& event);
+		void OnCloseButtonClick(wxCommandEvent& event);
 		//*)
 
 	protected:

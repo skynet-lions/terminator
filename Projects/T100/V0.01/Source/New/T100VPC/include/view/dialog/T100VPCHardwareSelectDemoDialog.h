@@ -4,6 +4,7 @@
 //(*Headers(T100VPCHardwareSelectDemoDialog)
 #include <wx/button.h>
 #include <wx/dialog.h>
+#include <wx/imaglist.h>
 #include <wx/listctrl.h>
 #include <wx/sizer.h>
 //*)
@@ -16,9 +17,10 @@ class T100VPCHardwareSelectDemoDialog: public wxDialog
 		virtual ~T100VPCHardwareSelectDemoDialog();
 
 		//(*Declarations(T100VPCHardwareSelectDemoDialog)
-		wxButton* AppendButton;
-		wxButton* CloseButton;
-		wxButton* SettingButton;
+		wxButton* Button1;
+		wxButton* Button2;
+		wxButton* Button3;
+		wxImageList* ImageList1;
 		wxListView* ListView1;
 		//*)
 
@@ -26,9 +28,9 @@ class T100VPCHardwareSelectDemoDialog: public wxDialog
 
 		//(*Identifiers(T100VPCHardwareSelectDemoDialog)
 		static const long ID_LISTVIEW1;
-		static const long ID_BUTTON_APPEND;
-		static const long ID_BUTTON_SETTING;
-		static const long ID_BUTTON_CLOSE;
+		static const long ID_BUTTON1;
+		static const long ID_BUTTON2;
+		static const long ID_BUTTON3;
 		//*)
 
 	private:

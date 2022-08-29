@@ -5,8 +5,7 @@
 #include <wx/button.h>
 #include <wx/dialog.h>
 #include <wx/listctrl.h>
-#include <wx/panel.h>
-#include <wx/statbox.h>
+#include <wx/sizer.h>
 //*)
 
 class T100HardwareDialog: public wxDialog
@@ -20,18 +19,14 @@ class T100HardwareDialog: public wxDialog
 		wxButton* Button1;
 		wxButton* Button2;
 		wxListView* ListView1;
-		wxPanel* Panel1;
-		wxStaticBox* StaticBox1;
 		//*)
 
 	protected:
 
 		//(*Identifiers(T100HardwareDialog)
-		static const long ID_STATICBOX1;
 		static const long ID_LISTVIEW1;
 		static const long ID_BUTTON1;
 		static const long ID_BUTTON2;
-		static const long ID_PANEL1;
 		//*)
 
 	private:

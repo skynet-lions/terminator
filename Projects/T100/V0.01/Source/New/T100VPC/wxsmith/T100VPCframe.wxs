@@ -22,8 +22,9 @@
 			</object>
 			<object class="wxMenu" variable="Menu3" member="yes">
 				<label>Debug</label>
-				<object class="wxMenuItem" name="ID_MENUITEM1" variable="MenuItem3" member="yes">
+				<object class="wxMenuItem" name="ID_MENU_DEBUG" variable="MenuDebug" member="yes">
 					<label>Debug</label>
+					<handler function="OnMenuDebugSelected" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu4" member="yes">
@@ -32,8 +33,9 @@
 					<label>Hardware</label>
 					<handler function="OnMenuHardwareSelected" entry="EVT_MENU" />
 				</object>
-				<object class="wxMenuItem" name="ID_MENUITEM2" variable="MenuItem4" member="yes">
+				<object class="wxMenuItem" name="ID_MENU_SETUP" variable="MenuSetup" member="yes">
 					<label>Setup</label>
+					<handler function="OnMenuSetupSelected" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu2" member="no">

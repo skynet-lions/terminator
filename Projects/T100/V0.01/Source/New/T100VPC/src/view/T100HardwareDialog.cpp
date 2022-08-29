@@ -6,11 +6,9 @@
 //*)
 
 //(*IdInit(T100HardwareDialog)
-const long T100HardwareDialog::ID_STATICBOX1 = wxNewId();
 const long T100HardwareDialog::ID_LISTVIEW1 = wxNewId();
 const long T100HardwareDialog::ID_BUTTON1 = wxNewId();
 const long T100HardwareDialog::ID_BUTTON2 = wxNewId();
-const long T100HardwareDialog::ID_PANEL1 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(T100HardwareDialog,wxDialog)
@@ -26,15 +24,32 @@ T100HardwareDialog::T100HardwareDialog(wxWindow* parent,wxWindowID id,const wxPo
 void T100HardwareDialog::BuildContent(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size)
 {
 	//(*Initialize(T100HardwareDialog)
+	wxBoxSizer* BoxSizer1;
+	wxBoxSizer* BoxSizer2;
+	wxBoxSizer* BoxSizer3;
+	wxFlexGridSizer* FlexGridSizer1;
+
 	Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("id"));
-	SetClientSize(wxDefaultSize);
+	SetClientSize(wxSize(400,300));
 	Move(wxDefaultPosition);
-	Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(184,248), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
-	StaticBox1 = new wxStaticBox(Panel1, ID_STATICBOX1, _("Label"), wxPoint(8,8), wxSize(384,424), 0, _T("ID_STATICBOX1"));
-	ListView1 = new wxListView(Panel1, ID_LISTVIEW1, wxPoint(24,32), wxSize(352,264), wxLC_LIST, wxDefaultValidator, _T("ID_LISTVIEW1"));
-	Button1 = new wxButton(Panel1, ID_BUTTON1, _("Label"), wxPoint(32,328), wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
-	Button2 = new wxButton(Panel1, ID_BUTTON2, _("Label"), wxPoint(144,328), wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
+	BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
+	FlexGridSizer1 = new wxFlexGridSizer(0, 1, 0, 0);
+	BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
+	ListView1 = new wxListView(this, ID_LISTVIEW1, wxDefaultPosition, wxDefaultSize, wxLC_LIST, wxDefaultValidator, _T("ID_LISTVIEW1"));
+	BoxSizer2->Add(ListView1, 1, wxALL|wxEXPAND, 5);
+	FlexGridSizer1->Add(BoxSizer2, 1, wxALL|wxEXPAND, 5);
+	BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
+	Button1 = new wxButton(this, ID_BUTTON1, _("Label"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
+	BoxSizer3->Add(Button1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	Button2 = new wxButton(this, ID_BUTTON2, _("Label"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
+	BoxSizer3->Add(Button2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	FlexGridSizer1->Add(BoxSizer3, 1, wxALL, 5);
+	BoxSizer1->Add(FlexGridSizer1, 1, wxALL|wxEXPAND, 5);
+	SetSizer(BoxSizer1);
+	SetSizer(BoxSizer1);
+	Layout();
 	//*)
+
 }
 
 T100HardwareDialog::~T100HardwareDialog()

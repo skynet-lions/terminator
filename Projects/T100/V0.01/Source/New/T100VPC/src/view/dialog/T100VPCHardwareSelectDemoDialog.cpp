@@ -7,9 +7,9 @@
 
 //(*IdInit(T100VPCHardwareSelectDemoDialog)
 const long T100VPCHardwareSelectDemoDialog::ID_LISTVIEW1 = wxNewId();
-const long T100VPCHardwareSelectDemoDialog::ID_BUTTON_APPEND = wxNewId();
-const long T100VPCHardwareSelectDemoDialog::ID_BUTTON_SETTING = wxNewId();
-const long T100VPCHardwareSelectDemoDialog::ID_BUTTON_CLOSE = wxNewId();
+const long T100VPCHardwareSelectDemoDialog::ID_BUTTON1 = wxNewId();
+const long T100VPCHardwareSelectDemoDialog::ID_BUTTON2 = wxNewId();
+const long T100VPCHardwareSelectDemoDialog::ID_BUTTON3 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(T100VPCHardwareSelectDemoDialog,wxDialog)
@@ -35,23 +35,20 @@ void T100VPCHardwareSelectDemoDialog::BuildContent(wxWindow* parent,wxWindowID i
 	BoxSizer1 = new wxBoxSizer(wxVERTICAL);
 	BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
 	ListView1 = new wxListView(this, ID_LISTVIEW1, wxDefaultPosition, wxDefaultSize, wxLC_LIST, wxDefaultValidator, _T("ID_LISTVIEW1"));
-	BoxSizer2->Add(ListView1, 1, wxALL|wxEXPAND, 5);
+	BoxSizer2->Add(ListView1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	BoxSizer1->Add(BoxSizer2, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
-	AppendButton = new wxButton(this, ID_BUTTON_APPEND, _("添加"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON_APPEND"));
-	BoxSizer3->Add(AppendButton, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	SettingButton = new wxButton(this, ID_BUTTON_SETTING, _("设置"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON_SETTING"));
-	BoxSizer3->Add(SettingButton, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	CloseButton = new wxButton(this, ID_BUTTON_CLOSE, _("完成"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON_CLOSE"));
-	BoxSizer3->Add(CloseButton, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-	BoxSizer1->Add(BoxSizer3, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	Button1 = new wxButton(this, ID_BUTTON1, _("添加"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
+	BoxSizer3->Add(Button1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	Button2 = new wxButton(this, ID_BUTTON2, _("设置"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
+	BoxSizer3->Add(Button2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	Button3 = new wxButton(this, ID_BUTTON3, _("完成"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON3"));
+	BoxSizer3->Add(Button3, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+	BoxSizer1->Add(BoxSizer3, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
 	SetSizer(BoxSizer1);
+	ImageList1 = new wxImageList(16, 16, 1);
 	BoxSizer1->Fit(this);
 	BoxSizer1->SetSizeHints(this);
-
-	Connect(ID_BUTTON_APPEND,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&T100VPCHardwareSelectDemoDialog::OnAppendButtonClick);
-	Connect(ID_BUTTON_SETTING,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&T100VPCHardwareSelectDemoDialog::OnSettingButtonClick);
-	Connect(ID_BUTTON_CLOSE,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&T100VPCHardwareSelectDemoDialog::OnCloseButtonClick);
 	//*)
 }
 

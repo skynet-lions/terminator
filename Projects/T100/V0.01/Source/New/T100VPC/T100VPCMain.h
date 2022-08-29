@@ -34,15 +34,17 @@ class T100VPCFrame: public wxFrame
         void OnStartMenuSelected(wxCommandEvent& event);
         void OnStopMenuSelected(wxCommandEvent& event);
         void OnMenuHardwareSelected(wxCommandEvent& event);
+        void OnMenuSetupSelected(wxCommandEvent& event);
+        void OnMenuDebugSelected(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(T100VPCFrame)
         static const long ID_MENUITEM_START;
         static const long ID_MENUITEM_STOP;
         static const long idMenuQuit;
-        static const long ID_MENUITEM1;
+        static const long ID_MENU_DEBUG;
         static const long ID_MENU_HARDWARE;
-        static const long ID_MENUITEM2;
+        static const long ID_MENU_SETUP;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
@@ -50,9 +52,9 @@ class T100VPCFrame: public wxFrame
         //(*Declarations(T100VPCFrame)
         wxMenu* Menu3;
         wxMenu* Menu4;
+        wxMenuItem* MenuDebug;
         wxMenuItem* MenuHardware;
-        wxMenuItem* MenuItem3;
-        wxMenuItem* MenuItem4;
+        wxMenuItem* MenuSetup;
         wxMenuItem* StartMenu;
         wxMenuItem* StopMenu;
         wxStatusBar* StatusBar1;

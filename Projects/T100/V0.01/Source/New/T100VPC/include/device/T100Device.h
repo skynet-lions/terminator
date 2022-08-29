@@ -3,6 +3,7 @@
 
 #include <atomic>
 #include "T100VPCCommon.h"
+#include "T100String.h"
 class T100QU32;
 class T100Port32;
 class T100Device;
@@ -13,6 +14,11 @@ class T100Device
     public:
         T100Device(T100QU32*);
         virtual ~T100Device();
+
+        T100VOID                    setName(T100String);
+        T100STRING                  getName();
+
+        T100DEVICE_TYPE             getType();
 
         virtual T100BOOL            load(T100Port32*) = 0;
         virtual T100BOOL            unload() = 0;
@@ -32,6 +38,8 @@ class T100Device
 
     private:
         std::atomic_bool            m_loaded;
+        T100STRING                  m_name;
+        T100DEVICE_TYPE             m_type          = T100DEVICE_NONE;
 
 };
 

@@ -66,6 +66,10 @@ T100BOOL T100QU32::start()
 
     m_port->create();
 
+    if(!load()){
+        return T100FALSE;
+    }
+
     return m_executor->start();
 }
 
@@ -94,4 +98,21 @@ T100BOOL T100QU32::done()
 T100BOOL T100QU32::load(T100STRING file, T100WORD location, T100WORD length)
 {
     return m_memory->load(file, location, length);
+}
+
+T100BOOL T100QU32::load()
+{
+    T100BOOL            result          = T100TRUE;
+
+    if(T100QU32Setup::needLoadRom){
+        T100String      file;
+
+        file = T100QU32Setup::getRomFile();
+        result = m_memory->load(file, 0, 0);
+        if(!result){
+            return T100FALSE;
+        }
+    }
+
+    return result;
 }

@@ -7,6 +7,7 @@ T100WSTRING         T100AppSetup::m_resources                   = L"resources";
 T100WSTRING         T100AppSetup::m_build                       = L"build";
 T100WSTRING         T100AppSetup::m_stores                      = L"stores";
 T100WSTRING         T100AppSetup::m_work                        = L"work";
+T100WSTRING         T100AppSetup::m_log                         = L"logs";
 
 
 T100AppSetup::T100AppSetup()
@@ -63,6 +64,18 @@ T100WSTRING T100AppSetup::getWork(T100WSTRING path)
         result << m_work;
     }else{
         result << m_work << L"\\" << path;
+    }
+    return result.str();
+}
+
+T100WSTRING T100AppSetup::getLog(T100WSTRING path)
+{
+    std::wstringstream      result;
+
+    if(path.empty()){
+        result << m_log << L"\\" << L"error";
+    }else{
+        result << m_log << L"\\" << path;
     }
     return result.str();
 }

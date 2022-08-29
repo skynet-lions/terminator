@@ -2,8 +2,10 @@
 
 #include <wx/intl.h>
 #include <wx/string.h>
+#include "T100VPCSetup.h"
 
-const long T100VPCHardwareSelectDialog::ID_LISTVIEW1 = wxNewId();
+
+const long T100VPCHardwareSelectDialog::ID_LISTVIEW_DEVICE = wxNewId();
 const long T100VPCHardwareSelectDialog::ID_BUTTON_APPEND = wxNewId();
 const long T100VPCHardwareSelectDialog::ID_BUTTON_SETTING = wxNewId();
 const long T100VPCHardwareSelectDialog::ID_BUTTON_CLOSE = wxNewId();
@@ -18,11 +20,13 @@ T100VPCHardwareSelectDialog::T100VPCHardwareSelectDialog(wxWindow* parent,wxWind
 {
     //ctor
     BuildContent(parent,id,pos,size);
+    create();
 }
 
 T100VPCHardwareSelectDialog::~T100VPCHardwareSelectDialog()
 {
     //dtor
+    destroy();
 }
 
 void T100VPCHardwareSelectDialog::BuildContent(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size)
@@ -36,8 +40,8 @@ void T100VPCHardwareSelectDialog::BuildContent(wxWindow* parent,wxWindowID id,co
 	Move(wxDefaultPosition);
 	BoxSizer1 = new wxBoxSizer(wxVERTICAL);
 	BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
-	ListView1 = new wxListView(this, ID_LISTVIEW1, wxDefaultPosition, wxDefaultSize, wxLC_LIST, wxDefaultValidator, _T("ID_LISTVIEW1"));
-	BoxSizer2->Add(ListView1, 1, wxALL|wxEXPAND, 5);
+	DeviceListView = new wxListView(this, ID_LISTVIEW_DEVICE, wxDefaultPosition, wxDefaultSize, wxLC_LIST, wxDefaultValidator, _T("ID_LISTVIEW1"));
+	BoxSizer2->Add(DeviceListView, 1, wxALL|wxEXPAND, 5);
 	BoxSizer1->Add(BoxSizer2, 1, wxALL|wxEXPAND, 5);
 	BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
 	AppendButton = new wxButton(this, ID_BUTTON_APPEND, _("添加"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON_APPEND"));
@@ -55,14 +59,34 @@ void T100VPCHardwareSelectDialog::BuildContent(wxWindow* parent,wxWindowID id,co
 	Connect(ID_BUTTON_SETTING,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&T100VPCHardwareSelectDialog::OnSettingButtonClick);
 	Connect(ID_BUTTON_CLOSE,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&T100VPCHardwareSelectDialog::OnCloseButtonClick);
 
-	BoxSizer1->Add(CreateStdDialogButtonSizer(wxOK | wxCANCEL),
-                   wxSizerFlags().Right().Border());
+	//BoxSizer1->Add(CreateStdDialogButtonSizer(wxOK | wxCANCEL),
+    //               wxSizerFlags().Right().Border());
 
-    SetSizerAndFit(BoxSizer1);
+    //SetSizerAndFit(BoxSizer1);
+}
+
+T100VOID T100VPCHardwareSelectDialog::create()
+{
+    init();
+}
+
+T100VOID T100VPCHardwareSelectDialog::destroy()
+{
+
+}
+
+T100VOID T100VPCHardwareSelectDialog::init()
+{
+    DeviceListView->InsertItem(DeviceListView->GetItemCount(), m_disk_info.name.to_wstring());
+    DeviceListView->InsertItem(DeviceListView->GetItemCount(), m_display_info.name.to_wstring());
+    DeviceListView->InsertItem(DeviceListView->GetItemCount(), m_keyboard_info.name.to_wstring());
+    DeviceListView->InsertItem(DeviceListView->GetItemCount(), m_mouse_info.name.to_wstring());
+
 }
 
 void T100VPCHardwareSelectDialog::OnCloseButtonClick(wxCommandEvent& event)
 {
+    EndModal(wxID_OK);
 }
 
 void T100VPCHardwareSelectDialog::OnSettingButtonClick(wxCommandEvent& event)

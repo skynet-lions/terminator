@@ -1,12 +1,14 @@
 #include "T100VPCSetup.h"
 
-T100WSTRING         T100VPCSetup::m_vdisk_file          = L"vdisk.vdk";
-T100WSTRING         T100VPCSetup::m_font_file           = L"font.fnt";
-T100WSTRING         T100VPCSetup::m_rom_file            = L"rom.bin";
-T100WORD            T100VPCSetup::m_ram_base            = 1024 * 1024 * 1024;
-T100WORD            T100VPCSetup::m_ram_size            = 1024 * 1024;
-T100WORD            T100VPCSetup::m_rom_base            = 0;
-T100WORD            T100VPCSetup::m_rom_size            = 1024 * 1024;
+
+T100DEVICE_INFO_VECTOR      T100VPCSetup::m_devices;
+T100WSTRING                 T100VPCSetup::m_vdisk_file          = L"vdisk.vdk";
+T100WSTRING                 T100VPCSetup::m_font_file           = L"font.fnt";
+T100WSTRING                 T100VPCSetup::m_rom_file            = L"rom.bin";
+T100WORD                    T100VPCSetup::m_ram_base            = 1024 * 1024 * 1024;
+T100WORD                    T100VPCSetup::m_ram_size            = 1024 * 1024;
+T100WORD                    T100VPCSetup::m_rom_base            = 0;
+T100WORD                    T100VPCSetup::m_rom_size            = 1024 * 1024;
 
 
 T100VPCSetup::T100VPCSetup()
@@ -17,6 +19,41 @@ T100VPCSetup::T100VPCSetup()
 T100VPCSetup::~T100VPCSetup()
 {
     //dtor
+}
+
+T100BOOL T100VPCSetup::appendDevice(T100DeviceInfo* dev)
+{
+    for(T100DeviceInfo* item : m_devices){
+        if(item){
+            if(dev == item){
+                return T100FALSE;
+            }
+        }else{
+            return T100FALSE;
+        }
+    }
+
+    m_devices.push_back(dev);
+    return T100TRUE;
+}
+
+T100BOOL T100VPCSetup::removeDevice(T100DeviceInfo* dev)
+{
+    T100DEVICE_INFO_VECTOR::iterator     it;
+
+    for(it = m_devices.begin();it != m_devices.end();it++){
+        if(dev == (*it)){
+            m_devices.erase(it);
+            return T100TRUE;
+        }
+    }
+
+    return T100FALSE;
+}
+
+T100DEVICE_INFO_VECTOR& T100VPCSetup::getDevices()
+{
+    return m_devices;
 }
 
 T100VOID T100VPCSetup::setVDiskFile(T100WSTRING file)

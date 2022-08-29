@@ -36,6 +36,8 @@ class T100QU32
         T100VOID                create();
         T100VOID                destroy();
 
+        T100BOOL                load();
+
     private:
 
         T100CU32*               m_cu            = T100NULL;
